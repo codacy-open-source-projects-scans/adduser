@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+
+include /usr/share/dpkg/pkg-info.mk
+
+package = adduser
+version = $(DEB_VERSION_UPSTREAM)
+cversion = $(shell echo $(DEB_VERSION_UPSTREAM) | sed 's/\([[:digit:].]*\).*/\1/')
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# generate man pages
+	cd doc/po4a && po4a --keep 60 --previous po4a.conf
+
+override_dh_auto_clean:
+	cd doc/po4a && po4a --keep 60 --previous --rm-translations po4a.conf
+	rm -f po/*.mo
+
+override_dh_install:
+	dh_install
+	sed -e s/DVERSION/$(version)/g adduser > debian/adduser/usr/sbin/adduser
+	sed -e s/DVERSION/$(version)/g deluser > debian/adduser/usr/sbin/deluser
+	sed -e s/DVERSION/$(cversion)/g AdduserCommon.pm > debian/adduser/usr/share/perl5/Debian/AdduserCommon.pm
+	sed -e s/DVERSION/$(cversion)/g AdduserLogging.pm > debian/adduser/usr/share/perl5/Debian/AdduserLogging.pm
+	sed -e s/DVERSION/$(cversion)/g AdduserRetvalues.pm > debian/adduser/usr/share/perl5/Debian/AdduserRetvalues.pm
+	ln -s adduser debian/adduser/usr/sbin/addgroup
+	ln -s deluser debian/adduser/usr/sbin/delgroup
+
+override_dh_compress:
+	dh_compress -X examples/adduser.local

@@ -1,0 +1,260 @@
+.\" Copyright: 1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+.\"            2000-2003 Roland Bauerschmidt <rb@debian.org>
+.\"            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+.\"            2006-2008 Stephen Gran <sgran@debian.org>
+.\"            2007 Jörg Hoh <joerg@joerghoh.de>
+.\"            2016 Afif Elghraoui <afif@debian.org>
+.\"            2016 Helge Kreutzmann <debian@helgefjell.de>
+.\"            2021 Jason Franklin <jason@oneway.dev>
+.\"            2022 Matt Barry <matt@hazelmollusk.org>
+.\"
+.\" This is free software; see the GNU General Public License version 2
+.\" or later for copying conditions.  There is NO warranty.
+.TH ADDUSER.CONF 5 "" "Debian GNU/Linux"
+.SH NAME
+/etc/adduser.conf \- configuration file for
+.BR adduser (8)
+and
+.BR addgroup (8)
+.SH DESCRIPTION
+The file \fI/etc/adduser.conf\fP contains defaults for the programs
+.BR adduser (8),
+.BR addgroup (8),
+.BR deluser (8)
+and
+.BR delgroup (8).
+Each line holds a single value pair in the form \fIoption\fP = \fIvalue\fP.
+Double or single quotes are allowed around the value,
+as is whitespace around the equals sign.
+Comment lines must have a hash sign (#) in the first column.
+.PP
+The valid configuration options are:
+.TP
+.B STDERRMSGLEVEL ", " STDOUTMSGLEVEL ", and " LOGMSGLEVEL
+Minimum priority for messages logged to syslog/journal and the console,
+respectively. See \fBLOGGING\fR in adduser(8).
+Defaults to \fIwarn\fP for STDOUTMSGLEVEL and STDERRMSGLEVEL
+and \fIinfo\fP for LOGMSGLEVEL.
+.TP
+.B ADD_EXTRA_GROUPS
+Setting this to something other than 0
+will cause \fBadduser\fP to add
+newly created non-system users
+to the list of groups defined by \fBEXTRA_GROUPS\fP (below).
+Defaults to \fI0\fP.
+.TP
+.B DIR_MODE
+The permissions mode for home directories of non-system users
+that are created by \fBadduser\fP(8).
+Defaults to \fI0700\fP.
+Note that there are potential configurations
+(such as ~/user web services, or in-home mail delivery)
+which will require changes to the default.
+See also \fBSYS_DIR_MODE\fP.
+.TP
+.B DHOME
+The directory in which new home directories should be created.
+Defaults to \fI/home\fP.
+.TP
+.B DSHELL
+The login shell to be used for all new users.
+Defaults to \fI/bin/bash\fP.
+.TP
+.B EXTRA_GROUPS
+This is the space-separated list of groups that
+new non-system users will be added to.
+Defaults to \fIusers\fP.
+.TP
+.B FIRST_SYSTEM_GID " and " LAST_SYSTEM_GID
+specify an inclusive range of GIDs from which GIDs
+for system groups can be dynamically allocated.
+Defaults to \fI100\fP - \fI999\fP.
+.TP
+.B FIRST_GID " and " LAST_GID
+specify an inclusive range of GIDs from which GIDs
+for non-system groups can be dynamically allocated.
+Defaults to \fI1000\fP - \fI59999\fP.
+.TP
+.B FIRST_SYSTEM_UID " and " LAST_SYSTEM_UID
+specify an inclusive range of UIDs from which UIDs
+for system users can be dynamically allocated.
+Defaults to \fI100\fP - \fI999\fP.
+Please note that system software,
+such as the users allocated by the \fIbase-passwd\fP package,
+may assume that UIDs less than 100 are unallocated.
+.TP
+.B FIRST_UID " and " LAST_UID
+specify an inclusive range of UIDs from which UIDs
+for non-system users can be dynamically allocated.
+Defaults to \fI1000\fP - \fI59999\fP.
+.TP
+.B GID_POOL
+See \fBUID_POOL\fP.
+.TP
+.B GROUPHOMES
+If this is set to \fIyes\fP,
+the home directories will be created as \fI/home/groupname/user\fP.
+Defaults to \fIno\fP. This option is \fBdeprecated\fP and will be removed.
+.TP
+.B LAST_SYSTEM_GID
+.TQ
+.B LAST_GID
+.TQ
+.B LAST_SYSTEM_UID
+.TQ
+.B LAST_UID
+See the \fBFIRST_\fP variants of the option.
+.TP
+.B LETTERHOMES
+If this is set to \fIyes\fP,
+then the home directories created will have an extra directory
+inserted which is the first letter of the loginname.
+For example: \fI/home/u/user\fP.
+Defaults to \fIno\fP. This option is \fBdeprecated\fP and will be removed.
+.TP
+.B NAME_REGEX
+Non-system user- and groupnames are checked against this regular expression.
+If the name doesn't match this regexp,
+user and group creation in \fBadduser\fR(8) is refused
+unless \fB\-\-allow\-bad\-names\fR is set.
+With \fB\-\-allow\-bad\-names\fR set,
+weaker checks are performed.
+Defaults to the most conservative \fI^[a\-zA\-Z][a\-zA\-Z0\-9_\-]*\\$?$\fP.
+See \fBSYS_NAME_REGEX\fP and \fBValid names\fP,
+below, for more information.
+.TP
+.B QUOTAUSER
+If set to a nonempty value,
+new users will have quotas copied from that user using
+\fIedquota -p QUOTAUSER newuser\fP.
+Defaults to \fIthe empty string\fP.
+.TP
+.B RESERVE_UID_POOL " and " RESERVE_GID_POOL
+Controls whether the UID and GID values that are listed in the pool
+files are truly reserved.
+See UID AND GID POOLS in the NOTES section.
+Defaults to \fIyes\fR.
+.TP
+.B SETGID_HOME
+If this is set to \fIyes\fP,
+then home directories for users with
+their own group (\fBUSERGROUPS\fP = yes)
+will have the set-group-ID bit set.
+Note that this feature is \fBdeprecated\fP and
+will be removed in a future version of \fBadduser\fP(8).
+Please use \fBDIR_MODE\fP instead.
+Defaults to \fIno\fP.
+.TP
+.B SKEL
+The directory from which
+skeletal user configuration files will be copied.
+Defaults to \fI/etc/skel\fP.
+.TP
+.B SKEL_IGNORE_REGEX
+When populating the newly created home directory of a non-system user,
+files in SKEL matching this regex are not copied.
+Defaults to to
+\fI(.(dpkg|ucf)\-(old|new|dist)$)\fP,
+the regular expression matching files left over from unmerged config files.
+.TP
+.B SYS_DIR_MODE
+The permissions mode for home directories of system users
+that are created by \fBadduser\fP(8).
+Defaults to \fI0755\fP.
+Note that changing the default permissions for system users
+may cause some packages to behave unreliably,
+if the program relies on the default setting.
+See also \fBDIR_MODE\fP.
+.TP
+.B SYS_NAME_REGEX
+System user- and groupnames are checked against this regular expression.
+If the name doesn't match this regexp,
+system user and group creation in adduser is refused
+unless \fB\-\-allow\-bad\-names\fP is set.
+With \fB\-\-allow\-bad\-names\fP set,
+weaker checks are performed.
+Defaults to the most conservative \fI^[a\-zA\-Z_][a\-zA\-Z0\-9_\-]*\\$?$\fP.
+See \fBNAME_REGEX\fP, above, and \fBValid names\fP,
+below, for more information.
+.TP
+.B UID_POOL " and " GID_POOL
+specify a file or a directory containing UID and GID pool files.
+See UID AND GID POOLS in the NOTES section.
+Both default to \fIempty\fP.
+.TP
+.B USERGROUPS
+Specify whether each created non-system user will be
+given their own group to use.
+Defaults to \fIyes\fP.
+.TP
+.B USERS_GID " and " USERS_GROUP
+Defines the groupname or GID of the group
+all newly-created non-system users are placed into.
+If \fBUSERGROUPS\fP is \fIyes,\fP
+the group will be added as a supplementary group;
+if \fBUSERGROUPS\fP is \fIno,\fP,
+it will be the primary group.
+If you don't want all your users to be in one group,
+set \fBUSERGROUPS\fP=\fIyes\fP,
+leave \fBUSERS_GROUP\fP empty and set \fBUSERS_GID\fP to "\-1".
+\fBUSERS_GROUP\fP defaults to \fIusers\fP,
+which has GID 100 on all Debian systems since
+it's defined statically by the \fIbase-passwd\fP package.
+It is a configuration error to define both variables
+even if the values are consistent.
+.SH NOTES
+.SS UID AND GID POOLS
+Some installations desire that a non-system account
+gets preconfigured properties when it is generated.
+Commonly, the local admin wants to make sure
+that even without using a directory service,
+an account or a group with a certain name
+has the same numeric UID/GID on all systems
+where it exists.
+.PP
+To enable this feature,
+define configuration variables \fBUID_POOL\fP (for user accounts)
+and/or \fBGID_POOL\fP (for groups) in \fI/etc/adduser.conf\fP and
+install the respective files in the configured places.
+The value is either a file or a directory.
+In the latter case all files named \fI*.conf\fP
+in that directory are considered.
+.PP
+The file format is similar to \fI/etc/passwd\fP:
+Text lines, fields separated by a colon.
+The values are
+username/groupname (mandatory),
+UID/GID (mandatory),
+comment field (optional, useful for user IDs only),
+home directory (ditto),
+shell (ditto).
+.PP
+It is possible to use the same file/directory for
+\fBUID_POOL\fP and \fBGID_POOL\fP.
+.PP
+If an account / group is created,
+\fBadduser\fP(8) searches in all UID/GID pool files
+for a line matching the name
+of the newly created account and
+uses the data found there to initialize the new account
+instead of using the defaults.
+Settings may be overridden from the command line.
+.PP
+In the default configuration, UID and GID values listed in the pool
+will be reserved and thus not be used by the normal UID and GID
+selection processes.
+This is usually what you'd want.
+With the \fBRESERVE_UID_POOL\fR and \fBRESERVE_GID_POOL\fR configuration
+options, you can switch this behavior off if you want pooled UIDs and GIDs
+used by regular accounts.
+This might cause conflicts and cause your pool UIDs and GIDs to be used
+by accounts that are not in the pool.
+
+.SH FILES
+.I /etc/adduser.conf
+.SH SEE ALSO
+.BR deluser.conf (5),
+.BR addgroup (8),
+.BR adduser (8),
+.BR delgroup (8),
+.BR deluser (8)

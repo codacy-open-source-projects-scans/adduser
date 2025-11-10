@@ -1,0 +1,1157 @@
+# Translation of adduser program into Romanian
+# Copyright: 1994 Debian Association, Inc.
+#            1995 Ian A. Murdock <imurdock@debian.org>
+#            1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+#            1997-1999 Guy Maor <maor@debian.org>
+#            2000-2004 Roland Bauerschmidt <rb@debian.org>
+#            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+#            2005-2009 Jörg Hoh <joerg@joerghoh.de>
+#            2006-2011 Stephen Gran <sgran@debian.org>
+#            2016-2017 Afif Elghraoui <afif@debian.org>
+#            2016 Dr. Helge Kreutzmann <debian@helgefjell.de>
+#            2016 Nis Martensen <nis.martensen@web.de>
+#            2021-2022 Jason Franklin <jason@oneway.dev>
+#            2022 Matt Barry <matt@hazelmollusk.org>
+#            2023 Guillem Jover <guillem@debian.org>
+# License: GPL-2+
+# This file is distributed under the same license as the adduser package.
+# Mesajele în limba română pentru pachetul „adduser”.
+# Copyright Translation:
+#     2024-2025 Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: adduser 3.145\n"
+"Report-Msgid-Bugs-To: adduser@packages.debian.org\n"
+"POT-Creation-Date: 2025-09-14 13:07+0200\n"
+"PO-Revision-Date: 2025-03-15 10:48+0100\n"
+"Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
+"Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
+"Language: ro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+
+#: adduser:229
+msgid "Only root may add a user or group to the system."
+msgstr "Numai root poate adăuga un utilizator sau un grup la sistem."
+
+#: adduser:266 deluser:200
+msgid "No options allowed after names."
+msgstr "Nu sunt permise opțiuni după nume."
+
+#: adduser:275 deluser:208
+msgid "Only one or two names allowed."
+msgstr "Doar unu sau două nume sunt permise."
+
+#: adduser:282
+msgid "Specify only one name in this mode."
+msgstr "Specifică un singur nume în acest mod."
+
+#: adduser:286
+msgid "addgroup with two arguments is an unspecified operation."
+msgstr "«addgroup» cu două argumente este o operație nespecificată."
+
+#: adduser:318
+msgid "The --group, --ingroup, and --gid options are mutually exclusive."
+msgstr "Opțiunile „--group”, „--ingroup” și „--gid” se exclud reciproc."
+
+#: adduser:403
+msgid "The home dir must be an absolute path."
+msgstr "Directorul personal „home” trebuie să fie o rută absolută."
+
+#: adduser:445
+#, perl-format
+msgid "The group `%s' already exists, but has a different GID. Exiting."
+msgstr "Grupul „%s” există deja, dar are un GID diferit. Se iese."
+
+#: adduser:451
+#, perl-format
+msgid "The group `%s' already exists as a system group."
+msgstr "Grupul „%s” există deja ca grup de sistem."
+
+#: adduser:454
+#, perl-format
+msgid "The group `%s' already exists and is not a system group. Exiting."
+msgstr "Grupul „%s” există deja și nu este un grup de sistem. Se iese."
+
+#: adduser:459 adduser:499
+#, perl-format
+msgid "The GID `%s' is already in use."
+msgstr "GID-ul „%s” este deja utilizat."
+
+#: adduser:470
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_SYS_GID - LAST_SYS_GID)."
+msgstr ""
+"Nu este disponibil niciun GID în intervalul %d-%d (FIRST_SYS_GID - "
+"LAST_SYS_GID)."
+
+#: adduser:472 adduser:518
+#, perl-format
+msgid "The group `%s' was not created."
+msgstr "Grupul „%s” nu a fost creat."
+
+#: adduser:478 adduser:523
+#, perl-format
+msgid "Adding group `%s' (GID %d) ..."
+msgstr "Se adaugă grupul „%s” (GID %d) ..."
+
+#: adduser:495 adduser:1232
+#, perl-format
+msgid "The group `%s' already exists."
+msgstr "Grupul „%s” există deja."
+
+#: adduser:516
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_GID - LAST_GID)."
+msgstr ""
+"Nu este disponibil niciun GID în intervalul %d-%d (FIRST_GID - LAST_GID)."
+
+#: adduser:540 deluser:296
+#, perl-format
+msgid "The user `%s' does not exist."
+msgstr "Utilizatorul „%s” nu există."
+
+#: adduser:544 adduser:1009 adduser:1242 deluser:456 deluser:459
+#, perl-format
+msgid "The group `%s' does not exist."
+msgstr "Grupul „%s” nu există."
+
+#: adduser:549 adduser:1013
+#, perl-format
+msgid "The user `%s' is already a member of `%s'."
+msgstr "Utilizatorul „%s” este deja membru al grupului „%s”."
+
+#: adduser:553 adduser:1019
+#, perl-format
+msgid "Adding user `%s' to group `%s' ..."
+msgstr "Se adăugă utilizatorul „%s” la grupul „%s” ..."
+
+#: adduser:571
+#, perl-format
+msgid "The user `%s' already exists, but is not a system user. Exiting."
+msgstr ""
+"Utilizatorul „%s” există deja, dar nu este un utilizator de sistem. Se iese."
+
+#: adduser:575
+#, perl-format
+msgid "The user `%s' already exists with a different UID. Exiting."
+msgstr "Utilizatorul „%s” există deja cu un UID diferit. Se iese."
+
+#: adduser:579
+#, perl-format
+msgid "The system user `%s' already exists. Exiting.\n"
+msgstr "Utilizatorul de sistem „%s” există deja. Se iese.\n"
+
+#: adduser:593
+#, perl-format
+msgid ""
+"No UID/GID pair is available in the range %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID)."
+msgstr ""
+"Nu este disponibilă nicio pereche UID/GID în intervalul %d-%d (FIRST_SYS_UID "
+"- LAST_SYS_UID)."
+
+#: adduser:596 adduser:612 adduser:712 adduser:826 adduser:832
+#, perl-format
+msgid "The user `%s' was not created."
+msgstr "Utilizatorul „%s” nu a fost creat."
+
+#: adduser:609
+#, perl-format
+msgid "No UID is available in the range %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+msgstr ""
+"Nu este disponibil niciun UID în intervalul %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID)."
+
+#: adduser:620
+msgid "Neither ingroup option nor gid given."
+msgstr "Nu se oferă nici opțiunea ingroup, nici gid."
+
+#: adduser:632
+msgid "Neither ingroup option nor gid given and make_group_also unset."
+msgstr ""
+"Nici opțiunea ingroup, nici gid nu sunt date și make_group_also nu este "
+"definită."
+
+#: adduser:636
+#, perl-format
+msgid "Adding system user `%s' (UID %d) ..."
+msgstr "Se adaugă utilizatorul de sistem „%s” (UID %d) ..."
+
+#: adduser:640
+#, perl-format
+msgid "Adding new group `%s' (GID %d) ..."
+msgstr "Se adaugă noul grup „%s” (GID %d) ..."
+
+#: adduser:651 adduser:897
+#, perl-format
+msgid "The home dir %s you specified already exists.\n"
+msgstr "Directorul personal „home” %s pe care l-ați specificat există deja.\n"
+
+#: adduser:654 adduser:900
+#, perl-format
+msgid "The home dir %s you specified can't be accessed: %s\n"
+msgstr ""
+"Directorul de personal „home” %s pe care l-ați specificat nu poate fi "
+"accesat: %s\n"
+
+#: adduser:658
+#, perl-format
+msgid "Adding new user `%s' (UID %d) with group `%s' ..."
+msgstr "Se adaugă noul utilizator „%s” (UID %d) cu grupul „%s” ..."
+
+#: adduser:711
+msgid ""
+"USERS_GID and USERS_GROUP both given in configuration. This is an error."
+msgstr ""
+"USERS_GID și USERS_GROUP sunt specificate amândouă în configurare. Aceasta "
+"este o eroare."
+
+#: adduser:802
+#, perl-format
+msgid "Adding user `%s' ..."
+msgstr "Se adăugă utilizatorul „%s” ..."
+
+#: adduser:825
+#, perl-format
+msgid "No UID/GID pair is available in the range %d-%d (FIRST_UID - LAST_UID)."
+msgstr ""
+"Nu este disponibilă nicio pereche UID/GID în intervalul %d-%d (FIRST_UID - "
+"LAST_UID)."
+
+#: adduser:831
+msgid ""
+"USERGROUPS=no, USER_GID=-1 and USERS_GROUP empty. A user needs a primary "
+"group!"
+msgstr ""
+"USERGROUPS=no, USER_GID=-1 și USERS_GROUP gol. Un utilizator are nevoie de "
+"un grup primar!"
+
+#: adduser:871
+msgid "Internal error interpreting parameter combination"
+msgstr "Eroare internă la interpretarea combinației de parametri"
+
+#: adduser:882
+#, perl-format
+msgid "Adding new group `%s' (%d) ..."
+msgstr "Se adaugă noul grup „%s” (%d) ..."
+
+#: adduser:885
+#, perl-format
+msgid "Adding new group `%s' (new group ID) ..."
+msgstr "Se adaugă noul grup „%s” (noul ID al grupului) ..."
+
+#: adduser:888
+#, perl-format
+msgid "new group '%s' created with GID %d"
+msgstr "grup nou „%s” creat cu GID %d"
+
+#: adduser:907
+#, perl-format
+msgid "Adding new user `%s' (%d) with group `%s (%d)' ..."
+msgstr "Se adaugă noul utilizator „%s” (%d) cu grupul „%s (%d)” ..."
+
+#: adduser:944
+msgid "Permission denied"
+msgstr "Permisiune refuzată"
+
+#: adduser:946
+msgid "invalid combination of options"
+msgstr "combinație nevalidă de opțiuni"
+
+#: adduser:948
+msgid "unexpected failure, nothing done"
+msgstr "eșec neașteptat, nimic de făcut"
+
+#: adduser:950
+msgid "unexpected failure, passwd file missing"
+msgstr "eșec neașteptat, lipsește fișierul passwd"
+
+#: adduser:952
+msgid "passwd file busy, try again"
+msgstr "fișier passwd ocupat, încercați din nou"
+
+#: adduser:954
+msgid "invalid argument to option"
+msgstr "argument nevalid pentru opțiune"
+
+#: adduser:956
+msgid "wrong password given or password retyped incorrectly"
+msgstr "parola dată este greșită sau parola reintrodusă este incorectă"
+
+#: adduser:958
+#, perl-format
+msgid "unexpected return code %s given from passwd"
+msgstr "cod de returnare neașteptat %s dat de «passwd»"
+
+#: adduser:965
+msgid "Try again? [y/N] "
+msgstr "Încercați din nou? [d/N ] "
+
+#: adduser:991
+msgid "Is the information correct? [Y/n] "
+msgstr "Informațiile sunt corecte? [D/n ] "
+
+#: adduser:1005
+#, perl-format
+msgid "Adding new user `%s' to supplemental / extra groups `%s' ..."
+msgstr ""
+"Se adaugă noul utilizator „%s” la grupurile suplimentare / extra „%s” ..."
+
+#: adduser:1029
+#, perl-format
+msgid "Setting quota for user `%s' to values of user `%s' ..."
+msgstr ""
+"Se stabilește cota pentru utilizatorul „%s” la valorile utilizatorului "
+"„%s” ..."
+
+#: adduser:1067
+#, perl-format
+msgid "Not creating `%s'."
+msgstr "Nu se creează „%s”."
+
+#: adduser:1069
+#, perl-format
+msgid "Not creating home directory `%s' as requested."
+msgstr "Nu se creează directorul personal „%s”, așa cum s-a solicitat."
+
+#: adduser:1072
+#, perl-format
+msgid "The home directory `%s' already exists.  Not touching this directory."
+msgstr "Directorul personal „%s” există deja.  Nu se atinge acest director."
+
+#: adduser:1078
+#, perl-format
+msgid ""
+"Warning: The home directory `%s' does not belong to the user you are "
+"currently creating."
+msgstr ""
+"Atenție: Directorul personal „%s” nu aparține utilizatorului pe care îl "
+"creați în prezent."
+
+#: adduser:1082
+#, perl-format
+msgid "Creating home directory `%s' ..."
+msgstr "Se creează directorul personal „%s” ..."
+
+#: adduser:1085
+#, perl-format
+msgid "Couldn't create home directory `%s': %s."
+msgstr "Nu s-a putut crea directorul personal „%s”: %s."
+
+#: adduser:1099
+#, perl-format
+msgid "Copying files from `%s' ..."
+msgstr "Se copiază fișierele din „%s” ..."
+
+#: adduser:1102
+#, perl-format
+msgid "fork for `find' failed: %s"
+msgstr "bifurcarea pentru «find» a eșuat: %s"
+
+#: adduser:1214
+#, perl-format
+msgid "The user `%s' already exists, and is not a system user."
+msgstr "Utilizatorul „%s” există deja și nu este un utilizator de sistem."
+
+#: adduser:1223
+#, perl-format
+msgid "The user `%s' already exists."
+msgstr "Utilizatorul „%s” există."
+
+#: adduser:1236
+#, perl-format
+msgid "The GID %d is already in use."
+msgstr "GID-ul %d este deja utilizat."
+
+#: adduser:1246
+#, perl-format
+msgid "No group with GID %d found."
+msgstr "Nu a fost găsit niciun grup cu GID %d."
+
+#: adduser:1315
+#, perl-format
+msgid "%s/%s is neither a dir, file, nor a symlink."
+msgstr ""
+"%s/%s nu este nici un director, nici un fișier, nici o legătură simbolică."
+
+#: adduser:1348
+msgid ""
+"To avoid ambiguity with numerical UIDs, usernames whichresemble numbers or "
+"negative numbers are not allowed."
+msgstr ""
+
+#: adduser:1356
+msgid "Usernames must not be a single or a double period."
+msgstr "Numele de utilizator nu trebuie să fie un punct simplu sau dublu."
+
+#: adduser:1363
+msgid "Usernames must be no more than 32 bytes in length."
+msgstr ""
+"Numele de utilizator nu trebuie să aibă o lungime mai mare de 32 de octeți."
+
+#: adduser:1370
+msgid ""
+"To avoid problems, the username must not start with adash, plus sign, or "
+"tilde, and it must not contain any of thefollowing: colon, comma, slash, or "
+"any whitespace charactersincluding spaces, tabs, and newlines."
+msgstr ""
+
+#: adduser:1385
+msgid ""
+"To avoid problems, the username should consist only ofletters, digits, "
+"underscores, periods, at signs and dashes, andnot start with a dash (as "
+"defined by IEEE Std 1003.1-2001). Forcompatibility with Samba machine "
+"accounts, $ is also supportedat the end of the username.  (Use the `--allow-"
+"all-names' optionto bypass this restriction.)"
+msgstr ""
+
+#: adduser:1395
+msgid "Allowing use of questionable username."
+msgstr "Se permite utilizarea unui nume de utilizator chestionabil."
+
+#: adduser:1397
+#, perl-format
+msgid ""
+"Please enter a username matching the regular expressionconfigured via the %s "
+"configuration variable.  Use the`--allow-bad-names' option to relax this "
+"check or reconfigure%s in configuration."
+msgstr ""
+
+#: adduser:1426
+#, perl-format
+msgid "Selecting UID from range %d to %d ...\n"
+msgstr "Se selectează UID-ul din intervalul %d până la %d ...\n"
+
+#: adduser:1449
+#, perl-format
+msgid "Selecting GID from range %d to %d ..."
+msgstr "Se selectează GID-ul din intervalul %d până la %d ..."
+
+#: adduser:1473
+#, perl-format
+msgid "Selecting UID/GID from range %d to %d ..."
+msgstr "Se selectează UID/GID-ul din intervalul %d până la %d ..."
+
+#: adduser:1509
+#, perl-format
+msgid "Removing directory `%s' ..."
+msgstr "Se elimină directorul „%s” ..."
+
+#: adduser:1513 deluser:441
+#, perl-format
+msgid "Removing user `%s' ..."
+msgstr "Se elimină utilizatorul „%s” ..."
+
+#: adduser:1517 deluser:483
+#, perl-format
+msgid "Removing group `%s' ..."
+msgstr "Se elimină grupul „%s” ..."
+
+#: adduser:1527
+#, perl-format
+msgid "Caught a SIG%s."
+msgstr "S-a capturat un SIG%s."
+
+#: adduser:1533
+#, perl-format
+msgid ""
+"adduser version %s\n"
+"\n"
+msgstr ""
+"adduser versiunea %s\n"
+"\n"
+
+#: adduser:1534
+msgid ""
+"Adds a user or group to the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"Adaugă un utilizator sau un grup la sistem.\n"
+"\n"
+"Pentru informații detaliate privind drepturile de autor,\n"
+"consultați „/usr/share/doc/adduser/copyright”.\n"
+"\n"
+
+#: adduser:1540 deluser:543
+msgid ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or (at\n"
+"your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but\n"
+"WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, for more details.\n"
+msgstr ""
+"Acest program este software liber; îl puteți redistribui și/sau modifica\n"
+"în conformitate cu termenii Licenței Publice Generale GNU publicată de\n"
+"Free Software Foundation; fie versiunea 2 a Licenței, fie (la alegerea "
+"dvs.)\n"
+"orice versiune ulterioară.\n"
+"\n"
+"Acest program este distribuit în speranța că va fi util, dar\n"
+"FĂRĂ NICI O GARANȚIE; fără nici măcar garanția implicită de\n"
+"COMERCIALIZARE sau ADECVARE PENTRU UN ANUMIT SCOP. Consultați\n"
+"Licența publică generală GNU, /usr/share/common-licenses/GPL,\n"
+"pentru mai multe detalii.\n"
+
+#: adduser:1554
+msgid ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+"        [--add-extra-groups] [--shell shell]\n"
+"        [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"    Add a regular user\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+"        [--shell shell] [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"   Add a system user\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a user group\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a system group\n"
+"\n"
+"adduser USER GROUP\n"
+"   Add an existing user to an existing group\n"
+msgstr ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup grup]\n"
+"        [--add-extra-groups] [--shell shell]\n"
+"        [--comment comentariu] [--home director] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf fișier] [--quiet] [--verbose] [--debug]\n"
+"        utilizator\n"
+"    Adaugă un utilizator obișnuit\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup grup] [--gid id]\n"
+"        [--shell shell] [--comment comentariu] [--home director] [--no-"
+"create-home]\n"
+"        [--conf fișier] [--quiet] [--verbose] [--debug]\n"
+"        utilizator\n"
+"   Adaugă un utilizator de sistem\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        grup\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        grup\n"
+"   Adaugă un grup de utilizatori\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        grup\n"
+"   Adaugă un grup de sistem\n"
+"\n"
+"adduser UTILIZATOR GRUP\n"
+"   Adaugă un utilizator existent la un grup existent\n"
+
+#: deluser:170
+msgid "Only root may remove a user or group from the system."
+msgstr "Numai root poate elimina un utilizator sau un grup din sistem."
+
+#: deluser:271 deluser:290
+msgid ""
+"In order to use the --remove-home, --remove-all-files, and --backup "
+"features, you need to install the `perl' package. To accomplish that, run "
+"apt-get install perl."
+msgstr ""
+"Pentru a utiliza funcțiile apelate de opțiunile „--remove-home”, „--remove-"
+"all-files” și „--backup”, trebuie să instalați pachetul „perl”. Pentru a "
+"realiza acest lucru, rulați «apt-get install perl»."
+
+#: deluser:281
+#, perl-format
+msgid "The user `%s' is not a system user. Exiting."
+msgstr "Utilizatorul „%s” nu este un utilizator de sistem. Se iese."
+
+#: deluser:285
+#, perl-format
+msgid "The user `%s' does not exist, but --system was given. Exiting."
+msgstr ""
+"Utilizatorul „%s” nu există, dar a fost specificată opțiunea „--system”. Se "
+"iese."
+
+#: deluser:302
+msgid ""
+"WARNING: You are just about to delete the root account (uid 0). Usually this "
+"is never required as it may render the whole system unusable. If you really "
+"want this, call deluser with parameter --no-preserve-root. Stopping now "
+"without having performed any action."
+msgstr ""
+
+#: deluser:314
+msgid "remove_home or remove_all_files beginning"
+msgstr ""
+"operația cerută de opțiunea „remove_home” sau „remove_all_files” va începe "
+"acum"
+
+#: deluser:315
+msgid "Looking for files to backup/remove ..."
+msgstr "Se caută fișiere pentru copie de rezervă/eliminare ..."
+
+#: deluser:320
+#, perl-format
+msgid "failed to open /proc/mounts: %s"
+msgstr "nu s-a reușit să se deschidă „/proc/mounts”: %s"
+
+#: deluser:333
+#, perl-format
+msgid "failed to close /proc/mounts: %s"
+msgstr "nu s-a reușit să se închidă „/proc/mounts”: %s"
+
+#: deluser:363
+#, perl-format
+msgid "Not backing up/removing `%s', it is a mount point."
+msgstr ""
+"Nu se va efectua copia de rezervă/eliminarea lui „%s”, acesta este un punct "
+"de montare."
+
+#: deluser:370
+#, perl-format
+msgid "Not backing up/removing `%s', it matches %s."
+msgstr "Nu se va efectua copia de rezervă/eliminarea lui „%s”, coincide cu %s."
+
+#: deluser:385
+#, perl-format
+msgid "Cannot handle special file %s"
+msgstr "Nu se poate gestiona fișierul special %s"
+
+#: deluser:394
+#, perl-format
+msgid "Backing up %d files to be removed to %s ..."
+msgstr ""
+"Se efectuează copia de rezervă a %d fișiere pentru a fi eliminate în %s ..."
+
+#: deluser:417
+msgid "Removing files ..."
+msgstr "Se elimină fișierele ..."
+
+#: deluser:426
+msgid "Removing crontab ..."
+msgstr "Se elimină crontab ..."
+
+#: deluser:433 deluser:436
+#, perl-format
+msgid ""
+"`%s' is not executable. Skipping crontab removal. Package `cron' required."
+msgstr ""
+
+#: deluser:466
+#, perl-format
+msgid "getgrnam `%s' failed: %s. This shouldn't happen."
+msgstr ""
+"«getgrnam „%s”» a eșuat: %s. Acest lucru nu ar fi trebuit să se întâmple."
+
+#: deluser:472
+#, perl-format
+msgid "The group `%s' is not a system group. Exiting."
+msgstr "Grupul „%s” nu este un grup de sistem. Se iese."
+
+#: deluser:476
+#, perl-format
+msgid "The group `%s' is not empty!"
+msgstr "Grupul „%s” nu este gol!"
+
+#: deluser:495
+#, perl-format
+msgid "The user `%s' does not exist.\n"
+msgstr "Utilizatorul „%s” nu există.\n"
+
+#: deluser:499
+#, perl-format
+msgid "The group `%s' does not exist.\n"
+msgstr "Grupul „%s” nu există.\n"
+
+#: deluser:503
+msgid "You may not remove the user from their primary group."
+msgstr "Nu puteți elimina utilizatorul din grupul său primar."
+
+#: deluser:521
+#, perl-format
+msgid "The user `%s' is not a member of group `%s'."
+msgstr "Utilizatorul „%s” nu este membru al grupului „%s”."
+
+#: deluser:525
+#, perl-format
+msgid "Removing user `%s' from group `%s' ..."
+msgstr "Se elimină utilizatorul „%s” din grupul „%s” ..."
+
+#: deluser:536
+#, perl-format
+msgid ""
+"deluser version %s\n"
+"\n"
+msgstr "deluser versiunea %s\n"
+
+#: deluser:537
+msgid ""
+"Removes users and groups from the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"Elimină utilizatorii și grupurile din sistem.\n"
+"\n"
+"Pentru informații detaliate privind drepturile de autor,\n"
+"consultați „/usr/share/doc/adduser/copyright”.\n"
+"\n"
+
+#: deluser:557
+msgid ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to dir] [--backup-suffix str] [--conf file]\n"
+"        [--quiet] [--verbose] [--debug] user\n"
+"\n"
+"  remove a regular user from the system\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"        [--verbose] [--debug] group\n"
+"delgroup [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"         [--verbose] [--debug] group\n"
+"  remove a group from the system\n"
+"\n"
+"deluser [--conf file] [--quiet] [--verbose] [--debug] user group\n"
+"  remove the user from a group\n"
+msgstr ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to director] [--backup-suffix șir] [--conf fișier]\n"
+"        [--quiet] [--verbose] [--debug] utilizator\n"
+"\n"
+"  Elimină un utilizator obișnuit din sistem\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf fișier] [--quiet]\n"
+"        [--verbose] [--debug] grup\n"
+"delgroup [--system] [--only-if-empty] [--conf fișier] [--quiet]\n"
+"         [--verbose] [--debug] grup\n"
+"  Elimină un grup din sistem\n"
+"\n"
+"deluser [--conf fișier] [--quiet] [--verbose] [--debug] utilizator grup\n"
+"  Elimină utilizatorul dintr-un grup\n"
+
+#: deluser:603 deluser:613
+#, perl-format
+msgid "Backup suffix %s unavailable, using gzip."
+msgstr ""
+"Sufixul de la copia de rezervă %s nu este disponibil, se utilizează gzip."
+
+#: AdduserCommon.pm:192
+#, perl-format
+msgid "`%s' does not exist. Using defaults."
+msgstr "„%s” nu există. Se utilizează valorile implicite."
+
+#: AdduserCommon.pm:198
+#, perl-format
+msgid "cannot open configuration file %s: `%s'\n"
+msgstr "nu se poate deschide fișierul de configurare %s: „%s”\n"
+
+#: AdduserCommon.pm:208 AdduserCommon.pm:280 AdduserCommon.pm:308
+#, perl-format
+msgid "Couldn't parse `%s', line %d."
+msgstr "Nu s-a putut analiza „%s”, linia %d."
+
+#: AdduserCommon.pm:213
+#, perl-format
+msgid "Unknown variable `%s' at `%s', line %d."
+msgstr "Variabilă necunoscută „%s” în „%s”, linia %d."
+
+#: AdduserCommon.pm:246
+#, perl-format
+msgid "Cannot read directory `%s'"
+msgstr "Nu se poate citi directorul „%s”"
+
+#: AdduserCommon.pm:261
+#, perl-format
+msgid "`%s' does not exist."
+msgstr "„%s” nu există."
+
+#: AdduserCommon.pm:266
+#, perl-format
+msgid "Cannot open pool file %s: `%s'"
+msgstr "Nu se poate deschide fișierul bază de date „pool” %s: „%s”"
+
+#: AdduserCommon.pm:321
+#, perl-format
+msgid "Illegal pool type `%s' reading `%s'."
+msgstr "Tip de bază de date „pool” ilegal „%s” la citirea „%s”."
+
+#: AdduserCommon.pm:325
+#, perl-format
+msgid "Duplicate name `%s' at `%s', line %d."
+msgstr "Nume duplicat „%s” în „%s”, linia %d."
+
+#: AdduserCommon.pm:329
+#, perl-format
+msgid "Duplicate ID `%s' at `%s', line %d."
+msgstr "ID duplicat „%s” în „%s”, linia %d."
+
+#: AdduserCommon.pm:367
+#, perl-format
+msgid ""
+"`%s' refused the given user name, but --allow-all-names is given. "
+"Continueing."
+msgstr ""
+"«%s» a refuzat numele de utilizator dat, dar „--allow-all-names” este dată. "
+"Se continuă."
+
+#: AdduserCommon.pm:370
+#, perl-format
+msgid ""
+"`%s' refused the given user name. This is a bug in adduser. Please file a "
+"bug report."
+msgstr ""
+"«%s» a refuzat numele de utilizator dat. Aceasta este o eroare în «adduser». "
+"Vă rugăm să depuneți un raport de eroare."
+
+#: AdduserCommon.pm:374 AdduserCommon.pm:388
+#, perl-format
+msgid "`%s' returned error code %d. Exiting."
+msgstr "„%s” a returnat codul de eroare %d. Se iese."
+
+#: AdduserCommon.pm:378 AdduserCommon.pm:391
+#, perl-format
+msgid "`%s' exited from signal %d. Exiting."
+msgstr "„%s” a ieșit cu semnalul %d. Se iese."
+
+#: AdduserCommon.pm:403
+#, perl-format
+msgid "`%s' failed to execute. %s. Continuing."
+msgstr "Execuția comenzii „%s” a eșuat. %s. Se continuă."
+
+#: AdduserCommon.pm:405
+#, perl-format
+msgid "`%s' killed by signal %d. Continuing."
+msgstr "„%s” a fost omorât de semnalul %d. Se continuă."
+
+#: AdduserCommon.pm:407
+#, perl-format
+msgid "`%s' failed with status %d. Continuing."
+msgstr "„%s” a eșuat cu starea %d. Se continuă."
+
+#: AdduserCommon.pm:449
+#, perl-format
+msgid "Could not find program named `%s' in $PATH."
+msgstr "Nu s-a putut găsi programul numit „%s” în $PATH."
+
+#: AdduserCommon.pm:526
+#, perl-format
+msgid "could not open lock file %s!"
+msgstr "nu s-a putut deschide fișierul de blocare %s!"
+
+#: AdduserCommon.pm:532
+msgid "Could not obtain exclusive lock, please try again shortly!"
+msgstr ""
+"Nu s-a putut obține o blocare exclusivă, încercați din nou în cel mai scurt "
+"timp!"
+
+#: AdduserCommon.pm:535
+msgid "Waiting for lock to become available..."
+msgstr "Se așteaptă ca blocarea să devină disponibilă..."
+
+#: AdduserCommon.pm:542
+#, perl-format
+msgid "could not seek - %s!"
+msgstr "nu s-a putut căuta - %s!"
+
+#: AdduserCommon.pm:551
+msgid "could not find lock file!"
+msgstr "nu s-a putut găsi fișierul de blocare!"
+
+#: AdduserCommon.pm:556
+#, perl-format
+msgid "could not unlock file %s: %s"
+msgstr "nu s-a putut debloca fișierul %s: %s"
+
+#: AdduserCommon.pm:561
+#, perl-format
+msgid "could not close lock file %s: %s"
+msgstr "nu s-a putut închide fișierul de blocare %s: %s"
+
+#: AdduserLogging.pm:162
+#, perl-format
+msgid "logging to syslog failed: command line %s returned error: %s\n"
+msgstr ""
+"înregistrarea în syslog a eșuat: linia de comandă %s a returnat eroarea: %s\n"
+
+#~ msgid ""
+#~ "To avoid ambiguity with numerical UIDs, usernames which\n"
+#~ "            resemble numbers or negative numbers are not allowed."
+#~ msgstr ""
+#~ "Pentru a evita ambiguitatea cu UID-urile numerice, numele de utilizator\n"
+#~ "                  care seamănă cu numere sau cu numere negative nu sunt "
+#~ "permise."
+
+#~ msgid ""
+#~ "To avoid problems, the username must not start with a\n"
+#~ "            dash, plus sign, or tilde, and it must not contain any of "
+#~ "the\n"
+#~ "            following: colon, comma, slash, or any whitespace characters\n"
+#~ "            including spaces, tabs, and newlines."
+#~ msgstr ""
+#~ "Pentru a evita problemele, numele de utilizator nu trebuie să înceapă cu "
+#~ "o\n"
+#~ "            liniuță de unire, semnul plus sau tilde și nu trebuie să "
+#~ "conțină \n"
+#~ "            niciunul dintre următoarele: două puncte, virgulă, bară "
+#~ "oblică sau \n"
+#~ "            orice caracter de spațiu alb inclusiv spațiile, tabulatoarele "
+#~ "și\n"
+#~ "            liniile noi."
+
+#~ msgid ""
+#~ "To avoid problems, the username should consist only of\n"
+#~ "            letters, digits, underscores, periods, at signs and dashes, "
+#~ "and\n"
+#~ "            not start with a dash (as defined by IEEE Std 1003.1-2001). "
+#~ "For\n"
+#~ "            compatibility with Samba machine accounts, $ is also "
+#~ "supported\n"
+#~ "            at the end of the username.  (Use the `--allow-all-names' "
+#~ "option\n"
+#~ "            to bypass this restriction.)"
+#~ msgstr ""
+#~ "Pentru a evita problemele, numele de utilizator trebuie\n"
+#~ "            să fie format numai din litere, cifre, caractere de "
+#~ "subliniere,\n"
+#~ "            puncte, semne de @ și liniuțe de unire, și să nu înceapă cu "
+#~ "o\n"
+#~ "            liniuță de unire (astfel cum este definit de IEEE Std "
+#~ "1003.1-2001).\n"
+#~ "            Pentru compatibilitate cu conturile mașinilor Samba, $ este "
+#~ "de\n"
+#~ "            asemenea acceptat la sfârșitul numelui de utilizator. "
+#~ "Utilizați\n"
+#~ "            opțiunea „--allow-all-names” pentru a ocoli această "
+#~ "restricție."
+
+#, perl-format
+#~ msgid ""
+#~ "Please enter a username matching the regular expression\n"
+#~ "            configured via the %s configuration variable.  Use the\n"
+#~ "            `--allow-bad-names' option to relax this check or "
+#~ "reconfigure\n"
+#~ "            %s in configuration."
+#~ msgstr ""
+#~ "Vă rugăm să introduceți un nume de utilizator care să corespundă "
+#~ "expresiei regulate\n"
+#~ "            configurată prin intermediul variabilei de configurare %s.  "
+#~ "Utilizați opțiunea\n"
+#~ "            „--allow-bad-names” pentru a relaxa această verificare sau "
+#~ "reconfigurați\n"
+#~ "            %s în configurare."
+
+#~ msgid ""
+#~ "WARNING: You are just about to delete the root account (uid 0). Usually "
+#~ "this is never required as it may render the whole system unusable. If you "
+#~ "really want this, call deluser with parameter --no-preserve-root. "
+#~ "Stopping now without having performed any action"
+#~ msgstr ""
+#~ "AVERTISMENT: Sunteți pe punctul de a șterge contul root (uid 0). De "
+#~ "obicei, acest lucru nu este niciodată necesar, deoarece poate face "
+#~ "întregul sistem inutilizabil. Dacă doriți cu adevărat acest lucru, "
+#~ "apelați «deluser» cu opțiunea „--no-preserve-root”. Se încetează acum "
+#~ "fără să se fi efectuat nicio acțiune"
+
+#, perl-format
+#~ msgid ""
+#~ "`%s' not executed. Skipping crontab removal. Package `cron' required."
+#~ msgstr ""
+#~ "«%s» nu a fost executat. Se omite eliminarea crontab. Pachetul „cron” "
+#~ "este necesar."
+
+#, perl-format
+#~ msgid "Could not find program named `%s' in $PATH.\n"
+#~ msgstr "Nu s-a putut găsi programul numit «%s» în $PATH.\n"
+
+#, perl-format
+#~ msgid "The group `%s' already exists as a system group. Exiting."
+#~ msgstr "Grupul „%s” există deja ca grup de sistem. Se iese."
+
+#~ msgid "Internal error"
+#~ msgstr "Eroare internă"
+
+#, perl-format
+#~ msgid "Not creating home directory `%s'."
+#~ msgstr "Nu se creează directorul personal „%s”."
+
+#, perl-format
+#~ msgid "The UID %d is already in use."
+#~ msgstr "UID-ul %d este deja utilizat."
+
+#, perl-format
+#~ msgid "The GID %d does not exist."
+#~ msgstr "GID-ul %d nu există."
+
+#~ msgid ""
+#~ "To avoid ambiguity with numerical UIDs, usernames which\n"
+#~ "            consist of only digits are not allowed."
+#~ msgstr ""
+#~ "Pentru a evita ambiguitatea cu UID-uri numerice, numele de utilizator "
+#~ "care\n"
+#~ "            sunt formate numai din cifre nu sunt permise."
+
+#~ msgid ""
+#~ "Usernames must be no more than 32 bytes in length;\n"
+#~ "            note that if you are using Unicode characters, the character\n"
+#~ "            limit will be less than 32."
+#~ msgstr ""
+#~ "Numele de utilizator nu trebuie să aibă o lungime mai mare de 32 de "
+#~ "octeți;\n"
+#~ "            rețineți că, dacă utilizați caractere Unicode, limita de "
+#~ "caractere\n"
+#~ "            va fi mai mică de 32."
+
+#~ msgid ""
+#~ "adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+#~ "        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+#~ "        [--add-extra-groups] [--shell shell]\n"
+#~ "        [--comment comment] [--home dir] [--no-create-home]\n"
+#~ "        [--allow-all-names] [--allow-bad-names]\n"
+#~ "        [--disabled-password] [--disabled-login]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        user\n"
+#~ "    Add a normal user\n"
+#~ "\n"
+#~ "adduser --system\n"
+#~ "        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+#~ "        [--shell shell] [--comment comment] [--home dir] [--no-create-"
+#~ "home]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        user\n"
+#~ "   Add a system user\n"
+#~ "\n"
+#~ "adduser --group\n"
+#~ "        [--gid ID] [--firstgid id] [--lastgid id]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        group\n"
+#~ "addgroup\n"
+#~ "        [--gid ID] [--firstgid id] [--lastgid id]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        group\n"
+#~ "   Add a user group\n"
+#~ "\n"
+#~ "addgroup --system\n"
+#~ "        [--gid id]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        group\n"
+#~ "   Add a system group\n"
+#~ "\n"
+#~ "adduser USER GROUP\n"
+#~ "   Add an existing user to an existing group\n"
+#~ msgstr ""
+#~ "adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+#~ "        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+#~ "        [--add-extra-groups] [--shell shell]\n"
+#~ "        [--comment comentariu] [--home director] [--no-create-home]\n"
+#~ "        [--allow-all-names] [--allow-bad-names]\n"
+#~ "        [--disabled-password] [--disabled-login]\n"
+#~ "        [--conf fișier] [--quiet] [--verbose] [--debug]\n"
+#~ "        utilizatorr\n"
+#~ "    Adaugă un utilizator normal\n"
+#~ "\n"
+#~ "adduser --system\n"
+#~ "        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+#~ "        [--shell shell] [--comment comentariu] [--home director] [--no-"
+#~ "create-home]\n"
+#~ "        [--conf fișier] [--quiet] [--verbose] [--debug]\n"
+#~ "        utilizator\n"
+#~ "   Adaugă un utilizator de sistem\n"
+#~ "\n"
+#~ "adduser --group\n"
+#~ "        [--gid ID] [--firstgid id] [--lastgid id]\n"
+#~ "        [--conf fișier] [--quiet] [--verbose] [--debug]\n"
+#~ "        grup\n"
+#~ "addgroup\n"
+#~ "        [--gid ID] [--firstgid id] [--lastgid id]\n"
+#~ "        [--conf fișier] [--quiet] [--verbose] [--debug]\n"
+#~ "        grup\n"
+#~ "   Adaugă un grup normal de utilizatori\n"
+#~ "\n"
+#~ "addgroup --system\n"
+#~ "        [--gid id]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        grup\n"
+#~ "   Adaugă un grup de utilizatori de sistem\n"
+#~ "\n"
+#~ "adduser UTILIZATOR GRUP\n"
+#~ "   Adaugă un utilizator existent la un grup existent\n"
+
+#~ msgid "Enter a group name to remove: "
+#~ msgstr "Introduceți un nume de grup pentru eliminare: "
+
+#~ msgid "Enter a user name to remove: "
+#~ msgstr "Introduceți un nume de utilizator pentru eliminare: "
+
+#, perl-format
+#~ msgid "Backing up files to be removed to %s ..."
+#~ msgstr ""
+#~ "Se efectuează copia de rezervă a fișierelor care urmează să fie eliminate "
+#~ "în %s ..."
+
+#, perl-format
+#~ msgid "getgrnam `%s' failed. This shouldn't happen."
+#~ msgstr "getgrnam „%s” a eșuat. Acest lucru nu ar trebui să se întâmple."
+
+#~ msgid ""
+#~ "deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+#~ "        [--backup-to dir] [--backup-suffix str] [--conf file]\n"
+#~ "        [--quiet] [--verbose] [--debug] user\n"
+#~ "\n"
+#~ "  remove a normal user from the system\n"
+#~ "\n"
+#~ "deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+#~ "        [--verbose] [--debug] group\n"
+#~ "delgroup [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+#~ "         [--verbose] [--debug] group\n"
+#~ "  remove a group from the system\n"
+#~ "\n"
+#~ "deluser [--conf file] [--quiet] [--verbose] [--debug] user group\n"
+#~ "  remove the user from a group\n"
+#~ msgstr ""
+#~ "deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+#~ "        [--backup-to director] [--backup-suffix șir] [--conf fișier]\n"
+#~ "        [--quiet] [--verbose] [--debug] utilizator\n"
+#~ "\n"
+#~ "  elimină un utilizator normal din sistem\n"
+#~ "\n"
+#~ "deluser --group [--system] [--only-if-empty] [--conf fișier] [--quiet]\n"
+#~ "        [--verbose] [--debug] grup\n"
+#~ "delgroup [--system] [--only-if-empty] [--conf fișier] [--quiet]\n"
+#~ "         [--verbose] [--debug] grup\n"
+#~ "  elimină un grup din sistem\n"
+#~ "\n"
+#~ "deluser [--conf fișier] [--quiet] [--verbose] [--debug] utilizator grup\n"
+#~ "  relimină utilizatorul dintr-un grup\n"

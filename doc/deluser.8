@@ -1,0 +1,308 @@
+.\" Copyright: 1994 Ian A. Murdock <imurdock@debian.org>
+.\"            1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+.\"            1997-1999 Guy Maor
+.\"            2000-2003 Roland Bauerschmidt <rb@debian.org>
+.\"            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+.\"            2006-2009 Jörg Hoh <joerg@joerghoh.de>
+.\"            2011 Justin B Rye <jbr@edlug.org.uk>
+.\"            2016 Helge Kreutzmann <debian@helgefjell.de>
+.\"            2021-2022 Jason Franklin <jason@oneway.dev>
+.\"
+.\" This is free software; see the GNU General Public License version
+.\" 2 or later for copying conditions.  There is NO warranty.
+.TH DELUSER 8 "" "Debian GNU/Linux"
+.SH NAME
+deluser, delgroup \- remove a user or group from the system
+.SH SYNOPSIS
+.SY deluser
+.OP \-\-backup
+.OP \-\-backup\-suffix str
+.OP \-\-backup\-to dir
+.OP \-\-conf file
+.OP \-\-debug
+.OP \-\-remove\-all\-files
+.OP \-\-remove\-home
+.OP \-\-quiet
+.OP \-\-verbose
+.OP \-\-stdoutmsglevel prio
+.OP \-\-stderrmsglevel prio
+.OP \-\-logmsglevel prio
+.B user
+.YS
+
+.SY deluser
+.OP \-\-system
+.OP \-\-backup
+.OP \-\-backup\-suffix str
+.OP \-\-backup\-to dir
+.OP \-\-conf file
+.OP \-\-debug
+.OP \-\-remove\-all\-files
+.OP \-\-remove\-home
+.OP \-\-quiet
+.OP \-\-verbose
+.OP \-\-stdoutmsglevel prio
+.OP \-\-stderrmsglevel prio
+.OP \-\-logmsglevel prio
+.B user
+.YS
+
+.SY deluser
+.B \-\-group
+.OP \-\-conf file
+.OP \-\-debug
+.OP \-\-only\-if\-empty
+.OP \-\-quiet
+.OP \-\-verbose
+.OP \-\-stdoutmsglevel prio
+.OP \-\-stderrmsglevel prio
+.OP \-\-logmsglevel prio
+.B group
+.YS
+
+.SY delgroup
+.OP \-\-system
+.OP \-\-conf file
+.OP \-\-debug
+.OP \-\-only\-if\-empty
+.OP \-\-quiet
+.OP \-\-verbose
+.OP \-\-stdoutmsglevel prio
+.OP \-\-stderrmsglevel prio
+.OP \-\-logmsglevel prio
+.B group
+.YS
+
+.SY deluser
+.OP \-\-conf file
+.OP \-\-debug
+.OP \-\-quiet
+.OP \-\-verbose
+.OP \-\-stdoutmsglevel prio
+.OP \-\-stderrmsglevel prio
+.OP \-\-logmsglevel prio
+.B user
+.B group
+.YS
+
+.SY deluser
+.B \-\-help
+.YS
+.SY deluser
+.B \-\-version
+.YS
+.SH DESCRIPTION
+\fBdeluser\fP and \fBdelgroup\fP remove users and groups
+from the system according to command line options
+and configuration information in
+\fI/etc/deluser.conf\fP and \fI/etc/adduser.conf\fP.
+.PP
+They are more Debian specific front ends to the
+\fBuserdel\fP and \fBgroupdel\fP programs,
+which are more distribution agnostic.
+\fBdeluser\fP and \fBdelgroup\fP can remove the home directory as option
+or even all files on the system owned by the user to be removed,
+run a custom script,
+and have other features.
+.PP
+For a full list and explanations of all options,
+see the OPTIONS section.
+.PP
+\fBdeluser\fP and \fBdelgroup\fP can be run in one of three modes:
+
+.SS "Remove a user"
+If called with one non-option argument and
+without the \fB\-\-group\fP option,
+\fBdeluser\fP will remove a non-system user.
+.PP
+By default,
+\fBdeluser\fP will remove the user
+without removing the home directory,
+the mail spool or
+any other files on the system owned by the user.
+Removing the home directory and mail spool
+can be achieved using the \fB\-\-remove\-home\fP option.
+.PP
+The \fB\-\-remove\-all\-files\fP option
+removes all files on the system owned by the user.
+Note that if you activate both options
+\fB\-\-remove\-home\fP will have no additional effect
+because all files including
+the home directory and mail spool
+are already covered by the \fB\-\-remove\-all\-files\fP option.
+.PP
+If you want to backup all files before deleting them
+you can activate the \fB\-\-backup\fP option
+which will create a file \fIusername.tar(.gz|.bz2)\fP
+in the directory specified by the \fB\-\-backup\-to\fP option.
+.PP
+By default,
+the backup archive is compressed with \fBgzip\fP(1).
+To change this,
+the \fB\-\-backup\-suffix\fP option can be set
+to any suffix supported by \fBtar \-\-auto\-compress\fP.
+.PP
+\fBdeluser\fP will refuse to remove the root account.
+.PP
+If the \fB\-\-system\fP option is given on the command line, the
+delete operation is actually executed only if the user is a system user.
+This avoids accidentally deleting non-system users.
+Additionally,
+if the user does not exist,
+no error value is returned.
+Debian package maintainer scripts
+may use this flag
+to remove system users or groups
+while ignoring the case where the removal already occurred.
+
+.SS "Remove a group"
+If \fBdeluser\fP is called with the \fB\-\-group\fP option,
+or \fBdelgroup\fP is called,
+a group will be removed.
+The primary group of an existing user cannot be removed.
+If the option \fB\-\-only\-if\-empty\fP is given,
+the group won't be removed if it has any members left.
+.PP
+The \fB\-\-system\fP option adds the same functionality as for users,
+respectively.
+
+.SS "Remove a user from a specific group"
+If called with two non-option arguments,
+\fBdeluser\fP will remove a user from a specific group.
+
+.SH OPTIONS
+Different modes of \fBdeluser\fP allow different options.
+If no valid modes are listed for a option,
+it is accepted in all modes.
+.PP
+Short versions for certain options may exist for historical reasons.
+They are going to stay supported, but are removed from the documentation.
+Users are advised to migrate to the long version of options.
+.TP
+.B \-\-backup
+Backup all files contained in the userhome and the mailspool file
+to a file named \fIusername.tar.bz2\fP or \fIusername.tar.gz\fP.
+Valid modes: \fBdeluser\fP, \fBdeluser \-\-system\fP.
+.TP
+.BR "\-\-backup\-suffix "str
+Select compression algorithm for a home directory backup.
+Can be set to any suffix recognized by \fBtar \-\-auto\-compress\fP.
+Defaults to \fI.gz\fP.
+Valid modes: \fBdeluser\fP, \fBdeluser \-\-system\fP.
+.TP
+.BI "\-\-backup\-to "dir
+Place the backup files not in the current directory but in \fIdir\fP.
+This implicitly sets \fB\-\-backup\fP also.
+Defaults to the current working directory.
+Valid modes: \fBdeluser\fP, \fBdeluser \-\-system\fP.
+.TP
+.BI \-\-conf " file"
+Use \fIfile\fP instead of the default files
+\fI/etc/deluser.conf\fP and \fI/etc/adduser.conf\fP.
+Multiple \-\-conf options may be given.
+.TP
+.B \-\-debug
+Synonymous to
+.BR \-\-stdoutmsglevel=debug .
+Deprecated.
+.TP
+.B \-\-group
+Remove a group.
+This is the default action if the program is
+invoked as \fIdelgroup\fP.
+Valid mode: \fBdeluser\fP.
+.TP
+.B \-\-help
+Display brief instructions.
+.TP
+.B \-\-only\-if\-empty
+Only remove if no members are left.
+Valid modes: \fBdeluser \-\-group\fP, \fBdelgroup\fP.
+.TP
+.B \-\-quiet
+Synonymous to
+.BR \-\-stdoutmsglevel=warn .
+Deprecated.
+.TP
+.B \-\-remove\-all\-files
+Remove all files from the system owned by this user.
+Note: \-\-remove\-home does not have an effect any more.
+If \fB\-\-backup\fP is specified,
+the files are deleted after having performed the backup.
+Valid modes: \fBdeluser\fP, \fBdeluser \-\-system\fP.
+.TP
+.B \-\-remove\-home
+Remove the home directory of the user and its mailspool.
+If \fB\-\-backup\fP is specified,
+the files are deleted after having performed the backup.
+Valid modes: \fBdeluser\fP, \fBdeluser \-\-system\fP.
+.TP
+.B \-\-system
+Only delete if user/group is a system user/group.
+If the user does not exist, no error value is returned.
+Valid modes: \fBdeluser\fP, \fBdeluser \-\-system\fP.
+.TP
+.B \-\-verbose
+Synonymous to
+.BR \-\-stdoutmsglevel=info .
+Deprecated.
+.TP
+.BI \-\-stdoutmsglevel " prio"
+.TQ
+.BI \-\-stderrmsglevel " prio"
+.TQ
+.BI \-\-logmsglevel " prio"
+Minimum priority for messages logged to syslog/journal and the console,
+respectively.
+Values are
+\fItrace\fP, \fIdebug\fP, \fIinfo\fP, \fIwarn\fP, \fIerr\fP, and \fIfatal\fP.
+Messages with the priority set here or higher get printed to the
+respective medium.
+Messages printed to stderr are not repeated on stdout.
+That allows the local admin to control \fBadduser\fP's chattiness
+on the console and in the log independently, keeping probably confusing
+information to itself while still leaving helpful information in the log.
+.TP
+.B \-\-version
+Display version and copyright information.
+
+.SH LOGGING
+
+\fBdeluser\fR uses extensive and configurable logging to tailor its verbosity
+to the needs and wishes of the system administrator.
+
+This works similar to \fBadduser\fR.
+See \fBadduser\fR(8) for all the details.
+
+.SH EXIT VALUES
+
+The exit values documented in adduser(8) also apply for \fBdeluser\fP.
+
+.SH SECURITY
+\fBdeluser\fP needs root privileges and offers,
+via the \fB\-\-conf\fP command line option
+to use different configuration files.
+Do not use \fBsudo\fP(8) or similar tools to
+give partial privileges to \fBdeluser\fP
+with restricted command line parameters.
+This is easy to circumvent and might
+allow users to obtain privileges they are not supposed to have.
+If you want this,
+consider writing your own wrapper script
+and giving privileges to execute that script.
+
+.SH FILES
+.I /etc/deluser.conf
+Default configuration file for \fBdeluser\fP(8) and \fBdelgroup\fP(8)
+.TP
+.I /usr/local/sbin/deluser.local
+Optional custom add-ons, see
+.BR deluser.local (8)
+.
+
+.SH "SEE ALSO"
+.BR adduser (8),
+.BR deluser.conf (5),
+.BR deluser.local.conf (8),
+.BR groupdel (8),
+.BR userdel (8)

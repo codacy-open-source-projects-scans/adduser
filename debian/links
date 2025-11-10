@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+MANDIR="usr/share/man"
+cat <<EOLINKS
+${MANDIR}/man8/adduser.local.8 ${MANDIR}/man8/deluser.local.8
+${MANDIR}/man8/adduser.8 ${MANDIR}/man8/addgroup.8
+${MANDIR}/man8/deluser.8 ${MANDIR}/man8/delgroup.8
+EOLINKS
+
+cd debian/adduser > /dev/null
+
+for MPLANG in $(find ${MANDIR} -mindepth 1 -maxdepth 1 -type d -name 'man?' -prune -o -printf '%f\n'); do
+    if [ -e "${MANDIR}/${MPLANG}/man8/adduser.local.8" ]; then
+        printf "%s/%s/man8/adduser.local.8 %s/%s/man8/deluser.local.8\\n" "${MANDIR}" "${MPLANG}" "${MANDIR}" "${MPLANG}"
+    fi
+    if [ -e "${MANDIR}/${MPLANG}/man8/adduser.8" ]; then
+        printf "%s/%s/man8/adduser.8 %s/%s/man8/addgroup.8\\n" "${MANDIR}" "${MPLANG}" "${MANDIR}" "${MPLANG}"
+    fi
+    if [ -e "${MANDIR}/${MPLANG}/man8/deluser.8" ]; then
+        printf "%s/%s/man8/deluser.8 %s/%s/man8/delgroup.8\\n" "${MANDIR}" "${MPLANG}" "${MANDIR}" "${MPLANG}"
+    fi
+done
+

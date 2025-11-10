@@ -1,0 +1,137 @@
+adduser (3.138) unstable; urgency=medium
+
+  Some dysfunctionalities in adduser's logging have been fixed, so the
+  new logging code is now kind of working as intended and advertised.
+  Some of the message levels have been adapted, so adduser --system should
+  now be completely silent if everything is fine. If adduser --systems
+  still prints things that are not necessary during flawless operation,
+  this is a bug. Please report it.
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Tue, 29 Oct 2024 20:14:43 +0100
+
+adduser (3.135) experimental; urgency=medium
+
+  adduser's logging code has been completely replaced. In the new
+  code, every message has a message level, and adduser can be configured
+  which messages get written to standard output, standard error and
+  syslog. Both configuration file and command line options exist to
+  influence adduser's verbosity.
+
+  For the time being, the message level of existing messages has not
+  been changed, and the default configuration resembles what we had in
+  the past. In the next few months, we will be tweaking message levels
+  and default configuration so that normal account generation in
+  maintainer scripts will be mainly silent, and especially silent if
+  adduser is a no-op because everything is already the way it should be.
+
+  In addition to writing messages to the console, the new logging code
+  will also write to syslog, hopefully making it easier to debug other
+  packages. The message level of messages written to syslog can also be
+  configured in the configuration file and overridden via command line.
+  Messages written to syslog are always in English while console output
+  uses translations.
+
+  The adduser/deluser binaries now return well-define exit codes that
+  allows the caller to find out more easily what has been going wrong
+  through the exit code. If you have code that evaluates adduser/deluser's
+  exit codes, please review the docs.
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Fri, 09 Jun 2023 18:04:39 +0200
+
+adduser (3.130) unstable; urgency=low
+
+  deluser's --no-preserve-root option is deprecated, and it will be
+  removed after Debian bookworm. deluser will in the future completely
+  refuse to delete the root user. If you want to delete root, you need
+  to use other tools.
+
+  We are planning to deprecate and remove the GROUPHOMES and LETTERHOMES
+  configuration options. They help big installations, but nowadays those
+  installations are probably using a directory service like LDAP and Active
+  Directory to manage their users and do not use adduser anyway. If you're
+  using one of these options and want them to stay, please write that to
+  #1025623 and let us know. Some kind of help and committment, for example
+  verified autopkgtest scripts, would be appreciated and make it easier for
+  us to keep the feature around.
+
+  We are planning to deprecate and remove the QUOTAUSER configuration
+  option. If you're using this, please write that to #1026898 and let us
+  know. Some kind of help and committment, for example verified autopkg
+  testscripts, would be appreciated and make it easier for us to keep
+  the feature around.
+
+  There have been some changes to --disabled-password and --disabled-login,
+  documented in adduser(8). Maintainers using these options with adduser
+  --system in their maintainer scripts should review their scripts and
+  check whether the default is enough and the options can be removed.
+
+  The --gecos option is being renamed to --comment to get aligned with
+  passwd's terminology. --gecos will continue to work throughout the
+  bookworm cycle.
+
+  The NEWS entry for 3.124, shown below, was added to give more explanation
+  about the addition of the users group as a supplementary group to a newly
+  created user. This change was inconsistently documented in adduser(8),
+  this inconsistency was fixed in adduser 3.130.
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Sun, 25 Dec 2022 17:11:31 +0100
+
+adduser (3.124) unstable; urgency=medium
+
+  As pointed out in #678615, adduser has behaved somewhat inconsistently
+  in the past, using the users group (GID 100) only if USERGROUPS was set
+  to the non-default 'no'. This has been changed as documented in
+  adduser.conf(5): If USERGROUPS is yes, the newly created user will now
+  be added as a supplementary group; if USERGROUPS is no, users will be the
+  primary group. If you want to restore the old behavior, set USERGROUPS=yes,
+  leave USERS_GROUP empty and set USERS_GID to "-1".
+
+  (this NEWS entry has been added retroactively with adduser 3.130)
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Thu, 01 Dec 2022 00:00:00 +0100
+
+adduser (3.123) unstable; urgency=medium
+
+  The default for DIR_MODE has been set to 0700 for this release, again,
+  after adduser 3.122 had DIR_MODE set to 2700. Previous versions of
+  adduser defaulted to 0700 for the majority of this century. The default
+  for SYS_DIR_MODE is still 0755.
+
+  Note that the default for DIR_MODE is a change from historical defaults,
+  which were more permissive for regular user home directories.
+  Adjustments may need to be made for setups like public_html
+  web content, or in-homedir mail configurations.
+
+  System Administrators wanting a different default can set DIR_MODE
+  in /etc/adduser.conf to their desired value after installation.
+  The one user created during system installation needs to have the
+  home directory mode bits adjusted to the preferred value after
+  installation of the system since there is no possibility to have this
+  directly set in the Installer.
+
+  See /usr/share/doc/adduser/README.Debian for detailed reasoning.
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Wed, 20 Jul 2022 10:51:21 +0200
+
+adduser (3.122) unstable; urgency=low
+
+  This version implements SYS_DIR_MODE for home directories belonging
+  to system users. Before that, the home directory of a system user was
+  also influenced by the setting of DIR_MODE. This is no longer the case.
+
+  --add_extra_groups is now --add-extra-groups. The old spelling
+  is still possible and will remain supported during Debian bookworm,
+  allowing package maintainers and local users to slowly migrate during
+  the bookworm cycle.
+
+  --force-badname is now --allow-badname. The old spelling is still
+  possible and will remain supported during Debian bookworm, allowing
+  package maintainers and local users to slowly migrate during the
+  bookworm cycle.
+
+  System user home defaults to /nonexistent if --home is not specified.
+  Packages that call adduser to create system accounts should explicitly
+  specify a location for /home (see Lintian check
+  maintainer-script-lacks-home-in-adduser).
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Wed, 13 Jul 2022 20:30:00 +0200

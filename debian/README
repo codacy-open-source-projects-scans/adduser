@@ -1,0 +1,365 @@
+This document was last touched in Februar 2025.
+
+adduser in Debian
+=================
+
+The adduser package includes the adduser and deluser commands for
+creating and removing users and groups.
+
+The code in this package is intended as a policy layer, making it easier
+for package maintainers and local administrators to create local system
+accounts in the way Debian expects them to be created, taking the burden
+to adapt to the probably changing specifications of Debian policy.
+
+adduser --system is designed such that it can be called without the
+caller needing to check that relevant preconditions have been met.
+
+adduser --system take special attention on just needing a single call in
+the package maintainer scripts without any conditional wrappers, error
+suppression or scaffolding.
+
+adduser honors the distinction between dynamically allocated system
+users and groups and dynamically allocated user accounts that is
+documented in Debian Policy, Chapter 9.2.2.
+
+
+
+Documentation
+-------------
+This document contains background information that you might find
+helpful to understand some of the design decisions that the adduser
+maintainers took to bring adduser to where it is at the moment. For
+operational reference, you might want to look at the manual pages that
+come with the package (see apropos adduser, apropos deluser).
+
+Information that is in the manual pages is probably not going to be
+repeated in this README file.
+
+
+
+Deprecation warnings
+--------------------
+The following features, options, and other things are deprecated and
+might vanish in the next release:
+- the GROUPHOMES, LETTERHOMES, SETGID_HOME  configuration options
+- the --add_extra_groups spelling of the --add-extra-groups option
+- the --gecos alias for the --comment option
+- the --debug alias for the --stdoutmsglevel=debug option
+- the --quiet alias for the --stdoutmsglevel=warn option
+- the --verbose alias for the --stdoutmsglevel=info option
+- the --force-badname and --allow-badname aliases for the
+  --allow-bad-names option
+
+
+
+Removed features
+----------------
+The following features, options, and other things were removed in one of
+the last releases:
+- interactivity
+- debconf
+- support for directory services such as NIS and LDAP
+
+
+
+Adduser in minimal chroots
+--------------------------
+Adduser tries hard not to introduce dependencies that are not strictly
+necessary. Especially it tries not to depend on full perl. Encode,
+I18N::Langingo and Locale::gettext are pulled in in eval constructs and
+the imported symbols replaced by no-op dummys if the require fails.
+
+This should not affect normal systems as they usually have a full perl
+installed, but minimal chroots are frequently used in QA scenarios might
+be affected. Please report misbehavior you might see in situations where
+libperl is not installed as a bug.
+
+
+
+Usage in maintainer scripts
+---------------------------
+The reference to create users and groups related to packages is
+Debian Policy, Chapter 9.2.2. adduser --system can help you to create a
+user in your postinst.
+
+The most important thing to know is that adduser --system is idempotent:
+If the desired user already exists with the important properties
+matching, adduser returns a zero exit code and leaves the existing user
+untouched.
+
+We might consider it a bug if your maintainer scripts need scaffolding
+around an adduser/deluser --system call in your maintainer scripts other
+than checking for the executable being present in postrm. Please file a
+bug if your package needs an if or other bracket around your adduser
+calls.
+
+See adduser(8) for more documentation about how adduser --system behaves
+regarding setting a password,  UID, group membership, shell, and home
+directory. Consider whether it should be possible to run processes or
+even log in as your user and configure it appropriately.
+
+Adduser's logging subsystem has been re-worked since the release of
+Debian 12. Adduser should now be silent especially in maintainer scripts
+if everything regarding the new user is reasonably correct. If you want
+adduser to report what it does, please consider changing the log levels
+in /etc/adduser.conf. You can set different log levels for the system
+log, for standard output and standard error.
+
+It might be advisable to not delete your users on purge of your package
+since there might still be files belonging to the user. Instead, lock
+your user, making it impossible to log in as the user, and unlock it in
+postinst when your package gets reinstalled.
+
+Locking and unlocking system accounts should be handled by adduser.
+Currently, it doesn't. See bug #1008082 for this discussion. The goal is
+to enable the local admin to choose whether purging a package should
+remove a system account or just lock it. For othogonality, there should
+also be a possibility to undo this operation within adduser. For a
+regular user account, the local admin is better served with calling
+usermod --lock and usermod --unlock to do this.
+
+
+
+Configuration files
+-------------------
+adduser and deluser have configuration files, /etc/adduser.conf and
+/etc/deluser.conf, respectively. In a freshly installed package, both
+files only contain comments, giving terse explanation about available
+configuration options and stating what the default is that adduser and
+deluser will use if not otherwise configured.
+
+Both configuration files are dpkg-conffiles and have full conffile
+support by dpkg on upgrades. Until Debian bullseye, /etc/adduser.conf
+was managed by the maintainer scripts and debconf; this has been removed
+in adduser 3.125 and the file was moved to being a dpkg-conffile.
+
+
+
+Debconf
+-------
+Debconf support was removed in adduser 3.125. We used to just ask one
+question during installation regarding DIR_MODE (system-wide readable
+home directories or not).
+
+With adduser growing, this has shown to pose issues since we did not
+find an explanation to only give these limited choices in debconf. To
+be consistent, we would have to add many more questions. This does not
+seem to be a realistic endeavor given the available personpower.
+
+Consequently, debconf support was removed completely, making
+/etc/adduser.conf a regular dpkg-conffile.
+
+We might be willing to reintroduce more elaborate debconf support in the
+future if somebody volunteers to write the code, documentation and
+tests, and to actually maintain it for the foreseeable future. Please
+get in touch with the adduser team if you're willing to help and join
+the team.
+
+
+
+Why not declarative?
+--------------------
+Adduser is intended to be used in maintainer scripts. There are
+approaches in Debian to move more and more functionality away from
+maintainer scripts to a more declarative approach. However, the current
+form of adduser is used in hundreds of packages.
+
+It is fine to use the declarative approach to define system users in
+Debian packages. There is nothing that forces package maintainers to use
+adduser to create their package-related users. The packages dh-sysuser,
+opensysusers, and systemd-sysusers already offer a declarative approach
+to create package-related users.
+
+For the time being, adduser's paradigm is not going to change for
+compatibility's sake.
+
+
+
+Directory services and adduser
+------------------------------
+We have been planning to convert adduser to a more modular approach,
+allowing adduser to be used to create users in a directory service such
+as NIS, NIS+ and LDAP, for more than two decades. It is not realistic to
+expect this to happen any time soon.
+
+Adduser does not support writing to directory services. The only
+interface to any user database is the use of the tools that the passwd
+package offers. Please file a bug if you find any code that still tries
+to support directory services. We might have forgotten to remove it.
+
+It might be possible, to add the desired support via an adduser.local
+hook. If you need more hooks to locally implement what you need, let us
+know and we will see what we can do for you. A more flexible hook system
+might be implemented in the nearer future.
+
+We might be willing to reintroduce support for directory services in the
+future if somebody volunteers to write the code, documentation and
+tests, and to actually maintain it for the foreseeable future. Please
+get in touch with the adduser team if you're willing to help and join
+the team.
+
+
+
+Default for DIR_MODE
+--------------------
+DIR_MODE and SYS_DIR_MODE specify the file mode bits for a home
+directory created by adduser. This has been a controversial setting
+throughout most of adduser's life since the 1990s.
+
+Since Debian 12, DIR_MODE defaults to 0700, while SYS_DIR_MODE defaults
+to 0755. Since then, DIR_MODE and SYS_DIR_MODE are separated because we
+got convinced that a normal user needs a different setting than a system
+user. This allowed us to tighten the file mode bits of a regular user's
+home directory to 0700 while keeping the more permissive setting for
+system users.
+
+Historically, the separation was also implemented to finally solve
+#643559, which requested setting the setgid bit for the home directory
+of a non-system user by default, in order to ease setting access
+permissions of shared workspaces in multi-user systems.  This default
+has oscillated back and forth in adduser multiple times since the 1990s,
+because both ways to set this bit by default have advantages and
+disadvantages.  After a preliminary request for comment (see
+https://lists.debian.org/debian-devel/2022/03/msg00098.html), the
+default value for DIR_MODE was eventually changed to 2700 at some point.
+Sadly, the technical reasoning for NOT setting the bit did largely not
+survive the last two decades. However, some use cases that we were not
+fully aware of were adversely impacted by this change.
+
+Promptly, #1014901 was filed, requesting that DIR_MODE be changed to
+0700, effectively causing home directories of non-system users to be
+created without the setgid bit. The biggest point in the reasoning is
+that having the setgid bit set will need special measures to keep the
+home directory's group ownership from propagating to file system images,
+chroots, and archives, causing wrong file ownership/permissions in those
+collections of files, which in turn might propagate to different systems
+and cause security-related effects there. The bug report gives
+instructions to reproduce the behavior.
+
+System administrators who run multi-user environments might appreciate
+the sgid bit set on home directories since this makes it easier to
+manage file ownership in collaborative environments such as shared
+workspaces. Those administrators have tools at their disposal to change
+the default behavior as their individual needs require, and likely are
+aware of how to work around any issues that arise as part of that
+configuration. It is also very possible that such systems may be managed
+using configuration management software. In an age of general purpose
+use on one end, and single purpose containers on the other, this is
+unlikely to be the majority of newly installed systems.
+
+So what remains is the decision to provide a sane default for a system
+that is installed by an end-user, who may not understand or be aware of
+this setting at all, but who still might use Internet HOW-TOs to build
+chroots, images or archives, inadvertently causing security issues on
+third-party systems. The clear and unsurprising solution is to leave the
+setgid bit for newly created users off by default. This is also important
+to keep the support effort for other packages down. Users surprised by
+the behavior might file bugs against other packages, increasing the
+effort necessary to support those other packages.
+
+So, in Debian 12, DIR_MODE reached its final default setting of 0700,
+flipping the default for the setgid bit one last time to the value we
+had for the majority of Debian's existence period. With this change,
+Debian is re-joining ranks again with ALL other major Linux
+distributions, none of which setting the setgid bit on home directories
+to 1 (research done in July 2022, prove us wrong today if you want to).
+
+This primarily affects the one user that can be created in the Installer
+before there is any possibility to configure adduser. Those users will
+now again have the setgid bit of the home directory set to 0. Again,
+system administrators have the tools and documentation to configure
+their systems as their individual requirements dictate (using the
+DIR_MODE setting in adduser.conf, and/or fixing those initial
+directories).
+
+As mode 0700 provides both the most secure, unsurprising default, and is
+in line with most other major distributions, the adduser team considers
+the matter to be settled; any further discussion should come prepared
+with rationale, support, convincing use cases and a significant public
+discussion period.
+
+
+
+UTF-8 User Names
+----------------
+It used to be possible to create UTF-8 encoded user names with adduser
+and passwd. While you have possibly considered this a feeature, it never
+was intended to be a feature, just an accident. Debian had a discussion
+about UTF-8 user names in November 2024, while shadow/passwd upstream
+decided to explicitly disallow non-ASCII characters in user names. This
+version of adduser follows along, so UTF-8 encoded user names cannot be
+created any more with adduser. It never fully worked anyway, and
+introuced some nasty side effects, possibly security relevant. So you
+might want to revisit any non-ASCII user names you have ever created.
+
+
+
+Security
+--------
+Adduser now runs with perl in tainted mode. This has introduced a
+significant raise in security.
+
+
+
+Rewrite
+-------
+adduser needs a rewrite. The code base was started in the 1990s and
+this fact can easily be seen. The introduction of our test suite has
+made changes to adduser much easier, but the code is still more than 25
+years old.
+
+We support any effort for a rewrite, but we strongly believe that this
+should be done in a dedicated project with a new name, such as
+adduser-ng or adduser4. But such a project needs to be externally
+driven.
+
+
+
+Participating in development
+----------------------------
+adduser is developed on
+[Salsa](https://salsa.debian.org/debian/adduser). Our main communication
+channel is the [Debian Tracker Package Mail
+Address](mailto:adduser@packages.debian.org). You can subscribe to the
+messages through the [Debian Tracker Package
+Page](https://tracker.debian.org/pkg/adduser). If you want to
+participate, create an account on Salsa, clone the Debian/adduser
+project and submit a Merge Request. Feel free to use Salsa CI to have
+your work tested automatically when you push.
+
+Adduser has a test suite. If you implement new features, please also
+write appropriate test cases and test them. Don't forget to adapt the
+documentation and the manual pages. If you fix a bug, please write a
+test case first that fails because of the bug, put the test case in its
+own commit, and then implement the fix. We want to see the test fail
+when just the test commit is cherry picked.
+
+Working with branches and merge requests means rebasing a lot. To make
+this easier, please don't squash your work into one huge commit. 
+Use small, independent commits that can easily be understood. It is OK
+to rebase or force-push to your development branch even after opening
+the merge request. We love merges that can be pulled into master as a
+fast-forward merge.
+
+adduser should be coded according to the style suggestions given in
+perldoc perlstyle. Indentation should be in increments of four
+characters per level, using spaces, not tabs.
+
+
+
+More Docs?
+----------
+See:
+  * RFC8264 "PRECIS Framework: Preparation, Enforcement, and Comparison of
+             Internationalized Strings in Application Protocols"
+  * RFC8265 "PRECIS Representing Usernames and Passwords"
+  * https://systemd.io/USER_NAMES/
+  * https://wiki.debian.org/UserAccounts
+  * https://wiki.debian.org/Unicode
+
+
+
+Credits
+-------
+This document was compiled by the adduser maintainers. Ximon Eighteen
+helped to polish the language of the first revisions in August 2022.

@@ -1,0 +1,1223 @@
+# Translation of adduser program into Hungarian
+# Copyright: 1994 Debian Association, Inc.
+#            1995 Ian A. Murdock <imurdock@debian.org>
+#            1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+#            1997-1999 Guy Maor <maor@debian.org>
+#            2000-2004 Roland Bauerschmidt <rb@debian.org>
+#            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+#            2005-2009 Jörg Hoh <joerg@joerghoh.de>
+#            2006-2011 Stephen Gran <sgran@debian.org>
+#            2016-2017 Afif Elghraoui <afif@debian.org>
+#            2016 Dr. Helge Kreutzmann <debian@helgefjell.de>
+#            2016 Nis Martensen <nis.martensen@web.de>
+#            2021-2022 Jason Franklin <jason@oneway.dev>
+#            2022 Matt Barry <matt@hazelmollusk.org>
+#            2023 Guillem Jover <guillem@debian.org>
+# License: GPL-2+
+# This file is distributed under the same license as the adduser package.
+#
+# Copyright Translations:
+#     2006 Gál Ferenc <hunterz@freemail.hu>
+#     2006 Nepusz Tamás <ntamas@gmail.com>
+#     2007 Gabor Kelemen <kelemeng@gnome.hu>
+#     2016 SZERVÁC Attila <sas@321.hu>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: adduser 3.103\n"
+"Report-Msgid-Bugs-To: adduser@packages.debian.org\n"
+"POT-Creation-Date: 2025-09-14 13:07+0200\n"
+"PO-Revision-Date: 2016-06-17 18:21+0200\n"
+"Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
+"Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
+
+#: adduser:229
+msgid "Only root may add a user or group to the system."
+msgstr ""
+"Csak root joggal lehet új felhasználót vagy csoportot létrehozni a "
+"rendszeren."
+
+#: adduser:266 deluser:200
+msgid "No options allowed after names."
+msgstr "Nevek után nem adhatók opciók."
+
+#: adduser:275 deluser:208
+msgid "Only one or two names allowed."
+msgstr "Csak egy vagy két név engedélyezett."
+
+#: adduser:282
+msgid "Specify only one name in this mode."
+msgstr "Csak 1 nevet adj meg e módban."
+
+#: adduser:286
+msgid "addgroup with two arguments is an unspecified operation."
+msgstr ""
+
+#: adduser:318
+msgid "The --group, --ingroup, and --gid options are mutually exclusive."
+msgstr "A --group, --ingroup és --gid lehetőségek kizárják egymást."
+
+#: adduser:403
+msgid "The home dir must be an absolute path."
+msgstr "A saját könyvtárat a teljes elérési úttal kell megadni."
+
+#: adduser:445
+#, perl-format
+msgid "The group `%s' already exists, but has a different GID. Exiting."
+msgstr "`%s' csoport már létezik egy másik csoport-azonosítóval. Kilépek..."
+
+#: adduser:451
+#, perl-format
+msgid "The group `%s' already exists as a system group."
+msgstr ""
+
+#: adduser:454
+#, perl-format
+msgid "The group `%s' already exists and is not a system group. Exiting."
+msgstr "A csoport (%s) már létezik és nem rendszercsoport. Kilépek..."
+
+#: adduser:459 adduser:499
+#, perl-format
+msgid "The GID `%s' is already in use."
+msgstr "A csoport-azonosító (%s) már foglalt."
+
+#: adduser:470
+#, fuzzy, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_SYS_GID - LAST_SYS_GID)."
+msgstr ""
+"Nincs szabad csoport-azonosító e tartományban: %d-%d (FIRST_SYS_GID - "
+"LAST_SYS_GID).\n"
+
+#: adduser:472 adduser:518
+#, perl-format
+msgid "The group `%s' was not created."
+msgstr "A megadott csoport (%s) nem jött létre."
+
+#: adduser:478 adduser:523
+#, perl-format
+msgid "Adding group `%s' (GID %d) ..."
+msgstr "Csoport hozzáadása: %s (csoport-azonosító %d) ..."
+
+#: adduser:495 adduser:1232
+#, perl-format
+msgid "The group `%s' already exists."
+msgstr "`%s' csoport már létezik."
+
+#: adduser:516
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_GID - LAST_GID)."
+msgstr ""
+"Nincs szabad csoport-azonosító e tartományban: %d-%d (FIRST_GID - LAST_GID)."
+
+#: adduser:540 deluser:296
+#, perl-format
+msgid "The user `%s' does not exist."
+msgstr "`%s' felhasználó nem létezik."
+
+#: adduser:544 adduser:1009 adduser:1242 deluser:456 deluser:459
+#, perl-format
+msgid "The group `%s' does not exist."
+msgstr "`%s' csoport nem létezik."
+
+#: adduser:549 adduser:1013
+#, perl-format
+msgid "The user `%s' is already a member of `%s'."
+msgstr "`%s' felhasználó már tagja a e csoportnak: %s."
+
+#: adduser:553 adduser:1019
+#, perl-format
+msgid "Adding user `%s' to group `%s' ..."
+msgstr "%s felhasználó hozzáadása e csoporthoz: %s ..."
+
+#: adduser:571
+#, fuzzy, perl-format
+msgid "The user `%s' already exists, but is not a system user. Exiting."
+msgstr "%s már létező rendszer-felhasználó. Kilépek..."
+
+#: adduser:575
+#, perl-format
+msgid "The user `%s' already exists with a different UID. Exiting."
+msgstr "`%s' felhasználó már létezik más felhasználói azonosítóval. Kilépek..."
+
+#: adduser:579
+#, fuzzy, perl-format
+msgid "The system user `%s' already exists. Exiting.\n"
+msgstr "`%s' rendszerfelhasználó már létezik. Kilépek..."
+
+#: adduser:593
+#, fuzzy, perl-format
+msgid ""
+"No UID/GID pair is available in the range %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID)."
+msgstr ""
+"Nincs szabad felhasználó- és csoport-azonosító pár e tartományban: %d-%d "
+"(FIRST_SYS_UID - LAST_SYS_UID)\n"
+
+#: adduser:596 adduser:612 adduser:712 adduser:826 adduser:832
+#, perl-format
+msgid "The user `%s' was not created."
+msgstr "%s felhasználó nem jött létre."
+
+#: adduser:609
+#, fuzzy, perl-format
+msgid "No UID is available in the range %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+msgstr ""
+"Nincs szabad felhasználó-azonosító e tartományban: %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID).\n"
+
+#: adduser:620
+msgid "Neither ingroup option nor gid given."
+msgstr ""
+
+#: adduser:632
+msgid "Neither ingroup option nor gid given and make_group_also unset."
+msgstr ""
+
+#: adduser:636
+#, perl-format
+msgid "Adding system user `%s' (UID %d) ..."
+msgstr "`%s' rendszerfelhasználó hozzáadása (%d felhasználói azonosítóval) ..."
+
+#: adduser:640
+#, perl-format
+msgid "Adding new group `%s' (GID %d) ..."
+msgstr "`%s' nevű új csoport hozzáadása (%d csoport azonosítóval) ..."
+
+#: adduser:651 adduser:897
+#, fuzzy, perl-format
+msgid "The home dir %s you specified already exists.\n"
+msgstr "Figyelem: A megadott saját könyvtár %s már létezik."
+
+#: adduser:654 adduser:900
+#, fuzzy, perl-format
+msgid "The home dir %s you specified can't be accessed: %s\n"
+msgstr "Figyelem: A megadott saját könyvtár %s nem hozzáférhető: %s"
+
+#: adduser:658
+#, perl-format
+msgid "Adding new user `%s' (UID %d) with group `%s' ..."
+msgstr ""
+"`%s' nevű felhasználó létrehozása (%d felhasználói azonosítóval) e "
+"csoportban: `%s' ..."
+
+#: adduser:711
+msgid ""
+"USERS_GID and USERS_GROUP both given in configuration. This is an error."
+msgstr ""
+
+#: adduser:802
+#, perl-format
+msgid "Adding user `%s' ..."
+msgstr "`%s' nevű felhasználó hozzáadása..."
+
+#: adduser:825
+#, fuzzy, perl-format
+msgid "No UID/GID pair is available in the range %d-%d (FIRST_UID - LAST_UID)."
+msgstr ""
+"Nincs szabad felhasználó- és csoport-azonosító e tartományban: %d-%d "
+"(FIRST_UID - LAST_UID).\n"
+
+#: adduser:831
+msgid ""
+"USERGROUPS=no, USER_GID=-1 and USERS_GROUP empty. A user needs a primary "
+"group!"
+msgstr ""
+
+#: adduser:871
+msgid "Internal error interpreting parameter combination"
+msgstr ""
+
+#: adduser:882
+#, perl-format
+msgid "Adding new group `%s' (%d) ..."
+msgstr "`%s' (%d) nevű új csoport hozzáadása..."
+
+#: adduser:885
+#, fuzzy, perl-format
+msgid "Adding new group `%s' (new group ID) ..."
+msgstr "`%s' nevű új csoport hozzáadása (%d csoport azonosítóval) ..."
+
+#: adduser:888
+#, perl-format
+msgid "new group '%s' created with GID %d"
+msgstr ""
+
+#: adduser:907
+#, fuzzy, perl-format
+msgid "Adding new user `%s' (%d) with group `%s (%d)' ..."
+msgstr "`%s' (%d) nevű felhasználó létrehozása e csoportban: `%s' ..."
+
+#: adduser:944
+msgid "Permission denied"
+msgstr "Hozzáférés megtagadva"
+
+#: adduser:946
+msgid "invalid combination of options"
+msgstr "Érvénytelen kapcsoló kombináció."
+
+#: adduser:948
+msgid "unexpected failure, nothing done"
+msgstr "Váratlan hiba, semmilyen módosítás nem került végrehajtásra"
+
+#: adduser:950
+msgid "unexpected failure, passwd file missing"
+msgstr "Váratlan hiba, a passwd fájl hiányzik"
+
+#: adduser:952
+msgid "passwd file busy, try again"
+msgstr "a passwd fájl foglalt, próbáld újra"
+
+#: adduser:954
+msgid "invalid argument to option"
+msgstr "a kapcsoló argumentuma helytelen"
+
+#: adduser:956
+msgid "wrong password given or password retyped incorrectly"
+msgstr ""
+
+#: adduser:958
+#, perl-format
+msgid "unexpected return code %s given from passwd"
+msgstr ""
+
+#: adduser:965
+msgid "Try again? [y/N] "
+msgstr "Újra (I/N)?"
+
+#: adduser:991
+msgid "Is the information correct? [Y/n] "
+msgstr "Helyesek a megadott adatok? (I/N)"
+
+#: adduser:1005
+#, fuzzy, perl-format
+msgid "Adding new user `%s' to supplemental / extra groups `%s' ..."
+msgstr "`%s' új felhasználó hozzáadása további csoportokhoz ..."
+
+#: adduser:1029
+#, perl-format
+msgid "Setting quota for user `%s' to values of user `%s' ..."
+msgstr "%s felhasználói korlát beállítása ezen felhasználóéhoz: %s ..."
+
+#: adduser:1067
+#, fuzzy, perl-format
+msgid "Not creating `%s'."
+msgstr "Nem hozom létre e saját könyvtárat: `%s'."
+
+#: adduser:1069
+#, perl-format
+msgid "Not creating home directory `%s' as requested."
+msgstr ""
+
+#: adduser:1072
+#, fuzzy, perl-format
+msgid "The home directory `%s' already exists.  Not touching this directory."
+msgstr "`%s' saját könyvtár már létezik. Nem másolok innen: `%s'."
+
+#: adduser:1078
+#, fuzzy, perl-format
+msgid ""
+"Warning: The home directory `%s' does not belong to the user you are "
+"currently creating."
+msgstr ""
+"Figyelem: a megadott saját könyvtár `%s' nem a jelenleg készülő "
+"felhasználóhoz tartozik.\n"
+
+#: adduser:1082
+#, perl-format
+msgid "Creating home directory `%s' ..."
+msgstr "`%s' saját könyvtár létrehozása ..."
+
+#: adduser:1085
+#, perl-format
+msgid "Couldn't create home directory `%s': %s."
+msgstr "Nem tudtam létrehozni e saját könyvtárat `%s': `%s'."
+
+#: adduser:1099
+#, perl-format
+msgid "Copying files from `%s' ..."
+msgstr "Fájlok másolása innen: `%s' ..."
+
+#: adduser:1102
+#, perl-format
+msgid "fork for `find' failed: %s"
+msgstr "A `find' feldolgozása miatti fork hívás meghiúsult: %s"
+
+#: adduser:1214
+#, perl-format
+msgid "The user `%s' already exists, and is not a system user."
+msgstr "`%s' felhasználó már létezik és nem rendszerfelhasználó."
+
+#: adduser:1223
+#, perl-format
+msgid "The user `%s' already exists."
+msgstr "`%s' felhasználó már létezik."
+
+#: adduser:1236
+#, perl-format
+msgid "The GID %d is already in use."
+msgstr "A csoport-azonosító (%d) már foglalt."
+
+#: adduser:1246
+#, perl-format
+msgid "No group with GID %d found."
+msgstr ""
+
+#: adduser:1315
+#, fuzzy, perl-format
+msgid "%s/%s is neither a dir, file, nor a symlink."
+msgstr ""
+"Nem tudom feldolgozni: %s.\n"
+"Nem könyvtár, nem állomány, sem nem szimbolikus kapcsolat.\n"
+
+#: adduser:1348
+msgid ""
+"To avoid ambiguity with numerical UIDs, usernames whichresemble numbers or "
+"negative numbers are not allowed."
+msgstr ""
+
+#: adduser:1356
+msgid "Usernames must not be a single or a double period."
+msgstr ""
+
+#: adduser:1363
+msgid "Usernames must be no more than 32 bytes in length."
+msgstr ""
+
+#: adduser:1370
+msgid ""
+"To avoid problems, the username must not start with adash, plus sign, or "
+"tilde, and it must not contain any of thefollowing: colon, comma, slash, or "
+"any whitespace charactersincluding spaces, tabs, and newlines."
+msgstr ""
+
+#: adduser:1385
+msgid ""
+"To avoid problems, the username should consist only ofletters, digits, "
+"underscores, periods, at signs and dashes, andnot start with a dash (as "
+"defined by IEEE Std 1003.1-2001). Forcompatibility with Samba machine "
+"accounts, $ is also supportedat the end of the username.  (Use the `--allow-"
+"all-names' optionto bypass this restriction.)"
+msgstr ""
+
+#: adduser:1395
+msgid "Allowing use of questionable username."
+msgstr "Kompatibilitás szempontjából problémás felhasználónevek engedélyezése."
+
+#: adduser:1397
+#, perl-format
+msgid ""
+"Please enter a username matching the regular expressionconfigured via the %s "
+"configuration variable.  Use the`--allow-bad-names' option to relax this "
+"check or reconfigure%s in configuration."
+msgstr ""
+
+#: adduser:1426
+#, fuzzy, perl-format
+msgid "Selecting UID from range %d to %d ...\n"
+msgstr "Felhasználói azonosító választása e tartományból: %d-%d ..."
+
+#: adduser:1449
+#, perl-format
+msgid "Selecting GID from range %d to %d ..."
+msgstr "Csoport-azonosító választása e tartományból: %d-%d ..."
+
+#: adduser:1473
+#, fuzzy, perl-format
+msgid "Selecting UID/GID from range %d to %d ..."
+msgstr "Felhasználói azonosító választása e tartományból: %d-%d ..."
+
+#: adduser:1509
+#, perl-format
+msgid "Removing directory `%s' ..."
+msgstr "`%s' könyvtár eltávolítása ..."
+
+#: adduser:1513 deluser:441
+#, perl-format
+msgid "Removing user `%s' ..."
+msgstr "`%s' felhasználó eltávolítása ..."
+
+#: adduser:1517 deluser:483
+#, perl-format
+msgid "Removing group `%s' ..."
+msgstr "`%s' csoport eltávolítása ..."
+
+#: adduser:1527
+#, perl-format
+msgid "Caught a SIG%s."
+msgstr "SIG%s szignált kapott."
+
+#: adduser:1533
+#, perl-format
+msgid ""
+"adduser version %s\n"
+"\n"
+msgstr ""
+"adduser verzió %s\n"
+"\n"
+
+#: adduser:1534
+msgid ""
+"Adds a user or group to the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+
+#: adduser:1540 deluser:543
+msgid ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or (at\n"
+"your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but\n"
+"WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, for more details.\n"
+msgstr ""
+"Ez a program egy szabad szoftver; a Free Software Foundation \n"
+"által kiadott GNU General Public License 2. verziójának vagy \n"
+"(választhatóan) bármely későbbi verziójának feltételei szerint \n"
+"terjeszthető és/vagy módosítható.\n"
+"\n"
+"Ez a program abban a reményben kerül közreadásra, hogy hasznos lesz,\n"
+"de minden EGYÉB GARANCIA NÉLKÜL, az eladhatóságra vagy valamely célra\n"
+"való alkalmazhatóságra való származtatott garanciát is beleértve.\n"
+"További részletekért lásd a GNU General Public License\n"
+"dokumentumot vagy az /usr/share/common-licenses/GPL állományt.\n"
+
+#: adduser:1554
+msgid ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+"        [--add-extra-groups] [--shell shell]\n"
+"        [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"    Add a regular user\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+"        [--shell shell] [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"   Add a system user\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a user group\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a system group\n"
+"\n"
+"adduser USER GROUP\n"
+"   Add an existing user to an existing group\n"
+msgstr ""
+
+#: deluser:170
+msgid "Only root may remove a user or group from the system."
+msgstr ""
+"Csak a root felhasználó távolíthat el felhasználókat vagy csoportokat a "
+"rendszerből."
+
+#: deluser:271 deluser:290
+#, fuzzy
+msgid ""
+"In order to use the --remove-home, --remove-all-files, and --backup "
+"features, you need to install the `perl' package. To accomplish that, run "
+"apt-get install perl."
+msgstr ""
+"Ha használni szeretnéd a --remove-home, --remove-all-files és --backup \n"
+"szolgáltatásokat, telepítened kell a `perl' csomagot.\n"
+"Futtasd az apt-get install perl parancsot a csomag\n"
+"telepítéséhez.\n"
+
+#: deluser:281
+#, perl-format
+msgid "The user `%s' is not a system user. Exiting."
+msgstr "`%s' nem rendszer-felhasználó. Kilépek."
+
+#: deluser:285
+#, perl-format
+msgid "The user `%s' does not exist, but --system was given. Exiting."
+msgstr ""
+"`%s' felhasználó nem létezik a megadott --system paraméter ellenére. Kilépek."
+
+#: deluser:302
+msgid ""
+"WARNING: You are just about to delete the root account (uid 0). Usually this "
+"is never required as it may render the whole system unusable. If you really "
+"want this, call deluser with parameter --no-preserve-root. Stopping now "
+"without having performed any action."
+msgstr ""
+
+#: deluser:314
+msgid "remove_home or remove_all_files beginning"
+msgstr ""
+
+#: deluser:315
+msgid "Looking for files to backup/remove ..."
+msgstr "Az archiválandó/eltávolítandó fájlok keresése..."
+
+#: deluser:320
+#, perl-format
+msgid "failed to open /proc/mounts: %s"
+msgstr ""
+
+#: deluser:333
+#, fuzzy, perl-format
+msgid "failed to close /proc/mounts: %s"
+msgstr "A mount parancshoz vezető csővezeték nem zárható le: %s"
+
+#: deluser:363
+#, perl-format
+msgid "Not backing up/removing `%s', it is a mount point."
+msgstr "%s csatolási pont, ezért nem kerül eltávolításra/archiválásra."
+
+#: deluser:370
+#, perl-format
+msgid "Not backing up/removing `%s', it matches %s."
+msgstr "%s illeszkedik erre: %s, így nem kerül eltávolításra/archiválásra."
+
+#: deluser:385
+#, perl-format
+msgid "Cannot handle special file %s"
+msgstr "Nem tudom feldolgozni a %s speciális állományt"
+
+#: deluser:394
+#, perl-format
+msgid "Backing up %d files to be removed to %s ..."
+msgstr ""
+
+#: deluser:417
+msgid "Removing files ..."
+msgstr "Fájlok eltávolítása..."
+
+#: deluser:426
+msgid "Removing crontab ..."
+msgstr "A crontab törlése ..."
+
+#: deluser:433 deluser:436
+#, perl-format
+msgid ""
+"`%s' is not executable. Skipping crontab removal. Package `cron' required."
+msgstr ""
+
+#: deluser:466
+#, perl-format
+msgid "getgrnam `%s' failed: %s. This shouldn't happen."
+msgstr ""
+
+#: deluser:472
+#, perl-format
+msgid "The group `%s' is not a system group. Exiting."
+msgstr "`%s' csoport nem rendszercsoport. Kilépek."
+
+#: deluser:476
+#, perl-format
+msgid "The group `%s' is not empty!"
+msgstr "`%s' csoport nem üres!"
+
+#: deluser:495
+#, fuzzy, perl-format
+msgid "The user `%s' does not exist.\n"
+msgstr "`%s' felhasználó nem létezik."
+
+#: deluser:499
+#, fuzzy, perl-format
+msgid "The group `%s' does not exist.\n"
+msgstr "`%s' csoport nem létezik."
+
+#: deluser:503
+msgid "You may not remove the user from their primary group."
+msgstr "A felhasználó nem távolítható el az elsődleges csoportjából."
+
+#: deluser:521
+#, perl-format
+msgid "The user `%s' is not a member of group `%s'."
+msgstr "`%s' felhasználó nem tagja e csoportnak: `%s'."
+
+#: deluser:525
+#, perl-format
+msgid "Removing user `%s' from group `%s' ..."
+msgstr "`%s' felhasználó eltávolítása e csoportból: `%s'..."
+
+#: deluser:536
+#, perl-format
+msgid ""
+"deluser version %s\n"
+"\n"
+msgstr ""
+"deluser verzió %s\n"
+"\n"
+
+#: deluser:537
+msgid ""
+"Removes users and groups from the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+
+#: deluser:557
+msgid ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to dir] [--backup-suffix str] [--conf file]\n"
+"        [--quiet] [--verbose] [--debug] user\n"
+"\n"
+"  remove a regular user from the system\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"        [--verbose] [--debug] group\n"
+"delgroup [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"         [--verbose] [--debug] group\n"
+"  remove a group from the system\n"
+"\n"
+"deluser [--conf file] [--quiet] [--verbose] [--debug] user group\n"
+"  remove the user from a group\n"
+msgstr ""
+
+#: deluser:603 deluser:613
+#, perl-format
+msgid "Backup suffix %s unavailable, using gzip."
+msgstr ""
+
+#: AdduserCommon.pm:192
+#, perl-format
+msgid "`%s' does not exist. Using defaults."
+msgstr "`%s' nem létezik. Az alapértelmezett értékeket használom."
+
+#: AdduserCommon.pm:198
+#, perl-format
+msgid "cannot open configuration file %s: `%s'\n"
+msgstr ""
+
+#: AdduserCommon.pm:208 AdduserCommon.pm:280 AdduserCommon.pm:308
+#, perl-format
+msgid "Couldn't parse `%s', line %d."
+msgstr "`%s', sor %d nem dolgozható fel."
+
+#: AdduserCommon.pm:213
+#, perl-format
+msgid "Unknown variable `%s' at `%s', line %d."
+msgstr "Ismeretlen `%s' változó itt: `%s', sor %d."
+
+#: AdduserCommon.pm:246
+#, fuzzy, perl-format
+msgid "Cannot read directory `%s'"
+msgstr "Nem hozom létre e saját könyvtárat: `%s'."
+
+#: AdduserCommon.pm:261
+#, fuzzy, perl-format
+msgid "`%s' does not exist."
+msgstr "`%s' felhasználó nem létezik."
+
+#: AdduserCommon.pm:266
+#, fuzzy, perl-format
+msgid "Cannot open pool file %s: `%s'"
+msgstr "Nem tudom feldolgozni a %s speciális állományt"
+
+#: AdduserCommon.pm:321
+#, perl-format
+msgid "Illegal pool type `%s' reading `%s'."
+msgstr ""
+
+#: AdduserCommon.pm:325
+#, fuzzy, perl-format
+msgid "Duplicate name `%s' at `%s', line %d."
+msgstr "Ismeretlen `%s' változó itt: `%s', sor %d."
+
+#: AdduserCommon.pm:329
+#, fuzzy, perl-format
+msgid "Duplicate ID `%s' at `%s', line %d."
+msgstr "Ismeretlen `%s' változó itt: `%s', sor %d."
+
+#: AdduserCommon.pm:367
+#, perl-format
+msgid ""
+"`%s' refused the given user name, but --allow-all-names is given. "
+"Continueing."
+msgstr ""
+
+#: AdduserCommon.pm:370
+#, perl-format
+msgid ""
+"`%s' refused the given user name. This is a bug in adduser. Please file a "
+"bug report."
+msgstr ""
+
+#: AdduserCommon.pm:374 AdduserCommon.pm:388
+#, perl-format
+msgid "`%s' returned error code %d. Exiting."
+msgstr "`%s' hibakódot adott: %d. Kilépek..."
+
+#: AdduserCommon.pm:378 AdduserCommon.pm:391
+#, perl-format
+msgid "`%s' exited from signal %d. Exiting."
+msgstr "`%s' kilépett a következő szignál miatt: %d. Kilépek..."
+
+#: AdduserCommon.pm:403
+#, perl-format
+msgid "`%s' failed to execute. %s. Continuing."
+msgstr ""
+
+#: AdduserCommon.pm:405
+#, fuzzy, perl-format
+msgid "`%s' killed by signal %d. Continuing."
+msgstr ""
+"`%s' kilépett a következő szignál miatt: %d. Kilépek...\n"
+"\n"
+
+#: AdduserCommon.pm:407
+#, perl-format
+msgid "`%s' failed with status %d. Continuing."
+msgstr ""
+
+#: AdduserCommon.pm:449
+#, perl-format
+msgid "Could not find program named `%s' in $PATH."
+msgstr "Nem található %s nevű program a $PATH-ban."
+
+#: AdduserCommon.pm:526
+#, perl-format
+msgid "could not open lock file %s!"
+msgstr ""
+
+#: AdduserCommon.pm:532
+msgid "Could not obtain exclusive lock, please try again shortly!"
+msgstr ""
+
+#: AdduserCommon.pm:535
+msgid "Waiting for lock to become available..."
+msgstr ""
+
+#: AdduserCommon.pm:542
+#, perl-format
+msgid "could not seek - %s!"
+msgstr ""
+
+#: AdduserCommon.pm:551
+msgid "could not find lock file!"
+msgstr ""
+
+#: AdduserCommon.pm:556
+#, perl-format
+msgid "could not unlock file %s: %s"
+msgstr ""
+
+#: AdduserCommon.pm:561
+#, perl-format
+msgid "could not close lock file %s: %s"
+msgstr ""
+
+#: AdduserLogging.pm:162
+#, perl-format
+msgid "logging to syslog failed: command line %s returned error: %s\n"
+msgstr ""
+
+#, fuzzy
+#~ msgid ""
+#~ "To avoid problems, the username should consist only of\n"
+#~ "            letters, digits, underscores, periods, at signs and dashes, "
+#~ "and\n"
+#~ "            not start with a dash (as defined by IEEE Std 1003.1-2001). "
+#~ "For\n"
+#~ "            compatibility with Samba machine accounts, $ is also "
+#~ "supported\n"
+#~ "            at the end of the username.  (Use the `--allow-all-names' "
+#~ "option\n"
+#~ "            to bypass this restriction.)"
+#~ msgstr ""
+#~ "%s: A gondok elkerülése érdekében a felhasználónév\n"
+#~ "betűkből, számokból, aláhúzásokból, kötőjelekből és pontokból\n"
+#~ "állhat, de nem kezdődhet kötőjellel (IEEE 1003.1-2001 számú szabványnak "
+#~ "megfelelően).\n"
+#~ "A Samba-kompatibilitás miatt lehet $ a felhasználónév végén\n"
+
+#, fuzzy, perl-format
+#~ msgid ""
+#~ "Please enter a username matching the regular expression\n"
+#~ "            configured via the %s configuration variable.  Use the\n"
+#~ "            `--allow-bad-names' option to relax this check or "
+#~ "reconfigure\n"
+#~ "            %s in configuration."
+#~ msgstr ""
+#~ "%s: Csak olyan felhasználónevet adj meg, amely illeszkedik a NAME_REGEX\n"
+#~ "nevű konfigurációs változó által megadott reguláris kifejezésre. \n"
+#~ "Használd a `--force-badname' opciót vagy állítsd át a NAME_REGEX "
+#~ "változót,\n"
+#~ "ha ezt a korlátozást fel szeretnéd oldani.\n"
+
+#, perl-format
+#~ msgid "The group `%s' already exists as a system group. Exiting."
+#~ msgstr "A csoport (%s) már létező rendszercsoport. Kilépek..."
+
+#, fuzzy
+#~| msgid "Internal error"
+#~ msgid "Internal error"
+#~ msgstr "Belső hiba"
+
+#, perl-format
+#~ msgid "Not creating home directory `%s'."
+#~ msgstr "Nem hozom létre e saját könyvtárat: `%s'."
+
+#, perl-format
+#~ msgid "The UID %d is already in use."
+#~ msgstr "A felhasználó-azonosító (%d) már foglalt."
+
+#, perl-format
+#~ msgid "The GID %d does not exist."
+#~ msgstr "%d csoport-azonosító nem létezik."
+
+#~ msgid "Enter a group name to remove: "
+#~ msgstr "Add meg az eltávolítandó csoport nevét: "
+
+#~ msgid "Enter a user name to remove: "
+#~ msgstr "Adja meg az eltávolítandó felhasználó nevét: "
+
+#, perl-format
+#~ msgid "Backing up files to be removed to %s ..."
+#~ msgstr "Az eltávolítandó fájlok archiválása ide: %s ..."
+
+#, perl-format
+#~ msgid "getgrnam `%s' failed. This shouldn't happen."
+#~ msgstr "A getgrnam `%s' meghiúsult. Ennek nem lenne szabad megtörténnie."
+
+#~ msgid "Done."
+#~ msgstr "Kész."
+
+#, perl-format
+#~ msgid "Stopped: %s"
+#~ msgstr "Megállítva: %s"
+
+#~ msgid "WARNING: You are just about to delete the root account (uid 0)"
+#~ msgstr ""
+#~ "FIGYELEM: most éppen a root felhasználói számla eltávolítása fog történni "
+#~ "(uid 0)\n"
+
+#~ msgid ""
+#~ "Usually this is never required as it may render the whole system "
+#~ "unusable\n"
+#~ msgstr ""
+#~ "Általában ez soha nem szükséges, mivel ez az egész rendszert "
+#~ "használhatatlanná teheti\n"
+
+#, fuzzy
+#~| msgid "If you really want this, call deluser with parameter --force"
+#~ msgid ""
+#~ "If you really want this, call deluser with parameter --no-preserve-root\n"
+#~ msgstr ""
+#~ "Ha valóban ezt szeretnéd, add ki a deluser parancsot a --force "
+#~ "paraméterrel\n"
+
+#~ msgid "Stopping now without having performed any action"
+#~ msgstr "Most megállok anélkül, hogy bármely művelet végrehajtottam volna"
+
+#, perl-format
+#~ msgid "%s: %s"
+#~ msgstr "%s: %s"
+
+#, perl-format
+#~ msgid "No UID is available in the range %d-%d (FIRST_UID - LAST_UID)."
+#~ msgstr ""
+#~ "Nincs szabad felhasználó-azonosító e tartományban: %d-%d (FIRST_UID - "
+#~ "LAST_UID).\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "Adds a user or group to the system.\n"
+#~| "  \n"
+#~| "Copyright (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~| "Copyright (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~| "                   Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~| "\n"
+#~ msgid ""
+#~ "Adds a user or group to the system.\n"
+#~ "\n"
+#~ "Copyright (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~ "Copyright (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~ "                   Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Hozzáad felhasználót vagy csoportot a rendszerhez.\n"
+#~ "\n"
+#~ "Szerzői jogok védelme (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~ "Szerzői jogok védelme (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~ "\tTed Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]\n"
+#~| "[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup GROUP | --gid "
+#~| "ID]\n"
+#~| "[--disabled-password] [--disabled-login] [--add_extra_groups] USER\n"
+#~| "   Add a normal user\n"
+#~| "\n"
+#~| "adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid "
+#~| "ID]\n"
+#~| "[--gecos GECOS] [--group | --ingroup GROUP | --gid ID] [--disabled-"
+#~| "password]\n"
+#~| "[--disabled-login] [--add_extra_groups] USER\n"
+#~| "   Add a system user\n"
+#~| "\n"
+#~| "adduser --group [--gid ID] GROUP\n"
+#~| "addgroup [--gid ID] GROUP\n"
+#~| "   Add a user group\n"
+#~| "\n"
+#~| "addgroup --system [--gid ID] GROUP\n"
+#~| "   Add a system group\n"
+#~| "\n"
+#~| "adduser USER GROUP\n"
+#~| "   Add an existing user to an existing group\n"
+#~| "\n"
+#~| "general options:\n"
+#~| "  --quiet | -q      don't give process information to stdout\n"
+#~| "  --force-badname   allow usernames which do not match the\n"
+#~| "                    NAME_REGEX configuration variable\n"
+#~| "  --help | -h       usage message\n"
+#~| "  --version | -v    version number and copyright\n"
+#~| "  --conf | -c FILE  use FILE as configuration file\n"
+#~| "\n"
+#~ msgid ""
+#~ "adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]\n"
+#~ "[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup GROUP | --gid "
+#~ "ID]\n"
+#~ "[--disabled-password] [--disabled-login] [--add_extra_groups] USER\n"
+#~ "   Add a normal user\n"
+#~ "\n"
+#~ "adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid "
+#~ "ID]\n"
+#~ "[--gecos GECOS] [--group | --ingroup GROUP | --gid ID] [--disabled-"
+#~ "password]\n"
+#~ "[--disabled-login] [--add_extra_groups] USER\n"
+#~ "   Add a system user\n"
+#~ "\n"
+#~ "adduser --group GROUP\n"
+#~ "addgroup [--gid=GID] GROUP\n"
+#~ "   Add a user group\n"
+#~ "\n"
+#~ "addgroup --system [--gid=GID] GROUP\n"
+#~ "   Add a system group\n"
+#~ "\n"
+#~ "adduser USER GROUP\n"
+#~ "   Add an existing user to an existing group\n"
+#~ "\n"
+#~ "general options:\n"
+#~ "  --force-badname       allow usernames which do not match the\n"
+#~ "                        NAME_REGEX configuration variable\n"
+#~ "  -q, --quiet           don't give process information to stdout\n"
+#~ "  -d, --debug           be more verbose during execution\n"
+#~ "  -h, --help            usage message\n"
+#~ "  -v, --version         version number and copyright\n"
+#~ "  -c FILE, --conf=FILE  use FILE as configuration file\n"
+#~ "\n"
+#~ msgstr ""
+#~ "adduser [--home KÖNYVTÁR] [--shell PARANCSÉRTELMEZŐ] [--no-create-home] "
+#~ "[--uid AZONOSÍTÓ]\n"
+#~ "[--firstuid AZONOSÍTÓ] [--lastuid AZONOSÍTÓ] [--gecos GECOS] [--ingroup "
+#~ "CSOPORT | --gid AZONOSÍTÓ]\n"
+#~ "[--disabled-password] [--disabled-login] [--add_extra_groups] "
+#~ "FELHASZNÁLÓ\n"
+#~ "   Felhasználó hozzáadása\n"
+#~ "\n"
+#~ "adduser --system [--home KÖNYVTÁR] [--shell PARANCSÉRTELMEZŐ] [--no-"
+#~ "create-home] [--uid AZONOSÍTÓ]\n"
+#~ "[--gecos GECOS] [--group | --ingroup CSOPORT | --gid CSOPORT ] [--"
+#~ "disabled-password]\n"
+#~ "[--disabled-login] [--add_extra_groups] FELHASZNÁLÓ\n"
+#~ "   Rendszerfelhasználó hozzáadása\n"
+#~ "\n"
+#~ "adduser --group [--gid AZONOSÍTÓ] CSOPORT\n"
+#~ "addgroup [--gid AZONOSÍTÓ] CSOPORT\n"
+#~ "   Felhasználói csoport hozzáadása\n"
+#~ "\n"
+#~ "addgroup --system [--gid AZONOSÍTÓ] CSOPORT\n"
+#~ "   Rendszercsoport hozzáadása\n"
+#~ "\n"
+#~ "adduser FELHASZNÁLÓ CSOPORT\n"
+#~ "   Egy meglévő felhasználó hozzáadása egy meglévő csoporthoz\n"
+#~ "\n"
+#~ "További paraméterek:\n"
+#~ "  --quiet | -q\tne mutasson feldolgozási információkat az stdout-ra\n"
+#~ "  --force-badname\tengedjen meg olyan felhasználóneveket,\n"
+#~ "\t\t\tamelyek nem illeszkednek a NAME_REGEX konfigurációs változóban\n"
+#~ "\t\t\tmegadottakhoz\n"
+#~ "  --help | -h\tfelhasználási segítség\n"
+#~ "  --version | -v\tverziószám és szerzői jogok kiíratása\n"
+#~ "  --conf | -c FÁJL\thasználja a FÁJL-t konfigurációs fájlként\n"
+#~ "\n"
+
+#, perl-format
+#~ msgid "fork for `mount' to parse mount points failed: %s"
+#~ msgstr "A `mount' feldolgozása miatti fork hívás meghiúsult: %s"
+
+#, perl-format
+#~ msgid "pipe of command `mount' could not be closed: %s"
+#~ msgstr "`mount' parancs csatorna nem lezárható: %s"
+
+#, perl-format
+#~ msgid "`%s' still has `%s' as their primary group!"
+#~ msgstr "`%s' elsődleges csoportja még mindig `%s'!"
+
+#~ msgid "Removes users and groups from the system."
+#~ msgstr "Felhasználók és csoportok eltávolítása a rendszerből."
+
+#~ msgid ""
+#~ "Copyright (C) 2000 Roland Bauerschmidt <roland@copyleft.de>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Copyright (C) 2000 Roland Bauerschmidt <roland@copyleft.de>\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "deluser is based on adduser by Guy Maor <maor@debian.org>, Ian Murdock\n"
+#~ "<imurdock@gnu.ai.mit.edu> and Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "A deluser a Guy Maor <maor@debian.org>, Ian Murdock\n"
+#~ "<imurdock@gnu.ai.mit.edu> és Ted Hajek\n"
+#~ "<tedhajek@boombox.micro.umn.edu> által készített\n"
+#~ "adduser-re épül\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "deluser USER\n"
+#~| "  remove a normal user from the system\n"
+#~| "  example: deluser mike\n"
+#~| "\n"
+#~| "  --remove-home             remove the users home directory and mail "
+#~| "spool\n"
+#~| "  --remove-all-files        remove all files owned by user\n"
+#~| "  --backup                  backup files before removing.\n"
+#~| "  --backup-to <DIR>         target directory for the backups.\n"
+#~| "                            Default is the current directory.\n"
+#~| "  --system                  only remove if system user\n"
+#~| "\n"
+#~| "delgroup GROUP\n"
+#~| "deluser --group GROUP\n"
+#~| "  remove a group from the system\n"
+#~| "  example: deluser --group students\n"
+#~| "\n"
+#~| "  --system                  only remove if system group\n"
+#~| "  --only-if-empty           only remove if no members left\n"
+#~| "\n"
+#~| "deluser USER GROUP\n"
+#~| "  remove the user from a group\n"
+#~| "  example: deluser mike students\n"
+#~| "\n"
+#~| "general options:\n"
+#~| "  --quiet | -q      don't give process information to stdout\n"
+#~| "  --help | -h       usage message\n"
+#~| "  --version | -v    version number and copyright\n"
+#~| "  --conf | -c FILE  use FILE as configuration file\n"
+#~| "\n"
+#~ msgid ""
+#~ "deluser USER\n"
+#~ "  remove a normal user from the system\n"
+#~ "  example: deluser mike\n"
+#~ "\n"
+#~ "  --remove-home             remove the users home directory and mail "
+#~ "spool\n"
+#~ "  --remove-all-files        remove all files owned by user\n"
+#~ "  --backup                  backup files before removing.\n"
+#~ "  --backup-to <DIR>         target directory for the backups.\n"
+#~ "                            Default is the current directory.\n"
+#~ "  --system                  only remove if system user\n"
+#~ "\n"
+#~ "delgroup GROUP\n"
+#~ "deluser --group GROUP\n"
+#~ "  remove a group from the system\n"
+#~ "  example: deluser --group students\n"
+#~ "\n"
+#~ "  --system                  only remove if system group\n"
+#~ "  --only-if-empty           only remove if no members left\n"
+#~ "\n"
+#~ "deluser USER GROUP\n"
+#~ "  remove the user from a group\n"
+#~ "  example: deluser mike students\n"
+#~ "\n"
+#~ "general options:\n"
+#~ "  -q, --quiet           don't give process information to stdout\n"
+#~ "  -d, --debug           be more verbose\n"
+#~ "  -h, --help            usage message\n"
+#~ "  -v, --version         version number and copyright\n"
+#~ "  -c FILE, --conf=FILE  use FILE as configuration file\n"
+#~ "\n"
+#~ msgstr ""
+#~ "deluser felhasználó\n"
+#~ "  normál felhasználó törlése a rendszerből\n"
+#~ "  például: deluser mike\n"
+#~ "\n"
+#~ "  --remove-home \ttörli a felhasználó saját könyvtárát és postafiókját\n"
+#~ "  --remove-all-files \ttörli a felhasználó összes fájlját\n"
+#~ "  --backup\t\ttörlés előtt mentést készít a fájlokról\n"
+#~ "  --backup-to <KÖNYVTÁR> \ta mentések célkönyvtára.\n"
+#~ "     \t\tAlapértelmezés szerint az aktuális könyvtár.\n"
+#~ "  --system\t\tcsak akkor törli, ha rendszerfelhasználó\n"
+#~ "\n"
+#~ "delgroup csoport\n"
+#~ "deluser --group csoport\n"
+#~ "  törli a csoportot a rendszerböl\n"
+#~ "  például: deluser --group students\n"
+#~ "\n"
+#~ "  --system csak akkor törli, ha rendszercsoport\n"
+#~ "  --only-if-empty csak akkor törli, ha már nincsenek tagjai\n"
+#~ "\n"
+#~ "deluser felhasználó csoport\n"
+#~ "  törli a felhasználót a csoportból\n"
+#~ "  például: deluser mike students\n"
+#~ "\n"
+#~ "általános kapcsolók:\n"
+#~ "  --quiet | -q \tne írjon feldolgozási információkat az stdout-ra\n"
+#~ "  --help | -h \tsúgó\n"
+#~ "  --version | -v \tverziószám és szerzői jogi információk\n"
+#~ "  --conf | -c FÁJL \thasználja a FÁJLT konfigurációs fájlként\n"
+#~ "\n"
+
+#, perl-format
+#~ msgid "The user `%s' already exists. Exiting."
+#~ msgstr "`%s' felhasználó már létezik. Kilépek..."
+
+#~ msgid "Warning: The home dir you specified does not exist."
+#~ msgstr "Figyelem: A megadott saját könyvtár nem létezik."
+
+#~ msgid "The group `%s' already exists and is not a system group."
+#~ msgstr "`%s' csoport már létezik és nem rendszercsoport."
+
+#~ msgid "Setting quota from `%s'."
+#~ msgstr "Kvóta beállítása innen: `%s'."
+
+#~ msgid "Selecting gid from range %s to %s."
+#~ msgstr "Csoport-azonosító választása e tartományból: %s-%s"
+
+#~ msgid "Removing user `%s'."
+#~ msgstr "Felhasználó eltávolítása: %s."
+
+#~ msgid "Removing group `%s'."
+#~ msgstr "Csoport eltávolítása: %s."
+
+#~ msgid "done."
+#~ msgstr "kész."
+
+#~ msgid "removing user and groups from the system. Version:"
+#~ msgstr "Felhasználók és csoportok eltávolítása a rendszerből. Verzió:"

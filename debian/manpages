@@ -1,0 +1,27 @@
+#!/bin/bash
+
+cat <<EOMAN
+doc/adduser.8
+doc/adduser.conf.5
+doc/adduser.local.8
+doc/deluser.8
+doc/deluser.conf.5
+EOMAN
+
+for MPLANG in $(find doc/ -maxdepth 1 -type f -name '*.??.?' -printf '%f\n' | sed 's/.*\.\(..\)\../\1/' |sort -u); do
+    if [ -e "doc/adduser.${MPLANG}.8" ]; then
+        printf "doc/adduser.%s.8\\n" "${MPLANG}"
+    fi
+    if [ -e "doc/adduser.conf.${MPLANG}.5" ]; then
+        printf "doc/adduser.conf.%s.5\\n" "${MPLANG}"
+    fi
+    if [ -e "doc/adduser.local.${MPLANG}.8" ]; then
+        printf "doc/adduser.local.%s.8\\n" "${MPLANG}"
+    fi
+    if [ -e "doc/deluser.${MPLANG}.8" ]; then
+        printf "doc/deluser.%s.8\\n" "${MPLANG}"
+    fi
+    if [ -e "doc/deluser.conf.${MPLANG}.5" ]; then
+        printf "doc/deluser.conf.%s.5\\n" "${MPLANG}"
+    fi
+done

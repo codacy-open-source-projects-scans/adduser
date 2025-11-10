@@ -1,0 +1,14 @@
+PO4A-HEADER:mode=after;position=^\.SH "CONSULTAȚI ȘI";beginboundary=^\.SH
+.SH TRADUCERE
+Traducerea în limba română a acestui manual a fost făcută de
+Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, sep-2024, mar-2025.
+
+Versiunea în limba engleză a acestei pagini de manual poate fi consultată
+adăugând opțiunea „\ \-L C\” comenzii \fBman\fR.
+
+Dacă găsiți vreo eroare în traducerea acestui manual, vă rugăm să trimiteți
+un mesaj traducătorului acestei pagini de manual, sau echipei de traducere
+române din Debian la adresa:
+.nh
+<\fIdebian\-l10n\-romanian@lists.debian.org\fR>.
+.hy

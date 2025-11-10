@@ -1,0 +1,52 @@
+.\" Copyright 2025 Marc Haber <mh+debian-packages@zugschlus.de>
+.\"
+.\" This is free software; see the GNU General Public License version
+.\" 2 or later for copying conditions.  There is NO warranty.
+.TH ADDUSER 8 "" "Debian GNU/Linux"
+.SH NAME
+adduser.local, deluser.local \-
+hook for local actions in adduser and deluser
+.SH SYNOPSIS
+.SY adduser.local
+.OP "" username
+.OP "" uid
+.OP "" gid
+.OP "" home-directory
+.SY deluser.local
+.OP "" username
+.OP "" uid
+.OP "" gid
+.OP "" home-directory
+.YS
+.SH DESCRIPTION
+\fBadduser.local\fP and \fBdeluser.local\fP
+can be placed by the local admin into
+\fI/usr/local/sbin\fP
+and will be called by
+\fBadduser\fP and \fBdeluser\fP
+respectively in order to do locally relevant setup
+and cleanup actions.
+.PP
+The hooks are called while the adduser/deluser lock is active.
+They must therefore not call back to adduser/deluser themselves.
+.SH RETURN VALUE
+Return values from the hooks are ignored.
+
+.SH ENVIRONMENT
+.B VERBOSE
+.IP 0
+if \-\-quiet is specified
+.IP 1
+if neither \-\-quiet nor \-\-debug is specified
+.IP 2
+if \-\-debug is specified
+
+.SH SEE ALSO
+.BR adduser.conf (5),
+.BR deluser.conf (5),
+.BR adduser (8),
+.BR deluser (8),
+.BR groupadd (8),
+.BR useradd (8),
+.BR usermod (8),
+Debian Policy 9.2.2.

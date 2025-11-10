@@ -1,0 +1,1305 @@
+# Translation of adduser program into Russian
+# Copyright: 1994 Debian Association, Inc.
+#            1995 Ian A. Murdock <imurdock@debian.org>
+#            1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+#            1997-1999 Guy Maor <maor@debian.org>
+#            2000-2004 Roland Bauerschmidt <rb@debian.org>
+#            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+#            2005-2009 Jörg Hoh <joerg@joerghoh.de>
+#            2006-2011 Stephen Gran <sgran@debian.org>
+#            2016-2017 Afif Elghraoui <afif@debian.org>
+#            2016 Dr. Helge Kreutzmann <debian@helgefjell.de>
+#            2016 Nis Martensen <nis.martensen@web.de>
+#            2021-2022 Jason Franklin <jason@oneway.dev>
+#            2022 Matt Barry <matt@hazelmollusk.org>
+#            2023 Guillem Jover <guillem@debian.org>
+# License: GPL-2+
+# Copyright Translations:
+#     2000 Peter Novodvorsky <nidd@debian.org>.
+#     2004-2025 Yuri Kozlov <yuray@komyakino.ru>
+#
+# SPDX-FileCopyrightText: 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2016, 2025 Yuri Kozlov <yuray@komyakino.ru>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:adduser 3.145\n"
+"Report-Msgid-Bugs-To: adduser@packages.debian.org\n"
+"POT-Creation-Date: 2025-09-14 13:07+0200\n"
+"PO-Revision-Date: 2025-03-13 20:05+0300\n"
+"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
+"Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 24.12.0\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: adduser:229
+msgid "Only root may add a user or group to the system."
+msgstr ""
+"Только суперпользователь может добавить пользователя или группу в систему."
+
+#: adduser:266 deluser:200
+msgid "No options allowed after names."
+msgstr "Нельзя указывать параметры после имён."
+
+#: adduser:275 deluser:208
+msgid "Only one or two names allowed."
+msgstr "Можно указать только одно или два имени."
+
+#: adduser:282
+msgid "Specify only one name in this mode."
+msgstr "Только одно имя можно указать в этом режиме."
+
+#: adduser:286
+msgid "addgroup with two arguments is an unspecified operation."
+msgstr "По двум параметрам addgroup невозможно определить операцию."
+
+#: adduser:318
+msgid "The --group, --ingroup, and --gid options are mutually exclusive."
+msgstr "Параметры --group, --ingroup и --gid взаимно исключаемые."
+
+#: adduser:403
+msgid "The home dir must be an absolute path."
+msgstr "Домашний каталог должен задаваться в виде абсолютного пути."
+
+#: adduser:445
+#, perl-format
+msgid "The group `%s' already exists, but has a different GID. Exiting."
+msgstr "Группа «%s» уже существует, но имеет другой GID. Завершение работы."
+
+#: adduser:451
+#, perl-format
+msgid "The group `%s' already exists as a system group."
+msgstr "Группа «%s» уже существует и является системной."
+
+#: adduser:454
+#, perl-format
+msgid "The group `%s' already exists and is not a system group. Exiting."
+msgstr "Группа «%s» уже существует и не является системной. Завершение работы."
+
+#: adduser:459 adduser:499
+#, perl-format
+msgid "The GID `%s' is already in use."
+msgstr "GID «%s» уже используется."
+
+#: adduser:470
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_SYS_GID - LAST_SYS_GID)."
+msgstr "Нет свободного GID в диапазоне %d-%d (FIRST_SYS_GID - LAST_SYS_GID)."
+
+#: adduser:472 adduser:518
+#, perl-format
+msgid "The group `%s' was not created."
+msgstr "Группа «%s» не создана."
+
+#: adduser:478 adduser:523
+#, perl-format
+msgid "Adding group `%s' (GID %d) ..."
+msgstr "Добавляется группа «%s» (GID %d) …"
+
+#: adduser:495 adduser:1232
+#, perl-format
+msgid "The group `%s' already exists."
+msgstr "Группа «%s» уже существует."
+
+#: adduser:516
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_GID - LAST_GID)."
+msgstr "Нет свободного GID в диапазоне %d-%d (FIRST_GID - LAST_GID)."
+
+#: adduser:540 deluser:296
+#, perl-format
+msgid "The user `%s' does not exist."
+msgstr "Пользователь «%s» не существует."
+
+#: adduser:544 adduser:1009 adduser:1242 deluser:456 deluser:459
+#, perl-format
+msgid "The group `%s' does not exist."
+msgstr "Группа «%s» не существует."
+
+#: adduser:549 adduser:1013
+#, perl-format
+msgid "The user `%s' is already a member of `%s'."
+msgstr "Пользователь «%s» уже является членом группы «%s»."
+
+#: adduser:553 adduser:1019
+#, perl-format
+msgid "Adding user `%s' to group `%s' ..."
+msgstr "Добавляется пользователь «%s» в группу «%s» …"
+
+#: adduser:571
+#, perl-format
+msgid "The user `%s' already exists, but is not a system user. Exiting."
+msgstr ""
+"Пользователь «%s» уже существует, но не является системным. Завершение "
+"работы."
+
+#: adduser:575
+#, perl-format
+msgid "The user `%s' already exists with a different UID. Exiting."
+msgstr ""
+"Пользователь «%s» уже существует, но имеет другой UID. Завершение работы."
+
+#: adduser:579
+#, perl-format
+msgid "The system user `%s' already exists. Exiting.\n"
+msgstr "Системный пользователь «%s» уже существует. Завершение работы.\n"
+
+#: adduser:593
+#, perl-format
+msgid ""
+"No UID/GID pair is available in the range %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID)."
+msgstr ""
+"Нет свободной пары UID/GID в диапазоне %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+
+#: adduser:596 adduser:612 adduser:712 adduser:826 adduser:832
+#, perl-format
+msgid "The user `%s' was not created."
+msgstr "Пользователь «%s» не создан."
+
+#: adduser:609
+#, perl-format
+msgid "No UID is available in the range %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+msgstr "Нет свободного UID в диапазоне %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+
+#: adduser:620
+msgid "Neither ingroup option nor gid given."
+msgstr "Не указан ни параметр ingroup, ни gid."
+
+#: adduser:632
+msgid "Neither ingroup option nor gid given and make_group_also unset."
+msgstr ""
+"Не указан ни параметр ingroup, ни gid, и не присвоено значение "
+"make_group_also."
+
+#: adduser:636
+#, perl-format
+msgid "Adding system user `%s' (UID %d) ..."
+msgstr "Добавляется системный пользователь «%s» (UID %d) …"
+
+#: adduser:640
+#, perl-format
+msgid "Adding new group `%s' (GID %d) ..."
+msgstr "Добавляется новая группа «%s» (GID %d) …"
+
+#: adduser:651 adduser:897
+#, perl-format
+msgid "The home dir %s you specified already exists.\n"
+msgstr "Указанный вами домашний каталог %s уже существует.\n"
+
+#: adduser:654 adduser:900
+#, perl-format
+msgid "The home dir %s you specified can't be accessed: %s\n"
+msgstr "Указанный вами домашний каталог %s недоступен: %s\n"
+
+#: adduser:658
+#, perl-format
+msgid "Adding new user `%s' (UID %d) with group `%s' ..."
+msgstr "Добавляется новый пользователь «%s» (UID %d) в группу «%s» …"
+
+#: adduser:711
+msgid ""
+"USERS_GID and USERS_GROUP both given in configuration. This is an error."
+msgstr ""
+"В настройках одновременно заданы USERS_GID и USERS_GROUP. Это является "
+"ошибкой."
+
+#: adduser:802
+#, perl-format
+msgid "Adding user `%s' ..."
+msgstr "Добавляется пользователь «%s» …"
+
+#: adduser:825
+#, perl-format
+msgid "No UID/GID pair is available in the range %d-%d (FIRST_UID - LAST_UID)."
+msgstr "Нет свободной UID/GID пары в диапазоне %d-%d (FIRST_UID - LAST_UID)."
+
+#: adduser:831
+msgid ""
+"USERGROUPS=no, USER_GID=-1 and USERS_GROUP empty. A user needs a primary "
+"group!"
+msgstr ""
+"USERGROUPS=no, USER_GID=-1 и пустое значение у USERS_GROUP. Пользователю "
+"необходимо указать первичную группу!"
+
+#: adduser:871
+msgid "Internal error interpreting parameter combination"
+msgstr "Внутренняя ошибка при разборе комбинации параметров"
+
+#: adduser:882
+#, perl-format
+msgid "Adding new group `%s' (%d) ..."
+msgstr "Добавляется новая группа «%s» (%d) …"
+
+#: adduser:885
+#, perl-format
+msgid "Adding new group `%s' (new group ID) ..."
+msgstr "Добавляется новая группа «%s» (новый групповой идентификатор) …"
+
+#: adduser:888
+#, perl-format
+msgid "new group '%s' created with GID %d"
+msgstr "создана новая группа «%s» с GID %d"
+
+#: adduser:907
+#, perl-format
+msgid "Adding new user `%s' (%d) with group `%s (%d)' ..."
+msgstr "Добавляется новый пользователь «%s» (%d) с группой «%s (%d)» …"
+
+#: adduser:944
+msgid "Permission denied"
+msgstr "Недостаточно прав"
+
+#: adduser:946
+msgid "invalid combination of options"
+msgstr "недопустимая комбинация параметров"
+
+#: adduser:948
+msgid "unexpected failure, nothing done"
+msgstr "неожиданный сбой, ничего не сделано"
+
+#: adduser:950
+msgid "unexpected failure, passwd file missing"
+msgstr "неожиданный сбой, отсутствует файл passwd"
+
+#: adduser:952
+msgid "passwd file busy, try again"
+msgstr "файл passwd заблокирован, попробуйте ещё раз"
+
+#: adduser:954
+msgid "invalid argument to option"
+msgstr "недопустимое значение параметра"
+
+#: adduser:956
+msgid "wrong password given or password retyped incorrectly"
+msgstr "неправильный пароль или пароль не совпал при повторном вводе"
+
+#: adduser:958
+#, perl-format
+msgid "unexpected return code %s given from passwd"
+msgstr "получен неожиданный код завершения passwd: %s"
+
+#: adduser:965
+msgid "Try again? [y/N] "
+msgstr "Попробовать ещё раз? [y/N] "
+
+#: adduser:991
+msgid "Is the information correct? [Y/n] "
+msgstr "Данная информация корректна? [Y/n] "
+
+#: adduser:1005
+#, perl-format
+msgid "Adding new user `%s' to supplemental / extra groups `%s' ..."
+msgstr ""
+"Добавляется новый пользователь «%s» в дополнительные / вспомогательные "
+"группы «%s» …"
+
+#: adduser:1029
+#, perl-format
+msgid "Setting quota for user `%s' to values of user `%s' ..."
+msgstr "Настраиваются квоты для пользователя «%s» как у пользователя «%s» …"
+
+#: adduser:1067
+#, perl-format
+msgid "Not creating `%s'."
+msgstr "Не создаётся «%s»."
+
+#: adduser:1069
+#, perl-format
+msgid "Not creating home directory `%s' as requested."
+msgstr "Не создаётся домашний каталог «%s», как и было запрошено."
+
+#: adduser:1072
+#, perl-format
+msgid "The home directory `%s' already exists.  Not touching this directory."
+msgstr ""
+"Домашний каталог «%s» уже существует. Ничего не делаем с этим каталогом."
+
+#: adduser:1078
+#, perl-format
+msgid ""
+"Warning: The home directory `%s' does not belong to the user you are "
+"currently creating."
+msgstr ""
+"Предупреждение: домашний каталог «%s» не принадлежит пользователю, который "
+"сейчас создаётся."
+
+#: adduser:1082
+#, perl-format
+msgid "Creating home directory `%s' ..."
+msgstr "Создаётся домашний каталог «%s» …"
+
+#: adduser:1085
+#, perl-format
+msgid "Couldn't create home directory `%s': %s."
+msgstr "Не удалось создать домашний каталог «%s»: «%s»."
+
+#: adduser:1099
+#, perl-format
+msgid "Copying files from `%s' ..."
+msgstr "Копирование файлов из «%s» …"
+
+#: adduser:1102
+#, perl-format
+msgid "fork for `find' failed: %s"
+msgstr "ошибка при вызове fork для команды find: %s"
+
+#: adduser:1214
+#, perl-format
+msgid "The user `%s' already exists, and is not a system user."
+msgstr "Пользователь «%s» уже существует и не является системным."
+
+#: adduser:1223
+#, perl-format
+msgid "The user `%s' already exists."
+msgstr "Пользователь «%s» уже существует."
+
+#: adduser:1236
+#, perl-format
+msgid "The GID %d is already in use."
+msgstr "GID %d уже используется."
+
+#: adduser:1246
+#, perl-format
+msgid "No group with GID %d found."
+msgstr "Не найдена группа с GID %d."
+
+#: adduser:1315
+#, perl-format
+msgid "%s/%s is neither a dir, file, nor a symlink."
+msgstr "%s/%s не является каталогом, файлом или символической ссылкой."
+
+#: adduser:1348
+msgid ""
+"To avoid ambiguity with numerical UIDs, usernames whichresemble numbers or "
+"negative numbers are not allowed."
+msgstr ""
+
+#: adduser:1356
+msgid "Usernames must not be a single or a double period."
+msgstr "Имена пользователей не могут состоять только из одной или двух точек."
+
+#: adduser:1363
+msgid "Usernames must be no more than 32 bytes in length."
+msgstr "Имена пользователей должны быть не длиннее 32 байт."
+
+#: adduser:1370
+msgid ""
+"To avoid problems, the username must not start with adash, plus sign, or "
+"tilde, and it must not contain any of thefollowing: colon, comma, slash, or "
+"any whitespace charactersincluding spaces, tabs, and newlines."
+msgstr ""
+
+#: adduser:1385
+msgid ""
+"To avoid problems, the username should consist only ofletters, digits, "
+"underscores, periods, at signs and dashes, andnot start with a dash (as "
+"defined by IEEE Std 1003.1-2001). Forcompatibility with Samba machine "
+"accounts, $ is also supportedat the end of the username.  (Use the `--allow-"
+"all-names' optionto bypass this restriction.)"
+msgstr ""
+
+#: adduser:1395
+msgid "Allowing use of questionable username."
+msgstr "Разрешить использование не везде корректных имён."
+
+#: adduser:1397
+#, perl-format
+msgid ""
+"Please enter a username matching the regular expressionconfigured via the %s "
+"configuration variable.  Use the`--allow-bad-names' option to relax this "
+"check or reconfigure%s in configuration."
+msgstr ""
+
+#: adduser:1426
+#, perl-format
+msgid "Selecting UID from range %d to %d ...\n"
+msgstr "Выбирается UID из диапазона от %d до %d …\n"
+
+#: adduser:1449
+#, perl-format
+msgid "Selecting GID from range %d to %d ..."
+msgstr "Выбирается GID из диапазона от %d до %d …"
+
+#: adduser:1473
+#, perl-format
+msgid "Selecting UID/GID from range %d to %d ..."
+msgstr "Выбирается UID/GID из диапазона от %d до %d …"
+
+#: adduser:1509
+#, perl-format
+msgid "Removing directory `%s' ..."
+msgstr "Удаляется каталог «%s» …"
+
+#: adduser:1513 deluser:441
+#, perl-format
+msgid "Removing user `%s' ..."
+msgstr "Удаляется пользователь «%s» …"
+
+#: adduser:1517 deluser:483
+#, perl-format
+msgid "Removing group `%s' ..."
+msgstr "Удаляется группа «%s» …"
+
+#: adduser:1527
+#, perl-format
+msgid "Caught a SIG%s."
+msgstr "Получен сигнал SIG%s."
+
+#: adduser:1533
+#, perl-format
+msgid ""
+"adduser version %s\n"
+"\n"
+msgstr ""
+"adduser версии %s\n"
+"\n"
+
+#: adduser:1534
+msgid ""
+"Adds a user or group to the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"Добавляет пользователя или группу в систему.\n"
+"\n"
+"Информация об авторских правах доступна в файле\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+
+#: adduser:1540 deluser:543
+msgid ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or (at\n"
+"your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but\n"
+"WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, for more details.\n"
+msgstr ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or (at\n"
+"your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but\n"
+"WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, for more details.\n"
+
+#: adduser:1554
+msgid ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+"        [--add-extra-groups] [--shell shell]\n"
+"        [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"    Add a regular user\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+"        [--shell shell] [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"   Add a system user\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a user group\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a system group\n"
+"\n"
+"adduser USER GROUP\n"
+"   Add an existing user to an existing group\n"
+msgstr ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup группа]\n"
+"        [--add-extra-groups] [--shell оболочка]\n"
+"        [--comment комментарий] [--home каталог] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf файл] [--quiet] [--verbose] [--debug]\n"
+"        пользователь\n"
+"    Добавляет обычного пользователя\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup группа] [--gid id]\n"
+"        [--shell оболочка] [--comment комментарий] [--home каталог]\n"
+"        [--no-create-home]\n"
+"        [--conf файл [--quiet] [--verbose] [--debug]\n"
+"        пользователь\n"
+"   Добавляет системного пользователя\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf файл] [--quiet] [--verbose] [--debug]\n"
+"        группа\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf файл] [--quiet] [--verbose] [--debug]\n"
+"        группа\n"
+"   Добавляет пользовательскую группу\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf файл] [--quiet] [--verbose] [--debug]\n"
+"        группа\n"
+"   Добавляет системную группу\n"
+"\n"
+"adduser ПОЛЬЗОВАТЕЛЬ ГРУППА\n"
+"   Добавляет существующего пользователя в существующую группу\n"
+
+#: deluser:170
+msgid "Only root may remove a user or group from the system."
+msgstr ""
+"Только суперпользователь может удалить пользователя или группу из системы."
+
+#: deluser:271 deluser:290
+msgid ""
+"In order to use the --remove-home, --remove-all-files, and --backup "
+"features, you need to install the `perl' package. To accomplish that, run "
+"apt-get install perl."
+msgstr ""
+"Чтобы использовать параметры --remove-home, --remove-all-files и --backup\n"
+"вам требуется установить пакет «perl». Для этого выполните:\n"
+"apt-get install perl."
+
+#: deluser:281
+#, perl-format
+msgid "The user `%s' is not a system user. Exiting."
+msgstr "Пользователь «%s» не является системным. Завершение работы."
+
+#: deluser:285
+#, perl-format
+msgid "The user `%s' does not exist, but --system was given. Exiting."
+msgstr ""
+"Пользователь «%s» не существует, но задан параметр --system. Завершение "
+"работы."
+
+#: deluser:302
+msgid ""
+"WARNING: You are just about to delete the root account (uid 0). Usually this "
+"is never required as it may render the whole system unusable. If you really "
+"want this, call deluser with parameter --no-preserve-root. Stopping now "
+"without having performed any action."
+msgstr ""
+
+#: deluser:314
+msgid "remove_home or remove_all_files beginning"
+msgstr "начало обработки remove_home или remove_all_files"
+
+#: deluser:315
+msgid "Looking for files to backup/remove ..."
+msgstr "Идёт поиск файлов для сохранения/удаления …"
+
+#: deluser:320
+#, perl-format
+msgid "failed to open /proc/mounts: %s"
+msgstr "не удалось открыть /proc/mounts: %s"
+
+#: deluser:333
+#, perl-format
+msgid "failed to close /proc/mounts: %s"
+msgstr "не удалось закрыть /proc/mounts: %s"
+
+#: deluser:363
+#, perl-format
+msgid "Not backing up/removing `%s', it is a mount point."
+msgstr ""
+"Нельзя выполнить резервное копирование/удаление «%s», это точка монтирования."
+
+#: deluser:370
+#, perl-format
+msgid "Not backing up/removing `%s', it matches %s."
+msgstr "Нельзя выполнить резервное копирование/удаление «%s», совпадает с %s."
+
+#: deluser:385
+#, perl-format
+msgid "Cannot handle special file %s"
+msgstr "Не удалось обработать специальный файл %s"
+
+#: deluser:394
+#, perl-format
+msgid "Backing up %d files to be removed to %s ..."
+msgstr "Создание резервных копий %d файлов в %s перед удалением …"
+
+#: deluser:417
+msgid "Removing files ..."
+msgstr "Удаляются файлы …"
+
+#: deluser:426
+msgid "Removing crontab ..."
+msgstr "Удаляется crontab …"
+
+#: deluser:433 deluser:436
+#, perl-format
+msgid ""
+"`%s' is not executable. Skipping crontab removal. Package `cron' required."
+msgstr ""
+
+#: deluser:466
+#, perl-format
+msgid "getgrnam `%s' failed: %s. This shouldn't happen."
+msgstr "ошибка при вызове getgrnam «%s»: %s. Этого не должно случаться."
+
+#: deluser:472
+#, perl-format
+msgid "The group `%s' is not a system group. Exiting."
+msgstr "Группа «%s» не является системной. Завершение работы."
+
+#: deluser:476
+#, perl-format
+msgid "The group `%s' is not empty!"
+msgstr "Группа «%s» не пуста!"
+
+#: deluser:495
+#, perl-format
+msgid "The user `%s' does not exist.\n"
+msgstr "Пользователь «%s» не существует.\n"
+
+#: deluser:499
+#, perl-format
+msgid "The group `%s' does not exist.\n"
+msgstr "Группа «%s» не существует.\n"
+
+#: deluser:503
+msgid "You may not remove the user from their primary group."
+msgstr "Вы не можете удалить учётную запись из её первичной группы."
+
+#: deluser:521
+#, perl-format
+msgid "The user `%s' is not a member of group `%s'."
+msgstr "Пользователь «%s» не является членом группы «%s»."
+
+#: deluser:525
+#, perl-format
+msgid "Removing user `%s' from group `%s' ..."
+msgstr "Удаляется пользователь «%s» из группы «%s» …"
+
+#: deluser:536
+#, perl-format
+msgid ""
+"deluser version %s\n"
+"\n"
+msgstr ""
+"deluser версия %s\n"
+"\n"
+
+#: deluser:537
+msgid ""
+"Removes users and groups from the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"Удаляет пользователей и группы из системы.\n"
+"\n"
+"Информация об авторских правах доступна в файле\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+
+#: deluser:557
+msgid ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to dir] [--backup-suffix str] [--conf file]\n"
+"        [--quiet] [--verbose] [--debug] user\n"
+"\n"
+"  remove a regular user from the system\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"        [--verbose] [--debug] group\n"
+"delgroup [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"         [--verbose] [--debug] group\n"
+"  remove a group from the system\n"
+"\n"
+"deluser [--conf file] [--quiet] [--verbose] [--debug] user group\n"
+"  remove the user from a group\n"
+msgstr ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to каталог] [--backup-suffix строка] [--conf файл]\n"
+"        [--quiet] [--verbose] [--debug] пользователь\n"
+"\n"
+"  удаляет обычного пользователя из системы\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf файл] [--quiet]\n"
+"        [--verbose] [--debug] группа\n"
+"delgroup [--system] [--only-if-empty] [--conf файл] [--quiet]\n"
+"         [--verbose] [--debug] группа\n"
+"  удаляет группу из системы\n"
+"\n"
+"deluser [--conf файл] [--quiet] [--verbose] [--debug] пользователь группа\n"
+"  удаляет пользователя из группы\n"
+
+#: deluser:603 deluser:613
+#, perl-format
+msgid "Backup suffix %s unavailable, using gzip."
+msgstr ""
+"Суффикс резервного копирования %s не поддерживается, используется gzip."
+
+#: AdduserCommon.pm:192
+#, perl-format
+msgid "`%s' does not exist. Using defaults."
+msgstr "«%s» не существует. Используются настройки по умолчанию."
+
+#: AdduserCommon.pm:198
+#, perl-format
+msgid "cannot open configuration file %s: `%s'\n"
+msgstr "невозможно открыть файл настройки %s: «%s»\n"
+
+#: AdduserCommon.pm:208 AdduserCommon.pm:280 AdduserCommon.pm:308
+#, perl-format
+msgid "Couldn't parse `%s', line %d."
+msgstr "Не удалось разобрать «%s», строка %d."
+
+#: AdduserCommon.pm:213
+#, perl-format
+msgid "Unknown variable `%s' at `%s', line %d."
+msgstr "Неизвестная переменная «%s» в «%s», строка %d."
+
+#: AdduserCommon.pm:246
+#, perl-format
+msgid "Cannot read directory `%s'"
+msgstr "Невозможно прочитать каталог «%s»."
+
+#: AdduserCommon.pm:261
+#, perl-format
+msgid "`%s' does not exist."
+msgstr "«%s» не существует."
+
+#: AdduserCommon.pm:266
+#, perl-format
+msgid "Cannot open pool file %s: `%s'"
+msgstr "Невозможно открыть pool-файл %s: «%s»"
+
+#: AdduserCommon.pm:321
+#, perl-format
+msgid "Illegal pool type `%s' reading `%s'."
+msgstr "Неправильный тип «%s», прочитанный из pool-файла «%s»."
+
+#: AdduserCommon.pm:325
+#, perl-format
+msgid "Duplicate name `%s' at `%s', line %d."
+msgstr "Повторение имени «%s» в «%s», строка %d."
+
+#: AdduserCommon.pm:329
+#, perl-format
+msgid "Duplicate ID `%s' at `%s', line %d."
+msgstr "Повторение ID «%s» в «%s», строка %d."
+
+#: AdduserCommon.pm:367
+#, perl-format
+msgid ""
+"`%s' refused the given user name, but --allow-all-names is given. "
+"Continueing."
+msgstr ""
+"«%s» отказывается использовать данное имя пользователя, но указан параметр --"
+"allow-all-names. Продолжение работы."
+
+#: AdduserCommon.pm:370
+#, perl-format
+msgid ""
+"`%s' refused the given user name. This is a bug in adduser. Please file a "
+"bug report."
+msgstr ""
+"«%s» отказывается использовать данное имя пользователя. Это дефект в "
+"adduser. Отправьте сообщение об ошибке."
+
+#: AdduserCommon.pm:374 AdduserCommon.pm:388
+#, perl-format
+msgid "`%s' returned error code %d. Exiting."
+msgstr "Работа «%s» завершилась с кодом ошибки %d. Завершение работы."
+
+#: AdduserCommon.pm:378 AdduserCommon.pm:391
+#, perl-format
+msgid "`%s' exited from signal %d. Exiting."
+msgstr "«%s» завершился по сигналу %d. Завершение работы."
+
+#: AdduserCommon.pm:403
+#, perl-format
+msgid "`%s' failed to execute. %s. Continuing."
+msgstr "Ошибка при выполнении «%s». %s. Продолжение работы."
+
+#: AdduserCommon.pm:405
+#, perl-format
+msgid "`%s' killed by signal %d. Continuing."
+msgstr "«%s» завершился по сигналу %d. Продолжение работы."
+
+#: AdduserCommon.pm:407
+#, perl-format
+msgid "`%s' failed with status %d. Continuing."
+msgstr "Выполнение «%s» завершилось ошибкой %d. Продолжение работы."
+
+#: AdduserCommon.pm:449
+#, perl-format
+msgid "Could not find program named `%s' in $PATH."
+msgstr "Невозможно найти программу с именем «%s» в $PATH."
+
+#: AdduserCommon.pm:526
+#, perl-format
+msgid "could not open lock file %s!"
+msgstr "невозможно открыть файл блокировки %s!"
+
+#: AdduserCommon.pm:532
+msgid "Could not obtain exclusive lock, please try again shortly!"
+msgstr "Невозможно получить монопольную блокировку, попробуйте чуть позже!"
+
+#: AdduserCommon.pm:535
+msgid "Waiting for lock to become available..."
+msgstr "Ожидание доступности блокировки …"
+
+#: AdduserCommon.pm:542
+#, perl-format
+msgid "could not seek - %s!"
+msgstr "не удалось выполнить seek - %s!"
+
+#: AdduserCommon.pm:551
+msgid "could not find lock file!"
+msgstr "не удалось найти файл блокировки!"
+
+#: AdduserCommon.pm:556
+#, perl-format
+msgid "could not unlock file %s: %s"
+msgstr "невозможно разблокировать файл %s: %s"
+
+#: AdduserCommon.pm:561
+#, perl-format
+msgid "could not close lock file %s: %s"
+msgstr "не удалось закрыть файл блокировки %s: %s"
+
+#: AdduserLogging.pm:162
+#, perl-format
+msgid "logging to syslog failed: command line %s returned error: %s\n"
+msgstr ""
+"ошибка при записи журнала в syslog: команда %s завершилась ошибкой: %s\n"
+
+#~ msgid ""
+#~ "To avoid ambiguity with numerical UIDs, usernames which\n"
+#~ "            resemble numbers or negative numbers are not allowed."
+#~ msgstr ""
+#~ "Чтобы избежать двусмысленности с числовыми UID, не допускается задавать\n"
+#~ "имена пользователей в виде чисел (в том числе отрицательных)."
+
+#~ msgid ""
+#~ "To avoid problems, the username must not start with a\n"
+#~ "            dash, plus sign, or tilde, and it must not contain any of "
+#~ "the\n"
+#~ "            following: colon, comma, slash, or any whitespace characters\n"
+#~ "            including spaces, tabs, and newlines."
+#~ msgstr ""
+#~ "Во избежании проблем имя пользователя не должно начинаться с\n"
+#~ "минуса, плюса или тильды и не должно содержать двоеточие, запятую,\n"
+#~ "косую черту или пробельные символы (пробелы, табуляции, переводы строк)."
+
+#~ msgid ""
+#~ "To avoid problems, the username should consist only of\n"
+#~ "            letters, digits, underscores, periods, at signs and dashes, "
+#~ "and\n"
+#~ "            not start with a dash (as defined by IEEE Std 1003.1-2001). "
+#~ "For\n"
+#~ "            compatibility with Samba machine accounts, $ is also "
+#~ "supported\n"
+#~ "            at the end of the username.  (Use the `--allow-all-names' "
+#~ "option\n"
+#~ "            to bypass this restriction.)"
+#~ msgstr ""
+#~ "Во избежании проблем имя пользователя должно состоять только из\n"
+#~ "букв, цифр, подчёркиваний, точек, дефисов, знака @ и не начинаться\n"
+#~ "с дефиса (как определено в IEEE Std 1003.1-2001). Для совместимости\n"
+#~ "с учётными записями Samba последним символом в имени пользователя\n"
+#~ "может быть $ (чтобы обойти это ограничение укажите\n"
+#~ "параметр «--allow-all-names»)."
+
+#, perl-format
+#~ msgid ""
+#~ "Please enter a username matching the regular expression\n"
+#~ "            configured via the %s configuration variable.  Use the\n"
+#~ "            `--allow-bad-names' option to relax this check or "
+#~ "reconfigure\n"
+#~ "            %s in configuration."
+#~ msgstr ""
+#~ "Введите имя пользователя в соответствии с регулярным выражением,\n"
+#~ "заданным в конфигурационной переменной %s. Используйте\n"
+#~ "параметр «--allow-bad-names», чтобы выключить эту проверку или\n"
+#~ "настройте %s под свои правила."
+
+#~ msgid ""
+#~ "WARNING: You are just about to delete the root account (uid 0). Usually "
+#~ "this is never required as it may render the whole system unusable. If you "
+#~ "really want this, call deluser with parameter --no-preserve-root. "
+#~ "Stopping now without having performed any action"
+#~ msgstr ""
+#~ "ПРЕДУПРЕЖДЕНИЕ: вы запросили удаление учётной записи суперпользователя "
+#~ "(uid 0). Обычно, этого никогда не требуется, так как может привести "
+#~ "систему в нерабочее состояние. Если вы действительно этого хотите, "
+#~ "запустите deluser с параметром --no-preserve-root. Сейчас работа "
+#~ "завершается, никаких действий не произведено."
+
+#, perl-format
+#~ msgid ""
+#~ "`%s' not executed. Skipping crontab removal. Package `cron' required."
+#~ msgstr ""
+#~ "«%s» не является исполняемым. Пропускаем удаление crontab. Требуется "
+#~ "пакет «cron»."
+
+#, perl-format
+#~ msgid "Could not find program named `%s' in $PATH.\n"
+#~ msgstr "Невозможно найти программу с именем «%s» в $PATH.\n"
+
+#, perl-format
+#~ msgid "The group `%s' already exists as a system group. Exiting."
+#~ msgstr "Группа «%s» уже существует и является системной. Завершение работы."
+
+#, fuzzy
+#~| msgid "Internal error"
+#~ msgid "Internal error"
+#~ msgstr "Внутренняя ошибка"
+
+#, perl-format
+#~ msgid "Not creating home directory `%s'."
+#~ msgstr "Не создаётся домашний каталог «%s»."
+
+#, perl-format
+#~ msgid "The UID %d is already in use."
+#~ msgstr "UID %d уже используется."
+
+#, perl-format
+#~ msgid "The GID %d does not exist."
+#~ msgstr "GID %d не существует."
+
+#~ msgid "Enter a group name to remove: "
+#~ msgstr "Введите имя группы, которую вы хотите удалить: "
+
+#~ msgid "Enter a user name to remove: "
+#~ msgstr "Введите имя пользователя, которого вы хотите удалить: "
+
+#, perl-format
+#~ msgid "Backing up files to be removed to %s ..."
+#~ msgstr "Создание резервных копий файлов перед удалением из %s ..."
+
+#, perl-format
+#~ msgid "getgrnam `%s' failed. This shouldn't happen."
+#~ msgstr "ошибка при выполнении getgrnam «%s». Этого не должно случиться."
+
+#~ msgid "Done."
+#~ msgstr "Готово."
+
+#, perl-format
+#~ msgid "Stopped: %s"
+#~ msgstr "Останов: %s"
+
+#~ msgid "WARNING: You are just about to delete the root account (uid 0)"
+#~ msgstr ""
+#~ "ПРЕДУПРЕЖДЕНИЕ: Вы пытаетесь удалить учётную запись суперпользователя "
+#~ "(uid 0)"
+
+#~ msgid ""
+#~ "Usually this is never required as it may render the whole system "
+#~ "unusable\n"
+#~ msgstr ""
+#~ "Обычно, это никогда не требовалось, так как может сделать всю систему "
+#~ "нерабочей\n"
+
+#, fuzzy
+#~| msgid "If you really want this, call deluser with parameter --force"
+#~ msgid ""
+#~ "If you really want this, call deluser with parameter --no-preserve-root\n"
+#~ msgstr ""
+#~ "Если вы действительно хотите это сделать, запустите deluser с параметром "
+#~ "--force\n"
+
+#~ msgid "Stopping now without having performed any action"
+#~ msgstr "Сейчас процедура завершается без выполнения каких-либо действий"
+
+#, perl-format
+#~ msgid "%s: %s"
+#~ msgstr "%s: %s"
+
+#, perl-format
+#~ msgid "No UID is available in the range %d-%d (FIRST_UID - LAST_UID)."
+#~ msgstr "Нет свободного UID в диапазоне %d-%d (FIRST_UID - LAST_UID)."
+
+#, fuzzy
+#~| msgid ""
+#~| "Adds a user or group to the system.\n"
+#~| "  \n"
+#~| "Copyright (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~| "Copyright (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~| "                   Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~| "\n"
+#~ msgid ""
+#~ "Adds a user or group to the system.\n"
+#~ "\n"
+#~ "Copyright (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~ "Copyright (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~ "                   Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Добавляет пользователя или группу в систему.\n"
+#~ "..\n"
+#~ "Copyright (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~ "Copyright (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~ "                   Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]\n"
+#~| "[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup GROUP | --gid "
+#~| "ID]\n"
+#~| "[--disabled-password] [--disabled-login] [--add_extra_groups] USER\n"
+#~| "   Add a normal user\n"
+#~| "\n"
+#~| "adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid "
+#~| "ID]\n"
+#~| "[--gecos GECOS] [--group | --ingroup GROUP | --gid ID] [--disabled-"
+#~| "password]\n"
+#~| "[--disabled-login] [--add_extra_groups] USER\n"
+#~| "   Add a system user\n"
+#~| "\n"
+#~| "adduser --group [--gid ID] GROUP\n"
+#~| "addgroup [--gid ID] GROUP\n"
+#~| "   Add a user group\n"
+#~| "\n"
+#~| "addgroup --system [--gid ID] GROUP\n"
+#~| "   Add a system group\n"
+#~| "\n"
+#~| "adduser USER GROUP\n"
+#~| "   Add an existing user to an existing group\n"
+#~| "\n"
+#~| "general options:\n"
+#~| "  --quiet | -q      don't give process information to stdout\n"
+#~| "  --force-badname   allow usernames which do not match the\n"
+#~| "                    NAME_REGEX configuration variable\n"
+#~| "  --help | -h       usage message\n"
+#~| "  --version | -v    version number and copyright\n"
+#~| "  --conf | -c FILE  use FILE as configuration file\n"
+#~| "\n"
+#~ msgid ""
+#~ "adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]\n"
+#~ "[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup GROUP | --gid "
+#~ "ID]\n"
+#~ "[--disabled-password] [--disabled-login] [--add_extra_groups] USER\n"
+#~ "   Add a normal user\n"
+#~ "\n"
+#~ "adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid "
+#~ "ID]\n"
+#~ "[--gecos GECOS] [--group | --ingroup GROUP | --gid ID] [--disabled-"
+#~ "password]\n"
+#~ "[--disabled-login] [--add_extra_groups] USER\n"
+#~ "   Add a system user\n"
+#~ "\n"
+#~ "adduser --group GROUP\n"
+#~ "addgroup [--gid=GID] GROUP\n"
+#~ "   Add a user group\n"
+#~ "\n"
+#~ "addgroup --system [--gid=GID] GROUP\n"
+#~ "   Add a system group\n"
+#~ "\n"
+#~ "adduser USER GROUP\n"
+#~ "   Add an existing user to an existing group\n"
+#~ "\n"
+#~ "general options:\n"
+#~ "  --force-badname       allow usernames which do not match the\n"
+#~ "                        NAME_REGEX configuration variable\n"
+#~ "  -q, --quiet           don't give process information to stdout\n"
+#~ "  -d, --debug           be more verbose during execution\n"
+#~ "  -h, --help            usage message\n"
+#~ "  -v, --version         version number and copyright\n"
+#~ "  -c FILE, --conf=FILE  use FILE as configuration file\n"
+#~ "\n"
+#~ msgstr ""
+#~ "adduser [--home КАТ] [--shell ОБОЛОЧКА] [--no-create-home] [--uid ID]\n"
+#~ "[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup ГРУППА | --gid "
+#~ "ID]\n"
+#~ "[--disabled-password] [--disabled-login] [--"
+#~ "add_extra_groups] ПОЛЬЗОВАТЕЛЬ\n"
+#~ "   Добавить обычного пользователя\n"
+#~ "\n"
+#~ "adduser --system [--home КАТ] [--shell ОБОЛОЧКА] [--no-create-home] [--"
+#~ "uid ID]\n"
+#~ "[--gecos GECOS] [--group | --ingroup ГРУППА | --gid ID] [--disabled-"
+#~ "password]\n"
+#~ "[--disabled-login] [--add_extra_groups] ПОЛЬЗОВАТЕЛЬ\n"
+#~ "   Добавить системного пользователя\n"
+#~ "\n"
+#~ "adduser --group [--gid ID] ГРУППА\n"
+#~ "addgroup [--gid ID] ГРУППА\n"
+#~ "   Добавить пользовательскую группу\n"
+#~ "\n"
+#~ "addgroup --system [--gid ID] ГРУППА\n"
+#~ "   Добавить системную группу\n"
+#~ "\n"
+#~ "adduser ПОЛЬЗОВАТЕЛЬ ГРУППА\n"
+#~ "   Добавить существующего пользователя в существующую группу\n"
+#~ "\n"
+#~ "общие параметры:\n"
+#~ "  --quiet | -q              не выводить информацию при работе в stdout\n"
+#~ "  --force-badname           разрешить имена пользователей, которые не\n"
+#~ "                            удовлетворяют настроечной переменной\n"
+#~ "                            NAME_REGEX\n"
+#~ "  --help | -h               показать справку об использовании\n"
+#~ "  --version | -v            показать версию и авторские права\n"
+#~ "  --conf | -c ФАЙЛ          использовать ФАЙЛ в качестве настроечного\n"
+#~ "\n"
+
+#, perl-format
+#~ msgid "fork for `mount' to parse mount points failed: %s"
+#~ msgstr "ошибка при вызове fork «mount» для разбора точек монтирования: %s"
+
+#, perl-format
+#~ msgid "pipe of command `mount' could not be closed: %s"
+#~ msgstr "невозможно закрыть канал от команды mount: %s"
+
+#, perl-format
+#~ msgid "`%s' still has `%s' as their primary group!"
+#~ msgstr "У пользователя«%s» в качестве первичной указана группа «%s»!"
+
+#~ msgid "Removes users and groups from the system."
+#~ msgstr "Удаление пользователей и групп из системы."
+
+#~ msgid ""
+#~ "Copyright (C) 2000 Roland Bauerschmidt <roland@copyleft.de>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Copyright (C) 2000 Roland Bauerschmidt <roland@copyleft.de>\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "deluser is based on adduser by Guy Maor <maor@debian.org>, Ian Murdock\n"
+#~ "<imurdock@gnu.ai.mit.edu> and Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "deluser основана на adduser, написанной Guy Maor <maor@debian.org>, \n"
+#~ "Ian Murdock <imurdock@gnu.ai.mit.edu> и\n"
+#~ "Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "deluser USER\n"
+#~| "  remove a normal user from the system\n"
+#~| "  example: deluser mike\n"
+#~| "\n"
+#~| "  --remove-home             remove the users home directory and mail "
+#~| "spool\n"
+#~| "  --remove-all-files        remove all files owned by user\n"
+#~| "  --backup                  backup files before removing.\n"
+#~| "  --backup-to <DIR>         target directory for the backups.\n"
+#~| "                            Default is the current directory.\n"
+#~| "  --system                  only remove if system user\n"
+#~| "\n"
+#~| "delgroup GROUP\n"
+#~| "deluser --group GROUP\n"
+#~| "  remove a group from the system\n"
+#~| "  example: deluser --group students\n"
+#~| "\n"
+#~| "  --system                  only remove if system group\n"
+#~| "  --only-if-empty           only remove if no members left\n"
+#~| "\n"
+#~| "deluser USER GROUP\n"
+#~| "  remove the user from a group\n"
+#~| "  example: deluser mike students\n"
+#~| "\n"
+#~| "general options:\n"
+#~| "  --quiet | -q      don't give process information to stdout\n"
+#~| "  --help | -h       usage message\n"
+#~| "  --version | -v    version number and copyright\n"
+#~| "  --conf | -c FILE  use FILE as configuration file\n"
+#~| "\n"
+#~ msgid ""
+#~ "deluser USER\n"
+#~ "  remove a normal user from the system\n"
+#~ "  example: deluser mike\n"
+#~ "\n"
+#~ "  --remove-home             remove the users home directory and mail "
+#~ "spool\n"
+#~ "  --remove-all-files        remove all files owned by user\n"
+#~ "  --backup                  backup files before removing.\n"
+#~ "  --backup-to <DIR>         target directory for the backups.\n"
+#~ "                            Default is the current directory.\n"
+#~ "  --system                  only remove if system user\n"
+#~ "\n"
+#~ "delgroup GROUP\n"
+#~ "deluser --group GROUP\n"
+#~ "  remove a group from the system\n"
+#~ "  example: deluser --group students\n"
+#~ "\n"
+#~ "  --system                  only remove if system group\n"
+#~ "  --only-if-empty           only remove if no members left\n"
+#~ "\n"
+#~ "deluser USER GROUP\n"
+#~ "  remove the user from a group\n"
+#~ "  example: deluser mike students\n"
+#~ "\n"
+#~ "general options:\n"
+#~ "  -q, --quiet           don't give process information to stdout\n"
+#~ "  -d, --debug           be more verbose\n"
+#~ "  -h, --help            usage message\n"
+#~ "  -v, --version         version number and copyright\n"
+#~ "  -c FILE, --conf=FILE  use FILE as configuration file\n"
+#~ "\n"
+#~ msgstr ""
+#~ "deluser ПОЛЬЗОВАТЕЛЬ\n"
+#~ "  удаляет обычного учётную запись пользователя из системы\n"
+#~ "  пример: deluser mike\n"
+#~ "\n"
+#~ "  --remove-home             удалить домашний каталог пользователя\n"
+#~ "                            и почтовый ящик\n"
+#~ "  --remove-all-files        удалить все файлы принадлежащие пользователю\n"
+#~ "  --backup                  сделать резервные копии файлов перед "
+#~ "удалением.\n"
+#~ "  --backup-to <КАТ>         каталог для резервных копий файлов.\n"
+#~ "                            По умолчанию используется текущий каталог.\n"
+#~ "  --system                  удалить только если учётная запись системная\n"
+#~ "\n"
+#~ "delgroup ГРУППА\n"
+#~ "deluser --group ГРУППА\n"
+#~ "  удаляет группу из системы\n"
+#~ "  пример: deluser --group students\n"
+#~ "\n"
+#~ "  --system                  удалить только если группа системная\n"
+#~ "  --only-if-empty           удалить, только если в ней нет пользователей\n"
+#~ "\n"
+#~ "deluser ПОЛЬЗОВАТЕЛЬ ГРУППА\n"
+#~ "  удаляет пользователя из группы\n"
+#~ "  пример: deluser mike students\n"
+#~ "\n"
+#~ "общие параметры:\n"
+#~ "  --quiet | -q              не выводить информацию при работе в stdout\n"
+#~ "  --help | -h               показать справку об использовании\n"
+#~ "  --version | -v            показать версию и авторские права\n"
+#~ "  --conf | -c ФАЙЛ          использовать ФАЙЛ в качестве "
+#~ "конфигурационного\n"
+#~ "\n"
+
+#, perl-format
+#~ msgid "The user `%s' already exists. Exiting."
+#~ msgstr "Пользователь «%s» уже существует. Завершение работы."
+
+#~ msgid "Warning: The home dir you specified does not exist."
+#~ msgstr "Предупреждение: указанный вами домашний каталог не существует."
+
+#~ msgid "The group `%s' already exists and is not a system group."
+#~ msgstr "Группа `%s' уже существует и не является системной."

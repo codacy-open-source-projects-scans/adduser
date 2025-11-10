@@ -1,0 +1,87 @@
+.\" Copyright: 1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+.\"            2000-2003 Roland Bauerschmidt <rb@debian.org>
+.\"            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+.\"            2006-2007 Jörg Hoh <joerg@joerghoh.de>
+.\"            2011 Stephen Gran <sgran@debian.org>
+.\"            2016 Helge Kreutzmann <debian@helgefjell.de>
+.\"            2021 Jason Franklin <jason@oneway.dev>
+.\"            2022 Matt Barry <matt@hazelmollusk.org>
+.\"
+.\" This is free software; see the GNU General Public Lisence version 2
+.\" or later for copying conditions.  There is NO warranty.
+.TH DELUSER.CONF 5 "" "Debian GNU/Linux"
+.SH NAME
+/etc/deluser.conf \- configuration file for
+\fBdeluser\fR(8) and \fBdelgroup\fR(8).
+.SH DESCRIPTION
+The file \fI/etc/deluser.conf\fR contains defaults for the programs
+.B deluser\fR(8)
+and
+.B \fBdelgroup\fR(8).
+Each line holds a single value pair in the form \fIoption\fP = \fIvalue\fP.
+Double or single quotes are allowed around the value,
+as is whitespace around the equals sign.
+Comment lines must have a hash sign (#) in the first column.
+.PP
+\fBdeluser\fR(8) and \fBdelgroup\fR(8)
+also read \fI/etc/adduser.conf\fR, see
+.BR adduser.conf (5);
+settings in \fIdeluser.conf\fR may overwrite settings made in
+\fIadduser.conf\fP.
+.PP
+The valid configuration options are:
+.TP
+.B BACKUP
+If \fBREMOVE_HOME\fR or \fBREMOVE_ALL_FILES\fR is activated, all
+files are backed up before they are removed.
+The backup file that is created defaults to \fIusername.tar(.gz|.bz2)\fR
+in the directory specified by the \fBBACKUP_TO\fR option.
+The compression method is chosen to the best that is available.
+Values may be 0 or 1. Defaults to \fI0\fP.
+.TP
+.B BACKUP_SUFFIX
+Select compression algorithm for a home directory backup.
+Can be set to any suffix recognized by \fBtar \-\-auto\-compress\fP.
+Defaults to \fI.gz\fP.
+.TP
+.B BACKUP_TO
+If
+.B BACKUP
+is activated,
+\fBBACKUP_TO\fR specifies the directory the backup is written to.
+Defaults to the current directory.
+.TP
+.B EXCLUDE_FSTYPES
+A regular expression which describes all filesystem types which should
+be excluded when looking for files of a user to be deleted. Defaults
+to "(proc|sysfs|usbfs|devtmpfs|devpts|afs)".
+.TP
+.B NO_DEL_PATHS
+A list of regular expressions, space separated.
+All files to be deleted in course of deleting the home directory or
+user-owned files elsewhere are checked against
+each of these regular expressions.
+If a match is detected, the file is not deleted.
+Defaults to a list of system directories, leaving only \fI/home\fR.
+Therefore only files below \fI/home\fR belonging
+to that specific user are going to be deleted.
+.TP
+.B ONLY_IF_EMPTY
+Only delete a group if there are no users belonging to this group.
+Defaults to 0.
+.TP
+.B REMOVE_ALL_FILES
+Removes all files on the system owned by the user to be removed.
+If this option is activated \fBREMOVE_HOME\fR has no effect.
+Values may be 0 or 1. Defaults to \fI0\fP.
+.TP
+.B REMOVE_HOME
+Removes the home directory and mail spool of the user to be removed.
+Value may be 0 (don't delete) or 1 (do delete). Defaults to \fI0\fP.
+
+.SH FILES
+.I /etc/deluser.conf
+.SH SEE ALSO
+.BR adduser.conf (5),
+.BR delgroup (8),
+.BR deluser (8)

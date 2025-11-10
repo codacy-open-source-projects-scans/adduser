@@ -1,0 +1,1306 @@
+# Translation of adduser program into Basque
+# Copyright: 1994 Debian Association, Inc.
+#            1995 Ian A. Murdock <imurdock@debian.org>
+#            1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+#            1997-1999 Guy Maor <maor@debian.org>
+#            2000-2004 Roland Bauerschmidt <rb@debian.org>
+#            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+#            2005-2009 Jörg Hoh <joerg@joerghoh.de>
+#            2006-2011 Stephen Gran <sgran@debian.org>
+#            2016-2017 Afif Elghraoui <afif@debian.org>
+#            2016 Dr. Helge Kreutzmann <debian@helgefjell.de>
+#            2016 Nis Martensen <nis.martensen@web.de>
+#            2021-2022 Jason Franklin <jason@oneway.dev>
+#            2022 Matt Barry <matt@hazelmollusk.org>
+#            2023 Guillem Jover <guillem@debian.org>
+# License: GPL-2+
+# This file is distributed under the same license as adduser package.↲
+# Copyright Translations:↲
+#     2004, 2006 2008 Piarres Beobide Egaña <pi@beobide.net>
+#     2010, 2016, 2025 Iñaki Larrañaga Murgoitio <dooteo@zundan.com>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: adduser 3.115\n"
+"Report-Msgid-Bugs-To: adduser@packages.debian.org\n"
+"POT-Creation-Date: 2025-09-14 13:07+0200\n"
+"PO-Revision-Date: 2025-03-09 17:45+0100\n"
+"Last-Translator: dooteo <dooteo@zundan.com>\n"
+"Language-Team: Basque <librezale@librezale.eus>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 22.12.3\n"
+"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+
+#: adduser:229
+msgid "Only root may add a user or group to the system."
+msgstr ""
+"root erabiltzaileak bakarrik gehitu ditzake talde edo erabiltzaileak "
+"sistemari."
+
+#: adduser:266 deluser:200
+msgid "No options allowed after names."
+msgstr "Ez da izenen ondoren aukerarik onartzen."
+
+#: adduser:275 deluser:208
+msgid "Only one or two names allowed."
+msgstr "Izen bat edo bi bakarrik onartzen dira."
+
+#: adduser:282
+msgid "Specify only one name in this mode."
+msgstr "Zehaztu izen bat bakarrik modu honetan."
+
+#: adduser:286
+msgid "addgroup with two arguments is an unspecified operation."
+msgstr "Zehaztu gabeko eragiketa addgroup 2 argumentuekin deitzean."
+
+#: adduser:318
+msgid "The --group, --ingroup, and --gid options are mutually exclusive."
+msgstr "--group, --ingroup, eta --gid aukerak ezin dira batera erabili."
+
+#: adduser:403
+msgid "The home dir must be an absolute path."
+msgstr "Karpeta nagusia bide-izen absolutua izan behar da."
+
+#: adduser:445
+#, perl-format
+msgid "The group `%s' already exists, but has a different GID. Exiting."
+msgstr "'%s' taldea badago lehendik ere, baina GID desberdin bat du. Irteten."
+
+#: adduser:451
+#, perl-format
+msgid "The group `%s' already exists as a system group."
+msgstr "'%s' taldea badago lehendik ere, sistemako talde bat bezala."
+
+#: adduser:454
+#, perl-format
+msgid "The group `%s' already exists and is not a system group. Exiting."
+msgstr ""
+"'%s' taldea badago lehendik ere eta ez da sistemako talde bat. Irteten."
+
+#: adduser:459 adduser:499
+#, perl-format
+msgid "The GID `%s' is already in use."
+msgstr "'%s' GIDa dagoeneko erabilita dago."
+
+#: adduser:470
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_SYS_GID - LAST_SYS_GID)."
+msgstr ""
+"Ez dago GID erabilgarririk %d-%d barrutian (LEHEN_SIS_GID - AZKEN_SIS_GID)."
+
+#: adduser:472 adduser:518
+#, perl-format
+msgid "The group `%s' was not created."
+msgstr "'%s' taldea ez da sortu."
+
+#: adduser:478 adduser:523
+#, perl-format
+msgid "Adding group `%s' (GID %d) ..."
+msgstr "'%s' (%d GIDa) taldea gehitzen..."
+
+#: adduser:495 adduser:1232
+#, perl-format
+msgid "The group `%s' already exists."
+msgstr "'%s' taldea badago lehendik ere."
+
+#: adduser:516
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_GID - LAST_GID)."
+msgstr "Ez dago GID erabilgarririk %d-%d barrutian (LEHEN_GID - AZKEN_GID)."
+
+#: adduser:540 deluser:296
+#, perl-format
+msgid "The user `%s' does not exist."
+msgstr "'%s' erabiltzailea ez dago."
+
+#: adduser:544 adduser:1009 adduser:1242 deluser:456 deluser:459
+#, perl-format
+msgid "The group `%s' does not exist."
+msgstr "'%s' taldea ez dago."
+
+#: adduser:549 adduser:1013
+#, perl-format
+msgid "The user `%s' is already a member of `%s'."
+msgstr "'%s' erabiltzailea dagoeneko '%s' taldeko kide da."
+
+#: adduser:553 adduser:1019
+#, perl-format
+msgid "Adding user `%s' to group `%s' ..."
+msgstr "'%s' erabiltzailea '%s' taldeari gehitzen..."
+
+#: adduser:571
+#, perl-format
+msgid "The user `%s' already exists, but is not a system user. Exiting."
+msgstr ""
+"'%s' erabiltzailea badago lehendik ere, eta ez da sistemako erabiltzaile "
+"bat. Irteten."
+
+#: adduser:575
+#, perl-format
+msgid "The user `%s' already exists with a different UID. Exiting."
+msgstr "'%s' erabiltzailea bestelako UID batekin dago. Irteten."
+
+#: adduser:579
+#, perl-format
+msgid "The system user `%s' already exists. Exiting.\n"
+msgstr "Sistemako '%s' erabiltzailea badago lehendik ere. Irteten.\n"
+
+#: adduser:593
+#, perl-format
+msgid ""
+"No UID/GID pair is available in the range %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID)."
+msgstr ""
+"Ez dago UID/GID bikote erabilgarririk %d-%d barrutian (LEHEN_SIS_UID - "
+"AZKEN_SIS_UID)."
+
+#: adduser:596 adduser:612 adduser:712 adduser:826 adduser:832
+#, perl-format
+msgid "The user `%s' was not created."
+msgstr "'%s' erabiltzailea ez da sortu."
+
+#: adduser:609
+#, perl-format
+msgid "No UID is available in the range %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+msgstr ""
+"Ez dago UID erabilgarririk %d-%d barrutian (LEHEN_SIS_UID - AZKEN_SIS_UID)."
+
+#: adduser:620
+msgid "Neither ingroup option nor gid given."
+msgstr "Ez da 'ingroup' aukera edo 'gid'-ik eman."
+
+#: adduser:632
+msgid "Neither ingroup option nor gid given and make_group_also unset."
+msgstr ""
+"Ez da 'ingroup' edo 'gid' aukerarik eman, eta 'make_group_also' ezarri gabe "
+"dago."
+
+#: adduser:636
+#, perl-format
+msgid "Adding system user `%s' (UID %d) ..."
+msgstr "'%s' sistemako erabiltzailea gehitzen (%d UIDa)..."
+
+#: adduser:640
+#, perl-format
+msgid "Adding new group `%s' (GID %d) ..."
+msgstr "'%s' talde berria gehitzen (%d GIDa)..."
+
+#: adduser:651 adduser:897
+#, perl-format
+msgid "The home dir %s you specified already exists.\n"
+msgstr "Zehaztu duzun '%s' karpeta nagusia badago lehendik ere.\n"
+
+#: adduser:654 adduser:900
+#, perl-format
+msgid "The home dir %s you specified can't be accessed: %s\n"
+msgstr "Zehaztu duzun '%s' karpeta nagusia ezin da atzitu: %s\n"
+
+#: adduser:658
+#, perl-format
+msgid "Adding new user `%s' (UID %d) with group `%s' ..."
+msgstr "'%s' erabiltzaile berria (%d UIDa) '%s' taldearekin gehitzen..."
+
+#: adduser:711
+msgid ""
+"USERS_GID and USERS_GROUP both given in configuration. This is an error."
+msgstr ""
+"Bai USERS_GID bai USERS_GROUP eman dira konfigurazioan. Hau errorea da."
+
+#: adduser:802
+#, perl-format
+msgid "Adding user `%s' ..."
+msgstr "'%s' erabiltzailea gehitzen..."
+
+#: adduser:825
+#, perl-format
+msgid "No UID/GID pair is available in the range %d-%d (FIRST_UID - LAST_UID)."
+msgstr ""
+"Ez dago UID/GID bikote erabilgarririk %d-%d barrutian (LEHEN_UID - "
+"AZKEN_UID)."
+
+#: adduser:831
+msgid ""
+"USERGROUPS=no, USER_GID=-1 and USERS_GROUP empty. A user needs a primary "
+"group!"
+msgstr ""
+"USERGROUPS=no, USER_GID=-1 eta USERS_GROUP hutsa. Erabiltzaile batek talde "
+"bat behar du."
+
+#: adduser:871
+msgid "Internal error interpreting parameter combination"
+msgstr "Barne-errorea parametroen konbinazioa interpretatzean"
+
+#: adduser:882
+#, perl-format
+msgid "Adding new group `%s' (%d) ..."
+msgstr "'%s' (%d) talde berria gehitzen..."
+
+#: adduser:885
+#, perl-format
+msgid "Adding new group `%s' (new group ID) ..."
+msgstr "'%s' (talde ID berria) talde berria gehitzen..."
+
+#: adduser:888
+#, perl-format
+msgid "new group '%s' created with GID %d"
+msgstr "'%s' (%d GID) talde berria sortuta"
+
+#: adduser:907
+#, perl-format
+msgid "Adding new user `%s' (%d) with group `%s (%d)' ..."
+msgstr "'%s' (%d) erabiltzaile berria '%s' (%d) taldearekin gehitzen..."
+
+#: adduser:944
+msgid "Permission denied"
+msgstr "Baimena ukatuta"
+
+#: adduser:946
+msgid "invalid combination of options"
+msgstr "aukeren konbinazioa baliogabea"
+
+#: adduser:948
+msgid "unexpected failure, nothing done"
+msgstr "hustekabeko hutsegitea, ez da ezer egin"
+
+#: adduser:950
+msgid "unexpected failure, passwd file missing"
+msgstr "hustekabeko hutsegitea, pasahitzen fitxategia falta da"
+
+#: adduser:952
+msgid "passwd file busy, try again"
+msgstr "pasahitzen fitxategia lanpetuta, saiatu berriro"
+
+#: adduser:954
+msgid "invalid argument to option"
+msgstr "aukeraren argumentua baliogabea"
+
+#: adduser:956
+msgid "wrong password given or password retyped incorrectly"
+msgstr "okerreko pasahitza edo bigarren pasahitza oker idatzia"
+
+#: adduser:958
+#, perl-format
+msgid "unexpected return code %s given from passwd"
+msgstr "passwd-ek ustekabeko '%s' kodea itzuli du"
+
+#: adduser:965
+msgid "Try again? [y/N] "
+msgstr "Saiatu berriro? [b/E] "
+
+#: adduser:991
+msgid "Is the information correct? [Y/n] "
+msgstr "Informazioa zuzena da? [B/e] "
+
+#: adduser:1005
+#, perl-format
+msgid "Adding new user `%s' to supplemental / extra groups `%s' ..."
+msgstr "'%s' erabiltzaile berria '%s' talde gehigarriei gehitzen..."
+
+#: adduser:1029
+#, perl-format
+msgid "Setting quota for user `%s' to values of user `%s' ..."
+msgstr ""
+"'%s' erabiltzailearen kuota '%s' erabiltzailearen balioetara ezartzen..."
+
+#: adduser:1067
+#, perl-format
+msgid "Not creating `%s'."
+msgstr "Ez da '%s' sortuko."
+
+#: adduser:1069
+#, perl-format
+msgid "Not creating home directory `%s' as requested."
+msgstr "Ez da eskatutako '%s' karpeta nagusia sortzen ari."
+
+#: adduser:1072
+#, perl-format
+msgid "The home directory `%s' already exists.  Not touching this directory."
+msgstr ""
+"'%s' karpeta nagusia badago lehendik ere. Ez da direktorio hau ukituko."
+
+#: adduser:1078
+#, perl-format
+msgid ""
+"Warning: The home directory `%s' does not belong to the user you are "
+"currently creating."
+msgstr ""
+"Abisua: '%s' karpeta nagusia ez da unean sortzen ari zaren erabiltzailearena."
+
+#: adduser:1082
+#, perl-format
+msgid "Creating home directory `%s' ..."
+msgstr "'%s' karpeta nagusia sortzen..."
+
+#: adduser:1085
+#, perl-format
+msgid "Couldn't create home directory `%s': %s."
+msgstr "Ezin izan da '%s' karpeta nagusia sortu: %s."
+
+#: adduser:1099
+#, perl-format
+msgid "Copying files from `%s' ..."
+msgstr "'%s'(e)tik fitxategiak kopiatzen..."
+
+#: adduser:1102
+#, perl-format
+msgid "fork for `find' failed: %s"
+msgstr "huts egin du 'find' sardetzean: %s"
+
+#: adduser:1214
+#, perl-format
+msgid "The user `%s' already exists, and is not a system user."
+msgstr ""
+"'%s' erabiltzailea badago lehendik ere, eta ez da sistemako erabiltzaile bat."
+
+#: adduser:1223
+#, perl-format
+msgid "The user `%s' already exists."
+msgstr "'%s' erabiltzailea badago lehendik ere."
+
+#: adduser:1236
+#, perl-format
+msgid "The GID %d is already in use."
+msgstr "%d GIDa dagoeneko erabilita dago."
+
+#: adduser:1246
+#, perl-format
+msgid "No group with GID %d found."
+msgstr "Ez da %d GID-dun talderik aurkitu ."
+
+#: adduser:1315
+#, perl-format
+msgid "%s/%s is neither a dir, file, nor a symlink."
+msgstr "'%s/%s' ez da direktorio, fitxategi edo esteka sinboliko bat."
+
+#: adduser:1348
+msgid ""
+"To avoid ambiguity with numerical UIDs, usernames whichresemble numbers or "
+"negative numbers are not allowed."
+msgstr ""
+
+#: adduser:1356
+msgid "Usernames must not be a single or a double period."
+msgstr "Erabiltzaile-izenek ezin dute puntu bat edo bikoitzik erabili."
+
+#: adduser:1363
+msgid "Usernames must be no more than 32 bytes in length."
+msgstr "Erabiltzaile-izenak ezin dira 32 byte baino luzeagoak izan."
+
+#: adduser:1370
+msgid ""
+"To avoid problems, the username must not start with adash, plus sign, or "
+"tilde, and it must not contain any of thefollowing: colon, comma, slash, or "
+"any whitespace charactersincluding spaces, tabs, and newlines."
+msgstr ""
+
+#: adduser:1385
+msgid ""
+"To avoid problems, the username should consist only ofletters, digits, "
+"underscores, periods, at signs and dashes, andnot start with a dash (as "
+"defined by IEEE Std 1003.1-2001). Forcompatibility with Samba machine "
+"accounts, $ is also supportedat the end of the username.  (Use the `--allow-"
+"all-names' optionto bypass this restriction.)"
+msgstr ""
+
+#: adduser:1395
+msgid "Allowing use of questionable username."
+msgstr "Segurtasun urriko erabiltzaile-izenak gaitzen."
+
+#: adduser:1397
+#, perl-format
+msgid ""
+"Please enter a username matching the regular expressionconfigured via the %s "
+"configuration variable.  Use the`--allow-bad-names' option to relax this "
+"check or reconfigure%s in configuration."
+msgstr ""
+
+#: adduser:1426
+#, perl-format
+msgid "Selecting UID from range %d to %d ...\n"
+msgstr "UIDa hautatzen %d - %d barrutitik...\n"
+
+#: adduser:1449
+#, perl-format
+msgid "Selecting GID from range %d to %d ..."
+msgstr "GIDa hautatzen %d - %d barrutitik..."
+
+#: adduser:1473
+#, perl-format
+msgid "Selecting UID/GID from range %d to %d ..."
+msgstr "UID/GIDa hautatzen %d - %d barrutitik..."
+
+#: adduser:1509
+#, perl-format
+msgid "Removing directory `%s' ..."
+msgstr "'%s' direktorioa kentzen..."
+
+#: adduser:1513 deluser:441
+#, perl-format
+msgid "Removing user `%s' ..."
+msgstr "'%s' erabiltzailea kentzen..."
+
+#: adduser:1517 deluser:483
+#, perl-format
+msgid "Removing group `%s' ..."
+msgstr "'%s' taldea kentzen..."
+
+#: adduser:1527
+#, perl-format
+msgid "Caught a SIG%s."
+msgstr "SIG%s seinalea jaso da."
+
+#: adduser:1533
+#, perl-format
+msgid ""
+"adduser version %s\n"
+"\n"
+msgstr ""
+"adduser %s bertsioa\n"
+"\n"
+
+#: adduser:1534
+msgid ""
+"Adds a user or group to the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"Erabiltzaile edo talde bat gehitzen du sisteman.\n"
+"Copyright-ari buruzko xehetasunak hemen aurki ditzakezu:\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+
+#: adduser:1540 deluser:543
+msgid ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or (at\n"
+"your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but\n"
+"WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, for more details.\n"
+msgstr ""
+"Programa hau software librea da; birbana eta/edo alda dezakezu\n"
+"Free Software Foundation-ek argitaratutako GNU Lizentzia Publiko\n"
+"Orokorraren 2. bertsioan, edo (nahiago baduzu) beste berriago\n"
+"batean, jasotako baldintzak betez gero.\n"
+"\n"
+"Programa hau erabilgarria izango delakoan banatzen da, baina, INOLAKO\n"
+"BERMERIK GABE; era berean, ez da bermatzen beraren EGOKITASUNA\n"
+"MERKATURATZEKO edo HELBURU PARTIKULARRETARAKO ERABILTZEKO.\n"
+"Argibide gehiago nahi izanez gero, ikus GNU Lizentzia Publiko Orokorra\n"
+"/usr/share/common-licenses/GPL.\n"
+
+#: adduser:1554
+msgid ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+"        [--add-extra-groups] [--shell shell]\n"
+"        [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"    Add a regular user\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+"        [--shell shell] [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"   Add a system user\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a user group\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a system group\n"
+"\n"
+"adduser USER GROUP\n"
+"   Add an existing user to an existing group\n"
+msgstr ""
+"adduser [--uid IDa] [--firstuid IDa] [--lastuid IDa]\n"
+"        [--gid  IDa] [--firstgid  IDa] [--lastgid  IDa] [--ingroup taldea]\n"
+"        [--add-extra-groups] [--shell shell-a]\n"
+"        [--comment iruzkina] [--home direktorioa] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf fitxategia] [--quiet] [--verbose] [--debug]\n"
+"        erabiltzailea\n"
+"    Gehitu erabiltzaile arrunt bat\n"
+"\n"
+"adduser --system\n"
+"        [--uid  IDa] [--group] [--ingroup taldea] [--gid  IDa]\n"
+"        [--shell shell-a] [--comment iruzkina] [--home direktorioa] [--no-"
+"create-home]\n"
+"        [--conf fitxategia] [--quiet] [--verbose] [--debug]\n"
+"        erabiltzailea\n"
+"   Gehitu sistemako erabiltzaile bat\n"
+"\n"
+"adduser --group\n"
+"        [--gid IDa] [--firstgid IDa] [--lastgid IDa]\n"
+"        [--conf fitxategia] [--quiet] [--verbose] [--debug]\n"
+"        taldea\n"
+"addgroup\n"
+"        [--gid IDa] [--firstgid IDa] [--lastgid IDa]\n"
+"        [--conf fitxategia] [--quiet] [--verbose] [--debug]\n"
+"        taldea\n"
+"   Gehitu erabiltzaileen talde bat\n"
+"\n"
+"addgroup --system\n"
+"        [--gid IDa]\n"
+"        [--conf fitxategia] [--quiet] [--verbose] [--debug]\n"
+"        taldea\n"
+"   Gehitu sistemako talde bat\n"
+"\n"
+"adduser ERABILTZAILEA TALDEA\n"
+"   Gehitu existitzen den erabiltzaile bat existitzen den talde bati\n"
+
+#: deluser:170
+msgid "Only root may remove a user or group from the system."
+msgstr ""
+"Soilik root erabiltzaileak ezaba ditzake taldeak eta erabiltzaileak "
+"sistematik."
+
+#: deluser:271 deluser:290
+msgid ""
+"In order to use the --remove-home, --remove-all-files, and --backup "
+"features, you need to install the `perl' package. To accomplish that, run "
+"apt-get install perl."
+msgstr ""
+"'perl' paketea instalatu behar da --remove-home, --remove-all-files, eta --"
+"backup aukerak erabiltzeko. Horretarako, exekutatu honako komandoa: apt-get "
+"install perl."
+
+#: deluser:281
+#, perl-format
+msgid "The user `%s' is not a system user. Exiting."
+msgstr "'%s' erabiltzailea ez da sistemako erabiltzailea. Irteten."
+
+#: deluser:285
+#, perl-format
+msgid "The user `%s' does not exist, but --system was given. Exiting."
+msgstr "'%s' erabiltzailea ez da existitzen, baina --system eman da. Irteten."
+
+#: deluser:302
+msgid ""
+"WARNING: You are just about to delete the root account (uid 0). Usually this "
+"is never required as it may render the whole system unusable. If you really "
+"want this, call deluser with parameter --no-preserve-root. Stopping now "
+"without having performed any action."
+msgstr ""
+
+#: deluser:314
+msgid "remove_home or remove_all_files beginning"
+msgstr "karpeta nagusi edo fitxategi guztien ezabaketa hasten"
+
+#: deluser:315
+msgid "Looking for files to backup/remove ..."
+msgstr "Babeskopiak egiteko edo ezabatzeko fitxategiak bilatzen..."
+
+#: deluser:320
+#, perl-format
+msgid "failed to open /proc/mounts: %s"
+msgstr "huts egin du /proc/mounts irekitzean: %s"
+
+#: deluser:333
+#, perl-format
+msgid "failed to close /proc/mounts: %s"
+msgstr "huts egin du /proc/mounts ixtean: %s"
+
+#: deluser:363
+#, perl-format
+msgid "Not backing up/removing `%s', it is a mount point."
+msgstr ""
+"Ez da '%s'(r)en babeskopiarik/ezabatzerik egingo, muntatze puntu bat da."
+
+#: deluser:370
+#, perl-format
+msgid "Not backing up/removing `%s', it matches %s."
+msgstr "Ez da '%s'(r)en babeskopiarik/ezabatzerik egingo, %s(r)ekin bat dator."
+
+#: deluser:385
+#, perl-format
+msgid "Cannot handle special file %s"
+msgstr "Ezin da %s fitxategi berezia kudeatu"
+
+#: deluser:394
+#, perl-format
+msgid "Backing up %d files to be removed to %s ..."
+msgstr "%d fitxategien babes-kopiak %s(e)ra botatzera doaz..."
+
+#: deluser:417
+msgid "Removing files ..."
+msgstr "Fitxategiak ezabatzen..."
+
+#: deluser:426
+msgid "Removing crontab ..."
+msgstr "crontab kentzen..."
+
+#: deluser:433 deluser:436
+#, perl-format
+msgid ""
+"`%s' is not executable. Skipping crontab removal. Package `cron' required."
+msgstr ""
+
+#: deluser:466
+#, perl-format
+msgid "getgrnam `%s' failed: %s. This shouldn't happen."
+msgstr "getgrnam '%s' huts egin du: %s. Hau ez litzateke gertatu behar."
+
+#: deluser:472
+#, perl-format
+msgid "The group `%s' is not a system group. Exiting."
+msgstr "'%s' taldea ez da sistemako talde bat. Irteten."
+
+#: deluser:476
+#, perl-format
+msgid "The group `%s' is not empty!"
+msgstr "'%s' taldea ez dago hutsik!"
+
+#: deluser:495
+#, perl-format
+msgid "The user `%s' does not exist.\n"
+msgstr "'%s' erabiltzailea ez da existitzen.\n"
+
+#: deluser:499
+#, perl-format
+msgid "The group `%s' does not exist.\n"
+msgstr "'%s' taldea ez existitzen.\n"
+
+#: deluser:503
+msgid "You may not remove the user from their primary group."
+msgstr "Ez zenuke erabiltzailea bere talde nagusitik ezabatu behar."
+
+#: deluser:521
+#, perl-format
+msgid "The user `%s' is not a member of group `%s'."
+msgstr "'%s' erabiltzailea ez da '%s' taldeko kide."
+
+#: deluser:525
+#, perl-format
+msgid "Removing user `%s' from group `%s' ..."
+msgstr "'%s' erabiltzailea '%s' taldetik kentzen..."
+
+#: deluser:536
+#, perl-format
+msgid ""
+"deluser version %s\n"
+"\n"
+msgstr ""
+"deluser %s bertsioa\n"
+"\n"
+
+#: deluser:537
+msgid ""
+"Removes users and groups from the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"Erabiltzaileak eta taldeak sistematik kentzen ditu.\n"
+"\n"
+"Copyright-ari buruzko xehetasunak hemen aurki ditzakezu:\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+
+#: deluser:557
+msgid ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to dir] [--backup-suffix str] [--conf file]\n"
+"        [--quiet] [--verbose] [--debug] user\n"
+"\n"
+"  remove a regular user from the system\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"        [--verbose] [--debug] group\n"
+"delgroup [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"         [--verbose] [--debug] group\n"
+"  remove a group from the system\n"
+"\n"
+"deluser [--conf file] [--quiet] [--verbose] [--debug] user group\n"
+"  remove the user from a group\n"
+msgstr ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to dir] [--backup-suffix katea] [--conf fitxategia]\n"
+"        [--quiet] [--verbose] [--debug] erabiltzailea\n"
+"\n"
+"  kendu erabiltzaile arrunt bat sistematik\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf fitxategia] [--quiet]\n"
+"        [--verbose] [--debug] taldea\n"
+"delgroup [--system] [--only-if-empty] [--conf fitxategia] [--quiet]\n"
+"         [--verbose] [--debug] taldea\n"
+"  kendu talde bat sistematik\n"
+"\n"
+"deluser [--conf fitxategia] [--quiet] [--verbose] [--debug] erabiltzailea "
+"taldea\n"
+"  kendu erabiltzailea talde batetik\n"
+
+#: deluser:603 deluser:613
+#, perl-format
+msgid "Backup suffix %s unavailable, using gzip."
+msgstr "%s babeskopien atzizkia ez dago erabilgarri, gzip erabiltzen."
+
+#: AdduserCommon.pm:192
+#, perl-format
+msgid "`%s' does not exist. Using defaults."
+msgstr "'%s' ez da existitzen. Lehenetsiak erabiltzen."
+
+#: AdduserCommon.pm:198
+#, perl-format
+msgid "cannot open configuration file %s: `%s'\n"
+msgstr "ezin da '%s' konfigurazio-fitxategia ireki: `%s'\n"
+
+#: AdduserCommon.pm:208 AdduserCommon.pm:280 AdduserCommon.pm:308
+#, perl-format
+msgid "Couldn't parse `%s', line %d."
+msgstr "Ezin izan da '%s' analizatu, %d. lerroa."
+
+#: AdduserCommon.pm:213
+#, perl-format
+msgid "Unknown variable `%s' at `%s', line %d."
+msgstr "'%s' aldagaia ezezaguna '%s'(e)ko %d. lerroan."
+
+#: AdduserCommon.pm:246
+#, perl-format
+msgid "Cannot read directory `%s'"
+msgstr "Ez da '%s' direktorioa irakurri"
+
+#: AdduserCommon.pm:261
+#, perl-format
+msgid "`%s' does not exist."
+msgstr "'%s' ez da existitzen."
+
+#: AdduserCommon.pm:266
+#, perl-format
+msgid "Cannot open pool file %s: `%s'"
+msgstr "Ezin da %s fitxategi multzoa ireki: '%s'"
+
+#: AdduserCommon.pm:321
+#, perl-format
+msgid "Illegal pool type `%s' reading `%s'."
+msgstr "'%s' multzo mota ilegala '%s' irakurtzean."
+
+#: AdduserCommon.pm:325
+#, perl-format
+msgid "Duplicate name `%s' at `%s', line %d."
+msgstr "'%s' izen bikoiztua '%s'(e)ko %d. lerroan."
+
+#: AdduserCommon.pm:329
+#, perl-format
+msgid "Duplicate ID `%s' at `%s', line %d."
+msgstr "'%s' ID bikoiztua '%s'(e)ko %d. lerroan."
+
+#: AdduserCommon.pm:367
+#, perl-format
+msgid ""
+"`%s' refused the given user name, but --allow-all-names is given. "
+"Continueing."
+msgstr ""
+"'%s'(e) k erabiltzaile-izena ematea ukatu du, baina --allow-all-names eman "
+"da. Jarraitzen."
+
+#: AdduserCommon.pm:370
+#, perl-format
+msgid ""
+"`%s' refused the given user name. This is a bug in adduser. Please file a "
+"bug report."
+msgstr ""
+"'%s'(e) k erabiltzaile-izena ematea ukatu du. Hau adduser-en errore bat da. "
+"Mesedez, eman errore honen berri."
+
+#: AdduserCommon.pm:374 AdduserCommon.pm:388
+#, perl-format
+msgid "`%s' returned error code %d. Exiting."
+msgstr "'%s'(e)k %d errore-kodea itzuli du. Irteten."
+
+#: AdduserCommon.pm:378 AdduserCommon.pm:391
+#, perl-format
+msgid "`%s' exited from signal %d. Exiting."
+msgstr "'%s' %d seinalearekin irten da. Irteten."
+
+#: AdduserCommon.pm:403
+#, perl-format
+msgid "`%s' failed to execute. %s. Continuing."
+msgstr "'%s' huts egin du exekutatzean. %s. Jarraitzen."
+
+#: AdduserCommon.pm:405
+#, perl-format
+msgid "`%s' killed by signal %d. Continuing."
+msgstr "'%s' %d seinalearekin irten da. Jarraitzen."
+
+#: AdduserCommon.pm:407
+#, perl-format
+msgid "`%s' failed with status %d. Continuing."
+msgstr "'%s' huts egin du %d egoerarekin. Jarraitzen."
+
+#: AdduserCommon.pm:449
+#, perl-format
+msgid "Could not find program named `%s' in $PATH."
+msgstr "Ezin izan da '%s' izeneko programarik aurkitu $PATH aldagaian."
+
+#: AdduserCommon.pm:526
+#, perl-format
+msgid "could not open lock file %s!"
+msgstr "ezin izan da '%s' blokeo-fitxategia ireki"
+
+#: AdduserCommon.pm:532
+msgid "Could not obtain exclusive lock, please try again shortly!"
+msgstr "Ezin izan da blokeo esklusiboa lortu. Saiatu berriro geroago!"
+
+#: AdduserCommon.pm:535
+msgid "Waiting for lock to become available..."
+msgstr "Blokeoa erabilgarri bihurtzeko zain..."
+
+#: AdduserCommon.pm:542
+#, perl-format
+msgid "could not seek - %s!"
+msgstr "ezin izan da bilatu - %s!"
+
+#: AdduserCommon.pm:551
+msgid "could not find lock file!"
+msgstr "ezin izan da blokeo-fitxategia aurkitu!"
+
+#: AdduserCommon.pm:556
+#, perl-format
+msgid "could not unlock file %s: %s"
+msgstr "ezin izan da '%s' fitxategia desblokeatu: %s"
+
+#: AdduserCommon.pm:561
+#, perl-format
+msgid "could not close lock file %s: %s"
+msgstr "ezin izan da '%s' blokeo-fitxategia itxi: %s"
+
+#: AdduserLogging.pm:162
+#, perl-format
+msgid "logging to syslog failed: command line %s returned error: %s\n"
+msgstr "huts egin du syslog-en erregistratzean: %s(e)k errora itzuli du: %s\n"
+
+#~ msgid ""
+#~ "To avoid ambiguity with numerical UIDs, usernames which\n"
+#~ "            resemble numbers or negative numbers are not allowed."
+#~ msgstr ""
+#~ "Zenbakizko UIDekin anbiguetatea saihesteko,\n"
+#~ "            antzeko zenbakiak edo zenbaki negatiboak dituzten\n"
+#~ "            erabiltzaile-izenak ez daude baimenduta."
+
+#~ msgid ""
+#~ "To avoid problems, the username must not start with a\n"
+#~ "            dash, plus sign, or tilde, and it must not contain any of "
+#~ "the\n"
+#~ "            following: colon, comma, slash, or any whitespace characters\n"
+#~ "            including spaces, tabs, and newlines."
+#~ msgstr ""
+#~ "Arazoak saihesteko, erabiltzaile-izena ezin da \n"
+#~ "            marratxo, gehi ikurra  edo tilde batekin hasi,             "
+#~ "eta ezin du karaktere hauetarikorik eduki:\n"
+#~ "            bi puntu, koma, barra, zuriune, tabulazio edo \n"
+#~ "            lerro berria."
+
+#~ msgid ""
+#~ "To avoid problems, the username should consist only of\n"
+#~ "            letters, digits, underscores, periods, at signs and dashes, "
+#~ "and\n"
+#~ "            not start with a dash (as defined by IEEE Std 1003.1-2001). "
+#~ "For\n"
+#~ "            compatibility with Samba machine accounts, $ is also "
+#~ "supported\n"
+#~ "            at the end of the username.  (Use the `--allow-all-names' "
+#~ "option\n"
+#~ "            to bypass this restriction.)"
+#~ msgstr ""
+#~ "%s: arazoak saihesteko, erabiltzaile-izena letrak, zenbakiak,\n"
+#~ "            azpimarra eta marratxoz soilik osatuta egon daiteke, eta ezin "
+#~ "da\n"
+#~ "            marratxoz hasi (IEEE 1003.1-2001 estandarrak ezartzen duen "
+#~ "bezala).\n"
+#~ "            Samba sistemarekin bateragarritasuna mantentzeko\n"
+#~ "            '$' ere onartzen da erabiltzaile-izenaren amaieran.\n"
+#~ "            (Erabili --allow-all-names aukera murriztapen hauek "
+#~ "gainditzeko)"
+
+#, perl-format
+#~ msgid ""
+#~ "Please enter a username matching the regular expression\n"
+#~ "            configured via the %s configuration variable.  Use the\n"
+#~ "            `--allow-bad-names' option to relax this check or "
+#~ "reconfigure\n"
+#~ "            %s in configuration."
+#~ msgstr ""
+#~ "Sartu erabiltzale-izenarekin bat datorren adierazpen erregularra\n"
+#~ "            %s konfigurazioko aldagaian ezarrita.\n"
+#~ "            Erabili '--allow-bad-names' aukera egiaztapen hau\n"
+#~ "            malgutzeko edo birkonfiguratu %s konfigurazioan."
+
+#~ msgid ""
+#~ "WARNING: You are just about to delete the root account (uid 0). Usually "
+#~ "this is never required as it may render the whole system unusable. If you "
+#~ "really want this, call deluser with parameter --no-preserve-root. "
+#~ "Stopping now without having performed any action"
+#~ msgstr ""
+#~ "ABISUA: root-en kontua (0 UDIa) ezabatzera zoaz. Hau eskaera oso berezia "
+#~ "da sistema osoa erabilgaitz izatea eragin dezakeelako. Benetan hau "
+#~ "lantzea nahi baduzu, deitu deluser  --no-preserve-root parametroarekin. "
+#~ "Oraintxe bertan gelditzen, inolako ekintzarik burutu gabe."
+
+#, perl-format
+#~ msgid ""
+#~ "`%s' not executed. Skipping crontab removal. Package `cron' required."
+#~ msgstr ""
+#~ "'%s' ez da exekutatu. crontab kentzea alde batera uzten. 'cron' paketea "
+#~ "beharrezkoa da."
+
+#, perl-format
+#~ msgid "Could not find program named `%s' in $PATH.\n"
+#~ msgstr "Ezin izan da '%s' izeneko programa $PATH-en aurkitu.\n"
+
+#, perl-format
+#~ msgid "The group `%s' already exists as a system group. Exiting."
+#~ msgstr "'%s' taldea badago lehendik ere sistemako talde gisa. Irteten."
+
+#, fuzzy
+#~| msgid "Internal error"
+#~ msgid "Internal error"
+#~ msgstr "Barneko errorea"
+
+#, perl-format
+#~ msgid "Not creating home directory `%s'."
+#~ msgstr "Ez da '%s' karpeta nagusia sortuko."
+
+#, perl-format
+#~ msgid "The UID %d is already in use."
+#~ msgstr "%d UIDa dagoeneko erabilita dago."
+
+#, perl-format
+#~ msgid "The GID %d does not exist."
+#~ msgstr "%d GIDa ez dago."
+
+#~ msgid "Enter a group name to remove: "
+#~ msgstr "Idatzi talde-izena kentzeko: "
+
+#~ msgid "Enter a user name to remove: "
+#~ msgstr "Idatzi erabiltzaile-izena kentzeko: "
+
+#, perl-format
+#~ msgid "Backing up files to be removed to %s ..."
+#~ msgstr "Ezabatuko diren fitxategien babeskopia %s(e)n egiten..."
+
+#, perl-format
+#~ msgid "getgrnam `%s' failed. This shouldn't happen."
+#~ msgstr "huts egin du getgrnam '%s' funtzioak. Hau ez zen gertatu beharko."
+
+#~ msgid "Done."
+#~ msgstr "Eginda."
+
+#, perl-format
+#~ msgid "Stopped: %s"
+#~ msgstr "Geldituta: %s"
+
+#~ msgid "WARNING: You are just about to delete the root account (uid 0)"
+#~ msgstr "ABISUA: root kontua (0 UIDa) ezabatzera zoaz"
+
+#~ msgid ""
+#~ "Usually this is never required as it may render the whole system "
+#~ "unusable\n"
+#~ msgstr ""
+#~ "Normalean hau ez zen inoiz egin beharko, sistema osoa erabilezin utziko "
+#~ "baitu\n"
+
+#, fuzzy
+#~| msgid "If you really want this, call deluser with parameter --force"
+#~ msgid ""
+#~ "If you really want this, call deluser with parameter --no-preserve-root\n"
+#~ msgstr "Ziur bazaude, deitu 'deluser' komandoari '--force' aukerarekin"
+
+#~ msgid "Stopping now without having performed any action"
+#~ msgstr "Inolako ekintzarik landu gabe gelditzen"
+
+#, perl-format
+#~ msgid "%s: %s"
+#~ msgstr "%s: %s"
+
+#, perl-format
+#~ msgid "No UID is available in the range %d-%d (FIRST_UID - LAST_UID)."
+#~ msgstr ""
+#~ "Ez dago UID erabilgarririk %d-%d barrutian (LEHEN_UID - AZKEN_UID).\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "Adds a user or group to the system.\n"
+#~| "  \n"
+#~| "Copyright (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~| "Copyright (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~| "                   Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~| "\n"
+#~ msgid ""
+#~ "Adds a user or group to the system.\n"
+#~ "\n"
+#~ "Copyright (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~ "Copyright (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~ "                   Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Erabiltzaile edo talde bat gehitzen dio sistemari.\n"
+#~ "  \n"
+#~ "Copyright-a (C) 1997, 1998, 1999 Guy Maor <maor@debian.org>\n"
+#~ "Copyright-a (C) 1995 Ian Murdock <imurdock@gnu.ai.mit.edu>,\n"
+#~ "                   Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]\n"
+#~| "[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup GROUP | --gid "
+#~| "ID]\n"
+#~| "[--disabled-password] [--disabled-login] [--add_extra_groups] USER\n"
+#~| "   Add a normal user\n"
+#~| "\n"
+#~| "adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid "
+#~| "ID]\n"
+#~| "[--gecos GECOS] [--group | --ingroup GROUP | --gid ID] [--disabled-"
+#~| "password]\n"
+#~| "[--disabled-login] [--add_extra_groups] USER\n"
+#~| "   Add a system user\n"
+#~| "\n"
+#~| "adduser --group [--gid ID] GROUP\n"
+#~| "addgroup [--gid ID] GROUP\n"
+#~| "   Add a user group\n"
+#~| "\n"
+#~| "addgroup --system [--gid ID] GROUP\n"
+#~| "   Add a system group\n"
+#~| "\n"
+#~| "adduser USER GROUP\n"
+#~| "   Add an existing user to an existing group\n"
+#~| "\n"
+#~| "general options:\n"
+#~| "  --quiet | -q      don't give process information to stdout\n"
+#~| "  --force-badname   allow usernames which do not match the\n"
+#~| "                    NAME_REGEX configuration variable\n"
+#~| "  --help | -h       usage message\n"
+#~| "  --version | -v    version number and copyright\n"
+#~| "  --conf | -c FILE  use FILE as configuration file\n"
+#~| "\n"
+#~ msgid ""
+#~ "adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]\n"
+#~ "[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup GROUP | --gid "
+#~ "ID]\n"
+#~ "[--disabled-password] [--disabled-login] [--add_extra_groups] USER\n"
+#~ "   Add a normal user\n"
+#~ "\n"
+#~ "adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid "
+#~ "ID]\n"
+#~ "[--gecos GECOS] [--group | --ingroup GROUP | --gid ID] [--disabled-"
+#~ "password]\n"
+#~ "[--disabled-login] [--add_extra_groups] USER\n"
+#~ "   Add a system user\n"
+#~ "\n"
+#~ "adduser --group GROUP\n"
+#~ "addgroup [--gid=GID] GROUP\n"
+#~ "   Add a user group\n"
+#~ "\n"
+#~ "addgroup --system [--gid=GID] GROUP\n"
+#~ "   Add a system group\n"
+#~ "\n"
+#~ "adduser USER GROUP\n"
+#~ "   Add an existing user to an existing group\n"
+#~ "\n"
+#~ "general options:\n"
+#~ "  --force-badname       allow usernames which do not match the\n"
+#~ "                        NAME_REGEX configuration variable\n"
+#~ "  -q, --quiet           don't give process information to stdout\n"
+#~ "  -d, --debug           be more verbose during execution\n"
+#~ "  -h, --help            usage message\n"
+#~ "  -v, --version         version number and copyright\n"
+#~ "  -c FILE, --conf=FILE  use FILE as configuration file\n"
+#~ "\n"
+#~ msgstr ""
+#~ "adduser [--home DIR] [--shell SHELL] [--no-create-home] [--uid ID]\n"
+#~ "[--firstuid ID] [--lastuid ID] [--gecos GECOS] [--ingroup TALDEA | --gid "
+#~ "ID]\n"
+#~ "[--disabled-password] [--disabled-login] [--add_extra_groups] "
+#~ "ERABILTZAILEA\n"
+#~ "   Gehitu erabiltzaile arrunt bat\n"
+#~ "\n"
+#~ "adduser --system [--home DIR] [--shell SHELL] [--no-create-home] [--uid "
+#~ "ID]\n"
+#~ "[--gecos GECOS] [--group | --ingroup TALDEA | --gid ID] [--disabled-"
+#~ "password]\n"
+#~ "[--disabled-login] [--add_extra_groups] ERABILTZAILEA\n"
+#~ "   Gehitu sistemako erabiltzaile bat\n"
+#~ "\n"
+#~ "adduser --group [--gid ID] TALDEA\n"
+#~ "addgroup [--gid ID] TALDEA\n"
+#~ "   Gehitu erabiltzeren talde bat\n"
+#~ "\n"
+#~ "addgroup --system [--gid ID] TALDEA\n"
+#~ "   Gehitu sistemako talde bat\n"
+#~ "\n"
+#~ "adduser ERABILTZAILEA TALDEA\n"
+#~ "   Gehitu existitzen den erabiltzaile bat existitzen den talde bati\n"
+#~ "\n"
+#~ "aukera orokorraks:\n"
+#~ "  --quiet | -q      ez erakutsi prozesuaren informazioa irteera\n"
+#~ "                             estandarrean (sdtout)\n"
+#~ "  --force-badname NAME_REGEX konfigurazioko aldagaiarekin\n"
+#~ "                                 bat ez datozen erabiltzaile-izenak "
+#~ "baimendu\n"
+#~ "  --help | -h       erabileraren mezua\n"
+#~ "  --version | -v    bertsioaren zenbakia eta copyright-a\n"
+#~ "  --conf | -c FITXATEGIA  erabili FITXATEGIA konfigurazioko fitxategi "
+#~ "gisa\n"
+#~ "\n"
+
+#, perl-format
+#~ msgid "fork for `mount' to parse mount points failed: %s"
+#~ msgstr "huts egin du 'mount' sardetzean muntai-puntuak aztertzeko: %s"
+
+#, perl-format
+#~ msgid "pipe of command `mount' could not be closed: %s"
+#~ msgstr "ezin izan da 'mount' komandoaren tutua itxi: %s"
+
+#, perl-format
+#~ msgid "`%s' still has `%s' as their primary group!"
+#~ msgstr "'%s'(e)k '%s' talde nagusi bezala du!"
+
+#~ msgid "Removes users and groups from the system."
+#~ msgstr "Sistematik erabiltzaile eta taldeak kentzen ditu."
+
+#~ msgid ""
+#~ "Copyright (C) 2000 Roland Bauerschmidt <roland@copyleft.de>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Copyright-a (C) 2000 Roland Bauerschmidt <roland@copyleft.de>\n"
+#~ "\n"
+
+#~ msgid ""
+#~ "deluser is based on adduser by Guy Maor <maor@debian.org>, Ian Murdock\n"
+#~ "<imurdock@gnu.ai.mit.edu> and Ted Hajek <tedhajek@boombox.micro.umn.edu>\n"
+#~ "\n"
+#~ msgstr ""
+#~ "deluser Guy Maor <maor@debian.org>, Ian Murdock "
+#~ "<imurdock@gnu.ai.mit.edu>\n"
+#~ "eta Ted Hajek <tedhajek@boombox.micro.umn.edu> garatutako 'adduser'-en\n"
+#~ "oinarrituta dago\n"
+#~ "\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "deluser USER\n"
+#~| "  remove a normal user from the system\n"
+#~| "  example: deluser mike\n"
+#~| "\n"
+#~| "  --remove-home             remove the users home directory and mail "
+#~| "spool\n"
+#~| "  --remove-all-files        remove all files owned by user\n"
+#~| "  --backup                  backup files before removing.\n"
+#~| "  --backup-to <DIR>         target directory for the backups.\n"
+#~| "                            Default is the current directory.\n"
+#~| "  --system                  only remove if system user\n"
+#~| "\n"
+#~| "delgroup GROUP\n"
+#~| "deluser --group GROUP\n"
+#~| "  remove a group from the system\n"
+#~| "  example: deluser --group students\n"
+#~| "\n"
+#~| "  --system                  only remove if system group\n"
+#~| "  --only-if-empty           only remove if no members left\n"
+#~| "\n"
+#~| "deluser USER GROUP\n"
+#~| "  remove the user from a group\n"
+#~| "  example: deluser mike students\n"
+#~| "\n"
+#~| "general options:\n"
+#~| "  --quiet | -q      don't give process information to stdout\n"
+#~| "  --help | -h       usage message\n"
+#~| "  --version | -v    version number and copyright\n"
+#~| "  --conf | -c FILE  use FILE as configuration file\n"
+#~| "\n"
+#~ msgid ""
+#~ "deluser USER\n"
+#~ "  remove a normal user from the system\n"
+#~ "  example: deluser mike\n"
+#~ "\n"
+#~ "  --remove-home             remove the users home directory and mail "
+#~ "spool\n"
+#~ "  --remove-all-files        remove all files owned by user\n"
+#~ "  --backup                  backup files before removing.\n"
+#~ "  --backup-to <DIR>         target directory for the backups.\n"
+#~ "                            Default is the current directory.\n"
+#~ "  --system                  only remove if system user\n"
+#~ "\n"
+#~ "delgroup GROUP\n"
+#~ "deluser --group GROUP\n"
+#~ "  remove a group from the system\n"
+#~ "  example: deluser --group students\n"
+#~ "\n"
+#~ "  --system                  only remove if system group\n"
+#~ "  --only-if-empty           only remove if no members left\n"
+#~ "\n"
+#~ "deluser USER GROUP\n"
+#~ "  remove the user from a group\n"
+#~ "  example: deluser mike students\n"
+#~ "\n"
+#~ "general options:\n"
+#~ "  -q, --quiet           don't give process information to stdout\n"
+#~ "  -d, --debug           be more verbose\n"
+#~ "  -h, --help            usage message\n"
+#~ "  -v, --version         version number and copyright\n"
+#~ "  -c FILE, --conf=FILE  use FILE as configuration file\n"
+#~ "\n"
+#~ msgstr ""
+#~ "deluser ERABILTZAILEA\n"
+#~ "  kendu erabiltzaile arrunt bat sistematik\n"
+#~ "  adibidea: deluser mikel\n"
+#~ "\n"
+#~ "  --remove-home          kendu erabiltzailearen karpeta nagusia\n"
+#~ "                                   eta posta-lara ezabatu\n"
+#~ "  --remove-all-files        kendu erabiltzaile honen jabegoko\n"
+#~ "                                   fitxategi guztiak\n"
+#~ "  --backup                  egin fitxategien babeskopia ezabatu "
+#~ "aurretik.\n"
+#~ "  --backup-to <DIR>       babeskopien helburuko direktorioa.\n"
+#~ "                                      Lehenetsia uneko direktorioa da.\n"
+#~ "system              sistemako erabiltzailea bada bakarrik kendu\n"
+#~ "\n"
+#~ "delgroup TALDEA\n"
+#~ "deluser --group TALDEA\n"
+#~ "  kendu talde bat sistematik\n"
+#~ "  adibidea: deluser --group ikasleak\n"
+#~ "\n"
+#~ "  --system                sistemako taldea bada bakarrik ezabatu\n"
+#~ "  --only-if-empty       kiderik ez badu bakarrik ezabatu\n"
+#~ "\n"
+#~ "deluser ERABILTZAILEA TALDEA\n"
+#~ "  erabiltzailea taldetik ezabatu\n"
+#~ "  adibidez: deluser mikel ikasleak\n"
+#~ "\n"
+#~ "aukera orokorrak:\n"
+#~ "  --quiet | -q     ez erakutsi prozesuaren informazioa irteera\n"
+#~ "                             estandarrean (sdtout)\n"
+#~ "  --help | -h         erabileraren mezua\n"
+#~ "  --version | -v    bertsioaren zenbakia eta copyright-a\n"
+#~ "  --conf | -c FITXATEGIA      erabili FITXATEGIA konfigurazioko fitxategi "
+#~ "gisa\n"
+#~ "\n"
+
+#, perl-format
+#~ msgid "The user `%s' already exists. Exiting."
+#~ msgstr "'%s' erabiltzailea badago lehendik ere, Irteten."

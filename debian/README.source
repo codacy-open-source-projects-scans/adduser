@@ -1,0 +1,26 @@
+This package is maintained in git on Salsa, using Otto Kekäläinen's
+documentation about how to maintain packages in git.
+
+Branch names follow DEP-14. gbp should be used to build the package.
+
+As a Debian native package, the conventional upstream branches are missing.
+Development takes place in debian/latest.
+
+Please do all development work in a branch, prefixed with your nickname and a
+slash. Please let Marc merge things into debian/latest. Preferably, use Gitlab
+merge requests. Keep your branch rebased on debian/latest so that a
+fast-forward merge is possible.
+
+$ git remote -v show
+origin  git@salsa.debian.org:debian/adduser.git (fetch)
+origin  git@salsa.debian.org:debian/adduser.git (push)
+
+adduser has both its program texts and its manual pages translated. As a
+native package, as the package maintainer you have to take care of both of
+these translations. The generate_pot.sh script regenerated the po files for
+the program translations. To update manpage po files, use po4a --keep 0
+--rm-translations po4a.cfg. Regenerating the pot files will destroy the
+headers in the pot file, so be sure to re-add them manually.
+
+Recommended Reading: https://optimizedbyotto.com/post/debian-packaging-from-git/
+(Otto Kekäläinen)

@@ -1,0 +1,1125 @@
+# Translation of adduser program into Dutch
+# Copyright: 1994 Debian Association, Inc.
+#            1995 Ian A. Murdock <imurdock@debian.org>
+#            1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+#            1997-1999 Guy Maor <maor@debian.org>
+#            2000-2004 Roland Bauerschmidt <rb@debian.org>
+#            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+#            2005-2009 Jörg Hoh <joerg@joerghoh.de>
+#            2006-2011 Stephen Gran <sgran@debian.org>
+#            2016-2017 Afif Elghraoui <afif@debian.org>
+#            2016 Dr. Helge Kreutzmann <debian@helgefjell.de>
+#            2016 Nis Martensen <nis.martensen@web.de>
+#            2021-2022 Jason Franklin <jason@oneway.dev>
+#            2022 Matt Barry <matt@hazelmollusk.org>
+#            2023 Guillem Jover <guillem@debian.org>
+# License: GPL-2+
+# This file is distributed under the same license as the adduser package.
+# Copyright Translations:
+#     2001 Free Software Foundation, Inc.
+#     2001 Guus Sliepen <guus@debian.org>
+#     2022-2025 Frans Spiesschaert <Frans.Spiesschaert@yucom.be>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: adduser 3.145\n"
+"Report-Msgid-Bugs-To: adduser@packages.debian.org\n"
+"POT-Creation-Date: 2025-09-14 13:07+0200\n"
+"PO-Revision-Date: 2025-03-08 20:50+0100\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: adduser:229
+msgid "Only root may add a user or group to the system."
+msgstr "Alleen root mag een gebruiker of groep aan het systeem toevoegen."
+
+#: adduser:266 deluser:200
+msgid "No options allowed after names."
+msgstr "Geen opties toegestaan na namen."
+
+#: adduser:275 deluser:208
+msgid "Only one or two names allowed."
+msgstr "Er zijn maar één of twee namen toegestaan."
+
+#: adduser:282
+msgid "Specify only one name in this mode."
+msgstr "Specificeer slechts één naam in deze modus."
+
+#: adduser:286
+msgid "addgroup with two arguments is an unspecified operation."
+msgstr "addgroup met twee argumenten is een niet-gespecificeerde bewerking."
+
+#: adduser:318
+msgid "The --group, --ingroup, and --gid options are mutually exclusive."
+msgstr "De opties --group, --ingroup en --gid zijn onverenigbaar."
+
+#: adduser:403
+msgid "The home dir must be an absolute path."
+msgstr "De persoonlijke map moet een absoluut pad zijn."
+
+#: adduser:445
+#, perl-format
+msgid "The group `%s' already exists, but has a different GID. Exiting."
+msgstr ""
+"De group `%s' bestaat reeds, maar heeft een ander groepsnummer (GID). "
+"Gestopt."
+
+#: adduser:451
+#, perl-format
+msgid "The group `%s' already exists as a system group."
+msgstr "De groep `%s' bestaat reeds als systeemgroep."
+
+#: adduser:454
+#, perl-format
+msgid "The group `%s' already exists and is not a system group. Exiting."
+msgstr "De groep `%s' bestaat reeds en is geen systeemgroep. Gestopt."
+
+#: adduser:459 adduser:499
+#, perl-format
+msgid "The GID `%s' is already in use."
+msgstr "De GID `%s' is reeds in gebruik."
+
+#: adduser:470
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_SYS_GID - LAST_SYS_GID)."
+msgstr ""
+"Er is geen GID beschikbaar in het bereik %d-%d (FIRST_SYS_GID - "
+"LAST_SYS_GID)."
+
+#: adduser:472 adduser:518
+#, perl-format
+msgid "The group `%s' was not created."
+msgstr "De groep `%s' werd niet aangemaakt."
+
+#: adduser:478 adduser:523
+#, perl-format
+msgid "Adding group `%s' (GID %d) ..."
+msgstr "Toevoegen groep `%s' (GID %d) ..."
+
+#: adduser:495 adduser:1232
+#, perl-format
+msgid "The group `%s' already exists."
+msgstr "De groep `%s' bestaat reeds."
+
+#: adduser:516
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_GID - LAST_GID)."
+msgstr "Geen GID is beschikbaar in het bereik %d-%d (FIRST_GID - LAST_GID)."
+
+#: adduser:540 deluser:296
+#, perl-format
+msgid "The user `%s' does not exist."
+msgstr "De gebruiker `%s' bestaat niet."
+
+#: adduser:544 adduser:1009 adduser:1242 deluser:456 deluser:459
+#, perl-format
+msgid "The group `%s' does not exist."
+msgstr "De groep `%s' bestaat niet."
+
+#: adduser:549 adduser:1013
+#, perl-format
+msgid "The user `%s' is already a member of `%s'."
+msgstr "De gebruiker `%s' is reeds lid van `%s'."
+
+#: adduser:553 adduser:1019
+#, perl-format
+msgid "Adding user `%s' to group `%s' ..."
+msgstr "Toevoegen gebruiker `%s' aan groep `%s'..."
+
+#: adduser:571
+#, perl-format
+msgid "The user `%s' already exists, but is not a system user. Exiting."
+msgstr ""
+"De gebruiker `%s' bestaat reeds, maar is geen systeemgebruiker. Gestopt."
+
+#: adduser:575
+#, perl-format
+msgid "The user `%s' already exists with a different UID. Exiting."
+msgstr ""
+"De gebruiker `%s' bestaat reeds met een ander gebruikersnummer (UID). "
+"Gestopt."
+
+#: adduser:579
+#, perl-format
+msgid "The system user `%s' already exists. Exiting.\n"
+msgstr "De systeemgebruiker `%s' bestaat reeds. Gestopt.\n"
+
+#: adduser:593
+#, perl-format
+msgid ""
+"No UID/GID pair is available in the range %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID)."
+msgstr ""
+"Geen UID/GID-paar beschikbaar in het bereik %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID)."
+
+#: adduser:596 adduser:612 adduser:712 adduser:826 adduser:832
+#, perl-format
+msgid "The user `%s' was not created."
+msgstr "De gebruiker `%s' werd niet aangemaakt."
+
+#: adduser:609
+#, perl-format
+msgid "No UID is available in the range %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+msgstr ""
+"Geen UID beschikbaar in het bereik %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+
+#: adduser:620
+msgid "Neither ingroup option nor gid given."
+msgstr "Noch optie ingroup noch gid opgegeven."
+
+#: adduser:632
+msgid "Neither ingroup option nor gid given and make_group_also unset."
+msgstr ""
+"Noch optie ingroup noch gid opgegeven en make_group_also is niet ingesteld."
+
+#: adduser:636
+#, perl-format
+msgid "Adding system user `%s' (UID %d) ..."
+msgstr "Toevoegen systeemgebruiker `%s' (UID %d) ..."
+
+#: adduser:640
+#, perl-format
+msgid "Adding new group `%s' (GID %d) ..."
+msgstr "Toevoegen nieuwe groep `%s' (GID %d) ..."
+
+#: adduser:651 adduser:897
+#, perl-format
+msgid "The home dir %s you specified already exists.\n"
+msgstr "De persoonlijke map %s die u opgaf bestaat reeds.\n"
+
+#: adduser:654 adduser:900
+#, perl-format
+msgid "The home dir %s you specified can't be accessed: %s\n"
+msgstr "De persoonlijke map %s die u opgaf is niet toegankelijk: %s\n"
+
+#: adduser:658
+#, perl-format
+msgid "Adding new user `%s' (UID %d) with group `%s' ..."
+msgstr "Toevoegen nieuwe gebruiker `%s' (UIDr %d) met groep `%s' ..."
+
+#: adduser:711
+msgid ""
+"USERS_GID and USERS_GROUP both given in configuration. This is an error."
+msgstr ""
+"USERS_GID en USERS_GROUP allebei opgegeven in configuratie. Dit is een fout."
+
+#: adduser:802
+#, perl-format
+msgid "Adding user `%s' ..."
+msgstr "Toevoegen van gebruiker `%s' ..."
+
+#: adduser:825
+#, perl-format
+msgid "No UID/GID pair is available in the range %d-%d (FIRST_UID - LAST_UID)."
+msgstr ""
+"Geen UID/GID-paar beschikbaar in het bereik %d-%d (FIRST_UID - LAST_UID)."
+
+#: adduser:831
+msgid ""
+"USERGROUPS=no, USER_GID=-1 and USERS_GROUP empty. A user needs a primary "
+"group!"
+msgstr ""
+"USERGROUPS=no, USER_GID=-1 en USERS_GROUP is leeg. Een gebruiker moet een "
+"primaire groep hebben!"
+
+#: adduser:871
+msgid "Internal error interpreting parameter combination"
+msgstr "Interne fout bij het interpreteren van parametercombinatie"
+
+#: adduser:882
+#, perl-format
+msgid "Adding new group `%s' (%d) ..."
+msgstr "Toevoegen nieuwe groep `%s' (%d) ..."
+
+#: adduser:885
+#, perl-format
+msgid "Adding new group `%s' (new group ID) ..."
+msgstr "Toevoegen nieuwe groep `%s' (nieuw groeps-ID ..."
+
+#: adduser:888
+#, perl-format
+msgid "new group '%s' created with GID %d"
+msgstr "nieuwe groep '%s' aangemaakt met GID %d"
+
+#: adduser:907
+#, perl-format
+msgid "Adding new user `%s' (%d) with group `%s (%d)' ..."
+msgstr "Toevoegen nieuwe gebruiker `%s' (%d) met groep `%s (%d)' ..."
+
+#: adduser:944
+msgid "Permission denied"
+msgstr "Toegang geweigerd"
+
+#: adduser:946
+msgid "invalid combination of options"
+msgstr "ongeldige combinatie van opties"
+
+#: adduser:948
+msgid "unexpected failure, nothing done"
+msgstr "onverwachte fout, niets gedaan"
+
+#: adduser:950
+msgid "unexpected failure, passwd file missing"
+msgstr "onverwachte fout, bestand passwd ontbreekt"
+
+#: adduser:952
+msgid "passwd file busy, try again"
+msgstr "bestand passwd in gebruik, probeer nog eens"
+
+#: adduser:954
+msgid "invalid argument to option"
+msgstr "ongeldig argument voor de optie"
+
+#: adduser:956
+msgid "wrong password given or password retyped incorrectly"
+msgstr "verkeerd wachtwoord opgegeven of wachtwoord verkeerd opnieuw ingetypt"
+
+#: adduser:958
+#, perl-format
+msgid "unexpected return code %s given from passwd"
+msgstr "onverwachte code %s teruggegeven door passwd"
+
+#: adduser:965
+msgid "Try again? [y/N] "
+msgstr "Opnieuw proberen? [y/N] "
+
+#: adduser:991
+msgid "Is the information correct? [Y/n] "
+msgstr "Is deze informatie correct? [Y/n] "
+
+#: adduser:1005
+#, perl-format
+msgid "Adding new user `%s' to supplemental / extra groups `%s' ..."
+msgstr ""
+"Toevoegen nieuwe gebruiker `%s' aan aanvullende / extra groepen `%s' ..."
+
+#: adduser:1029
+#, perl-format
+msgid "Setting quota for user `%s' to values of user `%s' ..."
+msgstr ""
+"Instellen quota voor gebruiker `%s' instellen op waarden van gebruiker "
+"`%s' ..."
+
+#: adduser:1067
+#, perl-format
+msgid "Not creating `%s'."
+msgstr "`%s' niet aangemaakt."
+
+#: adduser:1069
+#, perl-format
+msgid "Not creating home directory `%s' as requested."
+msgstr "De persoonlijke map `%s' wordt niet aangemaakt zoals gevraagd."
+
+#: adduser:1072
+#, perl-format
+msgid "The home directory `%s' already exists.  Not touching this directory."
+msgstr ""
+"Persoonlijke map `%s' bestaat reeds. Er wordt niet geraakt aan deze map."
+
+#: adduser:1078
+#, perl-format
+msgid ""
+"Warning: The home directory `%s' does not belong to the user you are "
+"currently creating."
+msgstr ""
+"Waarschuwing: de persoonlijke map `%s' is niet van de gebruiker die u aan "
+"het aanmaken bent."
+
+#: adduser:1082
+#, perl-format
+msgid "Creating home directory `%s' ..."
+msgstr "Aanmaken persoonlijke map `%s' ..."
+
+#: adduser:1085
+#, perl-format
+msgid "Couldn't create home directory `%s': %s."
+msgstr "Aanmaken persoonlijke map `%s' is niet gelukt: %s."
+
+#: adduser:1099
+#, perl-format
+msgid "Copying files from `%s' ..."
+msgstr "Bestanden kopiëren van `%s' ..."
+
+#: adduser:1102
+#, perl-format
+msgid "fork for `find' failed: %s"
+msgstr "fork maken voor `find' is mislukt: %s"
+
+#: adduser:1214
+#, perl-format
+msgid "The user `%s' already exists, and is not a system user."
+msgstr "De gebruiker `%s' bestaat reeds, en is geen systeemgebruiker."
+
+#: adduser:1223
+#, perl-format
+msgid "The user `%s' already exists."
+msgstr "De gebruiker `%s' bestaat reeds."
+
+#: adduser:1236
+#, perl-format
+msgid "The GID %d is already in use."
+msgstr "Het GID %d is reeds in gebruik."
+
+#: adduser:1246
+#, perl-format
+msgid "No group with GID %d found."
+msgstr "Geen groep met GID %d gevonden."
+
+#: adduser:1315
+#, perl-format
+msgid "%s/%s is neither a dir, file, nor a symlink."
+msgstr "%s/%s is noch een map, een bestand of een symbolische koppeling."
+
+#: adduser:1348
+msgid ""
+"To avoid ambiguity with numerical UIDs, usernames whichresemble numbers or "
+"negative numbers are not allowed."
+msgstr ""
+
+#: adduser:1356
+msgid "Usernames must not be a single or a double period."
+msgstr "Gebruikersnamen mogen niet uit één of twee punten bestaan."
+
+#: adduser:1363
+msgid "Usernames must be no more than 32 bytes in length."
+msgstr "Gebruikersnamen mogen niet langer zijn dan 32 bytes."
+
+#: adduser:1370
+msgid ""
+"To avoid problems, the username must not start with adash, plus sign, or "
+"tilde, and it must not contain any of thefollowing: colon, comma, slash, or "
+"any whitespace charactersincluding spaces, tabs, and newlines."
+msgstr ""
+
+#: adduser:1385
+msgid ""
+"To avoid problems, the username should consist only ofletters, digits, "
+"underscores, periods, at signs and dashes, andnot start with a dash (as "
+"defined by IEEE Std 1003.1-2001). Forcompatibility with Samba machine "
+"accounts, $ is also supportedat the end of the username.  (Use the `--allow-"
+"all-names' optionto bypass this restriction.)"
+msgstr ""
+
+#: adduser:1395
+msgid "Allowing use of questionable username."
+msgstr "Het gebruik van een twijfelachtige gebruikersnaam toestaan."
+
+#: adduser:1397
+#, perl-format
+msgid ""
+"Please enter a username matching the regular expressionconfigured via the %s "
+"configuration variable.  Use the`--allow-bad-names' option to relax this "
+"check or reconfigure%s in configuration."
+msgstr ""
+
+#: adduser:1426
+#, perl-format
+msgid "Selecting UID from range %d to %d ...\n"
+msgstr "Selecteren van UID uit het bereik %d - %d ...\n"
+
+#: adduser:1449
+#, perl-format
+msgid "Selecting GID from range %d to %d ..."
+msgstr "Selecteren GID tussen %d en %d ..."
+
+#: adduser:1473
+#, perl-format
+msgid "Selecting UID/GID from range %d to %d ..."
+msgstr "Selecteren UID/GID tussen %d en %d ..."
+
+#: adduser:1509
+#, perl-format
+msgid "Removing directory `%s' ..."
+msgstr "Verwijderen map `%s' ..."
+
+#: adduser:1513 deluser:441
+#, perl-format
+msgid "Removing user `%s' ..."
+msgstr "Verwijderen gebruiker `%s' ..."
+
+#: adduser:1517 deluser:483
+#, perl-format
+msgid "Removing group `%s' ..."
+msgstr "Verwijderen groep `%s' ..."
+
+#: adduser:1527
+#, perl-format
+msgid "Caught a SIG%s."
+msgstr "SIG%s ontvangen."
+
+#: adduser:1533
+#, perl-format
+msgid ""
+"adduser version %s\n"
+"\n"
+msgstr ""
+"adduser versie %s\n"
+"\n"
+
+#: adduser:1534
+msgid ""
+"Adds a user or group to the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"Voegt een gebruiker of groep toe aan het systeem.\n"
+"\n"
+"Raadpleeg voor gedetailleerde copyrightinformatie\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+
+#
+#: adduser:1540 deluser:543
+msgid ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or (at\n"
+"your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but\n"
+"WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, for more details.\n"
+msgstr ""
+"Dit programma is vrije software; u kunt het distribueren en/of veranderen\n"
+"onder de bepalingen van de GNU General Public License, uitgegeven door\n"
+"de Free Software Foundation, versie 2 of (naar uw mening)\n"
+"iedere daaropvolgende versie.\n"
+"\n"
+"Dit programma wordt verspreid in de hoop dat het bruikbaar is, maar\n"
+"ZONDER ENIGE GARANTIE; zelfs zonder de garantie dat\n"
+"HET WERKT of HET GESCHIKT IS VOOR EEN DOEL. Bekijk de GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, voor meer details.\n"
+
+#: adduser:1554
+msgid ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+"        [--add-extra-groups] [--shell shell]\n"
+"        [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"    Add a regular user\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+"        [--shell shell] [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"   Add a system user\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a user group\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a system group\n"
+"\n"
+"adduser USER GROUP\n"
+"   Add an existing user to an existing group\n"
+msgstr ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup groep]\n"
+"        [--add-extra-groups] [--shell shell]\n"
+"        [--comment commentaar] [--home map] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+"        gebruiker\n"
+"    Een gewone gebruiker toevoegen\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup groep] [--gid id]\n"
+"        [--shell shell] [--comment commentaar] [--home map] [--no-create-"
+"home]\n"
+"        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+"        gebruiker\n"
+"   Een systeemgebruiker toevoegen\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+"        groep\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+"        groep\n"
+"   Een gebruikersgroep toevoegen\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf bvestand] [--quiet] [--verbose] [--debug]\n"
+"        groep\n"
+"   Een systeemgroep toevoegen\n"
+"\n"
+"adduser GEBRUIKER GROEP\n"
+"   Een bestaande gebruiker toevoegen aan een bestaande groep\n"
+
+#: deluser:170
+msgid "Only root may remove a user or group from the system."
+msgstr "Alleen root kan een gebruiker of groep verwijderen van het systeem."
+
+#
+#: deluser:271 deluser:290
+msgid ""
+"In order to use the --remove-home, --remove-all-files, and --backup "
+"features, you need to install the `perl' package. To accomplish that, run "
+"apt-get install perl."
+msgstr ""
+"Om de functies --remove-home, --remove-all-files en --backup te gebruiken "
+"moet u het pakket `perl' installeren. Voer hiervoor apt-get install perl uit."
+
+#: deluser:281
+#, perl-format
+msgid "The user `%s' is not a system user. Exiting."
+msgstr "De gebruiker `%s' is geen systeemgebruiker. Gestopt."
+
+#: deluser:285
+#, perl-format
+msgid "The user `%s' does not exist, but --system was given. Exiting."
+msgstr "De gebruiker `%s' bestaat niet, maar --system was opgegeven. Gestopt."
+
+#: deluser:302
+msgid ""
+"WARNING: You are just about to delete the root account (uid 0). Usually this "
+"is never required as it may render the whole system unusable. If you really "
+"want this, call deluser with parameter --no-preserve-root. Stopping now "
+"without having performed any action."
+msgstr ""
+
+#: deluser:314
+msgid "remove_home or remove_all_files beginning"
+msgstr "remove_home of remove_all_files beginnen"
+
+#: deluser:315
+msgid "Looking for files to backup/remove ..."
+msgstr "Zoeken naar bestanden om te back-uppen/verwijderen ..."
+
+#: deluser:320
+#, perl-format
+msgid "failed to open /proc/mounts: %s"
+msgstr "kon /proc/mounts niet openen: %s"
+
+#: deluser:333
+#, perl-format
+msgid "failed to close /proc/mounts: %s"
+msgstr "kon /proc/mounts niet sluiten: %s"
+
+#: deluser:363
+#, perl-format
+msgid "Not backing up/removing `%s', it is a mount point."
+msgstr "Geen back-up maken/verwijdering van `%s', het is een koppelpunt."
+
+#: deluser:370
+#, perl-format
+msgid "Not backing up/removing `%s', it matches %s."
+msgstr "Geen back-up maken/verwijdering van `%s', het komt overeen met %s."
+
+#: deluser:385
+#, perl-format
+msgid "Cannot handle special file %s"
+msgstr "Kan het speciale bestand %s niet verwerken"
+
+#: deluser:394
+#, perl-format
+msgid "Backing up %d files to be removed to %s ..."
+msgstr "Back-up maken van %d te verwijderen bestanden naar %s ..."
+
+#: deluser:417
+msgid "Removing files ..."
+msgstr "Verwijderen bestanden ..."
+
+#: deluser:426
+msgid "Removing crontab ..."
+msgstr "Verwijderen crontab ..."
+
+#: deluser:433 deluser:436
+#, perl-format
+msgid ""
+"`%s' is not executable. Skipping crontab removal. Package `cron' required."
+msgstr ""
+
+#: deluser:466
+#, perl-format
+msgid "getgrnam `%s' failed: %s. This shouldn't happen."
+msgstr "getgrnam `%s' mislukte: %s. Dit zou niet mogen gebeuren."
+
+#: deluser:472
+#, perl-format
+msgid "The group `%s' is not a system group. Exiting."
+msgstr "De groep `%s' is geen systeemgroep. Gestopt."
+
+#: deluser:476
+#, perl-format
+msgid "The group `%s' is not empty!"
+msgstr "De groep `%s' is niet leeg!"
+
+#: deluser:495
+#, perl-format
+msgid "The user `%s' does not exist.\n"
+msgstr "De gebruiker `%s' bestaat niet.\n"
+
+#: deluser:499
+#, perl-format
+msgid "The group `%s' does not exist.\n"
+msgstr "De groep `%s' bestaat niet.\n"
+
+#: deluser:503
+msgid "You may not remove the user from their primary group."
+msgstr "U mag geen gebruiker verwijderen uit zijn/haar primaire groep."
+
+#: deluser:521
+#, perl-format
+msgid "The user `%s' is not a member of group `%s'."
+msgstr "De gebruiker `%s' is geen lid van groep `%s'."
+
+#: deluser:525
+#, perl-format
+msgid "Removing user `%s' from group `%s' ..."
+msgstr "Verwijderen van gebruiker `%s' uit groep `%s'..."
+
+#: deluser:536
+#, perl-format
+msgid ""
+"deluser version %s\n"
+"\n"
+msgstr ""
+"deluser versie %s\n"
+"\n"
+
+#: deluser:537
+msgid ""
+"Removes users and groups from the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"Verwijdert gebruikers en groepen van het systeem.\n"
+"\n"
+"Raadpleeg voor uitgebreide copyrightinformatie\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+
+#: deluser:557
+msgid ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to dir] [--backup-suffix str] [--conf file]\n"
+"        [--quiet] [--verbose] [--debug] user\n"
+"\n"
+"  remove a regular user from the system\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"        [--verbose] [--debug] group\n"
+"delgroup [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"         [--verbose] [--debug] group\n"
+"  remove a group from the system\n"
+"\n"
+"deluser [--conf file] [--quiet] [--verbose] [--debug] user group\n"
+"  remove the user from a group\n"
+msgstr ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to map] [--backup-suffix tekst] [--conf bestand]\n"
+"        [--quiet] [--verbose] [--debug] gebruiker\n"
+"\n"
+"  een gewone gebruiker verwijderen van het systeem\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf bestand] [--quiet]\n"
+"        [--verbose] [--debug] groep\n"
+"delgroup [--system] [--only-if-empty] [--conf bestand] [--quiet]\n"
+"         [--verbose] [--debug] groep\n"
+"  een groep verwijderen van het systeem\n"
+"\n"
+"deluser [--conf bestand] [--quiet] [--verbose] [--debug] gebruiker groep\n"
+"  de gebruiker uit een groep verwijderen\n"
+
+#: deluser:603 deluser:613
+#, perl-format
+msgid "Backup suffix %s unavailable, using gzip."
+msgstr "Back-upsuffix %s niet beschikbaar, gzip wordt gebruikt."
+
+#: AdduserCommon.pm:192
+#, perl-format
+msgid "`%s' does not exist. Using defaults."
+msgstr "`%s' bestaat niet. Standaardinstellingen worden gebruikt."
+
+#: AdduserCommon.pm:198
+#, perl-format
+msgid "cannot open configuration file %s: `%s'\n"
+msgstr "kan configuratiebestand %s niet openen: `%s'\n"
+
+#: AdduserCommon.pm:208 AdduserCommon.pm:280 AdduserCommon.pm:308
+#, perl-format
+msgid "Couldn't parse `%s', line %d."
+msgstr "Kon `%s' niet verwerken, regel %d."
+
+#: AdduserCommon.pm:213
+#, perl-format
+msgid "Unknown variable `%s' at `%s', line %d."
+msgstr "Onbekende variabele `%s' op `%s', regel %d."
+
+#: AdduserCommon.pm:246
+#, perl-format
+msgid "Cannot read directory `%s'"
+msgstr "Kan map `%s' niet lezen."
+
+#: AdduserCommon.pm:261
+#, perl-format
+msgid "`%s' does not exist."
+msgstr "`%s' bestaat niet."
+
+#: AdduserCommon.pm:266
+#, perl-format
+msgid "Cannot open pool file %s: `%s'"
+msgstr "Kan poolbestand %s niet openen: `%s'"
+
+#: AdduserCommon.pm:321
+#, perl-format
+msgid "Illegal pool type `%s' reading `%s'."
+msgstr "Ongeldig pooltype `%s' dat `%s' leest."
+
+#: AdduserCommon.pm:325
+#, perl-format
+msgid "Duplicate name `%s' at `%s', line %d."
+msgstr "Dubbele naam `%s' op `%s', regel %d."
+
+#: AdduserCommon.pm:329
+#, perl-format
+msgid "Duplicate ID `%s' at `%s', line %d."
+msgstr "Dubbele ID `%s' op `%s', regel %d."
+
+#: AdduserCommon.pm:367
+#, perl-format
+msgid ""
+"`%s' refused the given user name, but --allow-all-names is given. "
+"Continueing."
+msgstr ""
+"`%s' weigerde de opgegeven gebruikersnaam, maar --allow-all-names is "
+"opgegeven. Er wordt doorgegaan."
+
+#: AdduserCommon.pm:370
+#, perl-format
+msgid ""
+"`%s' refused the given user name. This is a bug in adduser. Please file a "
+"bug report."
+msgstr ""
+"`%s' weigerde de opgegeven gebruikersnaam. Dit is een bug in adduser. Dien "
+"een bugrapport in."
+
+#: AdduserCommon.pm:374 AdduserCommon.pm:388
+#, perl-format
+msgid "`%s' returned error code %d. Exiting."
+msgstr "`%s' gaf foutcode %d terug. Gestopt."
+
+#: AdduserCommon.pm:378 AdduserCommon.pm:391
+#, perl-format
+msgid "`%s' exited from signal %d. Exiting."
+msgstr "`%s' stopte door signaal %d. Gestopt."
+
+#: AdduserCommon.pm:403
+#, perl-format
+msgid "`%s' failed to execute. %s. Continuing."
+msgstr "`%s' kon %s niet uitvoeren. Doorgaan."
+
+#: AdduserCommon.pm:405
+#, perl-format
+msgid "`%s' killed by signal %d. Continuing."
+msgstr "`%s' gestopt door signaal %d. Doorgaan."
+
+#: AdduserCommon.pm:407
+#, perl-format
+msgid "`%s' failed with status %d. Continuing."
+msgstr "`%s' mislukte met status %d. Doorgaan."
+
+#: AdduserCommon.pm:449
+#, perl-format
+msgid "Could not find program named `%s' in $PATH."
+msgstr "Geen programma met de naam `%s' gevonden in $PATH."
+
+#: AdduserCommon.pm:526
+#, perl-format
+msgid "could not open lock file %s!"
+msgstr "kon grendelbestand %s niet openen!"
+
+#: AdduserCommon.pm:532
+msgid "Could not obtain exclusive lock, please try again shortly!"
+msgstr "Kon geen exclusief slot verkrijgen, probeer het binnenkort opnieuw!"
+
+#: AdduserCommon.pm:535
+msgid "Waiting for lock to become available..."
+msgstr "Wachten tot slot beschikbaar komt..."
+
+#: AdduserCommon.pm:542
+#, perl-format
+msgid "could not seek - %s!"
+msgstr "kon - %s niet opzoeken!"
+
+#: AdduserCommon.pm:551
+msgid "could not find lock file!"
+msgstr "kon grendelbestand niet vinden!"
+
+#: AdduserCommon.pm:556
+#, perl-format
+msgid "could not unlock file %s: %s"
+msgstr "kon bestand %s niet ontgrendelen: %s"
+
+#: AdduserCommon.pm:561
+#, perl-format
+msgid "could not close lock file %s: %s"
+msgstr "kon grendelbestand %s niet sluiten: %s"
+
+#: AdduserLogging.pm:162
+#, perl-format
+msgid "logging to syslog failed: command line %s returned error: %s\n"
+msgstr "Loggen naar syslog is mislukt: opdrachtregel %s gaf fout: %s\n"
+
+#~ msgid ""
+#~ "To avoid ambiguity with numerical UIDs, usernames which\n"
+#~ "            resemble numbers or negative numbers are not allowed."
+#~ msgstr ""
+#~ "Om onduidelijkheid over numerieke UID's te voorkomen,\n"
+#~ "            zijn gebruikersnamen die op cijfers of negatieve\n"
+#~ "            getallen lijken, niet toegestaan."
+
+#~ msgid ""
+#~ "To avoid problems, the username must not start with a\n"
+#~ "            dash, plus sign, or tilde, and it must not contain any of "
+#~ "the\n"
+#~ "            following: colon, comma, slash, or any whitespace characters\n"
+#~ "            including spaces, tabs, and newlines."
+#~ msgstr ""
+#~ "Om problemen te voorkomen, mag de gebruikersnaam niet\n"
+#~ "   beginnen met een streepje, plusteken of tilde, en mag hij geen\n"
+#~ "   van de volgende tekens bevatten: dubbele punt, komma, schuine\n"
+#~ "   streep of witruimte, inclusief spatie, tab en regeleinde."
+
+#~ msgid ""
+#~ "To avoid problems, the username should consist only of\n"
+#~ "            letters, digits, underscores, periods, at signs and dashes, "
+#~ "and\n"
+#~ "            not start with a dash (as defined by IEEE Std 1003.1-2001). "
+#~ "For\n"
+#~ "            compatibility with Samba machine accounts, $ is also "
+#~ "supported\n"
+#~ "            at the end of the username.  (Use the `--allow-all-names' "
+#~ "option\n"
+#~ "            to bypass this restriction.)"
+#~ msgstr ""
+#~ "Om problemen te voorkomen, mag de gebruikersnaam alleen\n"
+#~ "   bestaan uit letters, cijfers, onderstrepingstekens, punten,\n"
+#~ "   at-tekens en streepjes, en niet beginnen met een streepje\n"
+#~ "   (zoals gedefinieerd door IEEE Std 1003.1-2001). Voor compatibiliteit\n"
+#~ "   met Samba-machineaccounts wordt $ ook ondersteund aan het einde\n"
+#~ "   van de gebruikersnaam. (Gebruik de optie `--allow-all-names'\n"
+#~ "   om deze beperking te omzeilen.)"
+
+#, perl-format
+#~ msgid ""
+#~ "Please enter a username matching the regular expression\n"
+#~ "            configured via the %s configuration variable.  Use the\n"
+#~ "            `--allow-bad-names' option to relax this check or "
+#~ "reconfigure\n"
+#~ "            %s in configuration."
+#~ msgstr ""
+#~ "Geef een gebruikersnaam op die voldoet aan de reguliere\n"
+#~ "   expressie die ingesteld is via de configuratievariabele %s.\n"
+#~ "   Gebruik de optie `--allow-bad-names' om deze controle te\n"
+#~ "   versoepelen of configureer %s opnieuw in de configuratie."
+
+#~ msgid ""
+#~ "WARNING: You are just about to delete the root account (uid 0). Usually "
+#~ "this is never required as it may render the whole system unusable. If you "
+#~ "really want this, call deluser with parameter --no-preserve-root. "
+#~ "Stopping now without having performed any action"
+#~ msgstr ""
+#~ "WAARSCHUWING: U staat op het punt het root-account te verwijderen (uid "
+#~ "0). Dit is normaal gesproken nooit nodig omdat dit het hele systeem "
+#~ "onbruikbaar kan maken. Als u dit echt wilt, voer dan deluser uit met de "
+#~ "parameter --no-preserve-root. Er wordt nu gestopt zonder enige actie te "
+#~ "hebben uitgevoerd"
+
+#, perl-format
+#~ msgid ""
+#~ "`%s' not executed. Skipping crontab removal. Package `cron' required."
+#~ msgstr ""
+#~ "`%s' niet uitgevoerd. Verwijdering van crontab overgeslagen. Pakket "
+#~ "`cron' is vereist."
+
+#, perl-format
+#~ msgid "Could not find program named `%s' in $PATH.\n"
+#~ msgstr "Kon het programma genaamd `%s' niet vinden in $PATH.\n"
+
+#, perl-format
+#~ msgid "The group `%s' already exists as a system group. Exiting."
+#~ msgstr "De groep `%s' bestaat reeds als systeemgroep. Gestopt."
+
+#~ msgid "Internal error"
+#~ msgstr "Interne fout"
+
+#, perl-format
+#~ msgid "Not creating home directory `%s'."
+#~ msgstr "Persoonlijke map `%s' is niet aangemaakt."
+
+#, perl-format
+#~ msgid "The UID %d is already in use."
+#~ msgstr "Het UID %d is reeds in gebruik."
+
+#, perl-format
+#~ msgid "The GID %d does not exist."
+#~ msgstr "Het GID %d bestaat niet."
+
+#~ msgid ""
+#~ "To avoid ambiguity with numerical UIDs, usernames which\n"
+#~ "            consist of only digits are not allowed."
+#~ msgstr ""
+#~ "Om verwarring met numerieke UID's te vermijden, zijn enkel\n"
+#~ " uit cijfers bestaande gebruikersnamen niet toegestaan."
+
+#~ msgid ""
+#~ "Usernames must be no more than 32 bytes in length;\n"
+#~ "            note that if you are using Unicode characters, the character\n"
+#~ "            limit will be less than 32."
+#~ msgstr ""
+#~ "Een gebruikersnaam mag maximaal 32 bytes lang zijn;\n"
+#~ "    merk op dat wanneer u Unicode-tekens gebruikt,\n"
+#~ "    het maximaal aantal tekens minder dan 32 is."
+
+#~ msgid ""
+#~ "adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+#~ "        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+#~ "        [--add-extra-groups] [--shell shell]\n"
+#~ "        [--comment comment] [--home dir] [--no-create-home]\n"
+#~ "        [--allow-all-names] [--allow-bad-names]\n"
+#~ "        [--disabled-password] [--disabled-login]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        user\n"
+#~ "    Add a normal user\n"
+#~ "\n"
+#~ "adduser --system\n"
+#~ "        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+#~ "        [--shell shell] [--comment comment] [--home dir] [--no-create-"
+#~ "home]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        user\n"
+#~ "   Add a system user\n"
+#~ "\n"
+#~ "adduser --group\n"
+#~ "        [--gid ID] [--firstgid id] [--lastgid id]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        group\n"
+#~ "addgroup\n"
+#~ "        [--gid ID] [--firstgid id] [--lastgid id]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        group\n"
+#~ "   Add a user group\n"
+#~ "\n"
+#~ "addgroup --system\n"
+#~ "        [--gid id]\n"
+#~ "        [--conf file] [--quiet] [--verbose] [--debug]\n"
+#~ "        group\n"
+#~ "   Add a system group\n"
+#~ "\n"
+#~ "adduser USER GROUP\n"
+#~ "   Add an existing user to an existing group\n"
+#~ msgstr ""
+#~ "adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+#~ "        [--gid id] [--firstgid id] [--lastgid id] [--ingroup groep]\n"
+#~ "        [--add-extra-groups] [--shell shell]\n"
+#~ "        [--comment commentaar] [--home map] [--no-create-home]\n"
+#~ "        [--allow-all-names] [--allow-bad-names]\n"
+#~ "        [--disabled-password] [--disabled-login]\n"
+#~ "        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+#~ "        gebruiker\n"
+#~ "    Een gewone gebruiker toevoegen\n"
+#~ "\n"
+#~ "adduser --system\n"
+#~ "        [--uid id] [--group] [--ingroup groep] [--gid id]\n"
+#~ "        [--shell shell] [--comment commentaar] [--home map] [--no-create-"
+#~ "home]\n"
+#~ "        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+#~ "        gebruiker\n"
+#~ "   Een systeemgebruiker toevoegen\n"
+#~ "\n"
+#~ "adduser --group\n"
+#~ "        [--gid ID] [--firstgid id] [--lastgid id]\n"
+#~ "        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+#~ "        groep\n"
+#~ "addgroup\n"
+#~ "        [--gid ID] [--firstgid id] [--lastgid id]\n"
+#~ "        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+#~ "        groep\n"
+#~ "   Een gebruikersgroep toevoegen\n"
+#~ "\n"
+#~ "addgroup --system\n"
+#~ "        [--gid id]\n"
+#~ "        [--conf bestand] [--quiet] [--verbose] [--debug]\n"
+#~ "        groep\n"
+#~ "   Een systeemgroep toevoegen\n"
+#~ "\n"
+#~ "adduser GEBRUIKER GROEP\n"
+#~ "   Een bestaande gebruiker aan een bestaande groep toevoegen\n"
+
+#~ msgid "Enter a group name to remove: "
+#~ msgstr "Voer een te verwijderen groepsnaam in: "
+
+#~ msgid "Enter a user name to remove: "
+#~ msgstr "Voer een te verwijderen gebruikersnaam in: "
+
+#, perl-format
+#~ msgid "Backing up files to be removed to %s ..."
+#~ msgstr "Back-up maken van te verwijderen bestanden naar %s ..."
+
+#, perl-format
+#~ msgid "getgrnam `%s' failed. This shouldn't happen."
+#~ msgstr "getgrnam `%s' mislukt. Dit zou niet mogen gebeuren."
+
+#~ msgid ""
+#~ "deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+#~ "        [--backup-to dir] [--backup-suffix str] [--conf file]\n"
+#~ "        [--quiet] [--verbose] [--debug] user\n"
+#~ "\n"
+#~ "  remove a normal user from the system\n"
+#~ "\n"
+#~ "deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+#~ "        [--verbose] [--debug] group\n"
+#~ "delgroup [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+#~ "         [--verbose] [--debug] group\n"
+#~ "  remove a group from the system\n"
+#~ "\n"
+#~ "deluser [--conf file] [--quiet] [--verbose] [--debug] user group\n"
+#~ "  remove the user from a group\n"
+#~ msgstr ""
+#~ "deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+#~ "        [--backup-to map] [--backup-suffix tknrks] [--conf bestand]\n"
+#~ "        [--quiet] [--verbose] [--debug] gebruiker\n"
+#~ "\n"
+#~ "  een gewone gebruiker verwijderen van het systeem\n"
+#~ "\n"
+#~ "deluser --group [--system] [--only-if-empty] [--conf bestand] [--quiet]\n"
+#~ "        [--verbose] [--debug] groep\n"
+#~ "delgroup [--system] [--only-if-empty] [--conf bestand] [--quiet]\n"
+#~ "         [--verbose] [--debug] groep\n"
+#~ "  een groep verwijderen van het systeem\n"
+#~ "\n"
+#~ "deluser [--conf bestand] [--quiet] [--verbose] [--debug] gebruiker groep\n"
+#~ "  de gebruiker verwijderen uit een groep\n"

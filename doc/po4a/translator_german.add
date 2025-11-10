@@ -1,0 +1,10 @@
+PO4A-HEADER:mode=after;position=^\.SH "SIEHE AUCH";beginboundary=^\.SH
+.SH ÜBERSETZER
+Diese Handbuchseite wurde von Martin Eberhard Schauer, Holger Wansing
+und Helge Kreutzmann 2010, 2016 und 2023 übersetzt.
+
+Falls Sie Fehler in dieser Übersetzung finden, schicken Sie bitte eine
+E-Mail an die Mailingliste der Übersetzer:
+.nh
+<\fIdebian\-l10n\-german@lists.debian.org\fR>,
+.hy

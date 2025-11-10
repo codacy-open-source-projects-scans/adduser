@@ -1,0 +1,19 @@
+Test-Command: /usr/bin/prove -v debian/tests/f
+Depends: adduser, cron, perl, login
+Restrictions: needs-root
+Features: test-name=package-test-suite
+
+Test-Command: cd testsuite/ && ./runsuite.sh
+Depends: adduser, cron, perl, login
+Restrictions: allow-stderr breaks-testbed needs-root
+Features: test-name=upstream-test-suite-full
+
+Test-Command: cd testsuite/ && ./runsuite.sh
+Depends: adduser, login
+Restrictions: allow-stderr breaks-testbed needs-root
+Features: test-name=upstream-test-suite-minimal
+
+Test-Command: /usr/sbin/adduser --system austc3
+Depends: adduser, login
+Restrictions: needs-root
+Features: test-name=basic-system-user
