@@ -17,21 +17,20 @@
 # This file is distributed under the same license as the adduser package.
 # Copyright (C) 2006, 2010 Free Software Foundation, Inc.
 # Martin Bagge <brother@bsnet.se>, 2010.
-# Daniel Nylander <po@danielnylander.se>, 2006.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: adduser 3.146\n"
-"POT-Creation-Date: 2025-09-14 13:09+0200\n"
-"PO-Revision-Date: 2010-11-12 18:06+0100\n"
-"Last-Translator: Martin Bagge / brother <brother@bsnet.se>\n"
-"Language-Team: Swedish <debian-l10n-swedihs@lists.debian.org>\n"
+"POT-Creation-Date: 2025-11-13 14:29+0100\n"
+"PO-Revision-Date: 2025-11-13 14:40+0100\n"
+"Last-Translator: Daniel Nylander <github@danielnylander.se>\n"
+"Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Swedish\n"
-"X-Poedit-Country: Sweden\n"
+"X-Generator: Poedit 3.8\n"
 
 # type: TH
 #. type: TH
@@ -59,10 +58,8 @@ msgstr "NAMN"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:19
-#, fuzzy
-#| msgid "adduser, addgroup - add a user or group to the system"
 msgid "adduser, addgroup - add or manipulate users or groups"
-msgstr "adduser, addgroup - lägg till en användare eller grupp till systemet"
+msgstr "adduser, addgroup - lägg till eller hantera användare eller grupper"
 
 # type: SH
 #. type: SH
@@ -109,7 +106,7 @@ msgstr "--comment"
 #: ../adduser.8:24 ../adduser.8:48
 #, no-wrap
 msgid "comment"
-msgstr ""
+msgstr "kommentar"
 
 # type: TP
 #. type: OP
@@ -126,7 +123,7 @@ msgstr "--conf"
 #: ../deluser.8:52 ../deluser.8:65 ../deluser.8:77
 #, no-wrap
 msgid "file"
-msgstr ""
+msgstr "fil"
 
 # type: TP
 #. type: OP
@@ -165,7 +162,7 @@ msgstr "--firstgid"
 #: ../adduser.8:94
 #, no-wrap
 msgid "id"
-msgstr ""
+msgstr "id"
 
 # type: TP
 #. type: OP
@@ -204,10 +201,9 @@ msgstr "--ingroup"
 # type: TP
 #. type: OP
 #: ../adduser.8:33 ../adduser.8:54
-#, fuzzy, no-wrap
-#| msgid "B<--group>"
+#, no-wrap
 msgid "group"
-msgstr "B<--group>"
+msgstr "grupp"
 
 # type: TP
 #. type: OP
@@ -272,7 +268,7 @@ msgstr "--verbose"
 #: ../deluser.8:57 ../deluser.8:70 ../deluser.8:81
 #, no-wrap
 msgid "--stdoutmsglevel"
-msgstr ""
+msgstr "--stdoutmsglevel"
 
 #. type: OP
 #: ../adduser.8:41 ../adduser.8:42 ../adduser.8:43 ../adduser.8:60
@@ -286,7 +282,7 @@ msgstr ""
 #: ../deluser.8:83
 #, no-wrap
 msgid "prio"
-msgstr ""
+msgstr "prio"
 
 #. type: OP
 #: ../adduser.8:42 ../adduser.8:61 ../adduser.8:75 ../adduser.8:88
@@ -294,7 +290,7 @@ msgstr ""
 #: ../deluser.8:58 ../deluser.8:71 ../deluser.8:82
 #, no-wrap
 msgid "--stderrmsglevel"
-msgstr ""
+msgstr "--stderrmsglevel"
 
 #. type: OP
 #: ../adduser.8:43 ../adduser.8:62 ../adduser.8:76 ../adduser.8:89
@@ -302,12 +298,12 @@ msgstr ""
 #: ../deluser.8:59 ../deluser.8:72 ../deluser.8:83
 #, no-wrap
 msgid "--logmsglevel"
-msgstr ""
+msgstr "--logmsglevel"
 
 #. type: Plain text
 #: ../adduser.8:45 ../adduser.8:64 ../deluser.8:31 ../deluser.8:48
 msgid "B<user>"
-msgstr ""
+msgstr "B<user>"
 
 # type: TP
 #. type: TP
@@ -334,16 +330,14 @@ msgstr "B<--group>"
 #: ../adduser.8:70 ../adduser.8:83
 #, no-wrap
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 # type: TP
 #. type: Plain text
 #: ../adduser.8:78 ../adduser.8:91 ../adduser.8:102 ../deluser.8:61
 #: ../deluser.8:74
-#, fuzzy
-#| msgid "B<--group>"
 msgid "B<group>"
-msgstr "B<--group>"
+msgstr "B<group>"
 
 #. type: SY
 #: ../adduser.8:79 ../adduser.8:92
@@ -354,10 +348,8 @@ msgstr "addgroup"
 # type: SS
 #. type: Plain text
 #: ../adduser.8:113 ../deluser.8:86
-#, fuzzy
-#| msgid "Add a user group"
 msgid "B<user> B<group>"
-msgstr "Lägg till en användargrupp"
+msgstr "B<user> B<group>"
 
 # type: TP
 #. type: TP
@@ -384,15 +376,6 @@ msgstr "BESKRIVNING"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:132
-#, fuzzy
-#| msgid ""
-#| "B<adduser> and B<addgroup> add users and groups to the system according "
-#| "to command line options and configuration information in I</etc/"
-#| "adduser.conf>.  They are friendlier front ends to the low level tools "
-#| "like B<useradd,> B<groupadd> and B<usermod> programs, by default choosing "
-#| "Debian policy conformant UID and GID values, creating a home directory "
-#| "with skeletal configuration, running a custom script, and other "
-#| "features.  B<adduser> and B<addgroup> can be run in one of five modes:"
 msgid ""
 "B<adduser> and B<addgroup> add users and groups to the system according to "
 "command line options and configuration information in I</etc/adduser.conf>.  "
@@ -402,13 +385,13 @@ msgid ""
 "create a home directory with skeletal configuration, run a custom script, "
 "and have other features."
 msgstr ""
-"B<adduser> och B<addgroup> lägger till användare och grupper till systemet "
-"enligt kommandoradens flaggor och konfigurationsinformation i I</etc/"
-"adduser.conf>.  De är vänliga gränssnitt till lågnivåverktyg som B<useradd,> "
-"B<groupadd> och B<usermod>, väljer som standard giltiga värden för UID och "
-"GID enligt Debians policy, skapar hemkatalogeer med skelettkonfiguration, "
-"kör egendefinierade skript och andra funktioner. B<adduser> och B<addgroup> "
-"kan köras i ett av fem lägen:"
+"B<adduser> och B<addgroup> lägger till användare och grupper i systemet "
+"enligt kommandoradsflaggor och konfigurationsinformation i I</etc/"
+"adduser.conf>.  De är mer Debian-specifika frontend-program till B<useradd>, "
+"B<groupadd> och B<usermod>, som är mer distributionsoberoende.  B<adduser> "
+"och B<addgroup> väljer som standard UID- och GID-värden som överensstämmer "
+"med Debians policy, skapar en hemkatalog med skelettkonfiguration, kör ett "
+"anpassat skript och har andra funktioner."
 
 #. type: Plain text
 #: ../adduser.8:143
@@ -421,6 +404,13 @@ msgid ""
 "maintainer scripts without any conditional wrappers, error suppression or "
 "other scaffolding."
 msgstr ""
+"B<adduser> och B<addgroup> är avsedda som ett policy-lager, vilket gör det "
+"enklare för paketansvariga och lokala administratörer att skapa lokala "
+"systemkonton på det sätt som Debian förväntar sig att de ska skapas, vilket "
+"tar bort bördan att anpassa sig till de förmodligen föränderliga "
+"specifikationerna i Debians policy.  B<adduser --system> lägger särskild "
+"vikt vid att det bara behövs ett enda anrop i paketansvarigas skript utan "
+"några villkorliga wrappers, felundertryckning eller andra stödstrukturer."
 
 #. type: Plain text
 #: ../adduser.8:149
@@ -429,59 +419,57 @@ msgid ""
 "users and groups> and I<dynamically allocated user accounts> that is "
 "documented in Debian Policy, Chapter 9.2.2."
 msgstr ""
+"B<adduser> respekterar skillnaden mellan I<dynamically allocated system "
+"users and groups> och I<dynamically allocated user accounts> som "
+"dokumenteras i Debian Policy, kapitel 9.2.2."
 
 #. type: Plain text
 #: ../adduser.8:152 ../deluser.8:110
 msgid ""
 "For a full list and explanations of all options, see the OPTIONS section."
 msgstr ""
+"För en fullständig lista och förklaringar av alla flaggor, se avsnittet "
+"FLAGGOR."
 
 #. type: Plain text
 #: ../adduser.8:154
 msgid "B<adduser> and B<addgroup> can be run in one of five modes:"
-msgstr ""
+msgstr "B<adduser> och B<addgroup> kan köras i ett av fem lägen:"
 
 # type: SS
 #. type: SS
 #: ../adduser.8:154
-#, fuzzy, no-wrap
-#| msgid "Add a system user"
+#, no-wrap
 msgid "Add a regular (non-system) user"
-msgstr "Lägg till en systemanvändare"
+msgstr "Lägg till en vanlig användare (inte systemanvändare)"
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:162
-#, fuzzy
-#| msgid ""
-#| "If called with one non-option argument and without the B<--system> or B<--"
-#| "group> options, B<adduser> will add a normal user."
 msgid ""
 "If called with one non-option argument and without the B<--system> or B<--"
 "group> options, B<adduser> will add a regular user, that means a "
 "I<dynamically allocated user account> in the sense of Debian Policy.  This "
 "is commonly referred to in B<adduser> as a I<non-system user.>"
 msgstr ""
-"Om startad med ett icke-flagga-argument och utan flaggan B<--system> eller "
-"B<--group> kommer B<adduser> att lägga till en vanlig användare."
+"Om den anropas med ett icke-flaggargument och utan flaggorna B<--system> "
+"eller B<--group>, kommer B<adduser> att lägga till en vanlig användare, det "
+"vill säga en I<dynamically allocated user account> i Debian Policy-"
+"bemärkelse.  Detta kallas vanligtvis i B<adduser> för en I<non-system user.>"
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:170
-#, fuzzy
-#| msgid ""
-#| "B<adduser> will choose the first available UID from the range specified "
-#| "for normal users in the configuration file.  The UID can be overridden "
-#| "with the B<--uid> option."
 msgid ""
 "B<adduser> will choose the first available UID from the range specified by "
 "B<FIRST_UID> and B<LAST_UID> in the configuration file.  The range may be "
 "overridden with the B<--firstuid> and B<--lastuid> options.  Finally, the "
 "UID can be set fully manually with the B<--uid> option."
 msgstr ""
-"B<adduser> kommer att välja det första tillgängliga uid från intervallet som "
-"angivits för vanliga användare i konfigurationsfilen.  Uid kan åsidosättas "
-"med flaggan B<--uid>."
+"B<adduser> väljer det första tillgängliga UID från det intervall som anges "
+"av B<FIRST_UID> och B<LAST_UID> i konfigurationsfilen.  Intervallet kan "
+"åsidosättas med flaggorna B<--firstuid> och B<--lastuid>.  Slutligen kan UID "
+"ställas in helt manuellt med flaggan B<--uid>."
 
 #. type: Plain text
 #: ../adduser.8:178
@@ -492,15 +480,15 @@ msgid ""
 "setting the set-group-ID bit in the directory, and ensuring that all users "
 "use a umask of 002."
 msgstr ""
+"Som standard tilldelas varje användare en motsvarande grupp med samma namn.  "
+"Detta kallas vanligtvis I<Usergroups> och gör det möjligt att enkelt "
+"underhålla skrivbara gruppkataloger genom att placera lämpliga användare i "
+"den nya gruppen, ställa in set-group-ID-biten i katalogen och se till att "
+"alla användare använder en umask på 002."
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:187
-#, fuzzy
-#| msgid ""
-#| "B<adduser> will choose the first available UID from the range specified "
-#| "for normal users in the configuration file.  The UID can be overridden "
-#| "with the B<--uid> option."
 msgid ""
 "For a usergroup, B<adduser> will choose the first available GID from the "
 "range specified by B<FIRST_GID> and B<LAST_GID> in the configuration file.  "
@@ -508,9 +496,10 @@ msgid ""
 "options.  Finally, the GID can be set fully manually with the B<--gid> "
 "option."
 msgstr ""
-"B<adduser> kommer att välja det första tillgängliga uid från intervallet som "
-"angivits för vanliga användare i konfigurationsfilen.  Uid kan åsidosättas "
-"med flaggan B<--uid>."
+"För en användargrupp väljer B<adduser> det första tillgängliga GID från det "
+"intervall som anges av B<FIRST_GID> och B<LAST_GID> i konfigurationsfilen.  "
+"Intervallet kan åsidosättas med flaggorna B<--firstgid> och B<--lastgid>.  "
+"Slutligen kan GID ställas in helt manuellt med flaggan B<--gid>."
 
 #. type: Plain text
 #: ../adduser.8:192
@@ -518,6 +507,8 @@ msgid ""
 "The interaction between B<USERS_GID>, B<USERS_GROUP>, and B<USERGROUPS> is "
 "explained in detail in B<adduser.conf>(5)."
 msgstr ""
+"Interaktionen mellan B<USERS_GID>, B<USERS_GROUP> och B<USERGROUPS> "
+"förklaras i detalj i B<adduser.conf>(5)."
 
 #. type: Plain text
 #: ../adduser.8:205
@@ -528,6 +519,12 @@ msgid ""
 "defined as B<EXTRA_GROUPS> either by setting B<ADD_EXTRA_GROUPS> to 1 in the "
 "configuration file, or by passing B<--add-extra-groups> on the command line."
 msgstr ""
+"Den nya användarens primära grupp kan också åsidosättas från kommandoraden "
+"med flaggorna B<--gid> eller B<--ingroup> för att ställa in gruppen efter id "
+"eller namn.  Användare kan också läggas till i en eller flera kompletterande "
+"grupper som definieras som B<EXTRA_GROUPS>, antingen genom att ställa in "
+"B<ADD_EXTRA_GROUPS> till 1 i konfigurationsfilen eller genom att ange B<--"
+"add-extra-groups> på kommandoraden."
 
 #. type: Plain text
 #: ../adduser.8:211
@@ -536,6 +533,9 @@ msgid ""
 "prompt for the comment field and a password if those functions have not been "
 "turned off / overridden from the command line."
 msgstr ""
+"B<adduser> kopierar filer från I</etc/skel> till hemkatalogen och ber om "
+"kommentar och lösenord om dessa funktioner inte har inaktiverats/åsidosatts "
+"från kommandoraden."
 
 #. type: Plain text
 #: ../adduser.8:216
@@ -543,6 +543,8 @@ msgid ""
 "UID, comment, home directory and shell might be pre-determined with the "
 "B<UID_POOL> and B<GID_POOL> option, documented in B<adduser.conf>(5)."
 msgstr ""
+"UID, kommentar, hemkatalog och skal kan förutbestämmas med flaggan "
+"B<UID_POOL> och B<GID_POOL>, som dokumenteras i B<adduser.conf>(5)."
 
 # type: SS
 #. type: SS
@@ -554,54 +556,40 @@ msgstr "Lägg till en systemanvändare"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:224
-#, fuzzy
-#| msgid ""
-#| "If called with one non-option argument and without the B<--system> or B<--"
-#| "group> options, B<adduser> will add a normal user."
 msgid ""
 "If called with one non-option argument and the B<--system> option, "
 "B<adduser> will add a I<dynamically allocated system user,> often "
 "abbreviated as I<system user> in the context of the B<adduser> package."
 msgstr ""
-"Om startad med ett icke-flagga-argument och utan flaggan B<--system> eller "
-"B<--group> kommer B<adduser> att lägga till en vanlig användare."
+"Om den anropas med ett icke-flaggargument och flaggan B<--system>, kommer "
+"B<adduser> att lägga till en I<dynamically allocated system user,>, ofta "
+"förkortad till I<system user>, i sammanhanget med paketet B<adduser>."
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:230
-#, fuzzy
-#| msgid ""
-#| "B<adduser> will choose the first available UID from the range specified "
-#| "for normal users in the configuration file.  The UID can be overridden "
-#| "with the B<--uid> option."
 msgid ""
 "B<adduser> will choose the first available UID from the range specified by "
 "B<FIRST_SYSTEM_UID> and B<LAST_SYSTEM_UID> in the configuration file.  This "
 "can be overridden with the B<--uid> option."
 msgstr ""
-"B<adduser> kommer att välja det första tillgängliga uid från intervallet som "
-"angivits för vanliga användare i konfigurationsfilen.  Uid kan åsidosättas "
-"med flaggan B<--uid>."
+"B<adduser> väljer det första tillgängliga UID från det intervall som anges "
+"av B<FIRST_SYSTEM_UID> och B<LAST_SYSTEM_UID> i konfigurationsfilen.  Detta "
+"kan åsidosättas med flaggan B<--uid>."
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:237
-#, fuzzy
-#| msgid ""
-#| "By default, system users are placed in the B<nogroup> group.  To place "
-#| "the new system user in an already existing group, use the B<--gid> or B<--"
-#| "ingroup> options.  To place the new system user in a new group with the "
-#| "same ID, use the B<--group> option."
 msgid ""
 "By default, system users are assigned B<nogroup> as primary group.  To "
 "assign an already existing group as primary group, use the B<--gid> or B<--"
 "ingroup> options.  If the B<--group> option is given and the identically "
 "named group does not already exist, it is created with the same ID."
 msgstr ""
-"Som standard placeras systemanvändare i gruppen B<nogroup>.  För att placera "
-"den nya systemanvändaren i en redan existerande grupp kan flaggorna B<--gid> "
-"eller B<--ingroup> användas.  För att placera den nya systemanvändaren i en "
-"ny grupp med samma ID, använd flaggan B<--group>."
+"Som standard tilldelas systemanvändare B<nogroup> som primär grupp.  För att "
+"tilldela en redan befintlig grupp som primär grupp använder du flaggorna B<--"
+"gid> eller B<--ingroup>.  Om flaggan B<--group> anges och gruppen med samma "
+"namn inte redan finns skapas den med samma ID."
 
 #. type: Plain text
 #: ../adduser.8:243
@@ -610,6 +598,9 @@ msgid ""
 "system user is I<\\%/nonexistent>.  This directory should never exist on any "
 "Debian system, and B<adduser> will never create it automatically."
 msgstr ""
+"Om ingen hemkatalog anges är standardhemkatalogen för en ny systemanvändare "
+"I&lt;\\%/nonexistent&gt;.  Denna katalog bör aldrig finnas på något Debian-"
+"system, och B<adduser> kommer aldrig att skapa den automatiskt."
 
 #. type: Plain text
 #: ../adduser.8:255
@@ -623,6 +614,14 @@ msgid ""
 "package's maintainer scripts, you might want to issue an explicit recursive "
 "B<chown> for the home directory after the call to B<adduser>."
 msgstr ""
+"Om en hemkatalog anges med flaggan B<--home> och katalogen redan finns (till "
+"exempel om paketet levereras med filer i den katalogen), ställer B<adduser> "
+"inte in ägaren av katalogen till den nyskapade användaren utan att meddela "
+"detta.  Att ställa in ägaren kan åsidosätta ett beslut av den lokala "
+"administratören, och att rapportera detta skulle bryta B<adduser> tystnad "
+"under paketinstallationen.  Om du använder B<adduser --home> i ditt pakets "
+"underhållsskript kan du behöva utfärda ett explicit rekursivt B<chown> för "
+"hemkatalogen efter anropet till B<adduser>."
 
 #. type: Plain text
 #: ../adduser.8:261
@@ -632,6 +631,10 @@ msgid ""
 "does not set a password for the new account.  Skeletal configuration files "
 "are not copied."
 msgstr ""
+"Om inte ett skal uttryckligen anges med flaggan B<--shell>, kommer den nya "
+"systemanvändaren att ha skalet I</usr/sbin/nologin> inställt.  B<adduser --"
+"system> anger inte något lösenord för det nya kontot.  "
+"Skelettkonfigurationsfiler kopieras inte."
 
 #. type: Plain text
 #: ../adduser.8:264
@@ -639,14 +642,16 @@ msgid ""
 "Other options will behave as for the creation of a regular user.  The files "
 "referenced by B<UID_POOL> and B<GID_POOL> are also honored."
 msgstr ""
+"Övriga flaggor fungerar på samma sätt som vid skapandet av en vanlig "
+"användare. Filerna som refereras till av B<UID_POOL> och B<GID_POOL> "
+"respekteras också."
 
 # type: SS
 #. type: SS
 #: ../adduser.8:265
-#, fuzzy, no-wrap
-#| msgid "Add a user group"
+#, no-wrap
 msgid "Add a group"
-msgstr "Lägg till en användargrupp"
+msgstr "Lägg till en grupp"
 
 # type: Plain text
 #. type: Plain text
@@ -667,45 +672,39 @@ msgid ""
 "group> in the context of the B<adduser> package, will be created if "
 "B<adduser --group> or B<addgroup> are called with the B<--system> option."
 msgstr ""
+"En I<dynamically allocated system group,>, ofta förkortad till I<system "
+"group>, skapas i samband med paketet B<adduser> om B<adduser --group> eller "
+"B<addgroup> anropas med flaggan B<--system>."
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:285
-#, fuzzy
-#| msgid ""
-#| "A GID will be chosen from the range specified for system GIDS in the "
-#| "configuration file (FIRST_SYSTEM_GID, LAST_SYSTEM_GID). To override that "
-#| "mechanism you can give the GID using the B<--gid> option."
 msgid ""
 "A GID will be chosen from the respective range specified for GIDs in the "
 "configuration file (B<FIRST_GID>, B<LAST_GID>, B<FIRST_SYSTEM_GID>, "
 "B<LAST_SYSTEM_GID>).  To override that mechanism, you can give the GID using "
 "the B<--gid> option."
 msgstr ""
-"Ett GID kommer att väljas från intervallet som angivits för systemets gid-"
-"nummer i konfigurationsfilen.  Gid kan åsidosättas med flaggan B<--gid>."
+"En GID väljs från respektive intervall som anges för GID:er i "
+"konfigurationsfilen (B<FIRST_GID>, B<LAST_GID>, B<FIRST_SYSTEM_GID>, "
+"B<LAST_SYSTEM_GID>).  För att åsidosätta den mekanismen kan du ange GID:n "
+"med hjälp av flaggan B<--gid>."
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:289
-#, fuzzy
-#| msgid ""
-#| "The range specified in the configuration file may be overridden with the "
-#| "B<--firstuid> and B<--lastuid> options."
 msgid ""
 "For non-system groups, the range specified in the configuration file may be "
 "overridden with the B<--firstgid> and B<--lastgid> options."
 msgstr ""
-"Intervallet som anges i konfigurationsfilen kan åsidosättas med flaggorna "
-"B<--firstuid> och B<--lastuid>"
+"För icke-systemgrupper kan det intervall som anges i konfigurationsfilen "
+"åsidosättas med flaggorna B<--firstgid> och B<--lastgid>."
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:291
-#, fuzzy
-#| msgid "The group is created with no users."
 msgid "The group is created with no members."
-msgstr "Gruppen skapas utan några användare."
+msgstr "Gruppen skapas utan medlemmar."
 
 # type: SS
 #. type: SS
@@ -737,6 +736,8 @@ msgid ""
 "Different modes of B<adduser> allow different options.  If no valid modes "
 "are listed for a option, it is accepted in all modes."
 msgstr ""
+"Olika lägen för B<adduser> en tillåter olika flaggor.  Om inga giltiga lägen "
+"anges för en flagga accepteras det i alla lägen."
 
 #. type: Plain text
 #: ../adduser.8:304 ../deluser.8:181
@@ -745,6 +746,9 @@ msgid ""
 "are going to stay supported, but are removed from the documentation.  Users "
 "are advised to migrate to the long version of options."
 msgstr ""
+"Korta versioner för vissa flaggor kan finnas av historiska skäl. De kommer "
+"att fortsätta att stödjas, men tas bort från dokumentationen. Användare "
+"rekommenderas att migrera till den långa versionen av flaggor."
 
 # type: TP
 #. type: TP
@@ -761,6 +765,10 @@ msgid ""
 "deprecated and will be supported in Debian bookworm only.  Valid modes: "
 "B<adduser>, B<adduser --system>."
 msgstr ""
+"Lägg till ny användare till extra grupper som definieras i "
+"konfigurationsfilernas inställning B<EXTRA_GROUPS>.  Den gamla stavningen "
+"B<--add_extra_groups> är föråldrad och kommer endast att stödjas i Debian "
+"bookworm.  Giltiga lägen: B<adduser>, B<adduser --system>."
 
 # type: TP
 #. type: TP
@@ -776,6 +784,9 @@ msgid ""
 "B<useradd>(8).  See VALID NAMES below.  Valid modes: B<adduser>, B<adduser --"
 "system>, B<addgroup>, B<addgroup --system>."
 msgstr ""
+"Tillåt alla användar- och gruppnamn som stöds av den underliggande "
+"B<useradd> en (8).  Se GILTIGA NAMN nedan.  Giltiga lägen: B<adduser>, "
+"B<adduser --system>, B<addgroup>, B<addgroup --system>."
 
 # type: TP
 #. type: TP
@@ -791,14 +802,17 @@ msgid ""
 "check for validity of the name is applied.  See VALID NAMES below.  Valid "
 "modes: B<adduser>, B<adduser --system>, B<addgroup>, B<addgroup --system>."
 msgstr ""
+"Inaktivera kontrollen av namn med B<NAME_REGEX> och B<SYS_NAME_REGEX>.  "
+"Endast en svagare kontroll av namnets giltighet tillämpas.  Se GILTIGA NAMN "
+"nedan.  Giltiga lägen: B<adduser>, B<adduser --system>, B<addgroup>, "
+"B<addgroup --system>."
 
 # type: TP
 #. type: TP
 #: ../adduser.8:325
-#, fuzzy, no-wrap
-#| msgid "B<--conf>I< file >"
+#, no-wrap
 msgid "B<--comment>I< comment>"
-msgstr "B<--conf>I< fil >"
+msgstr "B<--comment>I< comment>"
 
 #. type: Plain text
 #: ../adduser.8:334
@@ -810,24 +824,29 @@ msgid ""
 "deprecated and will be removed after Debian bookworm.  Valid modes: "
 "B<adduser>, B<adduser --system>."
 msgstr ""
+"Ställ in kommentarfältet för den nya posten som genereras.  B<adduser> "
+"kommer inte att be om informationen om denna flagga anges.  Detta fält är "
+"även känt under namnet GECOS-fält och innehåller information som används av "
+"kommandot B<finger>(1).  Detta var tidigare flaggan B<--gecos>, som är "
+"föråldrat och kommer att tas bort efter Debian bookworm.  Giltiga lägen: "
+"B<adduser>, B<adduser --system>."
 
 # type: TP
 #. type: TP
 #: ../adduser.8:334 ../deluser.8:198
-#, fuzzy, no-wrap
-#| msgid "B<--conf>I< file >"
+#, no-wrap
 msgid "B<--conf>I< file>"
-msgstr "B<--conf>I< fil >"
+msgstr "B<--conf>I< file>"
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:338
-#, fuzzy
-#| msgid "Use FILE instead of I</etc/adduser.conf>."
 msgid ""
 "Use I<file> instead of I</etc/adduser.conf>.  Multiple B<--conf> options can "
 "be given."
-msgstr "Använd FIL istället för I</etc/adduser.conf>."
+msgstr ""
+"Använd I<file> istället för I</etc/adduser.conf>.  Flera B<--conf> -flaggor "
+"kan anges."
 
 # type: TP
 #. type: TP
@@ -839,7 +858,7 @@ msgstr "B<--debug>"
 #. type: Plain text
 #: ../adduser.8:343
 msgid "Synonymous to B<--stdoutmsglevel=debug.> Deprecated."
-msgstr ""
+msgstr "Synonymt med B<--stdoutmsglevel=debug.> Föråldrat."
 
 # type: TP
 #. type: TP
@@ -863,38 +882,39 @@ msgid ""
 "reasons that are beyond B<adduser>'s scope.  B<--disabled-login> will "
 "additionally set the shell to I</usr/sbin/nologin>.  Valid mode: B<adduser>."
 msgstr ""
+"Kör inte B<passwd>(1) för att ställa in ett lösenord.  I de flesta "
+"situationer är det dock fortfarande möjligt att logga in (till exempel med "
+"SSH-nycklar eller via PAM)  av skäl som ligger utanför B<adduser>:s "
+"räckvidd.  B<--disabled-login> ställer dessutom in skalet till I</usr/sbin/"
+"nologin>.  Giltigt läge: B<adduser>."
 
 # type: TP
 #. type: TP
 #: ../adduser.8:354
-#, fuzzy, no-wrap
-#| msgid "B<--firstuid>I< ID >"
+#, no-wrap
 msgid "B<--firstuid>I< ID>"
-msgstr "B<--firstuid>I< ID >"
+msgstr "B<--firstuid>I< ID>"
 
 # type: TP
 #. type: TP
 #: ../adduser.8:356 ../adduser.8:422
-#, fuzzy, no-wrap
-#| msgid "B<--lastuid>I< ID >"
+#, no-wrap
 msgid "B<--lastuid>I< ID>"
-msgstr "B<--lastuid>I< ID >"
+msgstr "B<--lastuid>I< ID>"
 
 # type: TP
 #. type: TQ
 #: ../adduser.8:358
-#, fuzzy, no-wrap
-#| msgid "B<--firstgid>I< ID >"
+#, no-wrap
 msgid "B<--firstgid>I< ID>"
-msgstr "B<--firstgid>I< ID >"
+msgstr "B<--firstgid>I< ID>"
 
 # type: TP
 #. type: TQ
 #: ../adduser.8:360 ../adduser.8:424
-#, fuzzy, no-wrap
-#| msgid "B<--lastgid>I< ID >"
+#, no-wrap
 msgid "B<--lastgid>I< ID>"
-msgstr "B<--lastgid>I< ID >"
+msgstr "B<--lastgid>I< ID>"
 
 #. type: Plain text
 #: ../adduser.8:375
@@ -907,6 +927,13 @@ msgid ""
 "same ID as the user.  Valid modes: B<adduser>, B<adduser --system>, for B<--"
 "firstgid> and B<--lastgid> also B<addgroup>."
 msgstr ""
+"Åsidosätt den första UID / sista UID / första GID / sista GID i det "
+"intervall som uid väljs från (B<FIRST_UID>, B<LAST_UID>, B<FIRST_GID> och "
+"B<LAST_GID>, B<FIRST_SYSTEM_UID>, B<LAST_SYSTEM_UID>, B<FIRST_SYSTEM_GID> "
+"och B<LAST_SYSTEM_GID> i konfigurationsfilen).  Om en grupp skapas som en "
+"användargrupp ignoreras B<--firstgid> och B<--lastgid>.  Gruppen får samma "
+"ID som användaren.  Giltiga lägen: B<adduser>, B<adduser --system>, för B<--"
+"firstgid> och B<--lastgid> även B<addgroup>."
 
 # type: TP
 #. type: TP
@@ -928,42 +955,33 @@ msgid ""
 "These are the deprecated forms of B<--allow-bad-names>.  They will be "
 "removed during the release cycle of Debian 13."
 msgstr ""
+"Dessa är de föråldrade formerna av B<--allow-bad-names>.  De kommer att tas "
+"bort under release-cykeln för Debian 13."
 
 # type: TP
 #. type: TP
 #: ../adduser.8:382
-#, fuzzy, no-wrap
-#| msgid "B<--gid>I< ID >"
+#, no-wrap
 msgid "B<--gid>I< GID>"
-msgstr "B<--gid>I< ID >"
+msgstr "B<--gid>I< GID>"
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:391
-#, fuzzy
-#| msgid ""
-#| "When creating a group, this option forces the new groupid to be the given "
-#| "number.  When creating a user, this option will put the user in that "
-#| "group."
 msgid ""
 "When creating a group, this option sets the group ID number of the new group "
 "to I<GID>.  When creating a user, this option sets the primary group ID "
 "number of the new user to I<GID>.  Valid modes: B<adduser>, B<adduser --"
 "system>, B<addgroup>, B<addgroup --system>."
 msgstr ""
-"När en grupp skapas tvingar denna flagga den nya gid att vara det angivna "
-"numret.  När en användare skapas kommer denna flagga att sätta användaren i "
-"den gruppen."
+"När du skapar en grupp anger denna flagga grupp-ID-numret för den nya "
+"gruppen till I<GID>.  När du skapar en användare anger denna flagga det "
+"primära grupp-ID-numret för den nya användaren till I<GID>.  Giltiga lägen: "
+"B<adduser>, B<adduser --system>, B<addgroup>, B<addgroup --system>."
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:403
-#, fuzzy
-#| msgid ""
-#| "When combined with B<--system>, a group with the same name and ID as the "
-#| "system user is created.  If not combined with B<--system>, a group with "
-#| "the given name is created.  This is the default action if the program is "
-#| "invoked as B<addgroup>."
 msgid ""
 "Using this option in B<adduser --system> indicates that the new user should "
 "get an identically named group as its primary group.  If that identically "
@@ -972,10 +990,12 @@ msgid ""
 "action if the program is invoked as B<addgroup>.  Valid modes: B<adduser --"
 "system>, B<addgroup>, B<addgroup --system>."
 msgstr ""
-"När kombinerad med B<--system> kommer en grupp med samma namn och ID som "
-"systemanvändaren att skapas. Om den inte kombineras med B<--system> kommer "
-"en grupp med angivet namn att skapas. Detta är standardåtgärden om "
-"programmet startas som B<addgroup>."
+"Om du använder den här flaggan i B<adduser --system>, ska den nya användaren "
+"få en grupp med samma namn som sin primära grupp. Om den gruppen med samma "
+"namn inte redan finns, skapas den. Om det inte kombineras med B<--system>, "
+"skapas en grupp med det angivna namnet. Det senare är standardåtgärden om "
+"programmet startas som B<addgroup>. Giltiga lägen: B<adduser --system>, "
+"B<addgroup>, B<addgroup --system>."
 
 # type: Plain text
 #. type: Plain text
@@ -986,59 +1006,50 @@ msgstr "Visa korta instruktioner."
 # type: TP
 #. type: TP
 #: ../adduser.8:406
-#, fuzzy, no-wrap
-#| msgid "B<--home>I< dir >"
+#, no-wrap
 msgid "B<--home>I< dir>"
-msgstr "B<--home>I< katalog >"
+msgstr "B<--home>I< dir>"
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:413
-#, fuzzy
-#| msgid ""
-#| "Use DIR as the user's home directory, rather than the default specified "
-#| "by the configuration file.  If the directory does not exist, it is "
-#| "created and skeleton files are copied."
 msgid ""
 "Use I<dir> as the user's home directory, rather than the default specified "
 "by the configuration file (or I</nonexistent> if B<adduser --system> is "
 "used).  If the directory does not exist, it is created.  Valid modes: "
 "B<adduser>, B<adduser --system>."
 msgstr ""
-"Använd KATALOG som användarens hemkatalog hellre än det förvalda i "
-"konfigurationsfilen. Om katalogen inte existerar kommer den skapas och "
-"skelettfiler kopieras dit."
+"Använd I<dir> som användarens hemkatalog, istället för standardvärdet som "
+"anges i konfigurationsfilen (eller I</nonexistent> om B<adduser --system> "
+"används).  Om katalogen inte finns skapas den.  Giltiga lägen: B<adduser>, "
+"B<adduser --system>."
 
 # type: TP
 #. type: TP
 #: ../adduser.8:413
-#, fuzzy, no-wrap
-#| msgid "B<--ingroup>I< GROUP >"
+#, no-wrap
 msgid "B<--ingroup>I< GROUP>"
-msgstr "B<--ingroup>I< GRUPP >"
+msgstr "B<--ingroup>I< GROUP>"
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:422
-#, fuzzy
-#| msgid ""
-#| "When creating a group, this option forces the new groupid to be the given "
-#| "number.  When creating a user, this option will put the user in that "
-#| "group."
 msgid ""
 "When creating a user, this option sets the primary group ID number of the "
 "new user to the GID of the named group.  Unlike with the B<--gid> option, "
 "the group is specified here by name rather than by numeric ID number.  The "
 "group must already exist.  Valid modes: B<adduser>, B<adduser --system>."
 msgstr ""
-"När en grupp skapas tvingar denna flagga den nya gid att vara det angivna "
-"numret.  När en användare skapas kommer denna flagga att sätta användaren i "
-"den gruppen."
+"När du skapar en användare anger denna flagga den nya användarens primära "
+"grupp-ID-nummer till GID för den namngivna gruppen.  Till skillnad från "
+"flaggan B<--gid> anges gruppen här med namn istället för med ett numeriskt "
+"ID-nummer.  Gruppen måste redan existera.  Giltiga lägen: B<adduser>, "
+"B<adduser --system>."
 
 #. type: Plain text
 #: ../adduser.8:428
 msgid "Override the last UID / last GID.  See B<--firstuid>."
-msgstr ""
+msgstr "Åsidosätt den senaste UID / senaste GID.  Se B<--firstuid>."
 
 # type: TP
 #. type: TP
@@ -1057,6 +1068,13 @@ msgid ""
 "other mechanism will be responsible for initializing the new user's home "
 "directory.  Valid modes: B<adduser>, B<adduser --system>."
 msgstr ""
+"Skapa inte en hemkatalog för den nya användaren.  Observera att sökvägen "
+"till den nya användarens hemkatalog fortfarande kommer att anges i det "
+"lämpliga fältet i filen I&lt;\\%/etc/passwd&gt;.  Användningen av denna "
+"flagga innebär inte att detta fält ska vara tomt.  Det indikerar snarare för "
+"B<\\%adduser> att någon annan mekanism kommer att ansvara för att "
+"initialisera den nya användarens hemkatalog.  Giltiga lägen: B<adduser>, "
+"B<adduser --system>."
 
 # type: TP
 #. type: TP
@@ -1068,30 +1086,27 @@ msgstr "B<--quiet>"
 #. type: Plain text
 #: ../adduser.8:444
 msgid "Synonymous to B<--stdoutmsglevel=warn.> Deprecated."
-msgstr ""
+msgstr "Synonymt med B<--stdoutmsglevel=warn.> Föråldrat."
 
 # type: TP
 #. type: TP
 #: ../adduser.8:444
-#, fuzzy, no-wrap
-#| msgid "B<--shell>I< shell >"
+#, no-wrap
 msgid "B<--shell>I< shell>"
-msgstr "B<--shell>I< skal >"
+msgstr "B<--shell>I< shell>"
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:450
-#, fuzzy
-#| msgid ""
-#| "Use SHELL as the user's login shell, rather than the default specified by "
-#| "the configuration file."
 msgid ""
 "Use I<shell> as the user's login shell, rather than the default specified by "
 "the configuration file (or I</usr/sbin/nologin> if B<adduser --system> is "
 "used).  Valid modes: B<adduser>, B<adduser --system>."
 msgstr ""
-"Använd SKAL som användarens inloggningsskal hellre än det förvalda i "
-"konfigurationsfilen."
+"Använd I<shell> som användarens inloggningsskal, istället för "
+"standardinställningen som anges i konfigurationsfilen (eller I</usr/sbin/"
+"nologin> om B<adduser --system> används).  Giltiga lägen: B<adduser>, "
+"B<adduser --system>."
 
 #. type: Plain text
 #: ../adduser.8:459
@@ -1101,28 +1116,28 @@ msgid ""
 "B<adduser> creates a I<dynamically allocated system user and group> and "
 "changes its mode respectively.  Valid modes: B<adduser>, B<addgroup>."
 msgstr ""
+"Normalt skapar B<adduser> I<dynamically allocated user accounts and groups> "
+"enligt definitionen i Debian Policy, kapitel 9.2.2.  Med denna flagga skapar "
+"B<adduser> en I<dynamically allocated system user and group> och ändrar dess "
+"läge.  Giltiga lägen: B<adduser>, B<addgroup>."
 
 # type: TP
 #. type: TP
 #: ../adduser.8:459
-#, fuzzy, no-wrap
-#| msgid "B<--uid>I< ID >"
+#, no-wrap
 msgid "B<--uid>I< ID>"
-msgstr "B<--uid>I< ID >"
+msgstr "B<--uid>I< ID>"
 
 # type: Plain text
 #. type: Plain text
 #: ../adduser.8:464
-#, fuzzy
-#| msgid ""
-#| "Force the new userid to be the given number.  B<adduser> will fail if the "
-#| "userid is already taken."
 msgid ""
 "Force the new userid to be the given number.  B<adduser> will fail if the "
 "userid is already taken.  Valid modes: B<adduser>, B<adduser --system>."
 msgstr ""
-"Tvinga det nya användar-id:t att vara angivet nummer. B<adduser> kommer att "
-"misslyckas om användar-id:t redan används."
+"Tvinga det nya användar-id:t att vara det angivna numret.  B<adduser> "
+"misslyckas om användar-id:t redan är upptaget.  Giltiga lägen: B<adduser>, "
+"B<adduser --system>."
 
 # type: TP
 #. type: TP
@@ -1134,27 +1149,26 @@ msgstr "B<--verbose>"
 #. type: Plain text
 #: ../adduser.8:469
 msgid "Synonymous to B<--stdoutmsglevel=info.> Deprecated."
-msgstr ""
+msgstr "Synonymt med B<--stdoutmsglevel=info.> Föråldrat."
 
 #. type: TP
 #: ../adduser.8:469 ../deluser.8:249
 #, no-wrap
 msgid "B<--stdoutmsglevel>I< prio>"
-msgstr ""
+msgstr "B<--stdoutmsglevel>I< prio>"
 
 #. type: TQ
 #: ../adduser.8:471 ../deluser.8:251
 #, no-wrap
 msgid "B<--stderrmsglevel>I< prio>"
-msgstr ""
+msgstr "B<--stderrmsglevel>I< prio>"
 
 # type: TP
 #. type: TQ
 #: ../adduser.8:473 ../deluser.8:253
-#, fuzzy, no-wrap
-#| msgid "B<--home>I< dir >"
+#, no-wrap
 msgid "B<--logmsglevel>I< prio>"
-msgstr "B<--home>I< katalog >"
+msgstr "B<--logmsglevel>I< prio>"
 
 #. type: Plain text
 #: ../adduser.8:487
@@ -1169,6 +1183,15 @@ msgid ""
 "stdoutmsglevel, stderrmsglevel, and logmsglevel default to warn, warn, info, "
 "respectively."
 msgstr ""
+"Minsta prioritet för meddelanden som loggas till syslog/journal respektive "
+"konsolen.  Värdena är I<trace>, I<debug>, I<info>, I<warn>, I<err> och "
+"I<fatal>.  Meddelanden med den här prioriteten eller högre skrivs ut till "
+"respektive medium.  Meddelanden som skrivs ut till stderr upprepas inte på "
+"stdout.  Det gör det möjligt för den lokala administratören att styra "
+"B<adduser> s chattiness på konsolen och i loggen oberoende av varandra, så "
+"att förvirrande information hålls för sig själv medan användbar information "
+"fortfarande finns kvar i loggen.  stdoutmsglevel, stderrmsglevel och "
+"logmsglevel är som standard inställda på warn, warn och info."
 
 # type: TP
 #. type: TP
@@ -1185,20 +1208,12 @@ msgstr "Visa version och information om copyright."
 
 #. type: SH
 #: ../adduser.8:491
-#, fuzzy, no-wrap
-#| msgid "B<VALID NAMES>"
+#, no-wrap
 msgid "VALID NAMES"
-msgstr "B<VALID NAMES>"
+msgstr "GILTIGA NAMN"
 
 #. type: Plain text
 #: ../adduser.8:501
-#, fuzzy
-#| msgid ""
-#| "adduser and addgroup enforce conformity to IEEE Std 1003.1-2001, which "
-#| "allows only the following characters to appear in group and user names: "
-#| "letters, digits, underscores, periods, at signs (@) and dashes. The name "
-#| "may no start with a dash. The \"$\" sign is allowed at the end of "
-#| "usernames (to conform to samba)."
 msgid ""
 "Historically, B<adduser>(8) and B<addgroup>(8) enforced conformity to IEEE "
 "Std 1003.1-2001, which allows only the following characters to appear in "
@@ -1206,11 +1221,12 @@ msgid ""
 "and dashes.  The name may not start with a dash or @.  The \"$\" sign is "
 "allowed at the end of usernames to allow typical Samba machine accounts."
 msgstr ""
-"adduser och addgroup tvingar anpassning till IEEE standrd 1003.1-2001 som "
-"endast tillåter följande tecken att ingå i namnet för en grupp eller "
-"användare: bokstäver, sifforer, underscore, punkter, snabel-a och talstreck. "
-"Namnet får inte börja med ett talstreck. \"$\"-tecken är tillåtet i slutet "
-"av användarnamn (för att överrensstämma med samba)."
+"Historiskt sett har B<adduser>(8) och B<addgroup>(8) tillämpat IEEE Std "
+"1003.1-2001, som endast tillåter följande tecken i grupp- och användarnamn: "
+"bokstäver, siffror, understreck, punkter, at-tecken (@) och bindestreck.  "
+"Namnet får inte börja med ett bindestreck eller @.  Tecknet \"$\" är "
+"tillåtet i slutet av användarnamn för att möjliggöra typiska Samba-maskin-"
+"konton."
 
 #. type: Plain text
 #: ../adduser.8:507
@@ -1219,6 +1235,10 @@ msgid ""
 "to contain letters and digits, plus dash (-) and underscore (_); the name "
 "must begin with a letter (or an underscore for system users)."
 msgstr ""
+"Standardinställningarna för B<NAME_REGEX> och B<SYS_NAME_REGEX> tillåter att "
+"användarnamn innehåller bokstäver och siffror, samt bindestreck (-) och "
+"understreck (_). Namnet måste börja med en bokstav (eller ett understreck "
+"för systemanvändare)."
 
 #. type: Plain text
 #: ../adduser.8:513
@@ -1227,6 +1247,10 @@ msgid ""
 "option, simply makes the same checks as B<useradd>(8).  Please note that "
 "useradd's checks have become quite a bit more restrictive in Debian 13."
 msgstr ""
+"Den minst restriktiva policyn, som är tillgänglig genom att använda flaggan "
+"B<--allow-all-names>, gör helt enkelt samma kontroller som B<useradd>(8).  "
+"Observera att useradds kontroller har blivit betydligt mer restriktiva i "
+"Debian 13."
 
 #. type: Plain text
 #: ../adduser.8:516
@@ -1234,12 +1258,14 @@ msgid ""
 "Changing the default behavior can be used to create confusing or misleading "
 "names; use with caution."
 msgstr ""
+"Att ändra standardbeteendet kan användas för att skapa förvirrande eller "
+"vilseledande namn; använd med försiktighet."
 
 #. type: SH
 #: ../adduser.8:517 ../deluser.8:269
 #, no-wrap
 msgid "LOGGING"
-msgstr ""
+msgstr "LOGGNING"
 
 #. type: Plain text
 #: ../adduser.8:522
@@ -1247,6 +1273,8 @@ msgid ""
 "B<Adduser> uses extensive and configurable logging to tailor its verbosity "
 "to the needs of the system administrator."
 msgstr ""
+"B<Adduser> använder omfattande och konfigurerbar loggning för att anpassa "
+"detaljeringsgraden efter systemadministratörens behov."
 
 #. type: Plain text
 #: ../adduser.8:534
@@ -1255,11 +1283,16 @@ msgid ""
 "authors.  This priority can not be changed at run time.  Available priority "
 "values are B<crit>, B<error>, B<warning>, B<info>, B<debug>, and B<trace>."
 msgstr ""
+"Varje meddelande som B<adduser> skriver ut har ett prioritetsvärde som "
+"tilldelats av författarna.  Denna prioritet kan inte ändras under körning.  "
+"Tillgängliga prioritetsvärden är B<crit>, B<error>, B<warning>, B<info>, "
+"B<debug> och B<trace>."
 
 #. type: Plain text
 #: ../adduser.8:537
 msgid "If you find that a message has the wrong priority, please file a bug."
 msgstr ""
+"Om du upptäcker att ett meddelande har fel prioritet, rapportera ett fel."
 
 #. type: Plain text
 #: ../adduser.8:551
@@ -1270,6 +1303,11 @@ msgid ""
 "B<STDERRMSGLEVEL>, and B<LOGMSGLEVEL>.  For testing purposes, these settings "
 "can be overridden on the command line."
 msgstr ""
+"Varje gång ett meddelande genereras avgör koden om meddelandet ska skrivas "
+"ut till standardutmatning, standardfel eller syslog.  Detta styrs "
+"huvudsakligen och oberoende av konfigurationsinställningarna "
+"B<STDOUTMSGLEVEL>, B<STDERRMSGLEVEL> och B<LOGMSGLEVEL>.  För teständamål "
+"kan dessa inställningar åsidosättas på kommandoraden."
 
 #. type: Plain text
 #: ../adduser.8:556
@@ -1278,6 +1316,9 @@ msgid ""
 "level are logged to the respective output medium.  A message that was "
 "written to standard error is not written a second time to standard output."
 msgstr ""
+"Endast meddelanden med en prioritet som är högre eller lika med respektive "
+"meddelandenivå loggas till respektive utdatamedium. Ett meddelande som "
+"skrevs till standardfel skrivs inte en andra gång till standardutdata."
 
 # type: SH
 #. type: SH
@@ -1295,12 +1336,6 @@ msgstr "B<0>"
 
 #. type: Plain text
 #: ../adduser.8:569
-#, fuzzy
-#| msgid ""
-#| "The user exists as specified. This can have 2 causes: The user was "
-#| "created by adduser or the user was already present on the system before "
-#| "adduser was invoked. If adduser was returning 0 , invoking adduser a "
-#| "second time with the same parameters as before also returns 0."
 msgid ""
 "Success: The user or group exists as specified.  This can have 2 causes: The "
 "user or group was created by this call to B<adduser> or the user or group "
@@ -1308,27 +1343,28 @@ msgid ""
 "invoked.  If B<adduser --system> is invoked for a user already existing with "
 "the requested or compatible attributes, it will also return 0."
 msgstr ""
-"Användaren som angavs existerar redan. Detta kan härledas till två "
-"anledningar: Användaren skapades av adduser eller fanns redan på systemet "
-"före exekveringen av adduser. Om adduser returnerade 0 kommer en körning av "
-"adduser en andra gång med samma flaggor också att returnera 0."
+"Lyckades: Användaren eller gruppen finns som angivet.  Detta kan ha två "
+"orsaker: Användaren eller gruppen skapades genom detta anrop till B<adduser> "
+"eller användaren eller gruppen fanns redan i systemet som angivet innan "
+"B<adduser> anropades.  Om B<adduser --system> anropas för en användare som "
+"redan finns med de begärda eller kompatibla attributen, returneras också 0."
 
 #. type: TP
 #: ../adduser.8:569
 #, no-wrap
 msgid "B<11>"
-msgstr ""
+msgstr "B<11>"
 
 #. type: Plain text
 #: ../adduser.8:572
 msgid "The object that B<adduser> was asked to create does already exist."
-msgstr ""
+msgstr "Det objekt som B<adduser> ombads att skapa finns redan."
 
 #. type: TP
 #: ../adduser.8:572
 #, no-wrap
 msgid "B<12>"
-msgstr ""
+msgstr "B<12>"
 
 #. type: Plain text
 #: ../adduser.8:576
@@ -1336,12 +1372,13 @@ msgid ""
 "The object that B<adduser> or B<deluser> was asked to operate on does not "
 "exist."
 msgstr ""
+"Objektet som B<adduser> eller B<deluser> ombads att bearbeta finns inte."
 
 #. type: TP
 #: ../adduser.8:576
 #, no-wrap
 msgid "B<13>"
-msgstr ""
+msgstr "B<13>"
 
 #. type: Plain text
 #: ../adduser.8:593
@@ -1354,12 +1391,19 @@ msgid ""
 "a different UID (GID), or a system user (group) that was requested to be "
 "deleted does exist, but is not a system user (group)."
 msgstr ""
+"Objektet som B<adduser> eller B<deluser> ombads att utföra en åtgärd på har "
+"inte de egenskaper som krävs för att slutföra åtgärden: En användare (en "
+"grupp) som begärdes att skapas som systemanvändare (grupp)  finns redan och "
+"är inte en systemanvändare (grupp), eller en användare (grupp) som begärdes "
+"att skapas med ett visst UID (GID)  finns redan och har ett annat UID (GID), "
+"eller en systemanvändare (grupp) som begärdes att raderas finns, men är inte "
+"en systemanvändare (grupp)."
 
 #. type: TP
 #: ../adduser.8:593
 #, no-wrap
 msgid "B<21>"
-msgstr ""
+msgstr "B<21>"
 
 #. type: Plain text
 #: ../adduser.8:597
@@ -1367,23 +1411,25 @@ msgid ""
 "The UID (GID) that was explicitly requested for a new user (group)  is "
 "already in use."
 msgstr ""
+"Det UID (GID) som uttryckligen begärdes för en ny användare (grupp) används "
+"redan."
 
 #. type: TP
 #: ../adduser.8:597
 #, no-wrap
 msgid "B<22>"
-msgstr ""
+msgstr "B<22>"
 
 #. type: Plain text
 #: ../adduser.8:600
 msgid "There is no available UID (GID) in the requested range."
-msgstr ""
+msgstr "Det finns ingen tillgänglig UID (GID) inom det begärda intervallet."
 
 #. type: TP
 #: ../adduser.8:600
 #, no-wrap
 msgid "B<23>"
-msgstr ""
+msgstr "B<23>"
 
 #. type: Plain text
 #: ../adduser.8:604
@@ -1391,12 +1437,14 @@ msgid ""
 "There is no group with the requested GID for the primary group for a new "
 "user."
 msgstr ""
+"Det finns ingen grupp med den begärda GID för den primära gruppen för en ny "
+"användare."
 
 #. type: TP
 #: ../adduser.8:604
 #, no-wrap
 msgid "B<31>"
-msgstr ""
+msgstr "B<31>"
 
 #. type: Plain text
 #: ../adduser.8:608
@@ -1404,23 +1452,25 @@ msgid ""
 "The chosen name for a new user or a new group does not conform to the "
 "selected naming rules."
 msgstr ""
+"Det valda namnet för en ny användare eller en ny grupp överensstämmer inte "
+"med de valda namngivningsreglerna."
 
 #. type: TP
 #: ../adduser.8:608
 #, no-wrap
 msgid "B<32>"
-msgstr ""
+msgstr "B<32>"
 
 #. type: Plain text
 #: ../adduser.8:611
 msgid "The home directory of a new user must be an absolute path."
-msgstr ""
+msgstr "Hemkatalogen för en ny användare måste vara en absolut sökväg."
 
 #. type: TP
 #: ../adduser.8:611
 #, no-wrap
 msgid "B<33>"
-msgstr ""
+msgstr "B<33>"
 
 #. type: Plain text
 #: ../adduser.8:616
@@ -1429,23 +1479,26 @@ msgid ""
 "the user or group name chosen does not fit useradd's restrictions and "
 "adduser cannot create the user."
 msgstr ""
+"useradd returnerade exitkod 19 \"ogiltigt användar- eller gruppnamn\". Det "
+"betyder att det valda användar- eller gruppnamnet inte uppfyller useradds "
+"restriktioner och att adduser inte kan skapa användaren."
 
 #. type: TP
 #: ../adduser.8:616
 #, no-wrap
 msgid "B<41>"
-msgstr ""
+msgstr "B<41>"
 
 #. type: Plain text
 #: ../adduser.8:619
 msgid "The group that was requested to be deleted is not empty."
-msgstr ""
+msgstr "Den grupp som begärdes att raderas är inte tom."
 
 #. type: TP
 #: ../adduser.8:619
 #, no-wrap
 msgid "B<42>"
-msgstr ""
+msgstr "B<42>"
 
 #. type: Plain text
 #: ../adduser.8:623
@@ -1453,86 +1506,88 @@ msgid ""
 "The user that was requested to be removed from a group is not a member in "
 "the first place."
 msgstr ""
+"Användaren som begärdes att tas bort från en grupp är inte medlem från "
+"början."
 
 #. type: TP
 #: ../adduser.8:623
 #, no-wrap
 msgid "B<43>"
-msgstr ""
+msgstr "B<43>"
 
 # type: SS
 #. type: Plain text
 #: ../adduser.8:628
-#, fuzzy
-#| msgid ""
-#| "You cannot remove a user from its primary group.  No action was performed."
 msgid ""
 "It is not possible to remove a user from its primary group, or no primary "
 "group selected for a new user by any method."
 msgstr ""
-"Du kan inte ta bort en användare från sin primära grupp. Ingen åtgärd "
-"genomfördes."
+"Det är inte möjligt att ta bort en användare från sin primära grupp, eller "
+"att välja ingen primär grupp för en ny användare på något sätt."
 
 #. type: TP
 #: ../adduser.8:628
 #, no-wrap
 msgid "B<51>"
-msgstr ""
+msgstr "B<51>"
 
 #. type: Plain text
 #: ../adduser.8:631
 msgid "Incorrect number or order of command line parameters detected."
 msgstr ""
+"Felaktigt antal eller felaktig ordning på kommandoradsparametrarna har "
+"upptäckts."
 
 #. type: TP
 #: ../adduser.8:631
 #, no-wrap
 msgid "B<52>"
-msgstr ""
+msgstr "B<52>"
 
 #. type: Plain text
 #: ../adduser.8:634
 msgid "Incompatible options set in configuration file."
-msgstr ""
+msgstr "Inkompatibla flaggor angivna i konfigurationsfilen."
 
 #. type: TP
 #: ../adduser.8:634
 #, no-wrap
 msgid "B<53>"
-msgstr ""
+msgstr "B<53>"
 
 #. type: Plain text
 #: ../adduser.8:637
 msgid "Mutually incompatible command line options detected."
-msgstr ""
+msgstr "Ömsesidigt inkompatibla kommandoradsflaggor har upptäckts."
 
 #. type: TP
 #: ../adduser.8:637
 #, no-wrap
 msgid "B<54>"
-msgstr ""
+msgstr "B<54>"
 
 #. type: Plain text
 #: ../adduser.8:640
 msgid "B<adduser> and B<deluser> invoked as non-root and thus cannot work."
 msgstr ""
+"B<adduser> och B<deluser> anropas som icke-root och kan därför inte fungera."
 
 #. type: TP
 #: ../adduser.8:640
 #, no-wrap
 msgid "B<55>"
-msgstr ""
+msgstr "B<55>"
 
 #. type: Plain text
 #: ../adduser.8:643
 msgid "B<deluser> will refuse to delete the I<root> account."
-msgstr ""
+msgstr "B<deluser> kommer att vägra att radera I<root>-kontot."
 
 #. type: TP
 #: ../adduser.8:643
 #, no-wrap
 msgid "B<56>"
-msgstr ""
+msgstr "B<56>"
 
 #. type: Plain text
 #: ../adduser.8:647
@@ -1540,12 +1595,14 @@ msgid ""
 "A function was requested that needs more packages to be installed.  See "
 "Recommends: and Suggests: of the adduser package."
 msgstr ""
+"En funktion har begärts som kräver att fler paket installeras.  Se "
+"Rekommenderar: och Föreslår: i paketet adduser."
 
 #. type: TP
 #: ../adduser.8:647
 #, no-wrap
 msgid "B<61>"
-msgstr ""
+msgstr "B<61>"
 
 #. type: Plain text
 #: ../adduser.8:652
@@ -1553,12 +1610,14 @@ msgid ""
 "B<Adduser> was aborted for some reason and tried to roll back the changes "
 "that were done during execution."
 msgstr ""
+"B<Adduser> avbröts av någon anledning och försökte återställa de ändringar "
+"som gjordes under körningen."
 
 #. type: TP
 #: ../adduser.8:652
 #, no-wrap
 msgid "B<62>"
-msgstr ""
+msgstr "B<62>"
 
 #. type: Plain text
 #: ../adduser.8:659
@@ -1566,67 +1625,69 @@ msgid ""
 "Internal B<adduser> error.  This should not happen.  Please try to reproduce "
 "the issue and file a bug report."
 msgstr ""
+"Internt fel i B<adduser>.  Detta borde inte inträffa.  Försök att återskapa "
+"problemet och skicka in en felrapport."
 
 #. type: TP
 #: ../adduser.8:659
 #, no-wrap
 msgid "B<71>"
-msgstr ""
+msgstr "B<71>"
 
 #. type: Plain text
 #: ../adduser.8:662
 msgid "Error creating and handling the lock."
-msgstr ""
+msgstr "Fel vid skapande och hantering av lås."
 
 #. type: TP
 #: ../adduser.8:662
 #, no-wrap
 msgid "B<72>"
-msgstr ""
+msgstr "B<72>"
 
 #. type: Plain text
 #: ../adduser.8:665
 msgid "Error accessing the configuration file(s)."
-msgstr ""
+msgstr "Fel vid åtkomst till konfigurationsfilerna."
 
 #. type: TP
 #: ../adduser.8:665
 #, no-wrap
 msgid "B<73>"
-msgstr ""
+msgstr "B<73>"
 
 #. type: Plain text
 #: ../adduser.8:668
 msgid "Error accessing a pool file."
-msgstr ""
+msgstr "Fel vid åtkomst till en poolfil."
 
 #. type: TP
 #: ../adduser.8:668
 #, no-wrap
 msgid "B<74>"
-msgstr ""
+msgstr "B<74>"
 
 #. type: Plain text
 #: ../adduser.8:671
 msgid "Error reading a pool file, syntax error in file."
-msgstr ""
+msgstr "Fel vid läsning av en poolfil, syntaxfel i filen."
 
 #. type: TP
 #: ../adduser.8:671
 #, no-wrap
 msgid "B<75>"
-msgstr ""
+msgstr "B<75>"
 
 #. type: Plain text
 #: ../adduser.8:674
 msgid "Error accessing auxiliary files."
-msgstr ""
+msgstr "Fel vid åtkomst till hjälpfiler."
 
 #. type: TP
 #: ../adduser.8:674
 #, no-wrap
 msgid "B<81>"
-msgstr ""
+msgstr "B<81>"
 
 #. type: Plain text
 #: ../adduser.8:678
@@ -1634,61 +1695,58 @@ msgid ""
 "An executable that is needed by B<adduser> or B<deluser> cannot be found. "
 "Check your installation and dependencies."
 msgstr ""
+"En körbar fil som behövs av B<adduser> eller B<deluser> kan inte hittas. "
+"Kontrollera din installation och beroenden."
 
 #. type: TP
 #: ../adduser.8:678
 #, no-wrap
 msgid "B<82>"
-msgstr ""
+msgstr "B<82>"
 
 #. type: Plain text
 #: ../adduser.8:681
 msgid "Executing an external command returned some unexpected error."
-msgstr ""
+msgstr "Exekveringen av ett externt kommando resulterade i ett oväntat fel."
 
 #. type: TP
 #: ../adduser.8:681
 #, no-wrap
 msgid "B<83>"
-msgstr ""
+msgstr "B<83>"
 
 #. type: Plain text
 #: ../adduser.8:684
 msgid "An external command was terminated with a signal."
-msgstr ""
+msgstr "Ett externt kommando avslutades med en signal."
 
 #. type: TP
 #: ../adduser.8:684
 #, no-wrap
 msgid "B<84>"
-msgstr ""
+msgstr "B<84>"
 
 #. type: Plain text
 #: ../adduser.8:687
 msgid "A syscall terminated with unexpected error."
-msgstr ""
+msgstr "Ett systemanrop avslutades med ett oväntat fel."
 
 #. type: Plain text
 #: ../adduser.8:692
-#, fuzzy
-#| msgid ""
-#| "Or for many other yet undocumented reasons which are printed to console "
-#| "then.  You may then consider to remove B<--quiet> to make B<adduser> more "
-#| "verbose."
 msgid ""
 "Or for many other yet undocumented reasons which are printed to console "
 "then.  You may then consider to increase a log level to make B<adduser> more "
 "verbose."
 msgstr ""
-"Eller för att många andra ännu så länge odokumenterade anledningar skrivs ut "
-"på konsollen. Du kan då överväga att ta bort B<--quiet> för att göra "
-"B<adduser> mer pratig."
+"Eller av många andra ännu odokumenterade skäl som då skrivs ut till "
+"konsolen.  Du kan då överväga att höja loggnivån för att göra B<adduser> mer "
+"detaljerad."
 
 #. type: SH
 #: ../adduser.8:693 ../deluser.8:281
 #, no-wrap
 msgid "SECURITY"
-msgstr ""
+msgstr "SÄKERHET"
 
 #. type: Plain text
 #: ../adduser.8:705
@@ -1700,6 +1758,13 @@ msgid ""
 "to create arbitrary accounts.  If you want this, consider writing your own "
 "wrapper script and giving privileges to execute that script."
 msgstr ""
+"B<adduser> behöver root-behörighet och erbjuder, via kommandoradsflaggan B<--"
+"conf>, möjlighet att använda olika konfigurationsfiler.  Använd inte "
+"B<sudo>(8) eller liknande verktyg för att ge partiell behörighet till "
+"B<adduser> med begränsade kommandoradsparametrar.  Detta är lätt att kringgå "
+"och kan göra det möjligt för användare att skapa godtyckliga konton.  Om du "
+"vill göra detta bör du överväga att skriva ett eget wrapper-skript och ge "
+"behörighet att köra det skriptet."
 
 # type: SH
 #. type: SH
@@ -1730,7 +1795,7 @@ msgstr "I</usr/local/sbin/adduser.local>"
 #. type: Plain text
 #: ../adduser.8:714
 msgid "Optional custom add-ons, see B<adduser.local>(8)"
-msgstr ""
+msgstr "Valfria anpassade tillägg, se B<adduser.local>(8)"
 
 #. type: SH
 #: ../adduser.8:716 ../adduser.conf.5:205
@@ -1758,6 +1823,23 @@ msgid ""
 "the definition I<local system account or group> if the distinction to "
 "I<application accounts> or accounts managed in a directory service is needed."
 msgstr ""
+"Tyvärr har termen I<system account> dubbla betydelser i Debian.  Den betyder "
+"både ett konto för det faktiska Debian-systemet, vilket skiljer sig från ett "
+"I<application account> som kan finnas i användardatabasen för vissa "
+"applikationer som körs på Debian.  En I<system account> enligt denna "
+"definition har möjlighet att logga in på det faktiska systemet, har ett UID, "
+"kan vara medlem i systemgrupper, kan äga filer och processer.  Debian "
+"Policy, au contraire, gör i kapitel 9.2.2 en åtskillnad mellan I<dynamically "
+"allocated system users and groups> och I<dynamically allocated user "
+"accounts>, vilket i båda fallen betyder särskilda fall av I<system "
+"accounts>.  Man måste vara försiktig så att man inte blandar ihop denna "
+"terminologi.  Eftersom B<adduser> och B<deluser>(8) aldrig behandlar "
+"I<application accounts> och allt i detta paket rör I<system accounts> här, "
+"är användningen av termerna I<user account> och I<system account> faktiskt "
+"inte tvetydig i sammanhanget för detta paket.  För tydlighetens skull "
+"använder detta dokument definitionen I<local system account or group> om det "
+"behövs en distinktion mellan I<application accounts> eller konton som "
+"hanteras i en katalogtjänst."
 
 #. type: Plain text
 #: ../adduser.8:760
@@ -1773,6 +1855,16 @@ msgid ""
 "B<adduser> team is unlikely to be ever strong enough to write and maintain "
 "support for the plethora of directory services that need support."
 msgstr ""
+"B<adduser> e sedan 1990-talet som vision att vara den universella frontenden "
+"för olika katalogtjänster för skapande och radering av vanliga konton och "
+"systemkonton i Debian.  Denna vision har övergivits från och med 2022.  "
+"Skälen till detta är bland annat att ett litet serversystem i praktiken ändå "
+"inte kommer att ha skrivrättigheter till en företagsomfattande "
+"katalogtjänst, att lokalt installerade paket är svåra att hantera med "
+"centralt styrda systemkonton, att företagskatalogtjänster ändå har sina egna "
+"hanteringsprocesser och att personalstyrkan i B<adduser> -teamet sannolikt "
+"aldrig kommer att vara tillräckligt stark för att skriva och underhålla stöd "
+"för den uppsjö av katalogtjänster som behöver stöd."
 
 #. type: Plain text
 #: ../adduser.8:764
@@ -1781,12 +1873,15 @@ msgid ""
 "of local system accounts, using the tools from the B<passwd> package for the "
 "actual work."
 msgstr ""
+"B<adduser> kommer att begränsa sig till att vara ett policy-lager för "
+"hantering av lokala systemkonton, och använda verktygen från B<passwd> "
+"-paketet för det faktiska arbetet."
 
 #. type: SH
 #: ../adduser.8:765
 #, no-wrap
 msgid "BUGS"
-msgstr ""
+msgstr "BUGGAR"
 
 #. type: Plain text
 #: ../adduser.8:769
@@ -1794,6 +1889,9 @@ msgid ""
 "Inconsistent use of terminology around the term I<system account> in docs "
 "and code is a bug.  Please report this and allow us to improve our docs."
 msgstr ""
+"Inkonsekvent användning av terminologin kring begreppet I<system account> en "
+"i dokument och kod är ett fel.  Rapportera detta så att vi kan förbättra "
+"våra dokument."
 
 #. type: Plain text
 #: ../adduser.8:779
@@ -1806,6 +1904,13 @@ msgid ""
 "and encourage their fellow Debian package maintainers to file bugs against "
 "the B<adduser> package in this case."
 msgstr ""
+"B<adduser> lägger särskild vikt vid att kunna användas direkt i Debians "
+"underhållsskript utan villkorliga omslag, felundertryckning och andra "
+"stödstrukturer.  Det enda som paketunderhållaren behöver koda är en kontroll "
+"av förekomsten av den körbara filen i postrm-skriptet.  Underhållarna av "
+"B<adduser> anser att behovet av ytterligare stödstrukturer är ett fel och "
+"uppmuntrar sina kollegor som underhåller Debian-paket att rapportera fel mot "
+"paketet B<adduser> i detta fall."
 
 # type: SH
 #. type: SH
@@ -1825,6 +1930,12 @@ msgid ""
 "Protocols\", RFC8265 \"PRECIS Representing Usernames and Passwords\", "
 "https://wiki.debian.org/UserAccounts."
 msgstr ""
+"B<adduser.conf>(5), B<deluser>(8), B<groupadd>(8), B<useradd>(8), "
+"B<usermod>(8), B</usr/share/doc/base-passwd/users-and-groups.html> på alla "
+"Debian-system, Debian Policy 9.2.2, RFC8264 \"PRECIS Framework: Preparation, "
+"Enforcement, and Comparison of Internationalized Strings in Application "
+"Protocols\", RFC8265 \"PRECIS Representing Usernames and Passwords\", "
+"https://wiki.debian.org/UserAccounts."
 
 # type: TH
 #. type: TH
@@ -1868,7 +1979,7 @@ msgstr "Giltiga konfigurationsflaggor är:"
 #: ../adduser.conf.5:32
 #, no-wrap
 msgid "B<STDERRMSGLEVEL ,  STDOUTMSGLEVEL , and  LOGMSGLEVEL>"
-msgstr ""
+msgstr "B<STDERRMSGLEVEL , STDOUTMSGLEVEL och LOGMSGLEVEL>"
 
 #. type: Plain text
 #: ../adduser.conf.5:38
@@ -1877,6 +1988,9 @@ msgid ""
 "respectively. See B<LOGGING> in adduser(8).  Defaults to I<warn> for "
 "STDOUTMSGLEVEL and STDERRMSGLEVEL and I<info> for LOGMSGLEVEL."
 msgstr ""
+"Minsta prioritet för meddelanden som loggas till syslog/journal respektive "
+"konsolen. Se B<LOGGING> i adduser(8).  Standardvärdet är I<warn> för "
+"STDOUTMSGLEVEL och STDERRMSGLEVEL och I<info> för LOGMSGLEVEL."
 
 # type: TP
 #. type: TP
@@ -1888,19 +2002,14 @@ msgstr "B<ADD_EXTRA_GROUPS>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:45
-#, fuzzy
-#| msgid ""
-#| "Setting this to something other than 0 (the default) will cause adduser "
-#| "to add newly created non-system users to the list of groups defined by "
-#| "EXTRA_GROUPS (below)."
 msgid ""
 "Setting this to something other than 0 will cause B<adduser> to add newly "
 "created non-system users to the list of groups defined by B<EXTRA_GROUPS> "
 "(below).  Defaults to I<0>."
 msgstr ""
-"Ställ in detta till något annat än 0 (standard) kommer att orsaka att "
-"adduser lägger till nyligen skapade icke-systemanvändare till listan av "
-"grupper som definierats av EXTRA_GROUPS (nedan)."
+"Om du ställer in detta på något annat än 0 kommer B<adduser> att lägga till "
+"nyapplikationsanvändare till listan över grupper som definieras av "
+"B<EXTRA_GROUPS> (nedan).  Standardinställningen är I<0>."
 
 # type: TP
 #. type: TP
@@ -1918,6 +2027,11 @@ msgid ""
 "delivery)  which will require changes to the default.  See also "
 "B<SYS_DIR_MODE>."
 msgstr ""
+"Behörighetsläget för hemkataloger för icke-systemanvändare som skapas av "
+"B<adduser>(8).  Standardinställningen är I<0700>.  Observera att det finns "
+"potentiella konfigurationer (såsom ~/user webbtjänster eller e-postleverans "
+"i hemmet)  som kräver ändringar av standardinställningen.  Se även "
+"B<SYS_DIR_MODE>."
 
 # type: TP
 #. type: TP
@@ -1961,16 +2075,12 @@ msgstr "B<EXTRA_GROUPS>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:67
-#, fuzzy
-#| msgid ""
-#| "This is the list of groups that new non-system users will be added to.  "
-#| "By default, this list is 'users' "
 msgid ""
 "This is the space-separated list of groups that new non-system users will be "
 "added to.  Defaults to I<users>."
 msgstr ""
-"Detta är listan på grupper som nya icke-systemanvändare kommer att läggas "
-"till i.  Som standard är denna lista \"users\""
+"Detta är en lista med grupper, separerade med mellanslag, som nya icke-"
+"systemanvändare kommer att läggas till.  Standardinställningen är I<users>."
 
 # type: TP
 #. type: TP
@@ -1982,16 +2092,12 @@ msgstr "B<FIRST_SYSTEM_GID  och  LAST_SYSTEM_GID>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:72
-#, fuzzy
-#| msgid ""
-#| "specify an inclusive range of GIDs from which system GIDs can be "
-#| "dynamically allocated.  Default to I<100> - I<999.>"
 msgid ""
 "specify an inclusive range of GIDs from which GIDs for system groups can be "
 "dynamically allocated.  Defaults to I<100> - I<999>."
 msgstr ""
-"ange ett intervall av GID från vilka system GID dynamiskt kan allokeras "
-"från. Standardvärdet är I<100> - I<999>."
+"ange ett inkluderande intervall av GID:er från vilka GID:er för "
+"systemgrupper kan tilldelas dynamiskt.  Standardvärdet är I<100> - I<999>."
 
 # type: TP
 #. type: TP
@@ -2003,16 +2109,12 @@ msgstr "B<FIRST_GID  och  LAST_GID>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:77
-#, fuzzy
-#| msgid ""
-#| "specify an inclusive range of GIDs from which normal group's GIDs can be "
-#| "dynamically allocated. Default to I<1000> - I<59999>."
 msgid ""
 "specify an inclusive range of GIDs from which GIDs for non-system groups can "
 "be dynamically allocated.  Defaults to I<1000> - I<59999>."
 msgstr ""
-"ange ett intervall av GID från vilka vanliga användares GID dynamiskt kan "
-"allokeras från. Standardvärdet är I<1000> - I<59999>."
+"ange ett inkluderande intervall av GID:er från vilka GID:er för icke-"
+"systemgrupper kan tilldelas dynamiskt.  Standardvärdet är I<1000> - I<59999>."
 
 # type: TP
 #. type: TP
@@ -2024,22 +2126,16 @@ msgstr "B<FIRST_SYSTEM_UID  och  LAST_SYSTEM_UID>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:85
-#, fuzzy
-#| msgid ""
-#| "specify an inclusive range of UIDs from which system UIDs can be "
-#| "dynamically allocated. Default to I<100> - I<999>.  Please note that "
-#| "system software, such as the users allocated by the base-passwd package, "
-#| "may assume that UIDs less than 100 are unallocated."
 msgid ""
 "specify an inclusive range of UIDs from which UIDs for system users can be "
 "dynamically allocated.  Defaults to I<100> - I<999>.  Please note that "
 "system software, such as the users allocated by the I<base-passwd> package, "
 "may assume that UIDs less than 100 are unallocated."
 msgstr ""
-"ange ett intervall av UID från vilka system UID dynamiskt kan allokeras "
-"från. Standardvärdet är I<100> - I<999>. Observera att systemmjukvara, "
-"exempelvis användare som allokeras av paketet base-passwd, kan anta att UID "
-"med lägre värde än 100 är oallokerade."
+"ange ett inkluderande intervall av UID:er från vilket UID:er för "
+"systemanvändare kan tilldelas dynamiskt.  Standardvärdet är I<100> - "
+"I<999>.  Observera att systemprogramvara, såsom användare som tilldelats av "
+"I<base-passwd> -paketet, kan anta att UID:er mindre än 100 är otilldelade."
 
 # type: TP
 #. type: TP
@@ -2051,16 +2147,13 @@ msgstr "B<FIRST_UID  och  LAST_UID>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:90
-#, fuzzy
-#| msgid ""
-#| "specify an inclusive range of UIDs from which normal user's UIDs can be "
-#| "dynamically allocated. Default to I<1000> - I<59999>."
 msgid ""
 "specify an inclusive range of UIDs from which UIDs for non-system users can "
 "be dynamically allocated.  Defaults to I<1000> - I<59999>."
 msgstr ""
-"ange ett intervall av uid från vilka vanliga användares uid dynamiskt kan "
-"allokeras från. Standardvärdet är I<1000> - I<59999>."
+"ange ett inkluderande intervall av UID:er från vilka UID:er för icke-"
+"systemanvändare kan tilldelas dynamiskt.  Standardvärdet är I<1000> - "
+"I<59999>."
 
 # type: TP
 #. type: TP
@@ -2072,7 +2165,7 @@ msgstr "B<GID_POOL>"
 #. type: Plain text
 #: ../adduser.conf.5:93
 msgid "See B<UID_POOL>."
-msgstr ""
+msgstr "Se B<UID_POOL>."
 
 # type: TP
 #. type: TP
@@ -2084,17 +2177,14 @@ msgstr "B<GROUPHOMES>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:98
-#, fuzzy
-#| msgid ""
-#| "If this is set to I<yes>, the home directories will be created as I</home/"
-#| "[groupname]/user>.  Defaults to I<no>."
 msgid ""
 "If this is set to I<yes>, the home directories will be created as I</home/"
 "groupname/user>.  Defaults to I<no>. This option is B<deprecated> and will "
 "be removed."
 msgstr ""
-"Om denna är satt till I<yes> kommer hemkataloger att skapas som I</home/"
-"[gruppnamn]/användare>.  Standardvärde är I<no>."
+"Om detta är inställt på I<yes> kommer hemkatalogerna att skapas som I</home/"
+"groupname/user>.  Standardinställningen är I<no>. Denna flagga är "
+"B<deprecated> och kommer att tas bort."
 
 # type: TP
 #. type: TP
@@ -2126,7 +2216,7 @@ msgstr "B<LAST_UID>"
 #. type: Plain text
 #: ../adduser.conf.5:107
 msgid "See the B<FIRST_> variants of the option."
-msgstr ""
+msgstr "Se B<FIRST_>-varianterna av flaggan."
 
 # type: TP
 #. type: TP
@@ -2138,20 +2228,16 @@ msgstr "B<LETTERHOMES>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:114
-#, fuzzy
-#| msgid ""
-#| "If this is set to I<yes>, then the home directories created will have an "
-#| "extra directory inserted which is the first letter of the loginname.  For "
-#| "example: I</home/u/user>.  Defaults to I<no>."
 msgid ""
 "If this is set to I<yes>, then the home directories created will have an "
 "extra directory inserted which is the first letter of the loginname.  For "
 "example: I</home/u/user>.  Defaults to I<no>. This option is B<deprecated> "
 "and will be removed."
 msgstr ""
-"Om denna är satt till I<yes> kommer hemkataloger som skapas att ha en extra "
-"katalog inlagd som är första bokstaven för inloggningsnamnet.  Till exempel: "
-"I</home/a/användare>.  Standardvärde är I<no>."
+"Om detta är inställt på I<yes> kommer de skapade hemkatalogerna att ha en "
+"extra katalog infogad som är den första bokstaven i inloggningsnamnet.  Till "
+"exempel: I</home/u/user>.  Standardinställningen är I<no>. Denna flagga är "
+"B<deprecated> och kommer att tas bort."
 
 # type: TP
 #. type: TP
@@ -2163,13 +2249,6 @@ msgstr "B<NAME_REGEX>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:125
-#, fuzzy
-#| msgid ""
-#| "User and group names are checked against this regular expression. If the "
-#| "name doesn't match this regexp, user and group creation in adduser is "
-#| "refused unless --force-badname is set. With --force-badname set, only "
-#| "weak checks are performed. The default is the most conservative ^[a-z][-a-"
-#| "z0-9]*$."
 msgid ""
 "Non-system user- and groupnames are checked against this regular "
 "expression.  If the name doesn't match this regexp, user and group creation "
@@ -2178,11 +2257,13 @@ msgid ""
 "conservative I<^[a-zA-Z][a-zA-Z0-9_-]*\\e$?$>.  See B<SYS_NAME_REGEX> and "
 "B<Valid names>, below, for more information."
 msgstr ""
-"Namn på användare och grupper kontrolleras mot detta reguljära uttryck. Om "
-"namnet inte matchar detta reguljära uttryck kommer skapandet att vägras om "
-"inte --force-badname är satt. Med --force-badname satt kommer bara svaga "
-"kontroller att utföras. Standardvärdet är det mest konservativa ^[a-z][-a-"
-"z0-9]*$."
+"Användar- och gruppnamn som inte tillhör systemet kontrolleras mot detta "
+"reguljära uttryck.  Om namnet inte matchar detta reguljära uttryck nekas "
+"skapandet av användare och grupper i B<adduser>(8) såvida inte B<--allow-bad-"
+"names> är inställt.  Om B<--allow-bad-names> är inställt utförs svagare "
+"kontroller.  Standardinställningen är den mest konservativa I<^[a-zA-Z][a-zA-"
+"Z0-9_-]*\\e$?$>.  Se B<SYS_NAME_REGEX> och B<Valid names> nedan för mer "
+"information."
 
 # type: TP
 #. type: TP
@@ -2194,23 +2275,19 @@ msgstr "B<QUOTAUSER>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:131
-#, fuzzy
-#| msgid ""
-#| "If set to a nonempty value, new users will have quotas copied from that "
-#| "user.  The default is empty."
 msgid ""
 "If set to a nonempty value, new users will have quotas copied from that user "
 "using I<edquota -p QUOTAUSER newuser>.  Defaults to I<the empty string>."
 msgstr ""
-"Om satt till ett icke-tomt värde kommer nya användare att få diskkvoten "
-"kopierad från den användare.  Standardvärde är tom."
+"Om värdet är angivet till ett icke-tomt värde kommer nya användare att få "
+"kvoter kopierade från den användaren med hjälp av I<edquota -p QUOTAUSER "
+"newuser>.  Standardvärdet är I<the empty string>."
 
 #. type: TP
 #: ../adduser.conf.5:131
-#, fuzzy, no-wrap
-#| msgid "B<UID_POOL  and  GID_POOL>"
+#, no-wrap
 msgid "B<RESERVE_UID_POOL  and  RESERVE_GID_POOL>"
-msgstr "B<UID_POOL  och  GID_POOL>"
+msgstr "B<RESERVE_UID_POOL och RESERVE_GID_POOL>"
 
 #. type: Plain text
 #: ../adduser.conf.5:137
@@ -2219,6 +2296,9 @@ msgid ""
 "are truly reserved.  See UID AND GID POOLS in the NOTES section.  Defaults "
 "to I<yes>."
 msgstr ""
+"Kontrollerar om UID- och GID-värdena som anges i pool-filerna verkligen är "
+"reserverade.  Se UID- OCH GID-POOLER i avsnittet ANMÄRKNINGAR.  "
+"Standardinställningen är I<yes>."
 
 # type: TP
 #. type: TP
@@ -2230,24 +2310,17 @@ msgstr "B<SETGID_HOME>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:147
-#, fuzzy
-#| msgid ""
-#| "If this is set to I<yes>, then home directories for users with their own "
-#| "group ( I<USERGROUPS=yes> ) will have the setgid bit set. This was the "
-#| "default setting for adduser versions E<lt>E<lt> 3.13. Unfortunately it "
-#| "has some bad side effects, so we no longer do this per default. If you "
-#| "want it nevertheless you can still activate it here."
 msgid ""
 "If this is set to I<yes>, then home directories for users with their own "
 "group (B<USERGROUPS> = yes)  will have the set-group-ID bit set.  Note that "
 "this feature is B<deprecated> and will be removed in a future version of "
 "B<adduser>(8).  Please use B<DIR_MODE> instead.  Defaults to I<no>."
 msgstr ""
-"Om denna är satt till I<yes> kommer hemkataloger för användare med sin egna "
-"grupp ( I<USERGROUPS=yes> ) att ha setgid-biten satt. Detta var "
-"standardinställningen för adduser version E<lt>E<lt> 3.13. Tyvärr har det "
-"några nackdelar så vi gör inte det längre som standard. Om du vill ha det "
-"oavsett kan du fortfarande aktivera det här."
+"Om detta är inställt på I<yes>, kommer hemkataloger för användare med egen "
+"grupp (B<USERGROUPS> = yes)  att ha set-group-ID-biten inställd.  Observera "
+"att denna funktion är B<deprecated> och kommer att tas bort i en framtida "
+"version av B<adduser>(8).  Använd istället B<DIR_MODE>.  "
+"Standardinställningen är I<no>."
 
 # type: TP
 #. type: TP
@@ -2259,16 +2332,12 @@ msgstr "B<SKEL>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:152
-#, fuzzy
-#| msgid ""
-#| "The directory from which skeletal user configuration files should be "
-#| "copied.  Defaults to I</etc/skel>."
 msgid ""
 "The directory from which skeletal user configuration files will be copied.  "
 "Defaults to I</etc/skel>."
 msgstr ""
-"Katalogen från vilken skelettkonfigurationsfiler för användare ska kopias.  "
-"Standardvärde är I</etc/skel>."
+"Katalogen från vilken skelettkonfigurationsfiler för användare kommer att "
+"kopieras. Standardvärdet är I</etc/skel>."
 
 # type: TP
 #. type: TP
@@ -2280,22 +2349,16 @@ msgstr "B<SKEL_IGNORE_REGEX>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:159
-#, fuzzy
-#| msgid ""
-#| "Files in /etc/skel/ are checked against this regex, and not copied to the "
-#| "newly created home directory if they match.  This is by default set to "
-#| "the regular expression matching files left over from unmerged config "
-#| "files (dpkg-(old|new|dist))."
 msgid ""
 "When populating the newly created home directory of a non-system user, files "
 "in SKEL matching this regex are not copied.  Defaults to to I<(.(dpkg|ucf)-"
 "(old|new|dist)$)>, the regular expression matching files left over from "
 "unmerged config files."
 msgstr ""
-"Filer under /etc/skel/ kontrolleras mot detta reguljära uttryck och kopieras "
-"inte till den nyligen skapade hemkatalogen om de matchar.  Detta är som "
-"standard inställt till ett reguljärt uttryck som matchar filer som lämnats "
-"kvar av gamla konfigurationsfiler (dpkg-(old|new|dist))."
+"När den nyskapade hemkatalogen för en icke-systemanvändare fylls, kopieras "
+"inte filer i SKEL som matchar detta reguljära uttryck. Standardvärdet är I<(."
+"(dpkg|ucf)-(old|new|dist)$)>, det reguljära uttrycket som matchar filer som "
+"är kvar från icke-sammanslagna konfigurationsfiler."
 
 # type: TP
 #. type: TP
@@ -2312,6 +2375,11 @@ msgid ""
 "permissions for system users may cause some packages to behave unreliably, "
 "if the program relies on the default setting.  See also B<DIR_MODE>."
 msgstr ""
+"Behörighetsläget för hemkataloger för systemanvändare som skapas av "
+"B<adduser>(8).  Standardinställningen är I<0755>.  Observera att ändring av "
+"standardbehörigheterna för systemanvändare kan leda till att vissa paket "
+"inte fungerar som de ska, om programmet är beroende av "
+"standardinställningen.  Se även B<DIR_MODE>."
 
 # type: TP
 #. type: TP
@@ -2323,13 +2391,6 @@ msgstr "B<SYS_NAME_REGEX>"
 # type: Plain text
 #. type: Plain text
 #: ../adduser.conf.5:179
-#, fuzzy
-#| msgid ""
-#| "User and group names are checked against this regular expression. If the "
-#| "name doesn't match this regexp, user and group creation in adduser is "
-#| "refused unless --force-badname is set. With --force-badname set, only "
-#| "weak checks are performed. The default is the most conservative ^[a-z][-a-"
-#| "z0-9]*$."
 msgid ""
 "System user- and groupnames are checked against this regular expression.  If "
 "the name doesn't match this regexp, system user and group creation in "
@@ -2338,11 +2399,13 @@ msgid ""
 "I<^[a-zA-Z_][a-zA-Z0-9_-]*\\e$?$>.  See B<NAME_REGEX>, above, and B<Valid "
 "names>, below, for more information."
 msgstr ""
-"Namn på användare och grupper kontrolleras mot detta reguljära uttryck. Om "
-"namnet inte matchar detta reguljära uttryck kommer skapandet att vägras om "
-"inte --force-badname är satt. Med --force-badname satt kommer bara svaga "
-"kontroller att utföras. Standardvärdet är det mest konservativa ^[a-z][-a-"
-"z0-9]*$."
+"Systemanvändar- och gruppnamn kontrolleras mot detta reguljära uttryck.  Om "
+"namnet inte matchar detta reguljära uttryck nekas skapandet av "
+"systemanvändare och grupp i adduser, såvida inte B<--allow-bad-names> är "
+"inställt.  Med B<--allow-bad-names> inställt utförs svagare kontroller.  "
+"Standardinställningen är det mest konservativa I<^[a-zA-Z_][a-zA-"
+"Z0-9_-]*\\e$?$>.  Se B<NAME_REGEX> ovan och B<Valid names> nedan för mer "
+"information."
 
 #. type: TP
 #: ../adduser.conf.5:179
@@ -2356,6 +2419,8 @@ msgid ""
 "specify a file or a directory containing UID and GID pool files.  See UID "
 "AND GID POOLS in the NOTES section.  Both default to I<empty>."
 msgstr ""
+"ange en fil eller en katalog som innehåller UID- och GID-poolfiler.  Se UID- "
+"OCH GID-POOLER i avsnittet ANMÄRKNINGAR.  Båda är som standard I<empty>."
 
 # type: TP
 #. type: TP
@@ -2370,6 +2435,8 @@ msgid ""
 "Specify whether each created non-system user will be given their own group "
 "to use.  Defaults to I<yes>."
 msgstr ""
+"Ange om varje skapad icke-systemanvändare ska tilldelas en egen grupp att "
+"använda.  Standardinställningen är I<yes>."
 
 #. type: TP
 #: ../adduser.conf.5:189
@@ -2390,12 +2457,21 @@ msgid ""
 "It is a configuration error to define both variables even if the values are "
 "consistent."
 msgstr ""
+"Definierar gruppnamnet eller GID för den grupp som alla "
+"nyapplikationsanvändare placeras i. Om B<USERGROUPS> är I<yes,> kommer "
+"gruppen att läggas till som en kompletterande grupp; om B<USERGROUPS> är "
+"I<no,> kommer den att vara den primära gruppen. Om du inte vill att alla "
+"dina användare ska vara i en grupp, ställ in B<USERGROUPS>=I<yes>, lämna "
+"B<USERS_GROUP> tomt och ställ in B<USERS_GID> till \"-1\".  B<USERS_GROUP> "
+"är som standard I<users>, som har GID 100 på alla Debian-system eftersom det "
+"definieras statiskt av paketet I<base-passwd>.  Det är ett konfigurationsfel "
+"att definiera båda variablerna även om värdena är konsistenta."
 
 #. type: SS
 #: ../adduser.conf.5:206
 #, no-wrap
 msgid "UID AND GID POOLS"
-msgstr ""
+msgstr "UID- OCH GID-POOLER"
 
 #. type: Plain text
 #: ../adduser.conf.5:214
@@ -2405,6 +2481,11 @@ msgid ""
 "sure that even without using a directory service, an account or a group with "
 "a certain name has the same numeric UID/GID on all systems where it exists."
 msgstr ""
+"Vissa installationer kräver att ett icke-systemkonto får förkonfigurerade "
+"egenskaper när det skapas. Vanligtvis vill den lokala administratören "
+"säkerställa att även utan att använda en katalogtjänst har ett konto eller "
+"en grupp med ett visst namn samma numeriska UID/GID på alla system där det "
+"finns."
 
 #. type: Plain text
 #: ../adduser.conf.5:222
@@ -2415,6 +2496,11 @@ msgid ""
 "a file or a directory.  In the latter case all files named I<*.conf> in that "
 "directory are considered."
 msgstr ""
+"För att aktivera den här funktionen definierar du konfigurationsvariablerna "
+"B<UID_POOL> (för användarkonton) och/eller B<GID_POOL> (för grupper) i I</"
+"etc/adduser.conf> och installerar respektive filer på de konfigurerade "
+"platserna. Värdet är antingen en fil eller en katalog. I det senare fallet "
+"beaktas alla filer med namnet I<*.conf> i den katalogen."
 
 #. type: Plain text
 #: ../adduser.conf.5:231
@@ -2424,6 +2510,10 @@ msgid ""
 "(mandatory), comment field (optional, useful for user IDs only), home "
 "directory (ditto), shell (ditto)."
 msgstr ""
+"Filformatet liknar I</etc/passwd>: Textrader, fält separerade med kolon. "
+"Värdena är användarnamn/gruppnamn (obligatoriskt), UID/GID (obligatoriskt), "
+"kommentarfält (valfritt, endast användbart för användar-ID), hemkatalog "
+"(dito), skal (dito)."
 
 #. type: Plain text
 #: ../adduser.conf.5:234
@@ -2431,6 +2521,7 @@ msgid ""
 "It is possible to use the same file/directory for B<UID_POOL> and "
 "B<GID_POOL>."
 msgstr ""
+"Det är möjligt att använda samma fil/katalog för B<UID_POOL> och B<GID_POOL>."
 
 #. type: Plain text
 #: ../adduser.conf.5:242
@@ -2440,6 +2531,10 @@ msgid ""
 "data found there to initialize the new account instead of using the "
 "defaults.  Settings may be overridden from the command line."
 msgstr ""
+"Om ett konto/en grupp skapas söker B<adduser>(8) i alla UID/GID-poolfiler "
+"efter en rad som matchar namnet på det nyskapade kontot och använder de data "
+"som hittas där för att initialisera det nya kontot istället för att använda "
+"standardvärdena.  Inställningarna kan åsidosättas från kommandoraden."
 
 #. type: Plain text
 #: ../adduser.conf.5:252
@@ -2452,6 +2547,13 @@ msgid ""
 "cause conflicts and cause your pool UIDs and GIDs to be used by accounts "
 "that are not in the pool."
 msgstr ""
+"I standardkonfigurationen kommer UID- och GID-värdena som anges i poolen att "
+"reserveras och därmed inte användas av de normala UID- och GID-"
+"valsprocesserna. Detta är vanligtvis vad du vill ha.  Med "
+"konfigurationsflaggan B<RESERVE_UID_POOL> och B<RESERVE_GID_POOL> kan du "
+"inaktivera detta beteende om du vill att poolade UID:er och GID:er ska "
+"användas av vanliga konton. Detta kan orsaka konflikter och leda till att "
+"dina poolade UID:er och GID:er används av konton som inte ingår i poolen."
 
 # type: Plain text
 #. type: Plain text
@@ -2468,51 +2570,43 @@ msgstr ""
 msgid ""
 "adduser.local, deluser.local - hook for local actions in adduser and deluser"
 msgstr ""
+"adduser.local, deluser.local – hook för lokala åtgärder i adduser och deluser"
 
-# type: TH
 #. type: SY
 #: ../adduser.local.8:10
-#, fuzzy, no-wrap
-#| msgid "adduser"
+#, no-wrap
 msgid "adduser.local"
-msgstr "adduser"
+msgstr "adduser.local"
 
 #. type: OP
 #: ../adduser.local.8:11 ../adduser.local.8:16
 #, no-wrap
 msgid "username"
-msgstr ""
+msgstr "användarnamn"
 
-# type: TP
 #. type: OP
 #: ../adduser.local.8:12 ../adduser.local.8:17
-#, fuzzy, no-wrap
-#| msgid "--uid"
+#, no-wrap
 msgid "uid"
-msgstr "--uid"
+msgstr "uid"
 
 #. type: OP
 #: ../adduser.local.8:13 ../adduser.local.8:18
-#, fuzzy, no-wrap
-#| msgid "--gid"
+#, no-wrap
 msgid "gid"
-msgstr "--gid"
+msgstr "gid"
 
-# type: Plain text
 #. type: OP
 #: ../adduser.local.8:14 ../adduser.local.8:19
-#, fuzzy, no-wrap
-#| msgid "username uid gid home-directory"
+#, no-wrap
 msgid "home-directory"
-msgstr "användarnamn uid gid hemkatalog"
+msgstr "hemkatalog"
 
-# type: TH
 #. type: SY
 #: ../adduser.local.8:15
-#, fuzzy, no-wrap
-#| msgid "deluser"
+#, no-wrap
 msgid "deluser.local"
-msgstr "deluser"
+msgstr "deluser.local"
 
 #. type: Plain text
 #: ../adduser.local.8:29
@@ -2521,6 +2615,10 @@ msgid ""
 "I</usr/local/sbin> and will be called by B<adduser> and B<deluser> "
 "respectively in order to do locally relevant setup and cleanup actions."
 msgstr ""
+"B<adduser.local> och B<deluser.local> kan placeras av den lokala "
+"administratören i I</usr/local/sbin> och kommer att anropas av B<adduser> "
+"respektive B<deluser> för att utföra lokalt relevanta inställnings- och "
+"rensningsåtgärder."
 
 #. type: Plain text
 #: ../adduser.local.8:32
@@ -2528,6 +2626,8 @@ msgid ""
 "The hooks are called while the adduser/deluser lock is active.  They must "
 "therefore not call back to adduser/deluser themselves."
 msgstr ""
+"Hooks anropas medan adduser/deluser-låset är aktivt.  De får därför inte "
+"själva anropa adduser/deluser."
 
 # type: SH
 #. type: SH
@@ -2539,74 +2639,60 @@ msgstr "RETURVÄRDE"
 #. type: Plain text
 #: ../adduser.local.8:34
 msgid "Return values from the hooks are ignored."
-msgstr ""
+msgstr "Returvärden från hooks ignoreras."
 
 #. type: SH
 #: ../adduser.local.8:35
 #, no-wrap
 msgid "ENVIRONMENT"
-msgstr ""
+msgstr "MILJÖ"
 
 #. type: Plain text
 #: ../adduser.local.8:37
 msgid "B<VERBOSE>"
-msgstr ""
+msgstr "B<VERBOSE>"
 
 #. type: IP
 #: ../adduser.local.8:37
 #, no-wrap
 msgid "0"
-msgstr ""
+msgstr "0"
 
-# type: TP
 #. type: Plain text
 #: ../adduser.local.8:39
-#, fuzzy
-#| msgid "0 if --quiet is specified"
 msgid "if --quiet is specified"
-msgstr "0 om --quiet angivs"
+msgstr "om --quiet anges"
 
 #. type: IP
 #: ../adduser.local.8:39
 #, no-wrap
 msgid "1"
-msgstr ""
+msgstr "1"
 
-# type: TP
 #. type: Plain text
 #: ../adduser.local.8:41
-#, fuzzy
-#| msgid "1 if neither --quiet nor --debug is specified"
 msgid "if neither --quiet nor --debug is specified"
-msgstr "1 om varken --quiet eller --debug är angivna"
+msgstr "om varken --quiet eller --debug anges"
 
 #. type: IP
 #: ../adduser.local.8:41
 #, no-wrap
 msgid "2"
-msgstr ""
+msgstr "2"
 
-# type: TP
 #. type: Plain text
 #: ../adduser.local.8:43
-#, fuzzy
-#| msgid "2 if --debug is specified"
 msgid "if --debug is specified"
-msgstr "2 om --debug angivs"
+msgstr "om --debug anges"
 
-# type: Plain text
 #. type: Plain text
-#: ../adduser.local.8:52
-#, fuzzy
-#| msgid ""
-#| "adduser.conf(5), deluser(8), useradd(8), groupadd(8), usermod(8), Debian "
-#| "Policy 9.2.2."
+#: ../adduser.local.8:53
 msgid ""
 "B<adduser.conf>(5), B<deluser.conf>(5), B<adduser>(8), B<deluser>(8), "
 "B<groupadd>(8), B<useradd>(8), B<usermod>(8), Debian Policy 9.2.2."
 msgstr ""
-"adduser.conf(5), deluser(8), useradd(8), groupadd(8), usermod(8), Debian "
-"Policy 9.2.2."
+"B<adduser.conf>(5), B<deluser.conf>(5), B<adduser>(8), B<deluser>(8), "
+"B<groupadd>(8), B<useradd>(8), B<usermod>(8), Debian Policy 9.2.2."
 
 # type: TH
 #. type: TH
@@ -2647,7 +2733,7 @@ msgstr "--backup-suffix"
 #: ../deluser.8:19 ../deluser.8:36
 #, no-wrap
 msgid "str"
-msgstr ""
+msgstr "str"
 
 # type: TP
 #. type: OP
@@ -2696,19 +2782,13 @@ msgid ""
 "to command line options and configuration information in I</etc/"
 "deluser.conf> and I</etc/adduser.conf>."
 msgstr ""
+"B<deluser> och B<delgroup> tar bort användare och grupper från systemet "
+"enligt kommandoradsflaggor och konfigurationsinformation i I</etc/"
+"deluser.conf> och I</etc/adduser.conf>."
 
 # type: Plain text
 #. type: Plain text
 #: ../deluser.8:107
-#, fuzzy
-#| msgid ""
-#| "B<deluser> and B<delgroup> remove users and groups from the system "
-#| "according to command line options and configuration information in I</etc/"
-#| "deluser.conf> and I</etc/adduser.conf>.  They are friendlier front ends "
-#| "to the B<userdel> and B<groupdel> programs, removing the home directory "
-#| "as option or even all files on the system owned by the user to be "
-#| "removed, running a custom script, and other features.  B<deluser> and "
-#| "B<delgroup> can be run in one of three modes:"
 msgid ""
 "They are more Debian specific front ends to the B<userdel> and B<groupdel> "
 "programs, which are more distribution agnostic.  B<deluser> and B<delgroup> "
@@ -2716,40 +2796,33 @@ msgid ""
 "owned by the user to be removed, run a custom script, and have other "
 "features."
 msgstr ""
-"B<deluser> och B<delgroup> tar bort användare och grupper från systemet "
-"enligt flaggorna på kommandoraden och konfigurationsinformation i I</etc/"
-"deluser.conf> och I</etc/adduser.conf>.  De är vänligare gränssnitt till "
-"programmen B<userdel> och B<groupdel>, tar bort hemkatalog enligt flagga "
-"eller även alla filer på systemet som ägs av den användare som ska tas bort, "
-"kör egendefinierade skript och andra funktioner.  B<deluser> och B<delgroup> "
-"kan köras i ett av tre lägen:"
+"De är mer Debian-specifika frontend-program till programmen B<userdel> och "
+"B<groupdel>, som är mer distributionsoberoende.  B<deluser> och B<delgroup> "
+"kan ta bort hemkatalogen som en flagga eller till och med alla filer på "
+"systemet som ägs av användaren som ska tas bort, köra ett anpassat skript "
+"och har andra funktioner."
 
 #. type: Plain text
 #: ../deluser.8:112
 msgid "B<deluser> and B<delgroup> can be run in one of three modes:"
-msgstr ""
+msgstr "B<deluser> och B<delgroup> kan köras i ett av tre lägen:"
 
 # type: SS
 #. type: SS
 #: ../deluser.8:113
-#, fuzzy, no-wrap
-#| msgid "Remove a normal user"
+#, no-wrap
 msgid "Remove a user"
-msgstr "Ta bort en vanlig användare"
+msgstr "Ta bort en användare"
 
 # type: Plain text
 #. type: Plain text
 #: ../deluser.8:117
-#, fuzzy
-#| msgid ""
-#| "If called with one non-option argument and without the B<--group> option, "
-#| "B<deluser> will remove a normal user."
 msgid ""
 "If called with one non-option argument and without the B<--group> option, "
 "B<deluser> will remove a non-system user."
 msgstr ""
-"Om anropad med ett icke-flagga-argument och utan flaggan B<--group> kommer "
-"B<deluser> att ta bort en vanlig användare."
+"Om B<deluser> anropas med ett icke-flaggargument och utan flaggan B<--"
+"group>, kommer B att ta bort en icke-systemanvändare."
 
 # type: Plain text
 #. type: Plain text
@@ -2767,12 +2840,6 @@ msgstr ""
 # type: Plain text
 #. type: Plain text
 #: ../deluser.8:133
-#, fuzzy
-#| msgid ""
-#| "The B<--remove-all-files> option removes all files on the system owned by "
-#| "the user. Note that if you activate both options B<--remove-home> will "
-#| "have no effect because all files including the home directory and mail "
-#| "spool are already covered by the B<--remove-all-files> option."
 msgid ""
 "The B<--remove-all-files> option removes all files on the system owned by "
 "the user.  Note that if you activate both options B<--remove-home> will have "
@@ -2780,32 +2847,22 @@ msgid ""
 "spool are already covered by the B<--remove-all-files> option."
 msgstr ""
 "Flaggan B<--remove-all-files> tar bort alla filer på systemet som ägs av "
-"användaren. Notera att om du aktiverar båda flaggorna kommer B<--remove-"
-"home> inte att ha någon effekt därför att alla filer inklusive hemkatalogen "
-"och post-spoolen redan täcks in av flaggan B<--remove-all-files>."
+"användaren.  Observera att om du aktiverar båda flaggorna kommer B<--remove-"
+"home> inte att ha någon ytterligare effekt eftersom alla filer, inklusive "
+"hemkatalogen och mailspoolen, redan omfattas av flaggan B<--remove-all-"
+"files>."
 
 # type: Plain text
 #. type: Plain text
 #: ../deluser.8:138
-#, fuzzy
-#| msgid ""
-#| "If you want to backup all files before deleting them you can activate the "
-#| "B<--backup> option which will create a file username.tar(.gz|.bz2) in the "
-#| "directory specified by the B<--backup-to> option (defaulting to the "
-#| "current working directory). Both the remove and backup options can also "
-#| "be activated for default in the configuration file /etc/deluser.conf. See "
-#| "B<deluser.conf(5)> for details."
 msgid ""
 "If you want to backup all files before deleting them you can activate the "
 "B<--backup> option which will create a file I<username.tar(.gz|.bz2)> in the "
 "directory specified by the B<--backup-to> option."
 msgstr ""
-"Om du vill säkerhetskopiera alla filerna före de tas bort kan du aktivera "
-"flaggan B<--backup> som kommer att skapa en fil kallad "
-"användare.tar(.gz|.bz2) i den katalog som angivits med flaggan B<--backup-"
-"to> (standard är till nuvarande katalog). Båda flaggorna för borttagning och "
-"säkerhetskopiering kan också aktiveras som standard i konfigurationsfilen /"
-"etc/deluser.conf. Se B<deluser.conf(5)> för detaljer."
+"Om du vill säkerhetskopiera alla filer innan du raderar dem kan du aktivera "
+"flaggan B<--backup>, vilket skapar en fil I<username.tar(.gz|.bz2)> i den "
+"katalog som anges av flaggan B<--backup-to>."
 
 #. type: Plain text
 #: ../deluser.8:144
@@ -2814,21 +2871,18 @@ msgid ""
 "this, the B<--backup-suffix> option can be set to any suffix supported by "
 "B<tar --auto-compress>."
 msgstr ""
+"Som standard komprimeras säkerhetskopieringsarkivet med B<gzip>(1).  För att "
+"ändra detta kan flaggan B<--backup-suffix> ställas in på valfritt suffix som "
+"stöds av B<tar --auto-compress>."
 
 #. type: Plain text
 #: ../deluser.8:146
 msgid "B<deluser> will refuse to remove the root account."
-msgstr ""
+msgstr "B<deluser> kommer att vägra att ta bort root-kontot."
 
 # type: Plain text
 #. type: Plain text
 #: ../deluser.8:157
-#, fuzzy
-#| msgid ""
-#| "Only delete if user/group is a system user/group. This avoids "
-#| "accidentally deleting non-system users/groups. Additionally, if the user "
-#| "does not exist, no error value is returned. This option is mainly for use "
-#| "in Debian package maintainer scripts."
 msgid ""
 "If the B<--system> option is given on the command line, the delete operation "
 "is actually executed only if the user is a system user.  This avoids "
@@ -2837,10 +2891,12 @@ msgid ""
 "use this flag to remove system users or groups while ignoring the case where "
 "the removal already occurred."
 msgstr ""
-"Ta endast bort om användare/grupp är en systemanvändare/grupp. Detta "
-"förhindrar oavsiktliga borttagningar av icke-systemanvändare/grupper. Om "
-"användaren inte finns  kommer ingen felkod att returneras. Denna flagga är "
-"huvudsakligen för användning av skript för Debians paketunderhållare."
+"Om flaggan B<--system> anges på kommandoraden utförs raderingen endast om "
+"användaren är en systemanvändare.  Detta förhindrar att icke-systemanvändare "
+"raderas av misstag.  Om användaren inte finns returneras dessutom inget "
+"felvärde.  Debians paketunderhållsskript kan använda denna flagga för att ta "
+"bort systemanvändare eller grupper, samtidigt som de ignorerar fall där "
+"borttagningen redan har skett."
 
 # type: SS
 #. type: SS
@@ -2857,6 +2913,10 @@ msgid ""
 "cannot be removed.  If the option B<--only-if-empty> is given, the group "
 "won't be removed if it has any members left."
 msgstr ""
+"Om B<deluser> anropas med flaggan B<--group> eller B<delgroup> anropas, "
+"kommer en grupp att tas bort.  Den primära gruppen för en befintlig "
+"användare kan inte tas bort.  Om flaggan B<--only-if-empty> anges kommer "
+"gruppen inte att tas bort om den har några medlemmar kvar."
 
 #. type: Plain text
 #: ../deluser.8:168
@@ -2864,6 +2924,7 @@ msgid ""
 "The B<--system> option adds the same functionality as for users, "
 "respectively."
 msgstr ""
+"Flaggan B<--system> lägger till samma funktionalitet som för användare."
 
 # type: SS
 #. type: SS
@@ -2888,6 +2949,8 @@ msgid ""
 "Different modes of B<deluser> allow different options.  If no valid modes "
 "are listed for a option, it is accepted in all modes."
 msgstr ""
+"Olika lägen för B<deluser> en tillåter olika flaggor.  Om inga giltiga lägen "
+"anges för en flagga accepteras det i alla lägen."
 
 # type: TP
 #. type: TP
@@ -2898,25 +2961,21 @@ msgstr "B<--backup>"
 
 #. type: Plain text
 #: ../deluser.8:186
-#, fuzzy
-#| msgid ""
-#| "Backup all files contained in the userhome and the mailspool-file to a "
-#| "file named /$user.tar.bz2 or /$user.tar.gz."
 msgid ""
 "Backup all files contained in the userhome and the mailspool file to a file "
 "named I<username.tar.bz2> or I<username.tar.gz>.  Valid modes: B<deluser>, "
 "B<deluser --system>."
 msgstr ""
-"Ta säkerhetskopia på alla filer i användarens hemkatalog och postfilen till "
-"en fil med namnet /$user.tar.bz2 eller /user.tar.gz."
+"Säkerhetskopiera alla filer som finns i användarhemmet och mailspool-filen "
+"till en fil med namnet I<username.tar.bz2> eller I<username.tar.gz>.  "
+"Giltiga lägen: B<deluser>, B<deluser --system>."
 
 # type: TP
 #. type: TP
 #: ../deluser.8:186
-#, fuzzy, no-wrap
-#| msgid "B<--backup-to>"
+#, no-wrap
 msgid "B<--backup-suffix >str"
-msgstr "B<--backup-to>"
+msgstr "B<--backup-suffix >str"
 
 #. type: Plain text
 #: ../deluser.8:192
@@ -2925,14 +2984,17 @@ msgid ""
 "suffix recognized by B<tar --auto-compress>.  Defaults to I<.gz>.  Valid "
 "modes: B<deluser>, B<deluser --system>."
 msgstr ""
+"Välj komprimeringsalgoritm för säkerhetskopiering av hemkatalogen.  Kan "
+"ställas in på valfritt suffix som känns igen av B<tar --auto-compress>.  "
+"Standardinställningen är I<.gz>.  Giltiga lägen: B<deluser>, B<deluser --"
+"system>."
 
 # type: TP
 #. type: TP
 #: ../deluser.8:192
-#, fuzzy, no-wrap
-#| msgid "B<--backup-to>"
+#, no-wrap
 msgid "B<--backup-to >I<dir>"
-msgstr "B<--backup-to>"
+msgstr "B<--backup-to >I<dir>"
 
 #. type: Plain text
 #: ../deluser.8:198
@@ -2941,45 +3003,40 @@ msgid ""
 "implicitly sets B<--backup> also.  Defaults to the current working "
 "directory.  Valid modes: B<deluser>, B<deluser --system>."
 msgstr ""
+"Placera säkerhetskopiorna inte i den aktuella katalogen utan i I<dir>.  "
+"Detta ställer implicit också in B<--backup>.  Standardinställningen är den "
+"aktuella arbetskatalogen.  Giltiga lägen: B<deluser>, B<deluser --system>."
 
 # type: Plain text
 #. type: Plain text
 #: ../deluser.8:203
-#, fuzzy
-#| msgid ""
-#| "Use FILE instead of the default files I</etc/deluser.conf> and I</etc/"
-#| "adduser.conf>"
 msgid ""
 "Use I<file> instead of the default files I</etc/deluser.conf> and I</etc/"
 "adduser.conf>.  Multiple --conf options may be given."
 msgstr ""
-"Använd FIL istället för standardfilerna I</etc/deluser.conf> och I</etc/"
-"adduser.conf>"
+"Använd I<file> istället för standardfilerna I</etc/deluser.conf> och I</etc/"
+"adduser.conf>.  Flera --conf-flaggor kan anges."
 
 #. type: Plain text
 #: ../deluser.8:208
 msgid "Synonymous to B<--stdoutmsglevel=debug>.  Deprecated."
-msgstr ""
+msgstr "Synonymt med B<--stdoutmsglevel=debug>.  Föråldrat."
 
 # type: Plain text
 #. type: Plain text
 #: ../deluser.8:214
-#, fuzzy
-#| msgid ""
-#| "Remove a group. This is the default action if the program is invoked as "
-#| "I<delgroup>."
 msgid ""
 "Remove a group.  This is the default action if the program is invoked as "
 "I<delgroup>.  Valid mode: B<deluser>."
 msgstr ""
-"Ta bort en grupp. Detta är standardåtgärden om programmet startas som "
-"I<delgroup>."
+"Ta bort en grupp.  Detta är standardåtgärden om programmet startas som "
+"I<delgroup>.  Giltigt läge: B<deluser>."
 
 #. type: TP
 #: ../deluser.8:217
 #, no-wrap
 msgid "B<--only-if-empty>"
-msgstr ""
+msgstr "B<--only-if-empty>"
 
 #. type: Plain text
 #: ../deluser.8:221
@@ -2987,11 +3044,13 @@ msgid ""
 "Only remove if no members are left.  Valid modes: B<deluser --group>, "
 "B<delgroup>."
 msgstr ""
+"Ta endast bort om inga medlemmar finns kvar.  Giltiga lägen: B<deluser --"
+"group>, B<delgroup>."
 
 #. type: Plain text
 #: ../deluser.8:226
 msgid "Synonymous to B<--stdoutmsglevel=warn>.  Deprecated."
-msgstr ""
+msgstr "Synonymt med B<--stdoutmsglevel=warn>.  Föråldrat."
 
 # type: TP
 #. type: TP
@@ -3002,20 +3061,16 @@ msgstr "B<--remove-all-files>"
 
 #. type: Plain text
 #: ../deluser.8:233
-#, fuzzy
-#| msgid ""
-#| "Remove all files from the system owned by this user. Note: --remove-home "
-#| "does not have an effect any more. If --backup is specified, the files are "
-#| "deleted after having performed the backup."
 msgid ""
 "Remove all files from the system owned by this user.  Note: --remove-home "
 "does not have an effect any more.  If B<--backup> is specified, the files "
 "are deleted after having performed the backup.  Valid modes: B<deluser>, "
 "B<deluser --system>."
 msgstr ""
-"Ta bort alla filer från systemet som ägs av den här användaren. OBS: --"
-"remove-home gäller inte längre. Om --backup är specificerat kommer en "
-"säkerhetskopia på filerna först tas."
+"Ta bort alla filer från systemet som ägs av denna användare.  Observera: --"
+"remove-home har ingen effekt längre.  Om B<--backup> anges, raderas filerna "
+"efter att säkerhetskopieringen har utförts.  Giltiga lägen: B<deluser>, "
+"B<deluser --system>."
 
 # type: TP
 #. type: TP
@@ -3026,17 +3081,14 @@ msgstr "B<--remove-home>"
 
 #. type: Plain text
 #: ../deluser.8:239
-#, fuzzy
-#| msgid ""
-#| "Remove the home directory of the user and its mailspool. If --backup is "
-#| "specified, the files are deleted after having performed the backup."
 msgid ""
 "Remove the home directory of the user and its mailspool.  If B<--backup> is "
 "specified, the files are deleted after having performed the backup.  Valid "
 "modes: B<deluser>, B<deluser --system>."
 msgstr ""
-"Ta bort hemkatalogen ochh postfilen för användaren. Om --backup specificeras "
-"raderas filerna först efter att en säkerhetskopia tagits."
+"Ta bort användarens hemkatalog och dess mailspool.  Om B<--backup> anges "
+"raderas filerna efter att säkerhetskopieringen har utförts.  Giltiga lägen: "
+"B<deluser>, B<deluser --system>."
 
 #. type: Plain text
 #: ../deluser.8:244
@@ -3045,11 +3097,14 @@ msgid ""
 "exist, no error value is returned.  Valid modes: B<deluser>, B<deluser --"
 "system>."
 msgstr ""
+"Ta endast bort om användaren/gruppen är en systemanvändare/grupp.  Om "
+"användaren inte finns returneras inget felvärde.  Giltiga lägen: B<deluser>, "
+"B<deluser --system>."
 
 #. type: Plain text
 #: ../deluser.8:249
 msgid "Synonymous to B<--stdoutmsglevel=info>.  Deprecated."
-msgstr ""
+msgstr "Synonymt med B<--stdoutmsglevel=info>.  Föråldrat."
 
 #. type: Plain text
 #: ../deluser.8:265
@@ -3062,6 +3117,14 @@ msgid ""
 "console and in the log independently, keeping probably confusing information "
 "to itself while still leaving helpful information in the log."
 msgstr ""
+"Minsta prioritet för meddelanden som loggas till syslog/journal respektive "
+"konsolen.  Värdena är I<trace>, I<debug>, I<info>, I<warn>, I<err> och "
+"I<fatal>.  Meddelanden med den här prioriteten eller högre skrivs ut till "
+"respektive medium.  Meddelanden som skrivs ut till stderr upprepas inte på "
+"stdout.  Det gör det möjligt för den lokala administratören att styra "
+"B<adduser>:s chattiness på konsolen och i loggen oberoende av varandra, så "
+"att förvirrande information hålls för sig själv medan användbar information "
+"fortfarande finns kvar i loggen."
 
 #. type: Plain text
 #: ../deluser.8:273
@@ -3069,17 +3132,22 @@ msgid ""
 "B<deluser> uses extensive and configurable logging to tailor its verbosity "
 "to the needs and wishes of the system administrator."
 msgstr ""
+"B<deluser> använder omfattande och konfigurerbar loggning för att anpassa "
+"detaljeringsgraden efter systemadministratörens behov och önskemål."
 
 #. type: Plain text
 #: ../deluser.8:276
 msgid ""
 "This works similar to B<adduser>.  See B<adduser>(8) for all the details."
 msgstr ""
+"Detta fungerar på samma sätt som B<adduser>.  Se B<adduser>(8) för alla "
+"detaljer."
 
 #. type: Plain text
 #: ../deluser.8:280
 msgid "The exit values documented in adduser(8) also apply for B<deluser>."
 msgstr ""
+"De exitvärden som dokumenteras i adduser(8) gäller även för B<deluser>."
 
 #. type: Plain text
 #: ../deluser.8:293
@@ -3092,19 +3160,23 @@ msgid ""
 "consider writing your own wrapper script and giving privileges to execute "
 "that script."
 msgstr ""
+"B<deluser> behöver root-behörighet och erbjuder, via kommandoradsflaggan B<--"
+"conf>, möjlighet att använda olika konfigurationsfiler.  Använd inte "
+"B<sudo>(8) eller liknande verktyg för att ge partiell behörighet till "
+"B<deluser> med begränsade kommandoradsparametrar.  Detta är lätt att kringgå "
+"och kan göra det möjligt för användare att få behörigheter som de inte ska "
+"ha.  Om du vill göra detta bör du överväga att skriva ett eget wrapper-"
+"skript och ge behörighet att köra det skriptet."
 
 # type: Plain text
 #. type: Plain text
 #: ../deluser.8:297
-#, fuzzy
-#| msgid ""
-#| "/etc/deluser.conf - configuration file for B<deluser(8)> and "
-#| "B<delgroup(8)>."
 msgid ""
 "I</etc/deluser.conf> Default configuration file for B<deluser>(8) and "
 "B<delgroup>(8)"
 msgstr ""
-"/etc/deluser.conf - konfigurationsfil för B<deluser(8)> och B<delgroup(8)>."
+"I</etc/deluser.conf> Standardkonfigurationsfil för B<deluser>(8) och "
+"B<delgroup>(8)"
 
 #. type: TP
 #: ../deluser.8:297
@@ -3115,7 +3187,7 @@ msgstr "I</usr/local/sbin/deluser.local>"
 #. type: Plain text
 #: ../deluser.8:301
 msgid "Optional custom add-ons, see B<deluser.local>(8)"
-msgstr ""
+msgstr "Valfria anpassade tillägg, se B<deluser.local>(8)"
 
 # type: Plain text
 #. type: Plain text
@@ -3145,14 +3217,6 @@ msgstr ""
 # type: Plain text
 #. type: Plain text
 #: ../deluser.conf.5:25
-#, fuzzy
-#| msgid ""
-#| "The file I</etc/adduser.conf> contains defaults for the programs "
-#| "B<adduser(8)> , B<addgroup(8)> , B<deluser(8)> and B<delgroup(8)>.  Each "
-#| "line holds a single value pair in the form I<option> = I<value>.  Double "
-#| "or single quotes are allowed around the value, as is whitespace around "
-#| "the equals sign.  Comment lines must have a hash sign (#) in the first "
-#| "column."
 msgid ""
 "The file I</etc/deluser.conf> contains defaults for the programs "
 "B<deluser>(8)  and B<delgroup>(8).  Each line holds a single value pair in "
@@ -3160,12 +3224,11 @@ msgid ""
 "the value, as is whitespace around the equals sign.  Comment lines must have "
 "a hash sign (#) in the first column."
 msgstr ""
-"Filen I</etc/adduser.conf> innehåller standardvärden för programmen "
-"B<adduser(8)> , B<addgroup(8)> , B<deluser(8)> och B<delgroup(8)>.  Varje "
-"rad innehåller ett enstaka värdespar i formatet I<flagga> = I<värde>. "
-"Citattecken eller apostrofer är tillåtna runt värdet såväl som mellanslag "
-"runt likamed-tecknet.  Kommentarsrader måste påbörjas med ett #-tecken som "
-"första tecken."
+"Filen I</etc/deluser.conf> innehåller standardinställningar för programmen "
+"B<deluser>(8)  och B<delgroup>(8).  Varje rad innehåller ett enda värdepar i "
+"form av I<option> = I<value>.  Dubbel- eller enkel citattecken är tillåtna "
+"runt värdet, liksom blanksteg runt likhetstecknet.  Kommentarrader måste ha "
+"ett hash-tecken (#) i första kolumnen."
 
 #. type: Plain text
 #: ../deluser.conf.5:31
@@ -3188,13 +3251,6 @@ msgstr "B<BACKUP>"
 # type: Plain text
 #. type: Plain text
 #: ../deluser.conf.5:41
-#, fuzzy
-#| msgid ""
-#| "If B<REMOVE_HOME> or B<REMOVE_ALL_FILES> is activated all files are "
-#| "backuped before they are removed. The backup file that is created "
-#| "defaults to username.tar(.gz|.bz2) in the directory specified by the "
-#| "B<BACKUP_TO> option. The compression method is chosen to the best that is "
-#| "available.  Values may be 0 or 1."
 msgid ""
 "If B<REMOVE_HOME> or B<REMOVE_ALL_FILES> is activated, all files are backed "
 "up before they are removed.  The backup file that is created defaults to "
@@ -3202,11 +3258,11 @@ msgid ""
 "option.  The compression method is chosen to the best that is available.  "
 "Values may be 0 or 1. Defaults to I<0>."
 msgstr ""
-"Om B<REMOVE_HOME> eller B<REMOVE_ALL_FILES> är aktiverade kommer alla filer "
-"att säkerhetskopieras före de tas bort. Den säkerhetskopierade filen skapas "
-"i formatet användarnamn.tar(.gz|.bz2) i den katalog som angivits med flaggan "
-"B<BACKUP_TO>. Komprimeringsmetoden som väljs är den bästa som finns "
-"tillgänglig.  Värdet kan vara 0 eller 1."
+"Om B<REMOVE_HOME> eller B<REMOVE_ALL_FILES> är aktiverat säkerhetskopieras "
+"alla filer innan de tas bort.  Den säkerhetskopia som skapas sparas som "
+"standard i I<username.tar(.gz|.bz2)> i den katalog som anges av flaggan "
+"B<BACKUP_TO>.  Den bästa tillgängliga komprimeringsmetoden väljs.  Värdena "
+"kan vara 0 eller 1. Standardvärdet är I<0>."
 
 # type: TP
 #. type: TP
@@ -3221,6 +3277,9 @@ msgid ""
 "Select compression algorithm for a home directory backup.  Can be set to any "
 "suffix recognized by B<tar --auto-compress>.  Defaults to I<.gz>."
 msgstr ""
+"Välj komprimeringsalgoritm för säkerhetskopiering av hemkatalogen.  Kan "
+"ställas in på valfritt suffix som känns igen av B<tar --auto-compress>.  "
+"Standardinställningen är I<.gz>."
 
 # type: TP
 #. type: TP
@@ -3249,19 +3308,14 @@ msgstr "B<EXCLUDE_FSTYPES>"
 # type: Plain text
 #. type: Plain text
 #: ../deluser.conf.5:58
-#, fuzzy
-#| msgid ""
-#| "A regular expression which describes all file systems which should be "
-#| "excluded when looking for files of a user to be deleted. Defaults to "
-#| "\"(proc|sysfs|usbfs|devpts|tmpfs|afs)\"."
 msgid ""
 "A regular expression which describes all filesystem types which should be "
 "excluded when looking for files of a user to be deleted. Defaults to \"(proc|"
 "sysfs|usbfs|devtmpfs|devpts|afs)\"."
 msgstr ""
-"Ett reguljärt uttryck som beskriver alla filsystem som bör undantas när "
-"sökning efter vilka filer som ska tas bort för en användare. Standard är "
-"\"(proc|sysfs|usbfs|devpts|tmpfs|afs)\"."
+"Ett reguljärt uttryck som beskriver alla filsystemstyper som ska uteslutas "
+"när man söker efter filer som ska raderas för en användare. Standardvärdet "
+"är \"(proc|sysfs|usbfs|devtmpfs|devpts|afs)\"."
 
 # type: TP
 #. type: TP
@@ -3273,13 +3327,6 @@ msgstr "B<NO_DEL_PATHS>"
 # type: Plain text
 #. type: Plain text
 #: ../deluser.conf.5:68
-#, fuzzy
-#| msgid ""
-#| "A list of regular expressions, space separated. All files to be deleted "
-#| "in course of deleting home directories or deleting files owned by the "
-#| "user to be deleted are checked against each of these regular expressions. "
-#| "If a match is detected, the file is not deleted. Defaults to a list of "
-#| "system directories, leaving only /home."
 msgid ""
 "A list of regular expressions, space separated.  All files to be deleted in "
 "course of deleting the home directory or user-owned files elsewhere are "
@@ -3288,11 +3335,12 @@ msgid ""
 "only I</home>.  Therefore only files below I</home> belonging to that "
 "specific user are going to be deleted."
 msgstr ""
-"En list på reguljära uttryck, separerade med mellanslag. Alla filer som ska "
-"tas bort om hemkataloger ska tas bort eller borttagning av filer ägda av en "
-"användare som ska tas bort kontrolleras mot varje av dessa reguljära "
-"uttryck. Om en matchning upptäcks kommer filen inte att tas bort. "
-"Standardvärde är en lista av systemkataloger, endast /home gäller."
+"En lista med reguljära uttryck, separerade med mellanslag.  Alla filer som "
+"ska raderas vid radering av hemkatalogen eller användarägda filer på andra "
+"platser kontrolleras mot vart och ett av dessa reguljära uttryck.  Om en "
+"matchning upptäcks raderas inte filen.  Standardinställningen är en lista "
+"med systemkataloger, där endast I</home> finns kvar.  Därför kommer endast "
+"filer under I</home> som tillhör den specifika användaren att raderas."
 
 # type: TP
 #. type: TP
@@ -3304,16 +3352,12 @@ msgstr "B<ONLY_IF_EMPTY>"
 # type: Plain text
 #. type: Plain text
 #: ../deluser.conf.5:72
-#, fuzzy
-#| msgid ""
-#| "Only delete a group if there are no user who belong to this group. "
-#| "Defaults to 0."
 msgid ""
 "Only delete a group if there are no users belonging to this group.  Defaults "
 "to 0."
 msgstr ""
-"Ta endast bort en grupp om det inte finns några som tillhör denna grupp. "
-"Standardvärde är 0."
+"Ta endast bort en grupp om det inte finns några användare som tillhör denna "
+"grupp. Standardvärdet är 0."
 
 # type: TP
 #. type: TP
@@ -3325,17 +3369,14 @@ msgstr "B<REMOVE_ALL_FILES>"
 # type: Plain text
 #. type: Plain text
 #: ../deluser.conf.5:77
-#, fuzzy
-#| msgid ""
-#| "Removes all files on the system owned by the user to be removed.  If this "
-#| "option is activated B<REMOVE_HOME> has no effect. Values may be 0 or 1."
 msgid ""
 "Removes all files on the system owned by the user to be removed.  If this "
 "option is activated B<REMOVE_HOME> has no effect.  Values may be 0 or 1. "
 "Defaults to I<0>."
 msgstr ""
-"Tar bort alla filer på systemet som ägs av användaren. Om denna flagga är "
-"aktiverad har B<REMOVE_HOME> ingen effekt. Värdet kan vara 0 eller 1."
+"Tar bort alla filer på systemet som ägs av användaren som ska tas bort.  Om "
+"denna flagga är aktiverad har B<REMOVE_HOME> ingen effekt.  Värdena kan vara "
+"0 eller 1. Standardvärdet är I<0>."
 
 # type: TP
 #. type: TP
@@ -3347,16 +3388,12 @@ msgstr "B<REMOVE_HOME>"
 # type: Plain text
 #. type: Plain text
 #: ../deluser.conf.5:81
-#, fuzzy
-#| msgid ""
-#| "Removes the home directory and mail spool of the user to be removed.  "
-#| "Value may be 0 (don't delete) or 1 (do delete)."
 msgid ""
 "Removes the home directory and mail spool of the user to be removed.  Value "
 "may be 0 (don't delete) or 1 (do delete). Defaults to I<0>."
 msgstr ""
-"Tar bort hemkatalogen och spolfilen för post för användaren som tas bort. "
-"Värdet kan vara 0 (tar inte bort) eller 1 (tar bort)."
+"Tar bort hemkatalogen och e-postspoolen för den användare som ska tas bort.  "
+"Värdet kan vara 0 (ta inte bort) eller 1 (ta bort). Standardvärdet är I<0>."
 
 # type: Plain text
 #. type: Plain text
@@ -3374,6 +3411,16 @@ msgstr "B<adduser.conf>(5), B<delgroup>(8), B<deluser>(8)"
 #, no-wrap
 #~ msgid "B<--conf >I<file>"
 #~ msgstr "B<--conf >I<fil>"
+
+#, no-wrap
+#~ msgid "LOGGING↲"
+#~ msgstr "LOGGNING↲"
+
+#~ msgid ""
+#~ "This works similar to B<adduser>. See B<adduser>(8) for all the details."
+#~ msgstr ""
+#~ "Detta fungerar på samma sätt som B<adduser>. Se B<adduser>(8) för alla "
+#~ "detaljer."
 
 # type: SS
 #, no-wrap
@@ -3405,6 +3452,18 @@ msgstr "B<adduser.conf>(5), B<delgroup>(8), B<deluser>(8)"
 #~ "fanns med ett annat UID/GID än det som angavs. Användarnamnet eller "
 #~ "gruppnamnet avvisades eftersom det inte överrensstämde med det angivna "
 #~ "reguljära uttrycket, läs adduser.conf(5). Adduser avbröts av en signal."
+
+# type: Plain text
+#, fuzzy
+#~| msgid ""
+#~| "adduser.conf(5), deluser(8), useradd(8), groupadd(8), usermod(8), Debian "
+#~| "Policy 9.2.2."
+#~ msgid ""
+#~ "B<adduser.conf>(5), B<deluser>(8), B<groupadd>(8), B<useradd>(8), "
+#~ "B<usermod>(8), Debian Policy 9.2.2."
+#~ msgstr ""
+#~ "adduser.conf(5), deluser(8), useradd(8), groupadd(8), usermod(8), Debian "
+#~ "Policy 9.2.2."
 
 # type: Plain text
 #, fuzzy
@@ -3618,9 +3677,31 @@ msgstr "B<adduser.conf>(5), B<delgroup>(8), B<deluser>(8)"
 #~ "lokala inställningar.  Argumenten som skickas till B<adduser.local> är:"
 
 # type: Plain text
+#~ msgid "username uid gid home-directory"
+#~ msgstr "användarnamn uid gid hemkatalog"
+
+# type: Plain text
 #~ msgid ""
 #~ "The environment variable VERBOSE is set according to the following rule:"
 #~ msgstr "Miljövariabeln VERBOSE ställs in enligt följande regel:"
+
+# type: TP
+#, fuzzy
+#~| msgid "0 if --quiet is specified"
+#~ msgid "B<--quiet> is specified"
+#~ msgstr "0 om --quiet angivs"
+
+# type: TP
+#, fuzzy
+#~| msgid "1 if neither --quiet nor --debug is specified"
+#~ msgid "B<--quiet> nor B<--debug> is specified"
+#~ msgstr "1 om varken --quiet eller --debug är angivna"
+
+# type: TP
+#, fuzzy
+#~| msgid "2 if --debug is specified"
+#~ msgid "B<--debug> is specified"
+#~ msgstr "2 om --debug angivs"
 
 # type: Plain text
 #, fuzzy
