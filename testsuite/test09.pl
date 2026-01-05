@@ -56,7 +56,7 @@ if ($error ne 13) {
   print "failed\n  $cmd returned an errorcode != 13 ($error)\n";
   exit $error;
 }
-if ($output !~ /^err: The group `addusertest\d+' already exists and is not a system group. Exiting.$/ ) {
+if ($output !~ /^fatal: The group `addusertest\d+' already exists, but is not a system group. Exiting.$/ ) {
   print "failed\n  $cmd returned unexpected output ($output)\n";
   exit 1;
 }

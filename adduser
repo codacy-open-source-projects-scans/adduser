@@ -88,14 +88,6 @@ BEGIN {
     }
 }
 
-use constant {
-    EXISTING_NOT_FOUND => 0,
-    EXISTING_FOUND => 1,
-    EXISTING_SYSTEM => 2,
-    EXISTING_ID_MISMATCH => 4,
-    EXISTING_LOCKED => 8,
-};
-
 my $yesexpr = langinfo(YESEXPR());
 my $charset = langinfo($codeset);
 if ($encode_loaded) {
@@ -103,7 +95,7 @@ if ($encode_loaded) {
     binmode(STDERR, ":encoding($charset)");
 }
 
-my %config;			# configuration hash
+my %config = ();
 
 my $nogroup_id = egetgrnam("nogroup") || 65534;
 $0 =~ s+.*/++;
@@ -334,6 +326,15 @@ if ($found_group_opt) {
     }
 }
 
+# $new_firstuid = $new_firstuid || $config{"first_uid"} || 1000;
+# $new_lastuid = $new_lastuid || $config{"last_uid"} || 59999;
+# $new_firstgid = $new_firstgid || $config{"first_gid"} || 1000;
+# $new_lastgid = $new_lastgid || $config{"last_gid"} || 59999;
+# $new_firstuid = $new_firstuid || $config{"first_uid"} || 1000;
+# $new_lastuid = $new_lastuid || $config{"last_uid"} || 59999;
+# $new_firstgid = $new_firstgid || $config{"first_gid"} || 1000;
+# $new_lastgid = $new_lastgid || $config{"last_gid"} || 59999;
+
 
 # read the uid and gid pool
 if ($config{"uid_pool"}) {
@@ -387,7 +388,7 @@ if( defined $new_firstuid ) {
 }
 
 if( defined $new_lastuid ) {
-    log_trace("sanitize new_lastgud");
+    log_trace("sanitize new_lastuid");
     $new_lastuid = sanitize_string($new_lastuid, numberre);
 }
 
@@ -439,23 +440,26 @@ $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'HUP'} = 'handler';
 if ($action eq "addsysgroup") {
 
     acquire_lock();
+
+    log_trace( "addsysuser %s, uid %s", $new_name, $new_uid );
     # Check if requested group already exists and we can exit safely
-    my $asgret = existing_group_status($new_name, $gid_option);
+    my $asgret = existing_group_status(\%config, $new_name, $gid_option);
     log_trace( "existing_group_status( %s, %s ) returns %s", $new_name, $gid_option, $asgret );
 
+    if ($asgret & EXISTING_FOUND) {
+        # a group with this name already exists; it's a problem when it's not a system group
+        if ( ( $asgret & EXISTING_SYSTEM ) == 0 ) {
+            log_fatal( mtx("The group `%s' already exists, but is not a system group. Exiting."), $new_name );
+            exit( RET_WRONG_OBJECT_PROPERTIES );
+        }
+    }
     if ($asgret & EXISTING_ID_MISMATCH) {
         log_err( mtx("The group `%s' already exists, but has a different GID. Exiting."), $new_name );
         exit( RET_WRONG_OBJECT_PROPERTIES );
     }
     if ($asgret & EXISTING_FOUND) {
-        log_trace( "existing_found" );
-        if ($asgret & (EXISTING_SYSTEM)) {
-            log_info( mtx("The group `%s' already exists as a system group."), $new_name );
-            exit( RET_OK );
-        } else {
-            log_err( mtx("The group `%s' already exists and is not a system group. Exiting."), $new_name );
-            exit( RET_WRONG_OBJECT_PROPERTIES );
-        }
+        log_info( mtx("The system group `%s' already exists. Exiting.\n"), $new_name );
+        exit( RET_OK );
     }
     if (defined($gid_option) && defined(getgrgid($gid_option))) {
         log_fatal( mtx("The GID `%s' is already in use."), $gid_option );
@@ -567,14 +571,21 @@ if ($action eq 'addusertogroup') {
 if ($action eq "addsysuser") {
     acquire_lock();
 
-    my $ret = existing_user_status($new_name, $new_uid);
-    if (($ret & EXISTING_FOUND) && !($ret & EXISTING_SYSTEM)) {
+    log_trace( "addsysuser %s, uid %s", $new_name, $new_uid );
+    my $ret = existing_user_status(\%config, $new_name, $new_uid);
+    if ($ret & (EXISTING_FOUND)) {
         # a user with this name already exists; it's a problem when it's not a system user
-        log_fatal( mtx("The user `%s' already exists, but is not a system user. Exiting."), $new_name );
-        exit( RET_WRONG_OBJECT_PROPERTIES );
+        if ( ($ret & EXISTING_SYSTEM) == 0 ) {
+            log_fatal( mtx("The user `%s' already exists, but is not a system user. Exiting."), $new_name );
+            exit( RET_WRONG_OBJECT_PROPERTIES );
+        }
     }
     if ($ret & EXISTING_ID_MISMATCH) {
         log_fatal( mtx("The user `%s' already exists with a different UID. Exiting."), $new_name );
+        exit( RET_WRONG_OBJECT_PROPERTIES );
+    }
+    if ($ret & EXISTING_HAS_PASSWORD) {
+        log_fatal( mtx("The user `%s' already exists and has a password. Exiting."), $new_name );
         exit( RET_WRONG_OBJECT_PROPERTIES );
     }
     if ($ret & EXISTING_FOUND) {
@@ -1140,77 +1151,26 @@ sub mktree {
     return 1;
 }
 
-# existing_user_status: check if there is already a user present
-# on the system which satisfies the requirements
-# parameter:
-#   new_name: the name of the user to check
-#   new_uid : the UID of the user
-# return value:
-#   bitwise combination of these constants:
-#       EXISTING_NOT_FOUND => 0
-#       EXISTING_FOUND => 1
-#       EXISTING_SYSTEM => 2
-#       EXISTING_ID_MISMATCH => 4
-#       EXISTING_LOCKED => 8
-#   e.g. if the requested account name exists as a locked system user,
-#   return 8|2|1 == 11
-sub existing_user_status {
-    my ($new_name,$new_uid) = @_;
-    my ($pw,$uid);
-    my $ret = EXISTING_NOT_FOUND;
-    log_trace( "existing_user_status called with new_name %s, new_uid %s", $new_name, $new_uid );
-    if ((undef,$pw,$uid) = egetpwnam($new_name)) {
-        log_trace("egetpwnam %s returned successfully, uid = %s", $new_name, $uid);
-        $ret |= EXISTING_FOUND;
-        $ret |= EXISTING_ID_MISMATCH if (defined($new_uid) && $uid != $new_uid);
-        $ret |= EXISTING_SYSTEM if
-            ($uid >= $config{"first_system_uid"} && $uid <= $config{"last_system_uid"});
-    } elsif ($new_uid && getpwuid($new_uid)) {
-        $ret |= EXISTING_ID_MISMATCH;
-    }
-    log_trace( "existing_user_status( %s, %s ) returns %s", $new_name, $new_uid, $ret );
-    return $ret;
-}
-
-# existing_group_status: check if there is already a group which satisfies the requirements
-# parameter:
-#   new_name: the name of the group
-#   new_gid : the GID of the group
-# return value:
-#   bitwise combination of these constants:
-#       EXISTING_NOT_FOUND => 0
-#       EXISTING_FOUND => 1
-#       EXISTING_SYSTEM => 2
-#       EXISTING_ID_MISMATCH => 4
-sub existing_group_status {
-    my ($new_name,$new_gid) = @_;
-    my $gid;
-    my $ret = EXISTING_NOT_FOUND;
-    log_trace( "existing_group_status called with new_name %s, new_gid %s", $new_name, $new_gid );
-    if ((undef,undef,$gid) = egetgrnam($new_name)) {
-        log_trace("egetgrnam %s returned successfully, gid = %s", $new_name, $gid);
-        $ret |= EXISTING_FOUND;
-        $ret |= EXISTING_ID_MISMATCH if (defined($new_gid) && $gid != $new_gid);
-        $ret |= EXISTING_SYSTEM if
-            ($gid >= $config{"first_system_gid"} && $gid <= $config{"last_system_gid"});
-    } elsif ($new_gid && getgrgid($new_gid)) {
-        $ret |= EXISTING_ID_MISMATCH;
-    }
-    log_trace( "existing_group_status( %s, %s ) returns %s", $new_name, $new_gid, $ret );
-    return $ret;
-}
-
-# check_user_group: ???
+# check_user_group: Do checks regarding user, group, gid and group
+#   requirement that are basically the same for normal users and
+#   system users. Factored out to avoid code duplication.
 # parameters:
-#   system: 0 if the user is not a system user, 1 otherwise
+#   system: 0 if the user will be a system user, 1 otherwise
 # return values:
-#
+#   if the function returns, all requirements are met. otherwise
+#   it exits() from the program with an appropriate exit code
 # todo: not sure whether global variables apply fine here.
+# global variables used:
+# $make_group_also
+# $new_name
+# $new_uid
+# $ingroup_name
+# $gid_option
 sub check_user_group {
     my ($system) = @_;
     log_debug( "check_user_group %s called, make_group_also %s", $system, $make_group_also );
-    
-    my $ustat = existing_user_status($new_name, $new_uid);
+
+    my $ustat = existing_user_status(\%config, $new_name, $new_uid);
     if ($system) {
         if (($ustat & EXISTING_FOUND) && !($ustat & EXISTING_SYSTEM)) {
             log_fatal( mtx("The user `%s' already exists, and is not a system user."), $new_name);
@@ -1229,7 +1189,7 @@ sub check_user_group {
 
     if ($make_group_also) {
         log_trace( "make_group_also 1, new_name %s, new_uid %s", $new_name, $new_uid );
-        if( !$system || !existing_group_status($new_name, $new_uid) ) {
+        if( !$system || !existing_group_status(\%config, $new_name, $new_uid) ) {
             if (defined egetgrnam($new_name)) {
                 log_fatal( mtx("The group `%s' already exists."),$new_name );
                 exit( RET_OBJECT_EXISTS );

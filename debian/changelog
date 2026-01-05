@@ -1,3 +1,24 @@
+adduser (3.154) unstable; urgency=medium
+
+  * The Happy New Year 2026 Release
+
+  [ Matt Barry ]
+  * add --no-copy-skel option (Closes: #1099633)
+  * document --no-copy-skel
+  * refactor existing_*_ok
+
+  [ Marc Haber ]
+  * make deluser --group work as documented.
+  * have delgroup reject user-specific command line options.
+  * correctly sanitize names in deluser.
+    Thanks to Dagfinn Ilmari Mannsåker (Closes: #1109329)
+  * update Swedish program and man page translation.
+    Thanks to Daniel Nylander <daniel@danielnylander.se>
+  * make adduser error out if --system and account has a password
+    (Closes: #1099734)
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Thu, 01 Jan 2026 00:00:10 +0100
+
 adduser (3.153) unstable; urgency=medium
 
   [ Marc Haber ]

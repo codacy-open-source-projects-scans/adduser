@@ -56,6 +56,7 @@ my $name = "sys-stat-t";
 
 # number  existing before  operation        result       existing after
 # 11      nothing          create system    success      system
+ok(1, "sys-stat-t 11");
 assert_user_does_not_exist($name);
 
 assert_command_success(
@@ -71,6 +72,7 @@ assert_user_is_system($name);
 # 12      system           create system    success      system
 # above: assert_user_exists($name);
 # above: assert_user_is_system($name);
+ok(1, "sys-stat-t 12");
 assert_command_success(
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -84,6 +86,7 @@ assert_user_is_system($name);
 # 13      system           delete system    success      nothing
 # above: assert_user_exists($name);
 # above: assert_user_is_system($name);
+ok(1, "sys-stat-t 13");
 assert_command_success(
     '/usr/sbin/deluser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -95,6 +98,7 @@ assert_user_does_not_exist($name);
 # number  existing before  operation        result       existing after
 # 14      nothing          delete system    obj_not_ex   nothing
 # above: assert_user_does_not_exist($name);
+ok(1, "sys-stat-t 14");
 assert_command_success(
     '/usr/sbin/deluser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -106,6 +110,7 @@ assert_user_does_not_exist($name);
 # number  existing before  operation        result       existing after
 # 15      nothing          delete nonsys    obj_not_ex   nothing
 # above: assert_user_does_not_exist($name);
+ok(1, "sys-stat-t 15");
 assert_command_result_silent(RET_OBJECT_DOES_NOT_EXIST,
     '/usr/sbin/deluser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -117,6 +122,7 @@ assert_user_does_not_exist($name);
 # 21      nothing          create system    success      system
 # above: assert_user_does_not_exist($name);
 
+ok(1, "sys-stat-t 21");
 assert_command_success(
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -129,6 +135,7 @@ assert_user_is_system($name);
 # number  existing before  operation        result       existing after
 # 22      system           create nonsys    obj_exists   system
 # above: assert_user_is_system($name);
+ok(1, "sys-stat-t 22");
 assert_command_result_silent(RET_OBJECT_EXISTS,
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -145,6 +152,7 @@ assert_user_is_system($name);
 # in adduser 3.145, this succeeds!
 # above: assert_user_is_system($name);
 #assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
+ok(1, "sys-stat-t 23");
 assert_command_success(
     '/usr/sbin/deluser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -164,6 +172,7 @@ assert_user_is_system($name);
 # number  existing before  operation        result       existing after
 # 24      system           delete system    success      nothing
 # above: assert_user_is_system($name);
+ok(1, "sys-stat-t 24");
 assert_command_success(
     '/usr/sbin/deluser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -175,6 +184,7 @@ assert_user_does_not_exist($name);
 # number  existing before  operation        result       existing after
 # 31      nothing          create nonsys    success      nonsys
 # above: assert_user__does_not_exist($name);
+ok(1, "sys-stat-t 31");
 assert_command_success(
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -190,6 +200,7 @@ assert_user_is_non_system($name);
 # 32      nonsys           create nonsys    obj_exists   nonsys
 # above: assert_user_exists($name);
 # above: assert_user_is_non_system($name);
+ok(1, "sys-stat-t 32");
 assert_command_result_silent(RET_OBJECT_EXISTS,
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -205,6 +216,7 @@ assert_user_is_non_system($name);
 # 33      nonsys           delete sys       wrong_prop   nonsys
 # above: assert_user_exists($name);
 # above: assert_user_is_non_system($name);
+ok(1, "sys-stat-t 33");
 assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
     '/usr/sbin/deluser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -218,6 +230,7 @@ assert_user_is_non_system($name);
 # 34      nonsys           create sys       wrong_prop   nonsys
 # above: assert_user_exists($name);
 # above: assert_user_is_non_system($name);
+ok(1, "sys-stat-t 34a");
 assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -231,6 +244,7 @@ assert_user_is_non_system($name);
 # 35      nonsys           delete nonsys    success      nothing
 # above: assert_user_exists($name);
 # above: assert_user_is_non_system($name);
+ok(1, "sys-stat-t 35");
 assert_command_success(
     '/usr/sbin/deluser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -243,6 +257,7 @@ assert_user_does_not_exist($name);
 
 # number  existing before  operation        result       existing after
 # 11      nothing          create system    success      system
+ok(1, "sys-stat-t 11");
 assert_group_does_not_exist($name);
 
 assert_command_success(
@@ -258,6 +273,7 @@ assert_group_is_system($name);
 # 12      system           create system    success      system
 # above: assert_group_exists($name);
 # above: assert_group_is_system($name);
+ok(1, "sys-stat-t 12");
 assert_command_success(
     '/usr/sbin/addgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -271,6 +287,7 @@ assert_group_is_system($name);
 # 13      system           delete system    success      nothing
 # above: assert_group_exists($name);
 # above: assert_group_is_system($name);
+ok(1, "sys-stat-t 13");
 assert_command_success(
     '/usr/sbin/delgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -282,6 +299,7 @@ assert_group_does_not_exist($name);
 # number  existing before  operation        result       existing after
 # 14      nothing          delete system    obj_not_ex   nothing
 # above: assert_group_does_not_exist($name);
+ok(1, "sys-stat-t 14");
 assert_command_success(
     '/usr/sbin/delgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -293,6 +311,7 @@ assert_group_does_not_exist($name);
 # number  existing before  operation        result       existing after
 # 15      nothing          delete nonsys    obj_not_ex   nothing
 # above: assert_group_does_not_exist($name);
+ok(1, "sys-stat-t 15");
 assert_command_result_silent(RET_OBJECT_DOES_NOT_EXIST,
     '/usr/sbin/delgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -304,6 +323,7 @@ assert_group_does_not_exist($name);
 # 21      nothing          create system    success      system
 # above: assert_group_does_not_exist($name);
 
+ok(1, "sys-stat-t 21");
 assert_command_success(
     '/usr/sbin/addgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -316,6 +336,7 @@ assert_group_is_system($name);
 # number  existing before  operation        result       existing after
 # 22      system           create nonsys    obj_exists   system
 # above: assert_group_is_system($name);
+ok(1, "sys-stat-t 22");
 assert_command_result_silent(RET_OBJECT_EXISTS,
     '/usr/sbin/addgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -332,6 +353,7 @@ assert_group_is_system($name);
 # in addgroup 3.145, this succeeds!
 # above: assert_group_is_system($name);
 #assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
+ok(1, "sys-stat-t 23");
 assert_command_success(
     '/usr/sbin/delgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -351,6 +373,7 @@ assert_group_is_system($name);
 # number  existing before  operation        result       existing after
 # 24      system           delete system    success      nothing
 # above: assert_group_is_system($name);
+ok(1, "sys-stat-t 24");
 assert_command_success(
     '/usr/sbin/delgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -362,6 +385,7 @@ assert_group_does_not_exist($name);
 # number  existing before  operation        result       existing after
 # 31      nothing          create nonsys    success      nonsys
 # above: assert_group__does_not_exist($name);
+ok(1, "sys-stat-t 31");
 assert_command_success(
     '/usr/sbin/addgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -377,6 +401,7 @@ assert_group_is_non_system($name);
 # 32      nonsys           create nonsys    obj_exists   nonsys
 # above: assert_group_exists($name);
 # above: assert_group_is_non_system($name);
+ok(1, "sys-stat-t 32");
 assert_command_result_silent(RET_OBJECT_EXISTS,
     '/usr/sbin/addgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -392,6 +417,7 @@ assert_group_is_non_system($name);
 # 33      nonsys           delete sys       wrong_prop   nonsys
 # above: assert_group_exists($name);
 # above: assert_group_is_non_system($name);
+ok(1, "sys-stat-t 33");
 assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
     '/usr/sbin/delgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -405,6 +431,7 @@ assert_group_is_non_system($name);
 # 34      nonsys           create sys       wrong_prop   nonsys
 # above: assert_group_exists($name);
 # above: assert_group_is_non_system($name);
+ok(1, "sys-stat-t 34b");
 assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
     '/usr/sbin/addgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -418,6 +445,7 @@ assert_group_is_non_system($name);
 # 35      nonsys           delete nonsys    success      nothing
 # above: assert_group_exists($name);
 # above: assert_group_is_non_system($name);
+ok(1, "sys-stat-t 35");
 assert_command_success(
     '/usr/sbin/delgroup',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',

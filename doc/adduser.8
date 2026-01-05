@@ -259,6 +259,8 @@ Unless a shell is explicitly set with the \fB\-\-shell\fP option,
 the new system user will have the shell set to
 \fI/usr/sbin/nologin\fP.
 \fBadduser \-\-system\fP does not set a password for the new account.
+It is an error if \fBadduser \-\-system\fP is called
+for an account that has a password.
 Skeletal configuration files are not copied.
 .PP
 Other options will behave as for the creation of a regular user.

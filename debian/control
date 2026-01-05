@@ -6,7 +6,6 @@ Uploaders: Marc Haber <mh+debian-packages@zugschlus.de>
 Standards-Version: 4.7.2
 Build-Depends: debhelper-compat (= 13), po4a
 Build-Depends-Indep: gettext
-Rules-Requires-Root: no
 Vcs-Browser: https://salsa.debian.org/debian/adduser
 Vcs-Git: https://salsa.debian.org/debian/adduser.git
 

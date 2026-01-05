@@ -94,6 +94,16 @@ use constant {
     def_min_regex => qr(^[^-+~:,\s/][^:,\s/]*$)aa,
 };
 
+# constants used in existing_*_status
+use constant {
+    EXISTING_NOT_FOUND => 0,
+    EXISTING_FOUND => 1,
+    EXISTING_SYSTEM => 2,
+    EXISTING_ID_MISMATCH => 4,
+    EXISTING_LOCKED => 8,
+    EXISTING_HAS_PASSWORD => 16,
+};
+
 @EXPORT = (
     'get_group_members',
     'read_config',
@@ -122,6 +132,14 @@ use constant {
     'def_sys_name_regex',
     'def_ieee_name_regex',
     'def_min_regex',
+    'EXISTING_NOT_FOUND',
+    'EXISTING_FOUND',
+    'EXISTING_SYSTEM',
+    'EXISTING_ID_MISMATCH',
+    'EXISTING_LOCKED',
+    'EXISTING_HAS_PASSWORD',
+    'existing_user_status',
+    'existing_group_status',
 );
 
 sub sanitize_string {
@@ -564,6 +582,73 @@ sub release_lock {
 
 END {
     release_lock(1);
+}
+
+# existing_user_status: check if there is already a user present
+# on the system which satisfies the requirements
+# parameter:
+#   new_name: the name of the user to check
+#   new_uid : the UID of the user
+# return value:
+#   bitwise combination of these constants:
+#       EXISTING_NOT_FOUND => 0
+#       EXISTING_FOUND => 1
+#       EXISTING_SYSTEM => 2
+#       EXISTING_ID_MISMATCH => 4
+#       EXISTING_LOCKED => 8
+#       EXISTING_HAS_PASSWORD => 16
+#   e.g. if the requested account name exists as a locked system user,
+#   return 8|2|1 == 11
+sub existing_user_status {
+    my ($config, $new_name,$new_uid) = @_;
+    my ($dummy1,$pw,$uid);
+    my $ret = EXISTING_NOT_FOUND;
+    log_trace( "existing_user_status called with new_name %s, new_uid %s, first_system_uid %s, last_system_uid %s", $new_name, $new_uid, $config->{"first_system_uid"}, $config->{"last_system_uid"} );
+    if (($dummy1,$pw,$uid) = egetpwnam($new_name)) {
+        # user with the name exists
+        log_trace( "egetpwnam(%s) returns %s, %s, %s", $new_name, $dummy1, $pw, $uid );
+        $ret |= EXISTING_FOUND;
+        $ret |= EXISTING_ID_MISMATCH if (defined($new_uid) && $uid != $new_uid);
+        $ret |= EXISTING_SYSTEM if
+            (($uid >= $config->{"first_system_uid"}) && ($uid <= $config->{"last_system_uid"}));
+        $ret |= EXISTING_HAS_PASSWORD if
+            (defined $pw && $pw ne '' && $pw ne '!' && $pw !~ /^\*/);
+        $ret |= EXISTING_LOCKED if (substr($pw,0,1) eq "!");  # TODO: also check expiry?
+    } elsif ($new_uid && getpwuid($new_uid)) {
+        # user with the uid exists
+        $ret |= EXISTING_ID_MISMATCH;
+    }
+    log_trace( "existing_user_status( %s, %s ) returns %s", $new_name, $new_uid, $ret );
+    return $ret;
+}
+
+# existing_group_status: check if there is already a group which satisfies the requirements
+# parameter:
+#   new_name: the name of the group
+#   new_gid : the GID of the group
+# return value:
+#   bitwise combination of these constants:
+#       EXISTING_NOT_FOUND => 0
+#       EXISTING_FOUND => 1
+#       EXISTING_SYSTEM => 2
+#       EXISTING_ID_MISMATCH => 4
+sub existing_group_status {
+    my ($config, $new_name,$new_gid) = @_;
+    my ($dummy1,$dummy2,$gid);
+    my $ret = EXISTING_NOT_FOUND;
+    log_trace( "existing_group_status called with new_name %s, new_gid %s", $new_name, $new_gid );
+    if (($dummy1,$dummy2,$gid) = egetgrnam($new_name)) {
+        # group with the name exists
+        log_trace("egetgrnam %s returned successfully, gid = %s", $new_name, $gid);
+        $ret |= EXISTING_FOUND;
+        $ret |= EXISTING_ID_MISMATCH if (defined($new_gid) && $gid != $new_gid);
+        $ret |= EXISTING_SYSTEM if
+            (($gid >= $config->{"first_system_gid"}) && ($gid <= $config->{"last_system_gid"}));
+    } elsif ($new_gid && getgrgid($new_gid)) {
+        $ret |= EXISTING_ID_MISMATCH;
+    }
+    log_trace( "existing_group_status( %s, %s ) returns %s", $new_name, $new_gid, $ret );
+    return $ret;
 }
 
 1;

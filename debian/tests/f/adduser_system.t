@@ -12,6 +12,15 @@ use warnings;
 
 use AdduserTestsCommon;
 
+# how do I use a module from the package in question?
+#use AdduserRetvalues;
+
+use constant RET_OK => 0;
+use constant RET_OBJECT_EXISTS => 11;
+use constant RET_OBJECT_DOES_NOT_EXIST => 12;
+use constant RET_WRONG_OBJECT_PROPERTIES => 13;
+use constant RET_NO_PRIMARY_GID => 23;
+
 
 END {
     remove_tree('/home/aust');
@@ -184,6 +193,7 @@ assert_user_exists('aust');
 assert_user_is_system('aust');
 
 system('echo "aust:*" | chpasswd --encrypted');
+ok(1, "set passwd to *");
 assert_command_success(
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -195,7 +205,8 @@ assert_user_exists('aust');
 assert_user_is_system('aust');
 
 system('echo "aust:!foobar" | chpasswd --encrypted');
-assert_command_success(
+# with #1099734 fixed, this should fail
+assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
     '--system',
@@ -206,6 +217,7 @@ assert_user_exists('aust');
 assert_user_is_system('aust');
 
 system('echo "aust:*foobar" | chpasswd --encrypted');
+ok(1, "set passwd to *foobar");
 assert_command_success(
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
