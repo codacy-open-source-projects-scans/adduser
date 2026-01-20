@@ -30,4 +30,5 @@ if (!defined (getpwnam($username))) {
 	assert(check_user_homedir_not_exist ($username));
 	print "ok\n";
 }
-  
+
+# vim: tabstop=4 shiftwidth=4 expandtab

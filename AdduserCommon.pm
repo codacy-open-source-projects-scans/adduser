@@ -31,6 +31,7 @@ my $codeset;
 
 use Debian::AdduserLogging 3.139;
 use Debian::AdduserRetvalues 3.139;
+use Debian::AdduserStatefile 3.139;
 BEGIN {
     if ( Debian::AdduserLogging->VERSION != version->declare('3.139') ||
          Debian::AdduserRetvalues->VERSION != version->declare('3.139') ) {
@@ -102,6 +103,14 @@ use constant {
     EXISTING_ID_MISMATCH => 4,
     EXISTING_LOCKED => 8,
     EXISTING_HAS_PASSWORD => 16,
+    EXISTING_EXPIRED => 32,
+    EXISTING_NOLOGIN => 64,
+};
+
+use constant {
+    STDOUTDEFLEVEL => "warn",
+    STDERRDEFLEVEL => "warn",
+    LOGMSGDEFLEVEL => "info",
 };
 
 @EXPORT = (
@@ -138,6 +147,11 @@ use constant {
     'EXISTING_ID_MISMATCH',
     'EXISTING_LOCKED',
     'EXISTING_HAS_PASSWORD',
+    'EXISTING_EXPIRED',
+    'EXISTING_NOLOGIN',
+    'STDOUTDEFLEVEL',
+    'STDERRDEFLEVEL',
+    'LOGMSGDEFLEVEL',
     'existing_user_status',
     'existing_group_status',
 );
@@ -507,6 +521,7 @@ sub preseed_config {
         no_del_paths => "^/bin\$ ^/boot\$ ^/dev\$ ^/etc\$ ^/initrd ^/lib ^/lost+found\$ ^/media\$ ^/mnt\$ ^/opt\$ ^/proc\$ ^/root\$ ^/run\$ ^/sbin\$ ^/srv\$ ^/sys\$ ^/tmp\$ ^/usr\$ ^/var\$ ^/vmlinu",
         name_regex     => def_name_regex,
         sys_name_regex => def_sys_name_regex,
+        sys_delete_action => "delete",
         exclude_fstypes => "(proc|sysfs|usbfs|devpts|devtmpfs|devfs|afs)",
         skel_ignore_regex => "\.(dpkg|ucf)-(old|new|dist)\$",
         extra_groups => "users",
@@ -590,35 +605,47 @@ END {
 #   new_name: the name of the user to check
 #   new_uid : the UID of the user
 # return value:
-#   bitwise combination of these constants:
-#       EXISTING_NOT_FOUND => 0
-#       EXISTING_FOUND => 1
-#       EXISTING_SYSTEM => 2
-#       EXISTING_ID_MISMATCH => 4
-#       EXISTING_LOCKED => 8
-#       EXISTING_HAS_PASSWORD => 16
-#   e.g. if the requested account name exists as a locked system user,
-#   return 8|2|1 == 11
+#   bitwise combination of the EXISTING_ constants
 sub existing_user_status {
-    my ($config, $new_name,$new_uid) = @_;
-    my ($dummy1,$pw,$uid);
+    my ($config, $user_name,$user_uid) = @_;
     my $ret = EXISTING_NOT_FOUND;
-    log_trace( "existing_user_status called with new_name %s, new_uid %s, first_system_uid %s, last_system_uid %s", $new_name, $new_uid, $config->{"first_system_uid"}, $config->{"last_system_uid"} );
-    if (($dummy1,$pw,$uid) = egetpwnam($new_name)) {
+    log_trace( "existing_user_status called with user_name %s, user_uid %s, first_system_uid %s, last_system_uid %s", $user_name, $user_uid, $config->{"first_system_uid"}, $config->{"last_system_uid"} );
+
+    # collect user data
+    my (
+        $egpwn_name, $egpwn_passwd, $egpwn_uid, $egpwn_gid, $egpwn_quota,
+        $egpwn_comment, $egpwn_gcos, $egpwn_dir, $egpwn_shell, $egpwn_expire,
+        $egpwn_rest
+    ) = egetpwnam($user_name);
+    my $shadow_line = `getent shadow $user_name`;
+    chomp $shadow_line;
+    my @shadow_fields = split /:/, $shadow_line;
+    if (defined $egpwn_uid) {
         # user with the name exists
-        log_trace( "egetpwnam(%s) returns %s, %s, %s", $new_name, $dummy1, $pw, $uid );
+        log_trace( "egetpwnam(%s) returns %s, %s, %s, %s", $user_name, $egpwn_passwd, $egpwn_uid, $egpwn_dir, $egpwn_shell );
         $ret |= EXISTING_FOUND;
-        $ret |= EXISTING_ID_MISMATCH if (defined($new_uid) && $uid != $new_uid);
+        $ret |= EXISTING_ID_MISMATCH if (defined($user_uid) && $egpwn_uid != $user_uid);
         $ret |= EXISTING_SYSTEM if
-            (($uid >= $config->{"first_system_uid"}) && ($uid <= $config->{"last_system_uid"}));
+            (($egpwn_uid >= $config->{"first_system_uid"}) && ($egpwn_uid <= $config->{"last_system_uid"}));
         $ret |= EXISTING_HAS_PASSWORD if
-            (defined $pw && $pw ne '' && $pw ne '!' && $pw !~ /^\*/);
-        $ret |= EXISTING_LOCKED if (substr($pw,0,1) eq "!");  # TODO: also check expiry?
-    } elsif ($new_uid && getpwuid($new_uid)) {
+            (defined $egpwn_passwd && $egpwn_passwd ne '' && ($egpwn_passwd =~ s/^[!*]+//r ne ''));
+
+        my $password_field = $shadow_fields[1] // '';
+        $ret |= EXISTING_LOCKED if $password_field =~ /^[!*]/ && (get_state_value($user_name, "locked") // "") eq "1";
+
+        $ret |= EXISTING_NOLOGIN if ($egpwn_shell =~ /bin\/nologin/);
+
+        my $acct_exp = $shadow_fields[7] // '';
+        if ($acct_exp && $acct_exp > 0) {
+            my $today_days = int(time / 86400);
+            $ret |= EXISTING_EXPIRED if $acct_exp < $today_days;
+        }
+
+    } elsif (defined($user_uid) && getpwuid($user_uid)) {
         # user with the uid exists
         $ret |= EXISTING_ID_MISMATCH;
     }
-    log_trace( "existing_user_status( %s, %s ) returns %s", $new_name, $new_uid, $ret );
+    log_trace( "existing_user_status( %s, %s ) returns %s (%s)", $user_name, $user_uid, $ret, existing_value_desc($ret) );
     return $ret;
 }
 
@@ -634,21 +661,35 @@ sub existing_user_status {
 #       EXISTING_ID_MISMATCH => 4
 sub existing_group_status {
     my ($config, $new_name,$new_gid) = @_;
-    my ($dummy1,$dummy2,$gid);
+    my ($gid);
     my $ret = EXISTING_NOT_FOUND;
     log_trace( "existing_group_status called with new_name %s, new_gid %s", $new_name, $new_gid );
-    if (($dummy1,$dummy2,$gid) = egetgrnam($new_name)) {
+    if ((undef,undef,$gid) = egetgrnam($new_name)) {
         # group with the name exists
         log_trace("egetgrnam %s returned successfully, gid = %s", $new_name, $gid);
         $ret |= EXISTING_FOUND;
         $ret |= EXISTING_ID_MISMATCH if (defined($new_gid) && $gid != $new_gid);
         $ret |= EXISTING_SYSTEM if
             (($gid >= $config->{"first_system_gid"}) && ($gid <= $config->{"last_system_gid"}));
-    } elsif ($new_gid && getgrgid($new_gid)) {
+    } elsif (defined($new_gid) && getgrgid($new_gid)) {
         $ret |= EXISTING_ID_MISMATCH;
     }
-    log_trace( "existing_group_status( %s, %s ) returns %s", $new_name, $new_gid, $ret );
+    log_trace( "existing_group_status( %s, %s ) returns %s (%s)", $new_name, $new_gid, $ret, existing_value_desc($ret) );
     return $ret;
+}
+
+sub existing_value_desc {
+    my ($val) = @_;
+    my @flags = ();
+    push @flags, "found" if ($val & EXISTING_FOUND);
+    push @flags, "wrongid" if $val & EXISTING_ID_MISMATCH;
+    push @flags, "system" if ($val & EXISTING_SYSTEM);
+    push @flags, "locked" if $val & EXISTING_LOCKED;
+    push @flags, "haspass" if $val & EXISTING_HAS_PASSWORD;
+    push @flags, "nologin" if $val & EXISTING_NOLOGIN;
+    push @flags, "expired" if $val & EXISTING_EXPIRED;
+    push @flags, "notfound" unless $#flags > 0;
+    return join '|',@flags
 }
 
 1;

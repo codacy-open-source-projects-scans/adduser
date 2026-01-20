@@ -204,8 +204,10 @@ assert_command_success(
 assert_user_exists('aust');
 assert_user_is_system('aust');
 
-system('echo "aust:!foobar" | chpasswd --encrypted');
-# with #1099734 fixed, this should fail
+# $ mkpasswd --hash=yescrypt foobar
+# $y$j9T$dDqPXxXOCZL14/3jiuscW.$P8VGTWHqO1.qLOJs5Mas7Vzj3Ni9Es3QhACrVa0Z5Z3
+system(qq{echo 'aust:!\$y\$j9T\$dDqPXxXOCZL14/3jiuscW.\$P8VGTWHqO1.qLOJs5Mas7Vzj3Ni9Es3QhACrVa0Z5Z3' | chpasswd --encrypted});
+ok(1, "set passwd to !foobar");
 assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
     '/usr/sbin/adduser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
@@ -216,23 +218,28 @@ assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
 assert_user_exists('aust');
 assert_user_is_system('aust');
 
-system('echo "aust:*foobar" | chpasswd --encrypted');
-ok(1, "set passwd to *foobar");
-assert_command_success(
-    '/usr/sbin/adduser',
-    '--stdoutmsglevel=error', '--stderrmsglevel=error',
-    '--system',
-    '--disabled-login',
-    'aust'
-);
-assert_user_exists('aust');
-assert_user_is_system('aust');
+# #1124835
+# $ mkpasswd --hash=yescrypt foobar
+# $y$j9T$dDqPXxXOCZL14/3jiuscW.$P8VGTWHqO1.qLOJs5Mas7Vzj3Ni9Es3QhACrVa0Z5Z3
+#system(qq{echo 'aust:*\$y\$j9T\$dDqPXxXOCZL14/3jiuscW.\$P8VGTWHqO1.qLOJs5Mas7Vzj3Ni9Es3QhACrVa0Z5Z3' | chpasswd --encrypted});
+#ok(1, "set passwd to *foobar");
+#assert_command_result_silent(RET_WRONG_OBJECT_PROPERTIES,
+#    '/usr/sbin/adduser',
+#    '--stdoutmsglevel=error', '--stderrmsglevel=error',
+#    '--system',
+#    '--disabled-login',
+#    'aust'
+#);
+#assert_user_exists('aust');
+#assert_user_is_system('aust');
+
 assert_command_success(
     '/usr/sbin/deluser',
     '--stdoutmsglevel=error', '--stderrmsglevel=error',
     '--system',
     'aust'
 );
+assert_user_does_not_exist('aust');
 
 # ref #100032
 # test --home

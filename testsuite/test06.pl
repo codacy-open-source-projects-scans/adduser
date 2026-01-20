@@ -28,4 +28,5 @@ if (!defined (getpwnam($username))) {
 	assert(check_user_has_gid($username,$want_gid));
 	print "ok\n";
 }
-  
+
+# vim: tabstop=4 shiftwidth=4 expandtab

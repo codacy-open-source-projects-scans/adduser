@@ -78,6 +78,12 @@ Values may be 0 or 1. Defaults to \fI0\fP.
 .B REMOVE_HOME
 Removes the home directory and mail spool of the user to be removed.
 Value may be 0 (don't delete) or 1 (do delete). Defaults to \fI0\fP.
+.TP
+.B SYS_DELETE_ACTION
+The default action to take when deleting system accounts.  Valid options
+are "lock" and "delete" (the default).  If set to "lock" and not
+overridden by \fB\-\-force\-delete\fP, behave as if \fB\-\-lock\fP were
+passed and lock the account.  See \fBdeluser(8)\fP for specific details.
 
 .SH FILES
 .I /etc/deluser.conf

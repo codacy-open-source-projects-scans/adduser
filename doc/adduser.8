@@ -65,6 +65,11 @@ adduser, addgroup \- add or manipulate users or groups
 .B user
 .YS
 .SY adduser
+.B \-\-unlock
+.OP \-\-system
+.B user
+.YS
+.SY adduser
 .B \-\-group
 .OP \-\-conf file
 .OP \-\-debug
@@ -162,6 +167,11 @@ that means a
 in the sense of Debian Policy.
 This is commonly referred to in \fBadduser\fP as a \fInon-system user.\fP
 .PP
+If \fBadduser\fP is called with the \fB\-\-unlock\fP option, it will
+search for an existing account, and ensure it is unlocked.  If the
+user is not found, \fBadduser\fP will return an error.  See 
+\fBUnlock an account\fP below for more details.
+.PP
 \fBadduser\fP will choose the first available UID
 from the range specified by
 \fBFIRST_UID\fP and \fBLAST_UID\fP
@@ -224,6 +234,10 @@ often abbreviated as
 \fIsystem user\fP
 in the context of the \fBadduser\fP package.
 .PP
+If the user already exists and is a system account, then
+\fBadduser\fP will ensure the account is unlocked and return
+successfully.  See \fBUnlock a user account\fP below.
+.PP
 \fBadduser\fP will choose the first available UID
 from the range specified by
 \fBFIRST_SYSTEM_UID\fP and \fBLAST_SYSTEM_UID\fP
@@ -265,6 +279,13 @@ Skeletal configuration files are not copied.
 .PP
 Other options will behave as for the creation of a regular user.
 The files referenced by \fBUID_POOL\fP and \fBGID_POOL\fP are also honored.
+
+.SS "Unlock a user account"
+If called with the \fB\-\-unlock\fP option, \fBadduser\fP will
+unlock an existing, previously locked account.  If found, the
+user's password will be re-enabled, and expiry restrictions will
+be removed.  Any previous expiry settings will have to be
+added manually after unlocking the account.
 
 .SS "Add a group"
 If \fBadduser\fP is called with the \fB\-\-group\fP option and
@@ -613,8 +634,8 @@ There is no group with the requested GID for the primary group
 for a new user.
 .TP
 .B 31
-The chosen name for a new user or a new group does not conform to
-the selected naming rules.
+The chosen name or comment for a new user or a new group
+does not conform to the selected naming rules.
 .TP
 .B 32
 The home directory of a new user must be an absolute path.

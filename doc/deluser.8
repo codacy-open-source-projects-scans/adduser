@@ -27,6 +27,7 @@ deluser, delgroup \- remove a user or group from the system
 .OP \-\-stdoutmsglevel prio
 .OP \-\-stderrmsglevel prio
 .OP \-\-logmsglevel prio
+.OP \-\-lock
 .B user
 .YS
 
@@ -44,6 +45,8 @@ deluser, delgroup \- remove a user or group from the system
 .OP \-\-stdoutmsglevel prio
 .OP \-\-stderrmsglevel prio
 .OP \-\-logmsglevel prio
+.OP \-\-lock
+.OP \-\-force\-delete
 .B user
 .YS
 
@@ -114,6 +117,10 @@ see the OPTIONS section.
 If called with one non-option argument and
 without the \fB\-\-group\fP option,
 \fBdeluser\fP will remove a non-system user.
+.PP
+Note: If \fBdeluser\fP is called with the \fB\-\-lock\fP option,
+the user account will be locked rather than removed as described
+here; see \fB\-\-lock\fP, below.
 .PP
 By default,
 \fBdeluser\fP will remove the user
@@ -262,6 +269,19 @@ Messages printed to stderr are not repeated on stdout.
 That allows the local admin to control \fBadduser\fP's chattiness
 on the console and in the log independently, keeping probably confusing
 information to itself while still leaving helpful information in the log.
+.TP
+.B \-\-lock
+If \fBdeluser\fP is called with the \fB\-\-lock\fP option,
+the user account will be locked rather than removed.  In this
+case, the user's password is invalidated and the account is
+set to expired; no other action is taken.  A locked account may be
+subsequently unlocked using \fBadduser\fP \fB\-\-unlock\fP.
+
+System users may be set to lock upon delete by default by setting
+\fBSYS_DELETE_ACTION\fP=\fBlock\fP in \fB/etc/deluser.conf\fP.
+.B \-\-force\-delete
+If deleting a system user, and the default \fBSYS_DELETE_ACTION\fP
+would lock the account, instead delete it normally.
 .TP
 .B \-\-version
 Display version and copyright information.

@@ -28,6 +28,7 @@ use Getopt::Long;
 use Debian::AdduserCommon 3.139;
 use Debian::AdduserLogging 3.139;
 use Debian::AdduserRetvalues 3.139;
+use Debian::AdduserStatefile 3.139;
 BEGIN {
     if ( Debian::AdduserCommon->VERSION != version->declare('3.139') ||
          Debian::AdduserLogging->VERSION != version->declare('3.139') ||
@@ -122,22 +123,24 @@ our @defaults = undef;
 our @names;
 
 GetOptions (
-    'conf|c=s' => \@configfiles,
-    'debug' => sub { $verbose = 2; },
-    'stdoutmsglevel=s' => \$stdoutmsglevel,
-    'stderrmsglevel=s' => \$stderrmsglevel,
-    'logmsglevel=s' => \$logmsglevel,
-    'help|h' => sub { &usage(); exit 0; },
-    'group' => sub { $action = 'delgroup'; },
-    'system' => \$pconfig{'system'},
-    'only-if-empty' => \$pconfig{'only_if_empty'},
-    'remove-home' => \$pconfig{'remove_home'},
-    'remove-all-files' => \$pconfig{'remove_all_files'},
     'backup' => \$pconfig{'backup'},
     'backup-to=s' => \$pconfig{'backup_to'},
     'backup-suffix=s' => \$pconfig{'backup_suffix'},
+    'conf|c=s' => \@configfiles,
+    'debug' => sub { $verbose = 2; },
+    'force-delete' => \$pconfig{'force_delete'},
+    'group' => sub { $action = 'delgroup'; },
+    'help|h' => sub { &usage(); exit 0; },
+    'lock|L' => \$pconfig{'lock'},
+    'logmsglevel=s' => \$logmsglevel,
     'no-preserve-root' => \$no_preserve_root,
+    'only-if-empty' => \$pconfig{'only_if_empty'},
     'quiet|q' => sub { $verbose = 0; },
+    'remove-home' => \$pconfig{'remove_home'},
+    'remove-all-files' => \$pconfig{'remove_all_files'},
+    'stdoutmsglevel=s' => \$stdoutmsglevel,
+    'stderrmsglevel=s' => \$stderrmsglevel,
+    'system' => \$pconfig{'system'},
     'verbose' => sub { $verbose = 1; },
     'version|v' => sub { &version; exit },
 ) or &usage_error;
@@ -265,21 +268,28 @@ if(defined($group)) {
 if($action eq "deluser") {
     my($name, $passwd, ,$uid, $rest);
 
+    if (($config{remove_home} || $config{remove_all_files} || $config{backup}) && ($install_more_packages)) {
+        log_warn( mtx("In order to use the --remove-home, --remove-all-files, and --backup features, you need to install the `perl' package. To accomplish that, run apt-get install perl.") );
+        $config{remove_home}=undef;
+        $config{remove_all_files}=undef;
+        $config{backup}=undef;
+        $config{backup_to}=undef;
+        exit ( RET_MORE_PACKAGES) unless( $config{"system"} );
+    }
+
+    my (
+        $egpwn_name, $egpwn_passwd, $egpwn_uid, $egpwn_gid, $egpwn_quota,
+        $egpwn_comment, $egpwn_gcos, $egpwn_dir, $egpwn_shell, $egpwn_expire,
+        $egpwn_rest
+    ) = egetpwnam(encode($charset, $user));
+
     # Don't allow a non-system user to be deleted when --system is given
     # Also, "user does not exist" is only a warning with --system, but an
     # error without --system.
     if( $config{"system"} ) {
-        if (($config{remove_home} || $config{remove_all_files} || $config{backup}) && ($install_more_packages)) {
-            log_warn( mtx("In order to use the --remove-home, --remove-all-files, and --backup features, you need to install the `perl' package. To accomplish that, run apt-get install perl.") );
-            $config{remove_home}=undef;
-            $config{remove_all_files}=undef;
-            $config{backup}=undef;
-            $config{backup_to}=undef;
-        }
-
-        if( ($name, $passwd, $uid, $rest) = egetpwnam(encode($charset, $user)) ) {
-            if ( ($uid < $config{"first_system_uid"} ||
-                $uid > $config{"last_system_uid" } ) ) {
+        if( defined $egpwn_uid ) {
+            if ( ($egpwn_uid < $config{"first_system_uid"} ||
+                $egpwn_uid > $config{"last_system_uid" } ) ) {
                 log_warn( mtx("The user `%s' is not a system user. Exiting."), $user);
                 exit( RET_WRONG_OBJECT_PROPERTIES );
             }
@@ -287,20 +297,15 @@ if($action eq "deluser") {
             log_info( mtx("The user `%s' does not exist, but --system was given. Exiting."), $user);
             exit( RET_OK );
         }
-    } else {
-        if (($config{remove_home} || $config{remove_all_files} || $config{backup}) && ($install_more_packages)) {
-            log_fatal( mtx("In order to use the --remove-home, --remove-all-files, and --backup features, you need to install the `perl' package. To accomplish that, run apt-get install perl.") );
-            exit( RET_MORE_PACKAGES );
-        }
     }
 
-    unless(exist_user($user)) {
+    unless(defined $egpwn_uid) {
         log_fatal( mtx("The user `%s' does not exist."), $user );
         exit( RET_OBJECT_DOES_NOT_EXIST );
     }
 
     # Warn in any case if you want to remove the root account
-    if ((defined($pw_uid)) && ($pw_uid == 0) && (!defined($no_preserve_root)))  {
+    if ((defined($egpwn_uid)) && ($egpwn_uid == 0) && (!defined($no_preserve_root)))  {
         log_fatal( mtx("WARNING: You are just about to delete the root account (uid 0). Usually this is never required as it may render the whole system unusable. If you really want this, call deluser with parameter --no-preserve-root. Stopping now without having performed any action.") );
         exit( RET_DONT_REMOVE_ROOT );
     }
@@ -310,6 +315,42 @@ if($action eq "deluser") {
     if ($pconfig{"backup_to"}) {
         log_trace("backup_to is set, setting backup as well");
         $config{"backup"} = 1;
+    }
+
+    # command line           sys_delete_action      action
+    # deluser                lock                   lock
+    # deluser                delete                 delete
+    # deluser --lock         any                    lock
+    # deluser --force-delete any                   delete
+
+    # decide whether to lock or to delete the account
+    # command line takes precedence, otherwise sys_delete_action wins
+    my $do_lock = ($config{sys_delete_action} eq 'lock');
+    $do_lock = 1 if $config{lock};
+    $do_lock = 0 if $config{force_delete};
+    log_trace( "Config: sys_delete_action=%s, lock=%s, force_delete=%s → do_lock=%s", $config{sys_delete_action}, $config{lock}, $config{force_delete}, $do_lock );
+
+    # if account is to be locked (not deleted), leave files alone
+    if ($do_lock) {
+        if ($config{"backup"} or $config{"remove"} or $config{"remove_all_files"}) {
+            log_warn( mtx("Account will be locked; files will not be backed up or removed.") );
+            log_warn( mtx("Hint: Use --force-delete to delete the account as normal.") )
+        }
+
+        log_info( mtx("Locking user account `%s' ...", $user));
+        acquire_lock();
+        set_state_value($user, "shell", $egpwn_shell);
+        set_state_value($user, "locked", 1);
+        my $lock_ret = &systemcall('usermod', "-e", 1, "-f", 0, "-L", "-s", "/usr/sbin/nologin", $user);
+        if( $lock_ret == 0 ) {
+            log_info( mtx("user `%s' successfully locked.\n", $user) );
+        } else {
+            log_fatal( mtx("error %s while unlocking user `%s'. Exiting.\n", $lock_ret, $user) );
+            exit( RET_SYSTEMCALL_ERROR );
+        }
+        release_lock();
+
+        exit( RET_OK )
     }
 
     if($config{"remove_home"} || $config{"remove_all_files"}) {
@@ -444,6 +485,7 @@ if($action eq "deluser") {
     acquire_lock();
     systemcall('/usr/sbin/userdel', $user);
     release_lock();
+    delete_state_user($user);
 
     systemcall('/usr/local/sbin/deluser.local', $user, $pw_uid,
         $pw_gid, $pw_homedir) if (-x "/usr/local/sbin/deluser.local");
@@ -495,8 +537,7 @@ if ($action eq 'delgroup') {
 }
 
 
-if($action eq 'deluserfromgroup')
-{
+if($action eq 'deluserfromgroup') {
     unless(exist_user($user)) {
         log_fatal( mtx("The user `%s' does not exist.\n"), $user );
         exit( RET_OBJECT_DOES_NOT_EXIST );
@@ -562,7 +603,7 @@ sub usage {
     printf( gtx(
 "deluser [--system] [--remove-home] [--remove-all-files] [--backup]
         [--backup-to dir] [--backup-suffix str] [--conf file]
-        [--quiet] [--verbose] [--debug] user
+        [--quiet] [--verbose] [--debug] [--lock] user
 
   remove a regular user from the system
 
@@ -629,3 +670,4 @@ sub check_backup_suffix {
 # End:
 
 # vim: tabstop=4 shiftwidth=4 expandtab
+0

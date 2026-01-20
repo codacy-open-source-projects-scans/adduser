@@ -91,7 +91,7 @@ unless (!defined getgrnam($newgroup)) {
         print "ok\n";
 }
 
-my $newgroup = find_unused_name();
+$newgroup = find_unused_name();
 
 $cmd = "adduser --group $newgroup";
 unless (defined getgrnam($newgroup)) {
@@ -137,3 +137,5 @@ if (!defined (getpwnam($sysusername))) {
         }
 	print "ok\n";
 }
+
+# vim: tabstop=4 shiftwidth=4 expandtab

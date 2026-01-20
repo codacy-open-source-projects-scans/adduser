@@ -30,6 +30,21 @@ END {
     if (-f '/var/cache/adduser/tests/state.tar');
 }
 
+use constant {
+    EXISTING_NOT_FOUND => 0,
+    EXISTING_FOUND => 1,
+    EXISTING_SYSTEM => 2,
+    EXISTING_ID_MISMATCH => 4,
+    EXISTING_LOCKED => 8,
+    EXISTING_HAS_PASSWORD => 16,
+    EXISTING_EXPIRED => 32,
+    EXISTING_NOLOGIN => 64,
+    SYS_MIN => 100,
+    SYS_MAX => 999,
+    USER_MIN => 1000,
+    USER_MAX => 9999,
+};
+
 my $charset = langinfo(CODESET);
 binmode(STDOUT, ":encoding($charset)");
 binmode(STDERR, ":encoding($charset)");
@@ -293,7 +308,7 @@ sub assert_path_has_ownership {
 
 sub assert_path_is_a_file {
     my $path = shift;
-    ok(-f $path, "path is a file $path");
+    ok(-f $path, "path is a file: $path");
 }
 
 sub assert_path_is_a_directory {
@@ -457,6 +472,82 @@ sub apply_config_hash {
         }
     }
     close(CONF);
+}
+
+sub assert_user_status {
+    my ($username, $mask, $desc, $invert) = @_;
+
+    # Determine inversion from description if it starts with 'NOT '
+    if ($desc =~ /^NOT\s+(.*)/i) {
+        die "Cannot set invert=1 if description starts with NOT" if $invert;
+        $desc = $1;      # remove 'NOT ' prefix
+        $invert = 1;     # automatically invert
+    }
+
+    $invert //= 0;       # default to positive assertion
+
+    my $status = existing_user_status($username);
+    my $ok = ($status & $mask) == $mask;
+    $ok = !$ok if $invert;
+
+    my $message = $invert
+        ? "User '$username' is NOT $desc (status $status)"
+        : "User '$username' $desc (status $status)";
+
+    ok($ok, $message);
+}
+
+sub existing_user_status {
+    my ($user_name,$user_uid) = @_;
+    my $ret = EXISTING_NOT_FOUND;
+        my (
+        $egpwn_name, $egpwn_passwd, $egpwn_uid, $egpwn_gid, $egpwn_quota,
+        $egpwn_comment, $egpwn_gcos, $egpwn_dir, $egpwn_shell, $egpwn_expire,
+        $egpwn_rest
+    ) = getpwnam($user_name);
+
+    if (defined $egpwn_uid) {
+        $ret |= EXISTING_FOUND;
+        $ret |= EXISTING_ID_MISMATCH if (defined($user_uid) && $egpwn_uid != $user_uid);
+        $ret |= EXISTING_SYSTEM if \
+            ($egpwn_uid >= SYS_MIN && $egpwn_uid <= SYS_MAX);
+
+        $ret |= EXISTING_NOLOGIN if ($egpwn_shell =~ /bin\/nologin/);
+        $ret |= EXISTING_HAS_PASSWORD if
+            (defined $egpwn_passwd && $egpwn_passwd ne '' && ($egpwn_passwd =~ s/^[!*]+//r ne ''));
+        $ret |= EXISTING_LOCKED if
+            (defined $egpwn_passwd && $egpwn_passwd =~ /^[!*]/);
+
+        my $age = `chage -l $user_name`;
+        if ($age =~ /Account expires\s*:\s*(.+)/i) {
+            my $exp = $1;
+            use POSIX qw(strftime);
+            use Time::Local;
+            if ($exp ne 'never') {
+                my $expiry_epoch = eval { `date -d "$exp" +%s` };
+                my $now = time;
+                $ret |= EXISTING_EXPIRED if ($expiry_epoch < $now);
+            }
+        }
+    } elsif ($user_uid && getpwuid($user_uid)) {
+        $ret |= EXISTING_ID_MISMATCH;
+    }
+    return $ret;
+}
+
+sub existing_group_status {
+    my ($group_name,$group_gid) = @_;
+    my $gid;
+    my $ret = EXISTING_NOT_FOUND;
+    if ((undef,undef,$gid) = egetgrnam($group_name)) {
+        $ret |= EXISTING_FOUND;
+        $ret |= EXISTING_ID_MISMATCH if (defined($group_gid) && $gid != $group_gid);
+        $ret |= EXISTING_SYSTEM if \
+            ($gid >= SYS_MIN && $gid <= SYS_MAX);
+    } elsif ($group_gid && getgrgid($group_gid)) {
+        $ret |= EXISTING_ID_MISMATCH;
+    }
+    return $ret;
 }
 
 1;

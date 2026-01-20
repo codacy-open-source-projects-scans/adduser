@@ -16,12 +16,15 @@ preseed_config(\@deluserconf,\%del_config);
 
 my $user_prefix = "addusertest";
 
-
+use constant {
+    SYS_MIN => 100,
+    SYS_MAX => 999,
+};
 
 sub assert {
   my ($cond) = @_;
   if ($cond) {
-    print "Test failed; aborting test suite\n";
+    print "Test failed\n";
     exit 1;
   }
 }
@@ -46,7 +49,7 @@ sub find_unused_uid {
   }
   else {
     print "Haven't found a unused uid in range ($low_uid - $high_uid)\nExiting ...\n";
-    exit 1;
+    return 1;
   }
 }
 
@@ -90,7 +93,7 @@ sub find_unused_gid {
   }
   else {
     print "Haven't found a unused gid in range ($low_gid - $high_gid)\nExiting ...\n";
-    exit 1;
+    return 1;
   }
 }
 
@@ -102,12 +105,13 @@ sub check_user_exist {
   my @ent = getpwnam ($username);
   if (!@ent) {
 	print "user $username does not exist\n";
-	exit 1;
+	return 1;
   }
   if (( defined($uid)) && ($ent[2] != $uid)) {
 	printf "uid $uid does not match %s\n",$ent[2];
 	return 1;
   }
+  print "user $username exists\n";
   return 0;
 }
 
@@ -115,8 +119,10 @@ sub check_user_not_exist {
   my ($username) = @_;
 
   if (defined(getpwnam($username))) {
+    print "user $username exists\n";
     return 1;
   }
+  print "user $username does not exist\n";
   return 0;
 }
 
@@ -228,5 +234,270 @@ sub check_user_has_gid {
   return 1;
 }
 
+sub testsuite_existing_user_status {
+    my ($user_name,$user_uid) = @_;
+    my $ret = EXISTING_NOT_FOUND;
+
+    my (
+        $egpwn_name, $egpwn_passwd, $egpwn_uid, $egpwn_gid, $egpwn_quota,
+        $egpwn_comment, $egpwn_gcos, $egpwn_dir, $egpwn_shell, $egpwn_expire,
+        $egpwn_rest
+    ) = getpwnam($user_name);
+
+    if (defined $egpwn_uid) {
+        $ret |= EXISTING_FOUND;
+        $ret |= EXISTING_ID_MISMATCH if (defined($user_uid) && $egpwn_uid != $user_uid);
+        $ret |= EXISTING_SYSTEM if \
+            ($egpwn_uid >= SYS_MIN && $egpwn_uid <= SYS_MAX);
+
+        $ret |= EXISTING_NOLOGIN if ($egpwn_shell =~ /bin\/nologin/);
+        $ret |= EXISTING_HAS_PASSWORD if
+            (defined $egpwn_passwd && $egpwn_passwd ne '' && ($egpwn_passwd =~ s/^[!*]+//r ne ''));
+        $ret |= EXISTING_LOCKED if
+            (defined $egpwn_passwd && $egpwn_passwd =~ /^[!*]/);
+
+        # this is deliberately implemented differently from the actual program
+        my $age = `chage -l $user_name`;
+
+        if ($age =~ /Account expires\s*:\s*(.+)/i) {
+            my $exp = $1;
+            if ($exp ne 'never') {
+                chomp $exp;
+                # Convert to epoch using GNU date
+                # Convert to epoch using GNU date
+                my $expiry_epoch = `date -d "$exp" +%s 2>/dev/null`;
+                chomp $expiry_epoch;
+
+                if (defined $expiry_epoch && $expiry_epoch =~ /^\d+$/) {
+                    $ret |= EXISTING_EXPIRED if ($expiry_epoch < time);
+                } else {
+                    warn "Failed to parse expiry date '$exp' with date command\n";
+                }
+            }
+        }
+    } elsif ($user_uid && getpwuid($user_uid)) {
+        $ret |= EXISTING_ID_MISMATCH;
+    }
+    return $ret;
+}
+
+# Map human-readable status names to bitmask constants
+my %USER_STATUS_MASK = (
+    locked      => EXISTING_LOCKED,
+    haspasswd   => EXISTING_HAS_PASSWORD,
+    nologin     => EXISTING_NOLOGIN,
+    expired     => EXISTING_EXPIRED,
+);
+sub check_user_status {
+    my ($username, $check, $do_print) = @_;
+    $do_print //= 0;
+
+    my $invert = 0;
+    my $result;
+
+    # Check for negative prefix "not_"
+    if ($check =~ /^not_(.+)$/) {
+        $invert = 1;
+        $check = $1;
+    }
+
+    my $mask = $USER_STATUS_MASK{$check}
+        or die "Unknown user status '$check'";
+
+    my $status = testsuite_existing_user_status($username);
+    # returns 0 if status is as desired so that it can be used in assertion
+    $result = (($status & $mask) == $mask) ? 0 : 1;
+
+    if ($do_print) {
+        my $msg = $result
+                ? "User '$username' $check"
+                : "User '$username' NOT $check";
+        print "$msg";
+    }
+
+    $result = !$result if $invert;
+    print " (status $status, returning ", $result ? 1 : 0, ")\n";
+    return $result;
+}
+
+
+
+sub testsuite_existing_user_status {
+    my ($user_name,$user_uid) = @_;
+    my $ret = EXISTING_NOT_FOUND;
+
+    my (
+        $egpwn_name, $egpwn_passwd, $egpwn_uid, $egpwn_gid, $egpwn_quota,
+        $egpwn_comment, $egpwn_gcos, $egpwn_dir, $egpwn_shell, $egpwn_expire,
+        $egpwn_rest
+    ) = getpwnam($user_name);
+
+    if (defined $egpwn_uid) {
+        $ret |= EXISTING_FOUND;
+        $ret |= EXISTING_ID_MISMATCH if (defined($user_uid) && $egpwn_uid != $user_uid);
+        $ret |= EXISTING_SYSTEM if \
+            ($egpwn_uid >= SYS_MIN && $egpwn_uid <= SYS_MAX);
+
+        $ret |= EXISTING_NOLOGIN if ($egpwn_shell =~ /bin\/nologin/);
+        $ret |= EXISTING_HAS_PASSWORD if
+            (defined $egpwn_passwd && $egpwn_passwd ne '' && ($egpwn_passwd =~ s/^[!*]+//r ne ''));
+        $ret |= EXISTING_LOCKED if
+            (defined $egpwn_passwd && $egpwn_passwd =~ /^[!*]/);
+
+        # this is deliberately implemented differently from the actual program
+        my $age = `chage -l $user_name`;
+
+        if ($age =~ /Account expires\s*:\s*(.+)/i) {
+            my $exp = $1;
+            if ($exp ne 'never') {
+                chomp $exp;
+                # Convert to epoch using GNU date
+                my $expiry_epoch = `date -d "$exp" +%s 2>/dev/null`;
+                chomp $expiry_epoch;
+
+                if (defined $expiry_epoch && $expiry_epoch =~ /^\d+$/) {
+                    $ret |= EXISTING_EXPIRED if ($expiry_epoch < time);
+                } else {
+                    warn "Failed to parse expiry date '$exp' with date command\n";
+                }
+            }
+        }
+    } elsif ($user_uid && getpwuid($user_uid)) {
+        $ret |= EXISTING_ID_MISMATCH;
+    }
+    return $ret;
+}
+
+# Map human-readable status names to bitmask constants
+my %USER_STATUS_MASK = (
+    locked      => EXISTING_LOCKED,
+    haspasswd   => EXISTING_HAS_PASSWORD,
+    nologin     => EXISTING_NOLOGIN,
+    expired     => EXISTING_EXPIRED,
+);
+
+sub check_user_status {
+    my ($username, $check, $do_print) = @_;
+    $do_print //= 0;
+
+    my $invert = 0;
+    my $result;
+
+    # Check for negative prefix "not_"
+    if ($check =~ /^not_(.+)$/) {
+        $invert = 1;
+        $check = $1;
+    }
+
+    my $mask = $USER_STATUS_MASK{$check}
+        or die "Unknown user status '$check'";
+
+    my $status = testsuite_existing_user_status($username);
+    # returns 0 if status is as desired so that it can be used in assertion
+    $result = (($status & $mask) == $mask) ? 0 : 1;
+
+    if ($do_print) {
+        my $msg = $result
+                ? "User '$username' $check"
+                : "User '$username' NOT $check";
+        print "$msg";
+    }
+
+    $result = !$result if $invert;
+    print " (status $status, returning ", $result ? 1 : 0, ")\n";
+    return $result;
+}
+
+
+
+sub testsuite_existing_user_status {
+    my ($user_name,$user_uid) = @_;
+    my $ret = EXISTING_NOT_FOUND;
+
+    my (
+        $egpwn_name, $egpwn_passwd, $egpwn_uid, $egpwn_gid, $egpwn_quota,
+        $egpwn_comment, $egpwn_gcos, $egpwn_dir, $egpwn_shell, $egpwn_expire,
+        $egpwn_rest
+    ) = getpwnam($user_name);
+
+    if (defined $egpwn_uid) {
+        $ret |= EXISTING_FOUND;
+        $ret |= EXISTING_ID_MISMATCH if (defined($user_uid) && $egpwn_uid != $user_uid);
+        $ret |= EXISTING_SYSTEM if \
+            ($egpwn_uid >= SYS_MIN && $egpwn_uid <= SYS_MAX);
+
+        $ret |= EXISTING_NOLOGIN if ($egpwn_shell =~ /bin\/nologin/);
+        $ret |= EXISTING_HAS_PASSWORD if
+            (defined $egpwn_passwd && $egpwn_passwd ne '' && ($egpwn_passwd =~ s/^[!*]+//r ne ''));
+        $ret |= EXISTING_LOCKED if
+            (defined $egpwn_passwd && $egpwn_passwd =~ /^[!*]/);
+
+        # this is deliberately implemented differently from the actual program
+        my $age = `chage -l $user_name`;
+
+        if ($age =~ /Account expires\s*:\s*(.+)/i) {
+            my $exp = $1;
+            if ($exp ne 'never') {
+                chomp $exp;
+                # Convert to epoch using GNU date
+                my $expiry_epoch = `date -d "$exp" +%s 2>/dev/null`;
+                chomp $expiry_epoch;
+
+                if (defined $expiry_epoch && $expiry_epoch =~ /^\d+$/) {
+                    $ret |= EXISTING_EXPIRED if ($expiry_epoch < time);
+                } else {
+                    warn "Failed to parse expiry date '$exp' with date command\n";
+                }
+            }
+        }
+    } elsif ($user_uid && getpwuid($user_uid)) {
+        $ret |= EXISTING_ID_MISMATCH;
+    }
+    return $ret;
+}
+
+# Map human-readable status names to bitmask constants
+my %USER_STATUS_MASK = (
+    locked      => EXISTING_LOCKED,
+    haspasswd   => EXISTING_HAS_PASSWORD,
+    nologin     => EXISTING_NOLOGIN,
+    expired     => EXISTING_EXPIRED,
+);
+
+sub check_user_status {
+    my ($username, $check, $do_print) = @_;
+    $do_print //= 0;
+
+    my $invert = 0;
+    my $result;
+
+    # Check for negative prefix "not_"
+    if ($check =~ /^not_(.+)$/) {
+        $invert = 1;
+        $check = $1;
+    }
+
+    my $mask = $USER_STATUS_MASK{$check}
+        or die "Unknown user status '$check'";
+
+    my $status = testsuite_existing_user_status($username);
+    # returns 0 if status is as desired so that it can be used in assertion
+    $result = (($status & $mask) == $mask) ? 0 : 1;
+
+    if ($do_print) {
+        my $msg = $result
+                ? "User '$username' $check"
+                : "User '$username' NOT $check";
+        print "$msg";
+    }
+
+    $result = !$result if $invert;
+    print " (status $status, returning ", $result ? 1 : 0, ")\n";
+    return $result;
+}
+
+
 
 return 1
+
+# vim: tabstop=4 shiftwidth=4 expandtab

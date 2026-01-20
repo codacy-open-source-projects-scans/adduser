@@ -20,7 +20,7 @@ use vars qw(@EXPORT $VAR1);
     'RET_ID_IN_USE',
     'RET_NO_ID_IN_RANGE',
     'RET_NO_PRIMARY_GID',
-    'RET_INVALID_CHARS_IN_NAME',
+    'RET_INVALID_CHARS_IN_INPUT',
     'RET_INVALID_HOME_DIRECTORY',
     'RET_INVALID_NAME_FROM_USERADD',
     'RET_GROUP_NOT_EMPTY',
@@ -61,8 +61,8 @@ use constant RET_NO_PRIMARY_GID => 23; # requested primary GID does not exist
 
 # object name errors
 
-use constant RET_INVALID_CHARS_IN_NAME => 31; # the provided name contains invalid characters
-use constant RET_INVALID_HOME_DIRECTORY => 32; # the provided name contains invalid characters
+use constant RET_INVALID_CHARS_IN_INPUT => 31; # provided input (name/comment) contains invalid characters
+use constant RET_INVALID_HOME_DIRECTORY => 32; # the provided home directory is invalid
 use constant RET_INVALID_NAME_FROM_USERADD => 32; # useradd returned 19 "invalid user or group name"
 
 # group membership errors

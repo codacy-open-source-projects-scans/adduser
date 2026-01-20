@@ -1,0 +1,905 @@
+# Translation of adduser program into LANGUAGE
+# Files: po/adduser.pot doc/po4a/po/adduser.pot
+# Copyright: 1994 Debian Association, Inc.
+#            1995 Ian A. Murdock <imurdock@debian.org>
+#            1995 Ted Hajek <tedhajek@boombox.micro.umn.edu>
+#            1997-1999 Guy Maor <maor@debian.org>
+#            2000-2004 Roland Bauerschmidt <rb@debian.org>
+#            2004-2025 Marc Haber <mh+debian-packages@zugschlus.de>
+#            2005-2009 Jörg Hoh <joerg@joerghoh.de>
+#            2006-2011 Stephen Gran <sgran@debian.org>
+#            2016-2017 Afif Elghraoui <afif@debian.org>
+#            2016, 2023 Dr. Helge Kreutzmann <debian@helgefjell.de>
+#            2016 Nis Martensen <nis.martensen@web.de>
+#            2021-2022 Jason Franklin <jason@oneway.dev>
+#            2022 Matt Barry <matt@hazelmollusk.org>
+#            2023 Guillem Jover <guillem@debian.org>
+# License: GPL-2+
+#
+# This file is distributed under the same license as the adduser package.
+# Temuri Doghonadze <temuri.doghonadze@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: adduser 3.153~\n"
+"Report-Msgid-Bugs-To: adduser@packages.debian.org\n"
+"POT-Creation-Date: 2025-09-14 13:07+0200\n"
+"PO-Revision-Date: 2026-01-15 12:44+0100\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: Georgian <(nothing)>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.8\n"
+
+#: adduser:229
+msgid "Only root may add a user or group to the system."
+msgstr ""
+"სისტემაში მომხმარებლებისა და ჯგუფების დამატება, მხოლოდ, root-ს შეუძლია."
+
+#: adduser:266 deluser:200
+msgid "No options allowed after names."
+msgstr "სახელების შემდეგ პარამეტრები დაშვებული არა."
+
+#: adduser:275 deluser:208
+msgid "Only one or two names allowed."
+msgstr "დაშვებულია, მხოლოდ, ერთი, ან ორი სახელი."
+
+#: adduser:282
+msgid "Specify only one name in this mode."
+msgstr "ამ რეჟიმში, მხოლოდ, ერთი სახელის მითითებაა შესაძლებელი."
+
+#: adduser:286
+msgid "addgroup with two arguments is an unspecified operation."
+msgstr "addgroup ორი არგუმენტით მიუთითებელი ოპერაციაა."
+
+#: adduser:318
+msgid "The --group, --ingroup, and --gid options are mutually exclusive."
+msgstr "პარამეტრები --group, --ingroup და --gid ურთიერთგამომრიცხავია."
+
+#: adduser:403
+msgid "The home dir must be an absolute path."
+msgstr "საწყისი საქაღალდე აბსოლუტური ბილიკი უნდა იყოს."
+
+#: adduser:445
+#, perl-format
+msgid "The group `%s' already exists, but has a different GID. Exiting."
+msgstr "ჯგუფი '%s' უკვე არსებობს, მაგრამ სხვა GID-ით. გასვლა."
+
+#: adduser:451
+#, perl-format
+msgid "The group `%s' already exists as a system group."
+msgstr "ჯგუფი '%s' უკვე არსებობს სისტემური ჯგუფის სახით."
+
+#: adduser:454
+#, perl-format
+msgid "The group `%s' already exists and is not a system group. Exiting."
+msgstr "ჯგუფი '%s' უკვე არსებობს და სისტემური სისტემური ჯგუფი არაა."
+
+#: adduser:459 adduser:499
+#, perl-format
+msgid "The GID `%s' is already in use."
+msgstr "GID '%s' უკვე გამოიყენება."
+
+#: adduser:470
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_SYS_GID - LAST_SYS_GID)."
+msgstr "შუალედში %d-%d (FIRST_SYS_GID - LAST_SYS_GID) GID ხელმისაწვდომი არაა."
+
+#: adduser:472 adduser:518
+#, perl-format
+msgid "The group `%s' was not created."
+msgstr "ჯგუფი `%s' არ შექმნილა."
+
+#: adduser:478 adduser:523
+#, perl-format
+msgid "Adding group `%s' (GID %d) ..."
+msgstr "ჯგუფის `%s' (GID %d) დამატება..."
+
+#: adduser:495 adduser:1232
+#, perl-format
+msgid "The group `%s' already exists."
+msgstr "ჯგუფი '%s' უკვე არსებობს."
+
+#: adduser:516
+#, perl-format
+msgid "No GID is available in the range %d-%d (FIRST_GID - LAST_GID)."
+msgstr "შუალედში %d-%d ((FIRST_GID - LAST_GID) GID ხელმისაწვდომი არაა."
+
+#: adduser:540 deluser:296
+#, perl-format
+msgid "The user `%s' does not exist."
+msgstr "მომხმარებელი '%s' არ არსებობს."
+
+#: adduser:544 adduser:1009 adduser:1242 deluser:456 deluser:459
+#, perl-format
+msgid "The group `%s' does not exist."
+msgstr "ჯგუფი \"%s\" არ არსებობს."
+
+#: adduser:549 adduser:1013
+#, perl-format
+msgid "The user `%s' is already a member of `%s'."
+msgstr "მომხმარებელი '%s' უკვე არის '%s'-ის წევრი."
+
+#: adduser:553 adduser:1019
+#, perl-format
+msgid "Adding user `%s' to group `%s' ..."
+msgstr "მომხმარებლის '%s' ჩამატება ჯგუფში '%s'..."
+
+#: adduser:571
+#, perl-format
+msgid "The user `%s' already exists, but is not a system user. Exiting."
+msgstr ""
+"მომხმარებელი %s უკვე არსებობს, მაგრამ სისტემური მომხმარებელი არაა. გასვლა."
+
+#: adduser:575
+#, perl-format
+msgid "The user `%s' already exists with a different UID. Exiting."
+msgstr "მომხმარებელი '%s' უკვე არსებობს, მაგრამ სხვა UID-ით. გასვლა."
+
+#: adduser:579
+#, perl-format
+msgid "The system user `%s' already exists. Exiting.\n"
+msgstr "სისტემური მომხმარებელი '%s' უკვე არსებობს.\n"
+
+#: adduser:593
+#, perl-format
+msgid ""
+"No UID/GID pair is available in the range %d-%d (FIRST_SYS_UID - "
+"LAST_SYS_UID)."
+msgstr ""
+"შუალედში %d-%d (FIRST_SYS_UID - LAST_SYS_UID) UID/GID წყვილები ხელმისაწვდომი "
+"არაა."
+
+#: adduser:596 adduser:612 adduser:712 adduser:826 adduser:832
+#, perl-format
+msgid "The user `%s' was not created."
+msgstr "მომხმარებელი \"%s\" არ შექმნილა."
+
+#: adduser:609
+#, perl-format
+msgid "No UID is available in the range %d-%d (FIRST_SYS_UID - LAST_SYS_UID)."
+msgstr ""
+"შუალედში %d-%d (FIRST_SYS_UID - LAST_SYS_UID) UID-ები ხელმისაწვდომი არაა."
+
+#: adduser:620
+msgid "Neither ingroup option nor gid given."
+msgstr "მითითებულია არც პარამეტრი ingroup, არც GID."
+
+#: adduser:632
+msgid "Neither ingroup option nor gid given and make_group_also unset."
+msgstr ""
+"მითითებულია არც პარამეტრი ingroup, არც GID და make_group_also დაყენებული "
+"არაა."
+
+#: adduser:636
+#, perl-format
+msgid "Adding system user `%s' (UID %d) ..."
+msgstr "ემატება სისტემური მომხმარებელი `%s' (UID %d) ..."
+
+#: adduser:640
+#, perl-format
+msgid "Adding new group `%s' (GID %d) ..."
+msgstr "ემატება ახალი ჯგუფი `%s' (GID %d) ..."
+
+#: adduser:651 adduser:897
+#, perl-format
+msgid "The home dir %s you specified already exists.\n"
+msgstr "საწყისი საქაღალდე %s, რომელიც მიუთითეთ, უკვე არსებობს.\n"
+
+#: adduser:654 adduser:900
+#, perl-format
+msgid "The home dir %s you specified can't be accessed: %s\n"
+msgstr "საწყის საქაღალდესთან %s, რომელიც მიუთითეთ, წვდომა შეუძლებელია: %s\n"
+
+#: adduser:658
+#, perl-format
+msgid "Adding new user `%s' (UID %d) with group `%s' ..."
+msgstr "ემატება ახალი მომხმარებელი `%s' (UID %d) ჯგუფით `%s' ..."
+
+#: adduser:711
+msgid ""
+"USERS_GID and USERS_GROUP both given in configuration. This is an error."
+msgstr ""
+"კონფიგურაციაში მითითებულია ორივე, USERS_GID და USERS_GROUP. ეს შეცდომაა."
+
+#: adduser:802
+#, perl-format
+msgid "Adding user `%s' ..."
+msgstr "ემატება მომხმარებელი `%s' ..."
+
+#: adduser:825
+#, perl-format
+msgid "No UID/GID pair is available in the range %d-%d (FIRST_UID - LAST_UID)."
+msgstr ""
+"შუალედში %d-%d (FIRST_UID - LAST_UID) UID/GID წყვილები ხელმისაწვდომი არაა."
+
+#: adduser:831
+msgid ""
+"USERGROUPS=no, USER_GID=-1 and USERS_GROUP empty. A user needs a primary "
+"group!"
+msgstr ""
+"USERGROUPS=no, USER_GID=-1 და USERS_GROUP ცარიელია. მომხმარებელს ძირითადი "
+"ჯგუფი სჭირდება!"
+
+#: adduser:871
+msgid "Internal error interpreting parameter combination"
+msgstr "პარამეტრების კომბინაციის ინტერპრეტაციის შიდა შეცდომა"
+
+#: adduser:882
+#, perl-format
+msgid "Adding new group `%s' (%d) ..."
+msgstr "ემატება ახალი ჯგუფი `%s' (%d) ..."
+
+#: adduser:885
+#, perl-format
+msgid "Adding new group `%s' (new group ID) ..."
+msgstr "ემატება ახალი ჯგუფი `%s' (ახალი ჯგუფის ID) ..."
+
+#: adduser:888
+#, perl-format
+msgid "new group '%s' created with GID %d"
+msgstr "შეიქმნა ახალი ჯგუფი '%s' GID-ით %d"
+
+#: adduser:907
+#, perl-format
+msgid "Adding new user `%s' (%d) with group `%s (%d)' ..."
+msgstr "ემატება ახალი მომხმარებელი `%s' (%d) ჯგუფით `%s (%d)' ..."
+
+#: adduser:944
+msgid "Permission denied"
+msgstr "წვდომა აკრძალულია"
+
+#: adduser:946
+msgid "invalid combination of options"
+msgstr "პარამეტრების არასწორი კომბინაცია"
+
+#: adduser:948
+msgid "unexpected failure, nothing done"
+msgstr "მოულოდნელი ჩავარდნა. არაფერი გაკეთებულა"
+
+#: adduser:950
+msgid "unexpected failure, passwd file missing"
+msgstr "მოულოდნელი ჩავარდნა. ფაილი passwd აღმოჩენილი არაა"
+
+#: adduser:952
+msgid "passwd file busy, try again"
+msgstr "ფაილი passwd დაკავებულია. კიდევ სცადეთ"
+
+#: adduser:954
+msgid "invalid argument to option"
+msgstr "არასწორი არგუმენტი პარამეტრისთვის"
+
+#: adduser:956
+msgid "wrong password given or password retyped incorrectly"
+msgstr "გადაცემული პაროლი არასწორია, ან პაროლი გამეორებით არასწორად აკრიფეთ"
+
+#: adduser:958
+#, perl-format
+msgid "unexpected return code %s given from passwd"
+msgstr "passwd-დან დაბრუნდა მოულოდნელი დაბრუნების კოდი %s"
+
+#: adduser:965
+msgid "Try again? [y/N] "
+msgstr "ვცადო კიდევ ერთხელ? [y(დიახ)/N(არა)] "
+
+#: adduser:991
+msgid "Is the information correct? [Y/n] "
+msgstr "ეს ინფორმაცია სწორია? [Y/n] "
+
+#: adduser:1005
+#, perl-format
+msgid "Adding new user `%s' to supplemental / extra groups `%s' ..."
+msgstr "მომხმარებლის `%s' ჩამატება დამატებით ჯგუფებში `%s' ..."
+
+#: adduser:1029
+#, perl-format
+msgid "Setting quota for user `%s' to values of user `%s' ..."
+msgstr ""
+"კვოტის დაყენება მომხმარებლისთვის `%s' მნიშვნელობებზე მომხმარებლიდან`%s' ..."
+
+#: adduser:1067
+#, perl-format
+msgid "Not creating `%s'."
+msgstr "`%s' არ შეიქმნება."
+
+#: adduser:1069
+#, perl-format
+msgid "Not creating home directory `%s' as requested."
+msgstr "როგორც მოთხოვნილია, საწყისი საქაღალდე `%s' არ შეიქმნება."
+
+#: adduser:1072
+#, perl-format
+msgid "The home directory `%s' already exists.  Not touching this directory."
+msgstr "საწყისის საქაღალდე '%s' უკვე არსებობს.  საქაღალდეს ხელი არ დაედება."
+
+#: adduser:1078
+#, perl-format
+msgid ""
+"Warning: The home directory `%s' does not belong to the user you are "
+"currently creating."
+msgstr ""
+"გაფრთხილება; საწყისი საქაღალდე '%s' არ ეკუთვნის მომხმარებელს, რომელიც ახლა "
+"იქმნება."
+
+#: adduser:1082
+#, perl-format
+msgid "Creating home directory `%s' ..."
+msgstr "იქმნება საწყისი საქაღალდე `%s' ..."
+
+#: adduser:1085
+#, perl-format
+msgid "Couldn't create home directory `%s': %s."
+msgstr "ვერ შევქმენი საწყისი საქაღალდე '%s': %s."
+
+#: adduser:1099
+#, perl-format
+msgid "Copying files from `%s' ..."
+msgstr "`%s'-დან ფაილების კოპირება ..."
+
+#: adduser:1102
+#, perl-format
+msgid "fork for `find' failed: %s"
+msgstr "fork() ბრძანებისთვის `find' ჩავარდა: %s"
+
+#: adduser:1214
+#, perl-format
+msgid "The user `%s' already exists, and is not a system user."
+msgstr "მომხმარებელი '%s' უკვე არსებობს, მაგრამ სისტემური მომხმარებელი არაა."
+
+#: adduser:1223
+#, perl-format
+msgid "The user `%s' already exists."
+msgstr "მომხმარებელი '%s' უკვე არსებობს."
+
+#: adduser:1236
+#, perl-format
+msgid "The GID %d is already in use."
+msgstr "GID %d უკვე გამოიყენება."
+
+#: adduser:1246
+#, perl-format
+msgid "No group with GID %d found."
+msgstr "ჯგუფი GID-ით %d აღმოჩენილი არაა."
+
+#: adduser:1315
+#, perl-format
+msgid "%s/%s is neither a dir, file, nor a symlink."
+msgstr "%s/%s არც საქაღალდეა, არც ფაილი, არც სიმბმული."
+
+#: adduser:1348
+msgid ""
+"To avoid ambiguity with numerical UIDs, usernames whichresemble numbers or "
+"negative numbers are not allowed."
+msgstr ""
+"რიცხვით UID-ებთან გაურკვევლობის თავიდან ასაცილებლად მომხმარებლის სახელები, "
+"რომლებიც რიცხვებს, ან უარყოფით რიცხვებს წააგავს, დაშვებული არაა."
+
+#: adduser:1356
+msgid "Usernames must not be a single or a double period."
+msgstr "მომხმარებლის სახელები ერთი ან ორი ჰარე არ უნდა იყოს."
+
+#: adduser:1363
+msgid "Usernames must be no more than 32 bytes in length."
+msgstr "მომხმარებლის სახელები სიგრძეში 32 ბაიტზე მეტი არ უნდა იყოს."
+
+#: adduser:1370
+msgid ""
+"To avoid problems, the username must not start with adash, plus sign, or "
+"tilde, and it must not contain any of thefollowing: colon, comma, slash, or "
+"any whitespace charactersincluding spaces, tabs, and newlines."
+msgstr ""
+"პრობლემების თავიდან ასაცილებლად, მომხმარებლის სახელი არ უნდა იწყებოდეს "
+"ტირეთი, პლუსით, ან ტილდათი და ის არ უნდა შეიცავდეს შემდეგ სიმბოლოებს: "
+"ორწერტილი, მძიმე, დახრილი ხაზი და ნებისმიერ გამოტოვების სიმბოლოს, "
+"როგორებიცაა, ჰარე, ტაბულაცია და ხაზის გადატანა."
+
+#: adduser:1385
+msgid ""
+"To avoid problems, the username should consist only ofletters, digits, "
+"underscores, periods, at signs and dashes, andnot start with a dash (as "
+"defined by IEEE Std 1003.1-2001). Forcompatibility with Samba machine "
+"accounts, $ is also supportedat the end of the username.  (Use the `--allow-"
+"all-names' optionto bypass this restriction.)"
+msgstr ""
+"პრობლემების თავიდან ასაცილებლად მომხმარებლის სახელი უნდა შეიცავდეს ლათინურ "
+"ასოებს, ციფრებს, ქვედა ტირეებს, წერტილებს, @ ნიშნებს და ტირეებს და არ უნდა "
+"იწყებოდნენ ტირეთი (აღწერილია სტანდარტში IEEE 1003.1-2001). Samba-ის მანქანის "
+"ანგარიშებთან თავსებადობისთვის $ ასევე მხარდაჭერილია მომხმარებლის სახელის "
+"ბოლოში.   (ამ შეზღუდვის თავიდან ასაცილებლად გამოიყენეთ პარამეტრი '--allow-"
+"all-names.)"
+
+#: adduser:1395
+msgid "Allowing use of questionable username."
+msgstr "საეჭვო მომხმარებლის სახელის გამოყენების დაშვება."
+
+#: adduser:1397
+#, perl-format
+msgid ""
+"Please enter a username matching the regular expressionconfigured via the %s "
+"configuration variable.  Use the`--allow-bad-names' option to relax this "
+"check or reconfigure%s in configuration."
+msgstr ""
+"შეიყვანეთ მომხმარებლის სახელი, რომელიც ემთხვევა რეგულარულ გამოსახულებას, "
+"რომელიც მორგებულია %s კონფიგურაციის ცვლადით.   გამოიყენეთ პარამეტრი '--allow-"
+"bad-names', რომ მოადუნოთ ეს შემოწმება, ან შეცვალეთ %s კონფიგურაციაში."
+
+#: adduser:1426
+#, perl-format
+msgid "Selecting UID from range %d to %d ...\n"
+msgstr "UID-ის არჩევა შუალედიდან %d - %d ...\n"
+
+#: adduser:1449
+#, perl-format
+msgid "Selecting GID from range %d to %d ..."
+msgstr "GID-ის არჩევა შუალედიდან %d - %d ..."
+
+#: adduser:1473
+#, perl-format
+msgid "Selecting UID/GID from range %d to %d ..."
+msgstr "UID/GID-ის არჩევა შუალედიდან %d - %d ..."
+
+#: adduser:1509
+#, perl-format
+msgid "Removing directory `%s' ..."
+msgstr "იშლება საქაღალდე `%s' ..."
+
+#: adduser:1513 deluser:441
+#, perl-format
+msgid "Removing user `%s' ..."
+msgstr "იშლება მომხმარებელი `%s' ..."
+
+#: adduser:1517 deluser:483
+#, perl-format
+msgid "Removing group `%s' ..."
+msgstr "იშლება ჯგუფი `%s' ..."
+
+#: adduser:1527
+#, perl-format
+msgid "Caught a SIG%s."
+msgstr "Caught a SIG%s."
+
+#: adduser:1533
+#, perl-format
+msgid ""
+"adduser version %s\n"
+"\n"
+msgstr ""
+"adduser ვერსია %s\n"
+"\n"
+
+#: adduser:1534
+msgid ""
+"Adds a user or group to the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"ამატებს მომხმარებელს ან ჯგუფს სისტემაში.\n"
+"\n"
+"საავტორო უფლებების შესახებ დეტალური ინფორმაციისთვის იხილეთ ბმული\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+
+#: adduser:1540 deluser:543
+msgid ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or (at\n"
+"your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but\n"
+"WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, for more details.\n"
+msgstr ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or (at\n"
+"your option) any later version.\n"
+"\n"
+"This program is distributed in the hope that it will be useful, but\n"
+"WITHOUT ANY WARRANTY; without even the implied warranty of\n"
+"MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\n"
+"General Public License, /usr/share/common-licenses/GPL, for more details.\n"
+
+#: adduser:1554
+msgid ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+"        [--add-extra-groups] [--shell shell]\n"
+"        [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"    Add a regular user\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup group] [--gid id]\n"
+"        [--shell shell] [--comment comment] [--home dir] [--no-create-home]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        user\n"
+"   Add a system user\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a user group\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf file] [--quiet] [--verbose] [--debug]\n"
+"        group\n"
+"   Add a system group\n"
+"\n"
+"adduser USER GROUP\n"
+"   Add an existing user to an existing group\n"
+msgstr ""
+"adduser [--uid id] [--firstuid id] [--lastuid id]\n"
+"        [--gid id] [--firstgid id] [--lastgid id] [--ingroup group]\n"
+"        [--add-extra-groups] [--shell გარსი]\n"
+"        [--comment კომენტარი] [--home სქღლდ] [--no-create-home]\n"
+"        [--allow-all-names] [--allow-bad-names]\n"
+"        [--disabled-password] [--disabled-login]\n"
+"        [--conf ფაილი] [--quiet] [--verbose] [--debug]\n"
+"        მომხმარებელი\n"
+"    ჩვეულებრივი მომხმარებლის დამატება\n"
+"\n"
+"adduser --system\n"
+"        [--uid id] [--group] [--ingroup ჯგუფი] [--gid id]\n"
+"        [--shell გარსი] [--comment ჯგუფი] [--home სქღლდ] [--no-create-home]\n"
+"        [--conf ფაილი] [--quiet] [--verbose] [--debug]\n"
+"        მომხმარებელი\n"
+"   სისტემური მომხმარებლის დამატება\n"
+"\n"
+"adduser --group\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf ფაილი] [--quiet] [--verbose] [--debug]\n"
+"        ჯგუფი\n"
+"addgroup\n"
+"        [--gid ID] [--firstgid id] [--lastgid id]\n"
+"        [--conf ფაილი] [--quiet] [--verbose] [--debug]\n"
+"        ჯგუფი\n"
+"   მომხმარებლის ჯგუფის დამატება\n"
+"\n"
+"addgroup --system\n"
+"        [--gid id]\n"
+"        [--conf ფაილი] [--quiet] [--verbose] [--debug]\n"
+"        ჯგუფი\n"
+"   სისტემური ჯგუფის დამატება\n"
+"\n"
+"adduser მომხმარებელი ჯგუფი\n"
+"   არსებული მომხმარებლის დამატება არსებულ ჯგუფში\n"
+
+#: deluser:170
+msgid "Only root may remove a user or group from the system."
+msgstr "სისტემიდან მომხმარებლის, ან ჯგუფის წაშლა, მხოლოდ, root-ს შეუძლია."
+
+#: deluser:271 deluser:290
+msgid ""
+"In order to use the --remove-home, --remove-all-files, and --backup "
+"features, you need to install the `perl' package. To accomplish that, run "
+"apt-get install perl."
+msgstr ""
+"იმისათვის, რომ გამოიყენოთ ფუნქციები --remove-home, --remove-all-files და --"
+"backup, უნდა დააყენოთ პაკეტი 'perl'. ამისთვის გაუშვით ბრძანება apt-get "
+"install perl."
+
+#: deluser:281
+#, perl-format
+msgid "The user `%s' is not a system user. Exiting."
+msgstr "მომხმარებელი '%s' სისტემური მომხმარებელი არაა. გასვლა."
+
+#: deluser:285
+#, perl-format
+msgid "The user `%s' does not exist, but --system was given. Exiting."
+msgstr ""
+"მომხმარებელი `%s' არ არსებობს, მაგრამ მითითებულია პარამეტრი --system. გასვლა."
+
+#: deluser:302
+msgid ""
+"WARNING: You are just about to delete the root account (uid 0). Usually this "
+"is never required as it may render the whole system unusable. If you really "
+"want this, call deluser with parameter --no-preserve-root. Stopping now "
+"without having performed any action."
+msgstr ""
+"გაფრთხილება: აპირებთ, წაშალოთ root-ის ანგარიში (uid 0). ჩვეულებრივ, ეს "
+"არასდროსაა საჭირო და ამან, შეიძლება, მთელი სისტემა არასტაბილური გახადოს. თუ "
+"ამის გაკეთება მაინც გნებავთ, deluser გამოიძახეთ პარამეტრით --no-preserve-"
+"root. ახლა კი გავჩერდები. სისტემაში ქმედება არ განხორციელებულა."
+
+#: deluser:314
+msgid "remove_home or remove_all_files beginning"
+msgstr "remove_home-ის, ან remove_all_files-ის დამუშავების დასაწყისი"
+
+#: deluser:315
+msgid "Looking for files to backup/remove ..."
+msgstr "ფაილების ძებნა დასამარქაფებლად/წასაშლელად..."
+
+#: deluser:320
+#, perl-format
+msgid "failed to open /proc/mounts: %s"
+msgstr "/proc/mounts-ის გახსნა ჩავარდა: %s"
+
+#: deluser:333
+#, perl-format
+msgid "failed to close /proc/mounts: %s"
+msgstr "/proc/mounts-ის დახურვა ჩავარდა: %s"
+
+#: deluser:363
+#, perl-format
+msgid "Not backing up/removing `%s', it is a mount point."
+msgstr "`%s'-ის მარქაფი/წაშლა არ მოხდება, რადგან ის მიმაგრების წერტილია."
+
+#: deluser:370
+#, perl-format
+msgid "Not backing up/removing `%s', it matches %s."
+msgstr "`%s'-ის მარქაფი/წაშლა არ მოხდება, რადგან ის %s-ს ემთხვევა."
+
+#: deluser:385
+#, perl-format
+msgid "Cannot handle special file %s"
+msgstr "სპეციალური ფაილის %s დამუშავება შეუძლებელია"
+
+#: deluser:394
+#, perl-format
+msgid "Backing up %d files to be removed to %s ..."
+msgstr "იქმნება %d ფაილის მარქაფი %s-ში წაშლამდე..."
+
+#: deluser:417
+msgid "Removing files ..."
+msgstr "ფაილების წაშლა ..."
+
+#: deluser:426
+msgid "Removing crontab ..."
+msgstr "Crontab -ის წაშლა ..."
+
+#: deluser:433 deluser:436
+#, perl-format
+msgid ""
+"`%s' is not executable. Skipping crontab removal. Package `cron' required."
+msgstr ""
+"'%s' შესრულებადი არაა. crontab-ის წაშლა გამოტოვებული იქნება. პაკეტი 'cron' "
+"აუცილებელია."
+
+#: deluser:466
+#, perl-format
+msgid "getgrnam `%s' failed: %s. This shouldn't happen."
+msgstr "getgrnam `%s' ჩავარდა: %s. ეს არ უნდა მომხდარიყო."
+
+#: deluser:472
+#, perl-format
+msgid "The group `%s' is not a system group. Exiting."
+msgstr "ჯგუფი '%s' სისტემური ჯგუფი არაა. გასვლა."
+
+#: deluser:476
+#, perl-format
+msgid "The group `%s' is not empty!"
+msgstr "ჯგუფი '%s' ცარიელი არაა!"
+
+#: deluser:495
+#, perl-format
+msgid "The user `%s' does not exist.\n"
+msgstr "მომხმარებელი '%s' არ არსებობს.\n"
+
+#: deluser:499
+#, perl-format
+msgid "The group `%s' does not exist.\n"
+msgstr "ჯგუფი \"%s\" არ არსებობს.\n"
+
+#: deluser:503
+msgid "You may not remove the user from their primary group."
+msgstr "მომხმარებელს მისი ძირითადი ჯგუფიდან ვერ წაშლით."
+
+#: deluser:521
+#, perl-format
+msgid "The user `%s' is not a member of group `%s'."
+msgstr "მომხმარებელი '%s' ჯგუფის '%s' წევრი არაა."
+
+#: deluser:525
+#, perl-format
+msgid "Removing user `%s' from group `%s' ..."
+msgstr "იშლება მომხმარებელი `%s' ჯგუფიდან `%s' ..."
+
+#: deluser:536
+#, perl-format
+msgid ""
+"deluser version %s\n"
+"\n"
+msgstr ""
+"deluser ვერსია %s\n"
+"\n"
+
+#: deluser:537
+msgid ""
+"Removes users and groups from the system.\n"
+"\n"
+"For detailed copyright information, please refer to\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+msgstr ""
+"შლის მომხმარებლებს და ჯგუფებს სისტემიდან.\n"
+"\n"
+"საავტორო უფლებების შესახებ დეტალური ინფორმაციისთვის იხილეთ ბმული\n"
+"/usr/share/doc/adduser/copyright.\n"
+"\n"
+
+#: deluser:557
+msgid ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to dir] [--backup-suffix str] [--conf file]\n"
+"        [--quiet] [--verbose] [--debug] user\n"
+"\n"
+"  remove a regular user from the system\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"        [--verbose] [--debug] group\n"
+"delgroup [--system] [--only-if-empty] [--conf file] [--quiet]\n"
+"         [--verbose] [--debug] group\n"
+"  remove a group from the system\n"
+"\n"
+"deluser [--conf file] [--quiet] [--verbose] [--debug] user group\n"
+"  remove the user from a group\n"
+msgstr ""
+"deluser [--system] [--remove-home] [--remove-all-files] [--backup]\n"
+"        [--backup-to dir] [--backup-suffix str] [--conf ფაილი]\n"
+"        [--quiet] [--verbose] [--debug] user\n"
+"\n"
+"  ჩვეულებრივი მომხმარებლის წაშლა სისტემიდან\n"
+"\n"
+"deluser --group [--system] [--only-if-empty] [--conf ფაილი] [--quiet]\n"
+"        [--verbose] [--debug] ჯგუფი\n"
+"delgroup [--system] [--only-if-empty] [--conf ფაილი] [--quiet]\n"
+"         [--verbose] [--debug] ჯგუფი\n"
+"  ჯგუფის წაშლა სისტემიდან\n"
+"\n"
+"deluser [--conf ფაილი] [--quiet] [--verbose] [--debug] მომხმარებელი ჯგუფი\n"
+"  მომხმარებლის წაშლა ჯგუფიდან\n"
+
+#: deluser:603 deluser:613
+#, perl-format
+msgid "Backup suffix %s unavailable, using gzip."
+msgstr "მარქაფის სუფიქსი %s ხელმისაწვდომი არაა. გამოიყენება gzip."
+
+#: AdduserCommon.pm:192
+#, perl-format
+msgid "`%s' does not exist. Using defaults."
+msgstr "`%s' არ არსებობს. ვიყენებ ნაგულისხმევ მნიშვნელობებს."
+
+#: AdduserCommon.pm:198
+#, perl-format
+msgid "cannot open configuration file %s: `%s'\n"
+msgstr "ვერ გავხსენი კონფიგურაციის ფაილი %s: `%s'\n"
+
+#: AdduserCommon.pm:208 AdduserCommon.pm:280 AdduserCommon.pm:308
+#, perl-format
+msgid "Couldn't parse `%s', line %d."
+msgstr "ვერ დავამუშავე`%s', ხაზი %d."
+
+#: AdduserCommon.pm:213
+#, perl-format
+msgid "Unknown variable `%s' at `%s', line %d."
+msgstr "უცნობი ცვლადი `%s' `%s'-ში, ხაზი %d."
+
+#: AdduserCommon.pm:246
+#, perl-format
+msgid "Cannot read directory `%s'"
+msgstr "საქაღალდის '%s' წაკითხვის შეცდომა"
+
+#: AdduserCommon.pm:261
+#, perl-format
+msgid "`%s' does not exist."
+msgstr "`%s' არ არსებობს."
+
+#: AdduserCommon.pm:266
+#, perl-format
+msgid "Cannot open pool file %s: `%s'"
+msgstr "ვერ გავხსენი პულის ფაილი %s: `%s'"
+
+#: AdduserCommon.pm:321
+#, perl-format
+msgid "Illegal pool type `%s' reading `%s'."
+msgstr "დაუშვებელი პულის ტიპი `%s' ფაილიდან `%s'."
+
+#: AdduserCommon.pm:325
+#, perl-format
+msgid "Duplicate name `%s' at `%s', line %d."
+msgstr "დუბლირებული სახელი `%s' ფაილში `%s', ხაზი %d."
+
+#: AdduserCommon.pm:329
+#, perl-format
+msgid "Duplicate ID `%s' at `%s', line %d."
+msgstr "გამეორებული ID '%s' ფაილში '%s' ხაზზე %d."
+
+#: AdduserCommon.pm:367
+#, perl-format
+msgid ""
+"`%s' refused the given user name, but --allow-all-names is given. "
+"Continueing."
+msgstr ""
+"`%s'-მა უარი განაცხადა მიწოდებულ მომხმარებლის სახელზე, მაგრამ მითითებულია "
+"პარამეტრი --allow-all-names. ვაგრძელებ."
+
+#: AdduserCommon.pm:370
+#, perl-format
+msgid ""
+"`%s' refused the given user name. This is a bug in adduser. Please file a "
+"bug report."
+msgstr ""
+"`%s'-მა უარი განაცხადა მიწოდებულ მომხმარებლის სახელზე. ეს adduser-ის "
+"შეცდომაა. შეავსეთ ანგარიში შეცდომის შესახებ."
+
+#: AdduserCommon.pm:374 AdduserCommon.pm:388
+#, perl-format
+msgid "`%s' returned error code %d. Exiting."
+msgstr "`%s'-მა დააბრუნა შეცდომის კოდი %d. გასვლა."
+
+#: AdduserCommon.pm:378 AdduserCommon.pm:391
+#, perl-format
+msgid "`%s' exited from signal %d. Exiting."
+msgstr "`%s' გავიდა სიგნალისგან %d. გასვლა."
+
+#: AdduserCommon.pm:403
+#, perl-format
+msgid "`%s' failed to execute. %s. Continuing."
+msgstr "`%s'-ის გაშვება ჩავარდა. %s. ვაგრძელებ."
+
+#: AdduserCommon.pm:405
+#, perl-format
+msgid "`%s' killed by signal %d. Continuing."
+msgstr "`%s' მოკვდა სიგნალით %d. ვაგრძელებ."
+
+#: AdduserCommon.pm:407
+#, perl-format
+msgid "`%s' failed with status %d. Continuing."
+msgstr "`%s' ჩავარდა სტატუსით %d. ვაგრძელებ."
+
+#: AdduserCommon.pm:449
+#, perl-format
+msgid "Could not find program named `%s' in $PATH."
+msgstr "$PATH-ში პროგრამა სახელით '%s' აღმოჩენილი არაა."
+
+#: AdduserCommon.pm:526
+#, perl-format
+msgid "could not open lock file %s!"
+msgstr "გახსნის შეცდომა ბლოკის ფაილისთვის %s!"
+
+#: AdduserCommon.pm:532
+msgid "Could not obtain exclusive lock, please try again shortly!"
+msgstr "ექსკლუზიური ბლოკის მიღება შეუძლებელია. ცოტა ხანში სცადეთ!"
+
+#: AdduserCommon.pm:535
+msgid "Waiting for lock to become available..."
+msgstr "ბლოკის ხელმისაწვდომობის მოლოდინი..."
+
+#: AdduserCommon.pm:542
+#, perl-format
+msgid "could not seek - %s!"
+msgstr "გადახვევა შეუძლებელია - %s!"
+
+#: AdduserCommon.pm:551
+msgid "could not find lock file!"
+msgstr "ბლოკის ფაილის აღმოჩენა შეუძლებელია!"
+
+#: AdduserCommon.pm:556
+#, perl-format
+msgid "could not unlock file %s: %s"
+msgstr "განბლოკვა შეუძლებელია ფაილისთვის %s: %s"
+
+#: AdduserCommon.pm:561
+#, perl-format
+msgid "could not close lock file %s: %s"
+msgstr "ვერ დავხურე ბლოკის ფაილი %s: %s"
+
+#: AdduserLogging.pm:162
+#, perl-format
+msgid "logging to syslog failed: command line %s returned error: %s\n"
+msgstr "syslog-ში ჩაწერის შეცდომა: ბრძანებამ %s დააბრუნა შეცდომა: %s\n"

@@ -1,3 +1,21 @@
+adduser (3.155) UNRELEASED; urgency=medium
+
+  [ Matt Barry ]
+  * Add adduser --unlock [--system] and deluser --lock [--system]
+    (Closes: #1008082, #1008083, #1008084)
+
+  [ Marc Haber ]
+  * remove debian/tests/f/cronjack.t
+    useradd won't allow adding that user name any more
+  * Depend on passwd 1:4.19.0-2. Remove cronjack.t test
+    (Closes: #1124993)
+  * Give chpasswd test values that it will accept (Closes: 1124992)
+  * give Matt's work on existing_*_ okay another simplifying brush-up
+  * po: Add Georgian translation.
+    Thanks to Temuri Doghonadze
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Mon, 19 Jan 2026 08:47:54 +0100
+
 adduser (3.154) unstable; urgency=medium
 
   * The Happy New Year 2026 Release

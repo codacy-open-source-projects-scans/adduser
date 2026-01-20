@@ -121,3 +121,4 @@ if ($output !~ /^fatal: The group `addusertest\d+' already exists\.$/ ) {
 }
 print "ok\n";
 
+# vim: tabstop=4 shiftwidth=4 expandtab

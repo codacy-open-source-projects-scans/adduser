@@ -13,7 +13,7 @@ Package: adduser
 Architecture: all
 Multi-Arch: foreign
 Pre-Depends: ${misc:Pre-Depends}
-Depends: passwd (>= 1:4.17.2-5), ${misc:Depends}
+Depends: passwd (>= 1:4.19.0-4), ${misc:Depends}
 Suggests: liblocale-gettext-perl, perl, cron, quota
 Description: add and remove users and groups
  This package includes the 'adduser' and 'deluser' commands for creating

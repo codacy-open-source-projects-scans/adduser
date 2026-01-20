@@ -42,3 +42,4 @@ if (defined (getpwnam($username))) {
 	print "ok\n";
 }
 
+# vim: tabstop=4 shiftwidth=4 expandtab

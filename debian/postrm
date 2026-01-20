@@ -5,7 +5,7 @@ set -eu
 
 case $1 in
   purge)
-    rm -fv /etc/adduser.conf /etc/adduser.conf.dpkg-save /etc/adduser.conf.update-old
+    rm -fv /etc/adduser.conf /etc/adduser.conf.dpkg-save /etc/adduser.conf.update-old /var/lib/adduser/state /var/lib/adduser
     ;;
 esac
 

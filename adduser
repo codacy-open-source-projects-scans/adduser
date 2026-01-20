@@ -34,6 +34,7 @@ use Getopt::Long;
 use Debian::AdduserCommon 3.139;
 use Debian::AdduserLogging 3.139;
 use Debian::AdduserRetvalues 3.139;
+use Debian::AdduserStatefile 3.139;
 BEGIN {
     if ( Debian::AdduserCommon->VERSION != version->declare('3.139') ||
          Debian::AdduserLogging->VERSION != version->declare('3.139') ||
@@ -103,9 +104,9 @@ $0 =~ s+.*/++;
 our $action;
 our $verbose;		# should we be verbose?
 my $name_check_level = 0;		# should we allow bad names?
-our $stdoutmsglevel = "warn";
-our $stderrmsglevel = "warn";
-our $logmsglevel = "info";
+our $stdoutmsglevel = undef;
+our $stderrmsglevel = undef;
+our $logmsglevel = undef;
 my $allow_badname = 0;		# should we allow bad names?
 my $ask_passwd = 1;		# ask for a passwd?
 my $disabled_login = 0;		# leave the new account disabled?
@@ -114,6 +115,7 @@ our @configfiles;
 our @defaults = undef;
 our $found_group_opt = undef;
 our $found_sys_opt = undef;
+our $found_unlock_opt = undef;
 our $ingroup_name = undef;
 our $new_firstgid = undef;
 our $new_firstuid = undef;
@@ -186,6 +188,7 @@ GetOptions(
     'shell=s' => \$special_shell,
     'system' => \$found_sys_opt,
     'uid=i' => \$new_uid,
+    'unlock' => \$found_unlock_opt,
     'verbose' => sub { $verbose = 1; },
     'version|v' => sub { &version; exit },
 ) or &usage_error;
@@ -199,10 +202,11 @@ if (!@configfiles) {
 
 # make sure that message levels apply for reading configuration
 # this will be overridden again after reading configuration
-$stdoutmsglevel = sanitize_string($stdoutmsglevel);
-$stderrmsglevel = sanitize_string($stderrmsglevel);
-$logmsglevel = sanitize_string($logmsglevel);
-set_msglevel( $stderrmsglevel, $stdoutmsglevel, $logmsglevel );
+set_msglevel( 
+    sanitize_string($stderrmsglevel or STDERRDEFLEVEL),
+    sanitize_string($stdoutmsglevel or STDOUTDEFLEVEL),
+    sanitize_string($logmsglevel or LOGMSGDEFLEVEL),
+);
 log_trace("ARGV %s", join(@ARGV,"-"));
 log_trace("special_home %s", $special_home);
 log_trace("special_home %s", encode($charset, $special_home));
@@ -223,8 +227,13 @@ if( $> != 0) {
     log_fatal( mtx("Only root may add a user or group to the system.") );
     exit( RET_ROOT_NEEDED );
 }
-
-# TODO: Handle configuration file input, allow bare input there.
+# ARGV > adduser.conf > (default)
+$stdoutmsglevel //= $config{'stdoutmsglevel'};
+$stdoutmsglevel //= STDOUTDEFLEVEL;
+$stderrmsglevel //= $config{'stderrmsglevel'}; 
+$stderrmsglevel //= STDERRDEFLEVEL;
+$logmsglevel    //= $config{'logmsglevel'};
+$logmsglevel    //= LOGMSGDEFLEVEL;
 $stdoutmsglevel = sanitize_string($stdoutmsglevel);
 $stderrmsglevel = sanitize_string($stderrmsglevel);
 $logmsglevel = sanitize_string($logmsglevel);
@@ -235,6 +244,7 @@ if( defined $verbose ) {
     } elsif( $verbose == 1 ) {
         set_msglevel( $stderrmsglevel, "info", $logmsglevel );
     } elsif( $verbose == 2 ) {
+        set_msglevel( $stdoutmsglevel, "debug", $logmsglevel );
         set_msglevel( $stderrmsglevel, "debug", $logmsglevel );
     }
 }
@@ -313,7 +323,6 @@ if ($action ne "addgroup" &&
     exit( RET_EXCLUSIVE_PARAMETERS );
 }
 
-
 if ($found_group_opt) {
     if ($action eq "addsysuser") {
         $make_group_also = 1;
@@ -324,6 +333,10 @@ if ($found_group_opt) {
     else {
         $action = "addgroup";
     }
+}
+
+if ($found_unlock_opt) {
+    $action = "unlockuser";
 }
 
 # $new_firstuid = $new_firstuid || $config{"first_uid"} || 1000;
@@ -364,7 +377,8 @@ if ( defined $comment_tainted ) {
     log_trace("check comment %s for unwanted chars", $special_home);
     # do not sanitize, can't be done without libperl
     if ( $comment_tainted !~ qr/^([^\x00-\x1F\x7F:]*)$/ ) {
-        die( "unwanted chars in comment" );
+        log_fatal( mtx("unwanted chars in comment") );
+        exit( RET_INVALID_CHARS_IN_INPUT );
     }
 }
 if( defined $special_shell ) {
@@ -403,8 +417,8 @@ if( defined $gid_option ) {
 }
 
 if ((defined($special_home)) && ($special_home !~ m+^/+ )) {
-  log_fatal( mtx("The home dir must be an absolute path.") );
-  exit( RET_INVALID_HOME_DIRECTORY );
+    log_fatal( mtx("The home dir must be an absolute path.") );
+    exit( RET_INVALID_HOME_DIRECTORY );
 }
 
 
@@ -431,6 +445,8 @@ $SIG{'INT'} = $SIG{'QUIT'} = $SIG{'HUP'} = 'handler';
 # $action = "addusertogroup"
 #    $existing_user           - the user to be added
 #    $existing_group          - the group to add her to
+# $action = "unlockuser"
+#    $new_name                - the user to be unlocked
 #####
 
 
@@ -589,6 +605,9 @@ if ($action eq "addsysuser") {
         exit( RET_WRONG_OBJECT_PROPERTIES );
     }
     if ($ret & EXISTING_FOUND) {
+        if ($ret & EXISTING_LOCKED) {
+            unlock_user($new_name, 1);
+        }
         log_info( mtx("The system user `%s' already exists. Exiting.\n"), $new_name );
         exit( RET_OK );
     }
@@ -942,49 +961,20 @@ if ($action eq "adduser") {
     create_homedir ($no_copy_skel ? 0 : 1, 0); # copy skeleton data
 
     # useradd without -p has left the account disabled (password string is '!')
-    my $yesexpr = langinfo(YESEXPR());
-    my $noexpr = langinfo(NOEXPR());
     if ($ask_passwd) {
-        PASSWD: for (;;) {
-            my $passwd = which('passwd');
-            my $ok = systemcall_or_warn($passwd, $new_name);
-            $ok = $ok >> 8;
-            log_debug( "systemcall_or_warn %s %s return value %s", $passwd, $new_name, $ok);
-            if ($ok != 0) {
-                my $answer;
-                # hm, error, should we break now?
-                if ($ok == 1) {
-                    log_warn( mtx("Permission denied"));
-                } elsif ($ok == 2) {
-                    log_warn( mtx("invalid combination of options"));
-                } elsif ($ok == 3) {
-                    log_warn( mtx("unexpected failure, nothing done"));
-                } elsif ($ok == 4) {
-                    log_warn( mtx("unexpected failure, passwd file missing"));
-                } elsif ($ok == 5) {
-                    log_warn( mtx("passwd file busy, try again"));
-                } elsif ($ok == 6) {
-                    log_warn( mtx("invalid argument to option"));
-                } elsif ($ok == 10) {
-                    log_warn( mtx("wrong password given or password retyped incorrectly"));
-                } else {
-                    log_warn( mtx("unexpected return code %s given from passwd"), $ok );
-                }
+        my %passwd_errors = (
+            1  => "Permission denied",
+            2  => "Invalid combination of options",
+            3  => "Unexpected failure, nothing done",
+            4  => "Passwd file missing",
+            5  => "Passwd file busy, try again",
+            6  => "Invalid argument to option",
+            10 => "Wrong password given or retyped incorrectly",
+        );
 
-                # Translators: [y/N] has to be replaced by values defined in your
-                # locale.  You can see by running "locale noexpr" which regular
-                # expression will be checked to find positive answer.
-                PROMPT: for (;;) {
-                    print (gtx("Try again? [y/N] "));
-                    chop ($answer=<STDIN>);
-                    last PROMPT if ($answer =~ m/$yesexpr/o);
-                    last PASSWD if ($answer =~ m/$noexpr/o);
-                    last PASSWD if (!$answer);
-                }
-            } else {
-                last; ## passwd ok
-            }
-        }
+        interactive_command_with_confirmation(
+            'passwd', $new_name, \%passwd_errors
+        );
     }
 
     if (defined($comment_tainted)) {
@@ -992,22 +982,14 @@ if ($action eq "adduser") {
     } elsif ($uid_pool{$new_name}{'comment'}) {
         ch_comment($new_name, $uid_pool{$new_name}{'comment'});
     } else {
-        my $noexpr = langinfo(NOEXPR());
-        my $yesexpr = langinfo(YESEXPR());
-        CHFN: for (;;) {
-            my $chfn = &which('chfn');
-            systemcall($chfn, $new_name);
-            # Translators: [y/N] has to be replaced by values defined in your
-            # locale.  You can see by running "locale yesexpr" which regular
-            # expression will be checked to find positive answer.
-            PROMPT: for (;;) {
-                print (gtx("Is the information correct? [Y/n] "));
-                chop (my $answer=<STDIN>);
-                last PROMPT if ($answer =~ m/$noexpr/o);
-                last CHFN if ($answer =~ m/$yesexpr/o);
-                last CHFN if (!$answer);
-            }
-        }
+        my %chfn_errors = (
+            1 => "Permission denied",
+            2  => "Invalid combination of options",
+        );
+
+        interactive_command_with_confirmation(
+            'chfn', $new_name, \%chfn_errors, 1
+        );
     }
 
     if ( ( $add_extra_groups || $config{"add_extra_groups"} ) && defined($config{"extra_groups"}) ) {
@@ -1046,6 +1028,15 @@ if ($action eq "adduser") {
 
     systemcall('/usr/local/sbin/adduser.local', $new_name, $new_uid,
             $primary_gid, $home_dir) if (-x "/usr/local/sbin/adduser.local");
+    release_lock(0);
+
+    exit( $returnvalue );
+}
+
+if ($action eq "unlockuser") {
+    log_trace( "unlockuser %s", $new_name );
+    acquire_lock();
+    unlock_user($new_name, 0);
     release_lock(0);
 
     exit( $returnvalue );
@@ -1171,6 +1162,13 @@ sub check_user_group {
     log_debug( "check_user_group %s called, make_group_also %s", $system, $make_group_also );
 
     my $ustat = existing_user_status(\%config, $new_name, $new_uid);
+    if ($ustat & EXISTING_FOUND) {
+        if ($ustat & EXISTING_LOCKED) {
+            # this must be a non-system user, addsysuser handles the locked case before we get called
+            log_err( mtx("User `%s' already exists and is locked. use adduser --unlock explicitly to unlock. Exiting.\n"), $new_name );
+            exit( RET_OBJECT_EXISTS );
+        }
+    }
     if ($system) {
         if (($ustat & EXISTING_FOUND) && !($ustat & EXISTING_SYSTEM)) {
             log_fatal( mtx("The user `%s' already exists, and is not a system user."), $new_name);
@@ -1309,21 +1307,21 @@ sub sanitize_name {
         # this check cannot be turned off
         log_err( mtx("To avoid ambiguity with numerical UIDs, usernames which" .
             "resemble numbers or negative numbers are not allowed.") );
-        exit( RET_INVALID_CHARS_IN_NAME );
+        exit( RET_INVALID_CHARS_IN_INPUT );
     }
 
     log_trace("sanitize_name testing single or double period");
     if ( $name =~ qr/^\.\.?$/ ) {
         # this check cannot be turned off
         log_err( mtx("Usernames must not be a single or a double period.") );
-        exit( RET_INVALID_CHARS_IN_NAME );
+        exit( RET_INVALID_CHARS_IN_INPUT );
     }
 
     log_trace("sanitize_name testing > 32 chars");
     if (length( encode($charset, $name) ) > 32) {
         # this check cannot be turned off
         log_err( mtx("Usernames must be no more than 32 bytes in length.") );
-        exit( RET_INVALID_CHARS_IN_NAME );
+        exit( RET_INVALID_CHARS_IN_INPUT );
     }
 
     log_trace("sanitize_name testing %s against insane chars %s", $name, def_min_regex);
@@ -1333,7 +1331,7 @@ sub sanitize_name {
             "dash, plus sign, or tilde, and it must not contain any of the" .
             "following: colon, comma, slash, or any whitespace characters" .
             "including spaces, tabs, and newlines.") );
-        exit( RET_INVALID_CHARS_IN_NAME );
+        exit( RET_INVALID_CHARS_IN_INPUT );
     }
 
     log_trace("sanitize_name checking %s against %s (%s)", $name, $name_regex, $name_regex_var);
@@ -1350,7 +1348,7 @@ sub sanitize_name {
             "compatibility with Samba machine accounts, \$ is also supported" .
             "at the end of the username.  (Use the `--allow-all-names' option" .
             "to bypass this restriction.)") );
-        exit( RET_INVALID_CHARS_IN_NAME );
+        exit( RET_INVALID_CHARS_IN_INPUT );
     }
 
     if ($name_check_level) {
@@ -1360,7 +1358,7 @@ sub sanitize_name {
             "configured via the %s configuration variable.  Use the" .
             "`--allow-bad-names' option to relax this check or reconfigure" .
             "%s in configuration."), $name_regex_var, $name_regex_var );
-        exit( RET_INVALID_CHARS_IN_NAME );
+        exit( RET_INVALID_CHARS_IN_INPUT );
     }
 
     log_trace("sanitize_name checking %s against %s", $name, anynamere);
@@ -1465,6 +1463,112 @@ sub user_is_member {
     return 0;
 }
 
+# unlock user
+sub unlock_user {
+    my ($user_name, $system) = @_;
+    log_debug( "unlock_user %s called, system %s", $user_name, $system );
+    my $ret = existing_user_status(\%config, $user_name, undef);
+    if ($ret & EXISTING_FOUND) {
+        if ($ret & EXISTING_LOCKED) {
+            my $default_shell = $system ? "/usr/sbin/nologin" : "/bin/bash";
+
+            # Get current shell state if available
+            my $shell = get_state_value($user_name, "shell") // $default_shell;
+
+            # Build usermod argument list
+            my @usermod_args = (
+                '-e', '-1',       # set account expiry to never
+                '-s', $shell,     # set shell
+                $user_name        # username
+            );
+
+            # Add -U only if account has a password
+            if ($ret & EXISTING_HAS_PASSWORD) {
+                push @usermod_args, '-U';
+            } else {
+                log_info( mtx(
+                    "Unlocking password `%s' would result in a passwordless account. Leaving password locked\n",
+                    $user_name
+                ));
+            }
+
+            log_info( mtx("Unlocking user `%s' ...", $user_name) );
+            log_trace( "usermod `%s' ...", join(" ", @usermod_args) );
+            my $unlock_ret = systemcall_useradd($name_check_level, 'usermod', @usermod_args);
+
+            if( $unlock_ret == 0 ) {
+                log_info( mtx("user `%s' successfully unlocked.\n", $user_name) );
+                set_state_value($user_name, "shell", undef);
+                set_state_value($user_name, "locked", undef);
+            } else {
+                log_fatal( mtx("error %s while unlocking user `%s'. Exiting.\n", $unlock_ret, $user_name) );
+                exit( RET_SYSTEMCALL_ERROR );
+            }
+        }
+        log_info( mtx("User `%s' is already unlocked.\n"), $user_name );
+    } else {
+        log_fatal( mtx("User `%s' does not exist\n"), $user_name );
+        exit( RET_OBJECT_DOES_NOT_EXIST );
+    }
+}
+
+sub interactive_command_with_confirmation {
+    my ($cmd, $user_name, $error_map, $always_confirm) = @_;
+
+    $always_confirm //= 0;   # default to false if not provided
+    return unless -t STDIN;  # skip non-interactive
+
+    my $yesexpr = langinfo(YESEXPR);
+    my $noexpr  = langinfo(NOEXPR);
+
+    my $retry = 1;
+
+    while ($retry) {
+        $retry = 0;
+
+        my $full_cmd = which($cmd);
+        my $ok = systemcall_or_warn($full_cmd, $user_name);
+        $ok = $ok >> 8;  # extract exit code
+
+        log_debug("systemcall_or_warn %s %s return value %s", $full_cmd, $user_name, $ok);
+
+        if ($ok != 0 && $error_map) {
+            if (exists $error_map->{$ok}) {
+                log_warn($error_map->{$ok});
+            } else {
+                log_warn("Unexpected return code %s from %s", $ok, $cmd);
+            }
+        }
+
+        # Prompt for confirmation if requested
+        if ($always_confirm) {
+            my $answer;
+            do {
+                print gtx("Is the information correct? [Y/n] ");
+                $answer = <STDIN>;
+
+                unless (defined $answer) {
+                    warn "No input available, assuming 'yes'\n";
+                    last;
+                }
+
+                chomp($answer);
+                $answer =~ s/^\s+|\s+$//g;
+
+                if ($answer =~ m/$yesexpr/o || $answer eq '') {
+                    $retry = 0;  # accepted
+                    last;
+                } elsif ($answer =~ m/$noexpr/o) {
+                    $retry = 1;  # retry command
+                } else {
+                    print "Please answer yes or no.\n";
+                    $answer = undef;  # repeat prompt
+                }
+
+            } while (!defined $answer);
+        }
+    }
+}
 
 sub cleanup {
     if ($undohome) {
@@ -1522,6 +1626,11 @@ sub usage {
         [--conf file] [--quiet] [--verbose] [--debug]
         user
     Add a regular user
+
+adduser --unlock
+        [--system]
+        user
+    Unlock an existing locked user account
 
 adduser --system
         [--uid id] [--group] [--ingroup group] [--gid id]

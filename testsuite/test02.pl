@@ -127,9 +127,9 @@ if (defined (getpwnam($username))) {
             if( $error == 56 ) {
                 `deluser $username`;
             } else {
-                print "failed\n  deluser (file::find not present) returned an errorcode != 0/56 ($error)\n";
+                print "failed (expected)\n  deluser (file::find not present) returned an errorcode != 0/56 ($error)\n";
             }
-            print "failed\n  deluser (file::find not present) returned an errorcode != 0 ($error)\n";
+            print "failed (expected)\n  deluser (file::find not present) returned an errorcode != 0 ($error)\n";
             $error=0;
             `rm -rf $homedir`;
         }

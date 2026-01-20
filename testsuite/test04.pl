@@ -30,4 +30,5 @@ if (!defined (getpwnam($username))) {
 	assert(check_user_in_group($username,$groupname));
 	print "ok\n";
 }
-  
+
+# vim: tabstop=4 shiftwidth=4 expandtab
