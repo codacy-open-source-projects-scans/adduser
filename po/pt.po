@@ -17,21 +17,21 @@
 # This file is distributed under the same license as the adduser package.
 # Copyright Translations:
 #     2007 Ricardo Silva <ardoric@gmail.com>, 2007.
-#     2010-2025 Américo Monteiro <a_monteiro@gmx.com>
+# SPDX-FileCopyrightText: 2010-2025 Américo Monteiro <a_monteiro@gmx.com>
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: adduser 3.145\n"
+"Project-Id-Version: adduser 3.153\n"
 "Report-Msgid-Bugs-To: adduser@packages.debian.org\n"
 "POT-Creation-Date: 2025-09-14 13:07+0200\n"
-"PO-Revision-Date: 2025-03-07 20:06+0000\n"
+"PO-Revision-Date: 2025-10-18 19:19+0100\n"
 "Last-Translator: Américo Monteiro <a_monteiro@gmx.com>\n"
 "Language-Team: Portuguese <>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: adduser:229
@@ -376,6 +376,8 @@ msgid ""
 "To avoid ambiguity with numerical UIDs, usernames whichresemble numbers or "
 "negative numbers are not allowed."
 msgstr ""
+"Para evitar ambiguidade com UIDs numéricos, os nomes de utilizador que "
+"se parecem com números ou números negativos não são permitidos."
 
 #: adduser:1356
 msgid "Usernames must not be a single or a double period."
@@ -391,6 +393,10 @@ msgid ""
 "tilde, and it must not contain any of thefollowing: colon, comma, slash, or "
 "any whitespace charactersincluding spaces, tabs, and newlines."
 msgstr ""
+"Para evitar problemas, o nome de utilizador não pode começar com um traço, "
+"sinal mais, ou til, e não pode conter nenhum dos seguintes: dois-pontos, "
+"vírgula, barra, ou caracteres de espaços em branco incluindo espaços, tabs, "
+"e novas linhas."
 
 #: adduser:1385
 msgid ""
@@ -400,6 +406,12 @@ msgid ""
 "accounts, $ is also supportedat the end of the username.  (Use the `--allow-"
 "all-names' optionto bypass this restriction.)"
 msgstr ""
+"Para evitar problemas, o nome de utilizador deve consistir apenas de "
+"letras, dígitos, underscores, pontos, em sinais e barra, e não começar "
+"com uma barra (como definido por IEEE Std 1003.1-2001). Para "
+"compatibilidade com contas de máquina Samba, $ é também suportado no fim "
+"do nome de utilizador.  (Use a opção `--allow-all-names' para ultrapassar "
+"esta restrição.)"
 
 #: adduser:1395
 msgid "Allowing use of questionable username."
@@ -412,6 +424,10 @@ msgid ""
 "configuration variable.  Use the`--allow-bad-names' option to relax this "
 "check or reconfigure%s in configuration."
 msgstr ""
+"Por favor insira um nome de utilizador que corresponda à expressão regular "
+"configurada via variável de configuração %s.  Use a opção "
+"`--allow-bad-names' para relaxar esta verificação ou reconfigure %s na "
+"configuração."
 
 #: adduser:1426
 #, perl-format
@@ -600,6 +616,10 @@ msgid ""
 "want this, call deluser with parameter --no-preserve-root. Stopping now "
 "without having performed any action."
 msgstr ""
+"ATENÇÃO: Você está prestes a apagar a conta do root (uid 0). Geralmente "
+"isto nunca é preciso pois pode inutilizar todo o sistema. Se você realmente "
+"quer isto, chame o deluser com o parâmetro --no-preserve-root. A parar "
+"agora sem ter executado nenhuma acção."
 
 #: deluser:314
 msgid "remove_home or remove_all_files beginning"
@@ -652,6 +672,7 @@ msgstr "A remover crontab ..."
 msgid ""
 "`%s' is not executable. Skipping crontab removal. Package `cron' required."
 msgstr ""
+"`%s' não é executável. A saltar remoção do crontab. Pacote `cron' requerido."
 
 #: deluser:466
 #, perl-format

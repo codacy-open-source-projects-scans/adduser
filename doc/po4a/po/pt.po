@@ -12,24 +12,26 @@
 # 2021-2022 Jason Franklin <jason@oneway.dev>
 # 2022 Matt Barry <matt@hazelmollusk.org>
 # 2022 Akbarkhon Variskhanov <akbarkhon.variskhanov@gmail.com>
+#
 # This file is distributed under the same license as the adduser package.
 # Translation of adduser's manpage to European Portuguese
 # Copyright (C) 2010 Free Software Foundation, Inc.
 #
 # 2016, 2023 Dr. Helge Kreutzmann <debian@helgefjell.de>.
-# Américo Monteiro <a_monteiro@gmx.com>, 2010 - 2025.
+#
+# SPDX-FileCopyrightText: 2010 - 2025 Américo Monteiro <a_monteiro@gmx.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: adduser 3.150\n"
+"Project-Id-Version: adduser manpage 3.153\n"
 "POT-Creation-Date: 2025-09-14 13:09+0200\n"
-"PO-Revision-Date: 2025-04-19 21:06+0100\n"
+"PO-Revision-Date: 2025-10-17 23:32+0100\n"
 "Last-Translator: Américo Monteiro <a_monteiro@gmx.com>\n"
 "Language-Team: Portuguese <>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 # type: TH
@@ -3048,10 +3050,9 @@ msgstr ""
 
 #. type: Plain text
 #: ../deluser.8:208
-#, fuzzy
 #| msgid "Synonymous to B<--stdoutmsglevel=debug.> Deprecated."
 msgid "Synonymous to B<--stdoutmsglevel=debug>.  Deprecated."
-msgstr "Sinónimo para B<--stdoutmsglevel=debug.> Descontinuado."
+msgstr "Sinónimo para B<--stdoutmsglevel=debug>. Descontinuado."
 
 # type: Plain text
 #. type: Plain text
@@ -3080,10 +3081,9 @@ msgstr ""
 
 #. type: Plain text
 #: ../deluser.8:226
-#, fuzzy
 #| msgid "Synonymous to B<--stdoutmsglevel=warn.> Deprecated."
 msgid "Synonymous to B<--stdoutmsglevel=warn>.  Deprecated."
-msgstr "Sinónimo de B<--stdoutmsglevel=warn.> Descontinuado."
+msgstr "Sinónimo de B<--stdoutmsglevel=warn>. Descontinuado."
 
 # type: TP
 #. type: TP
@@ -3137,10 +3137,9 @@ msgstr ""
 
 #. type: Plain text
 #: ../deluser.8:249
-#, fuzzy
 #| msgid "Synonymous to B<--stdoutmsglevel=info.> Deprecated."
 msgid "Synonymous to B<--stdoutmsglevel=info>.  Deprecated."
-msgstr "Sinónimo de B<--stdoutmsglevel=info.> Descontinuado."
+msgstr "Sinónimo de B<--stdoutmsglevel=info>. Descontinuado."
 
 #. type: Plain text
 #: ../deluser.8:265
@@ -3173,13 +3172,12 @@ msgstr ""
 
 #. type: Plain text
 #: ../deluser.8:276
-#, fuzzy
 #| msgid ""
 #| "This works similar to B<adduser>. See B<adduser>(8) for all the details."
 msgid ""
 "This works similar to B<adduser>.  See B<adduser>(8) for all the details."
 msgstr ""
-"Isto funciona de modo semelhante ao B<adduser>. Veja B<adduser>(8) para "
+"Isto funciona de modo semelhante ao B<adduser>.  Veja B<adduser>(8) para "
 "todos os detalhes."
 
 #. type: Plain text
