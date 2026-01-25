@@ -91,11 +91,6 @@ Defaults to \fI1000\fP - \fI59999\fP.
 .B GID_POOL
 See \fBUID_POOL\fP.
 .TP
-.B GROUPHOMES
-If this is set to \fIyes\fP,
-the home directories will be created as \fI/home/groupname/user\fP.
-Defaults to \fIno\fP. This option is \fBdeprecated\fP and will be removed.
-.TP
 .B LAST_SYSTEM_GID
 .TQ
 .B LAST_GID
@@ -104,13 +99,6 @@ Defaults to \fIno\fP. This option is \fBdeprecated\fP and will be removed.
 .TQ
 .B LAST_UID
 See the \fBFIRST_\fP variants of the option.
-.TP
-.B LETTERHOMES
-If this is set to \fIyes\fP,
-then the home directories created will have an extra directory
-inserted which is the first letter of the loginname.
-For example: \fI/home/u/user\fP.
-Defaults to \fIno\fP. This option is \fBdeprecated\fP and will be removed.
 .TP
 .B NAME_REGEX
 Non-system user- and groupnames are checked against this regular expression.
@@ -123,27 +111,11 @@ Defaults to the most conservative \fI^[a\-zA\-Z][a\-zA\-Z0\-9_\-]*\\$?$\fP.
 See \fBSYS_NAME_REGEX\fP and \fBValid names\fP,
 below, for more information.
 .TP
-.B QUOTAUSER
-If set to a nonempty value,
-new users will have quotas copied from that user using
-\fIedquota -p QUOTAUSER newuser\fP.
-Defaults to \fIthe empty string\fP.
-.TP
 .B RESERVE_UID_POOL " and " RESERVE_GID_POOL
 Controls whether the UID and GID values that are listed in the pool
 files are truly reserved.
 See UID AND GID POOLS in the NOTES section.
 Defaults to \fIyes\fR.
-.TP
-.B SETGID_HOME
-If this is set to \fIyes\fP,
-then home directories for users with
-their own group (\fBUSERGROUPS\fP = yes)
-will have the set-group-ID bit set.
-Note that this feature is \fBdeprecated\fP and
-will be removed in a future version of \fBadduser\fP(8).
-Please use \fBDIR_MODE\fP instead.
-Defaults to \fIno\fP.
 .TP
 .B SKEL
 The directory from which

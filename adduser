@@ -1020,12 +1020,6 @@ if ($action eq "adduser") {
     }
 
 
-    if ($config{"quotauser"}) {
-        log_info( mtx("Setting quota for user `%s' to values of user `%s' ..."), $new_name, $config{quotauser} );
-        my $edquota = &which('edquota');
-        systemcall($edquota, '-p', $config{quotauser}, $new_name);
-    }
-
     systemcall('/usr/local/sbin/adduser.local', $new_name, $new_uid,
             $primary_gid, $home_dir) if (-x "/usr/local/sbin/adduser.local");
     release_lock(0);
@@ -1050,8 +1044,6 @@ if ($action eq "unlockuser") {
 # calculate home directory
 sub homedir {
     my $dir = $config{"dhome"};
-    $dir .= '/' . $_[1] if ($config{"grouphomes"} =~ /yes/i);
-    $dir .= '/' . substr($_[0],0,1) if ($config{"letterhomes"} =~ /yes/i);
     $dir .= '/' . $_[0];
     return $dir;
 }
@@ -1113,7 +1105,7 @@ sub create_homedir {
                 my $src = sanitize_string($_, pathre );
                 log_trace("copy_to_dir(%s, %s, %s, %s, %s)", $config{"skel"}, $src, $home_dir, $new_uid, $primary_gid );
                 &copy_to_dir($config{"skel"}, $src, $home_dir, $new_uid,
-                    $primary_gid, ($config{"setgid_home"} =~ /yes/i));
+                    $primary_gid);
             }
             close ($findpipe);
         }
@@ -1217,11 +1209,10 @@ sub check_user_group {
 #   todir
 #   newi
 #   newg
-#   sgiddir
 # return values:
 #   none
 sub copy_to_dir {
-    my($fromdir, $file, $todir, $newu, $newg, $sgiddir) = @_;
+    my($fromdir, $file, $todir, $newu, $newg) = @_;
 
     log_trace("copy_to_dir fromdir: %s", $fromdir);
     log_trace("copy_to_dir file: %s", $file);
@@ -1281,9 +1272,6 @@ sub copy_to_dir {
        &cleanup();
     }
     $perm = (stat("$fromdir/$file"))[2] & oct(7777);
-    if (-d "$fromdir/$file" && ($perm & oct(10)) && $sgiddir) {
-        $perm |= oct(2000);
-    }
     if( !chmod($perm, "$todir/$file") ) {
        log_err( "chmod %s/%s: %s", $todir, $file, $!);
        &cleanup();
@@ -1671,17 +1659,12 @@ sub usage_error {
 #   a valid octal mode
 sub get_dir_mode
   {
-    my $setgid = $config{"setgid_home"} =~ /yes/i;
     my $mode = $found_sys_opt
       ? $config{"sys_dir_mode"}
       : $config{"dir_mode"};
 
     if(!defined($mode) || ! ($mode =~ /[0-7]{3}/ || $mode =~ /[0-7]{4}/)) {
         $mode = ($found_sys_opt) ? "755" : "0700";
-    }
-
-    if($setgid && (length($mode) == 3 || $mode =~ /^[0-1|4-5][0-7]{3}$/)) {
-        $mode += 2000;
     }
 
     return oct($mode);

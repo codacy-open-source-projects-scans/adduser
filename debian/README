@@ -36,12 +36,10 @@ Information that is in the manual pages is probably not going to be
 repeated in this README file.
 
 
-
 Deprecation warnings
 --------------------
 The following features, options, and other things are deprecated and
 might vanish in the next release:
-- the GROUPHOMES, LETTERHOMES, SETGID_HOME  configuration options
 - the --add_extra_groups spelling of the --add-extra-groups option
 - the --gecos alias for the --comment option
 - the --debug alias for the --stdoutmsglevel=debug option
@@ -59,6 +57,7 @@ the last releases:
 - interactivity
 - debconf
 - support for directory services such as NIS and LDAP
+- the GROUPHOMES, LETTERHOMES, SETGID_HOME  configuration options
 
 
 
