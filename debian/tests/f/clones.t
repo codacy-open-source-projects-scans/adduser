@@ -7,8 +7,8 @@ use diagnostics;
 use strict;
 use warnings;
 
-my $name1='ausclone1';
-my $name2='ausclone2';
+my $name1=find_unused_name('aus1clone');
+my $name2=find_unused_name('aus2clone');
 
 use AdduserTestsCommon;
 

@@ -35,6 +35,7 @@ use Debian::AdduserCommon 3.139;
 use Debian::AdduserLogging 3.139;
 use Debian::AdduserRetvalues 3.139;
 use Debian::AdduserStatefile 3.139;
+use Debian::AdduserCreateHomedir 3.139;
 BEGIN {
     if ( Debian::AdduserCommon->VERSION != version->declare('3.139') ||
          Debian::AdduserLogging->VERSION != version->declare('3.139') ||
@@ -112,7 +113,6 @@ my $ask_passwd = 1;		# ask for a passwd?
 my $disabled_login = 0;		# leave the new account disabled?
 
 our @configfiles;
-our @defaults = undef;
 our $found_group_opt = undef;
 our $found_sys_opt = undef;
 our $found_unlock_opt = undef;
@@ -194,11 +194,6 @@ GetOptions(
 ) or &usage_error;
 log_trace("ARGV %s", join(@ARGV,"-"));
 
-if (!@configfiles) {
-    @defaults = ("/etc/adduser.conf");
-} else {
-    @defaults = decode($charset, $_) for @configfiles;
-}
 
 # make sure that message levels apply for reading configuration
 # this will be overridden again after reading configuration
@@ -213,14 +208,19 @@ log_trace("special_home %s", encode($charset, $special_home));
 log_trace("special_home %s", decode($charset, $special_home));
 
 ##########################################################
-# (1) preseed the config
+# (1) read the config
 # (2) read the default /etc/adduser.conf configuration.
 # (3) read the default /etc/deluser.conf configuration.
 # (4) process commmand line settings
 # last match wins
 ##########################################################
 
-preseed_config(\@defaults,\%config);
+unless (@configfiles) {
+    @configfiles = ("/etc/adduser.conf");
+}
+@configfiles = decode($charset, $_) for @configfiles;
+
+%config = read_config(@configfiles);
 
 # everyone can issue "--help" and "--version", but only root can go on
 if( $> != 0) {
@@ -719,7 +719,16 @@ if ($action eq "addsysuser") {
     }
 
     $primary_gid = $gid_option;
-    create_homedir(0, 1);
+    create_homedir(
+        home_dir => $home_dir,
+        uid => $new_uid,
+        gid => $gid_option,
+        copy_skeleton => 0,
+        system_user => 1,
+        no_create_home => $no_create_home,
+        dir_mode => $dir_mode,
+        config => \%config,
+    ) or cleanup();
 
     exit( $returnvalue );
 }
@@ -958,7 +967,16 @@ if ($action eq "adduser") {
         $returnvalue = RET_INVALID_NAME_FROM_USERADD;
     }
 
-    create_homedir ($no_copy_skel ? 0 : 1, 0); # copy skeleton data
+    create_homedir(
+        home_dir => $home_dir,
+        uid => $new_uid,
+        gid => $primary_gid,
+        copy_skeleton => $no_copy_skel ? 0 : 1,
+        system_user => 0,
+        no_create_home => $no_create_home,
+        dir_mode => $dir_mode,
+        config => \%config,
+    ) or cleanup();
 
     # useradd without -p has left the account disabled (password string is '!')
     if ($ask_passwd) {
@@ -1049,91 +1067,6 @@ sub homedir {
 }
 
 
-# create_homedir -- create the homedirectory
-# parameter
-#   1: $copy_skeleton:
-#     if 0  -> do not copy the skeleton data
-#     if 1  -> copy the files in /etc/skel to the newly created home directory
-# return values:
-#   none
-sub create_homedir {
-    my ($copy_skeleton, $system_user) = @_;
-
-    if ($home_dir =~ /^\/+nonexistent(\/|$)/) {
-        log_info( mtx("Not creating `%s'."), $home_dir );
-    } elsif ($no_create_home) {
-        log_info( mtx("Not creating home directory `%s' as requested."), $home_dir );
-    } elsif (-e $home_dir) {
-        if( !$system_user ) {
-            log_warn( mtx("The home directory `%s' already exists.  Not touching this directory."),
-                $home_dir );
-            my @homedir_stat = stat($home_dir);
-            my $home_uid = $homedir_stat[4];
-            my $home_gid = $homedir_stat[5];
-            if (($home_uid != $new_uid) || ($home_gid != $primary_gid)) {
-                log_warn( mtx("Warning: The home directory `%s' does not belong to the user you are currently creating."), $home_dir );
-            }
-        }
-    } else {
-        log_info( mtx("Creating home directory `%s' ..."),$home_dir );
-        $undohome = $home_dir;
-        if( !&mktree($home_dir) ) {
-           log_err( gtx("Couldn't create home directory `%s': %s."), $home_dir, $!);
-           &cleanup();
-        }
-        if( !chown($new_uid, $primary_gid, $home_dir) ) {
-            log_err("chown %s:%s %s: %s", $new_uid, $primary_gid, $home_dir, $!);
-            &cleanup();
-        }
-        $dir_mode = get_dir_mode();
-        if( !chmod ($dir_mode, $home_dir) ) {
-            log_err("chmod %s %s: %s", $dir_mode, $home_dir, $!);
-            &cleanup();
-        }
-
-        if ($config{"skel"} && $copy_skeleton) {
-            log_info( mtx("Copying files from `%s' ..."), $config{skel} );
-            my $findpipe;
-            if( !open($findpipe, q{-|}, "cd $config{skel}; find .  -print") ) {
-                log_err( mtx("fork for `find' failed: %s"), $!);
-                &cleanup();
-            }
-            while (<$findpipe>) {
-                chop;
-                next if ($_ eq ".");
-                next if ($_ =~ qr/$config{skel_ignore_regex}/ );
-                my $src = sanitize_string($_, pathre );
-                log_trace("copy_to_dir(%s, %s, %s, %s, %s)", $config{"skel"}, $src, $home_dir, $new_uid, $primary_gid );
-                &copy_to_dir($config{"skel"}, $src, $home_dir, $new_uid,
-                    $primary_gid);
-            }
-            close ($findpipe);
-        }
-    }
-}
-
-# mktree: create a directory and all parent directories
-# we do not care about the rights and so on
-# parameters:
-#   tree: the path
-# return values:
-#   none
-sub mktree {
-    my($tree) = @_;
-    my($done, @path);
-    my $default_dir_mode = oct(755);
-
-    $tree =~ s:^/*(.*)/*$:$1:; # chop off leading & trailing slashes
-    @path = split(/\//, $tree);
-
-    $done = "";
-    while (@path) {
-        $done .= '/' . shift(@path);
-        -d $done || mkdir($done, $default_dir_mode) || return 0;
-    }
-    return 1;
-}
-
 # check_user_group: Do checks regarding user, group, gid and group
 #   requirement that are basically the same for normal users and
 #   system users. Factored out to avoid code duplication.
@@ -1201,83 +1134,6 @@ sub check_user_group {
     }
     log_debug( "return from check_user_group" );
 }
-
-# copy_to_dir :
-# parameters:
-#   fromdir
-#   file
-#   todir
-#   newi
-#   newg
-# return values:
-#   none
-sub copy_to_dir {
-    my($fromdir, $file, $todir, $newu, $newg) = @_;
-
-    log_trace("copy_to_dir fromdir: %s", $fromdir);
-    log_trace("copy_to_dir file: %s", $file);
-    if (-l "$fromdir/$file") {
-        my $target;
-        if( !($target = sanitize_string(readlink("$fromdir/$file"), pathre)) ) {
-            log_err( "readlink: %s", $! );
-            &cleanup();
-        }
-        my $curgid="$)";
-        my $curuid="$>";
-        my $error="";
-        $)="$newg";
-        $>="$newu";
-        symlink("$target", "$todir/$file") or $error="$!";
-        $>="$curuid";
-        $)="$curgid";
-        if( "$error" ne "" ) {
-            log_err( "symlink: %s", $!);
-            &cleanup();
-        }
-        return;
-    } elsif (-f "$fromdir/$file") {
-        my $filefh;
-        my $newfilefh;
-        if( !open ($filefh, q{<}, "$fromdir/$file") ) {
-            log_err( "open %s/%s: %s", $fromdir, $file , $!);
-            &cleanup();
-        }
-        if( !open ($newfilefh, q{>}, "$todir/$file") ) {
-            log_err( "open >%s/%s: %s", $todir, $file, $!);
-            &cleanup();
-        }
-        if( !print $newfilefh (<$filefh>) ) {
-            log_err( "print %s/%s: %s", $todir, $file, $!);
-            &cleanup();
-        }
-        close($filefh);
-        if( !close($newfilefh) ) {
-            log_err( "close %s/%s: %s", $todir, $file, $!);
-            &cleanup();
-        }
-    } elsif (-d "$fromdir/$file") {
-        if( ! -d "$todir/$file" ) {
-            if( !mkdir("$todir/$file", 700) ) {
-                log_err( "mkdir: %s/%s: %s", $todir, $file, $!);
-                &cleanup();
-            }
-        }
-    } else {
-        log_err( mtx("%s/%s is neither a dir, file, nor a symlink."), $fromdir, $file );
-        &cleanup();
-    }
-
-    if( !chown($newu, $newg, "$todir/$file") ) {
-       log_err( "chown %s:%s %s/%s: %s", $newu, $newg, $todir, $file, $! );
-       &cleanup();
-    }
-    $perm = (stat("$fromdir/$file"))[2] & oct(7777);
-    if( !chmod($perm, "$todir/$file") ) {
-       log_err( "chmod %s/%s: %s", $todir, $file, $!);
-       &cleanup();
-    }
-}
-
 
 # sanitize_name: perform some sanity checks
 # parameters:

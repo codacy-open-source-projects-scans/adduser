@@ -10,7 +10,7 @@
 .\"            2016 Helge Kreutzmann <debian@helgefjell.de>
 .\"            2021-2022 Jason Franklin <jason@oneway.dev>
 .\"            2022 Matt Barry <matt@hazelmollusc.org>
-.\"
+.
 .\" This is free software; see the GNU General Public License version
 .\" 2 or later for copying conditions.  There is NO warranty.
 .TH ADDUSER 8 "" "Debian GNU/Linux"
@@ -363,7 +363,7 @@ Multiple \fB\-\-conf\fR options can be given.
 .TP
 .B \-\-debug
 Synonymous to
-.B \-\-stdoutmsglevel=debug.
+.BR \-\-stdoutmsglevel=debug .
 Deprecated.
 .TP
 .B \-\-disabled\-login
@@ -470,7 +470,7 @@ Valid modes: \fBadduser\fP, \fBadduser \-\-system\fP.
 .TP
 .B \-\-quiet
 Synonymous to
-.B \-\-stdoutmsglevel=warn.
+.BR \-\-stdoutmsglevel=warn .
 Deprecated.
 .TP
 .BI \-\-shell " shell"
@@ -488,21 +488,21 @@ With this option, \fBadduser\fP creates a
 and changes its mode respectively.
 Valid modes: \fBadduser\fP, \fBaddgroup\fP.
 .TP
-.BI \-\-uid  " ID"
+.BI \-\-uid " ID"
 Force the new userid to be the given number.
 \fBadduser\fP will fail if the userid is already taken.
 Valid modes: \fBadduser\fP, \fBadduser \-\-system\fP.
 .TP
 .B \-\-verbose
 Synonymous to
-.B \-\-stdoutmsglevel=info.
+.BR \-\-stdoutmsglevel=info .
 Deprecated.
 .TP
-.BI \-\-stdoutmsglevel  " prio"
+.BI \-\-stdoutmsglevel " prio"
 .TQ
-.BI \-\-stderrmsglevel  " prio"
+.BI \-\-stderrmsglevel " prio"
 .TQ
-.BI \-\-logmsglevel  " prio"
+.BI \-\-logmsglevel " prio"
 Minimum priority for messages logged to syslog/journal and the console,
 respectively.
 Values are
@@ -705,7 +705,7 @@ Error accessing auxiliary files.
 .TP
 .B 81
 An executable that is needed by \fBadduser\fP or \fBdeluser\fP
-cannot be found. Check your installation and dependencies.
+cannot be found.  Check your installation and dependencies.
 .TP
 .B 82
 Executing an external command returned some unexpected error.
@@ -814,7 +814,7 @@ to file bugs against the \fBadduser\fP package in this case.
 .BR groupadd (8),
 .BR useradd (8),
 .BR usermod (8),
-.BR /usr/share/doc/base-passwd/users-and-groups.html
+.B /usr/share/doc/base\-passwd/users\-and\-groups.html
 on any Debian system,
 Debian Policy 9.2.2,
 RFC8264 "PRECIS Framework: Preparation, Enforcement, and Comparison of

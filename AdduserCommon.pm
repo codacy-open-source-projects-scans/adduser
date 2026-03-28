@@ -127,7 +127,6 @@ use constant {
     'sanitize_string',
     'egetgrnam',
     'egetpwnam',
-    'preseed_config',
     'which',
     "filenamere",
     "simplefilenamere",
@@ -215,8 +214,9 @@ sub egetpwnam {
 # parameters:
 #  -- filename of the configuration file
 #  -- a hash for the configuration data
-sub read_config {
-    my ($conf_file, $configref) = @_;
+sub read_configfile {
+    my $conf_file = shift;
+    my %config = @_;
     my ($var, $lcvar, $val);
 
     $conf_file = sanitize_string( $conf_file, simplepathre );
@@ -241,7 +241,7 @@ sub read_config {
             next;
         }
         $lcvar = lc $var;
-        if (!exists($configref->{$lcvar})) {
+        if (!exists($config{$lcvar})) {
             log_warn( mtx("Unknown variable `%s' at `%s', line %d."), $var, $conf_file, $. );
             next;
         }
@@ -255,10 +255,11 @@ sub read_config {
         $val =~ s/^'(.*)'$/$1/;
 
         log_debug("importing config value for %s: %s", $lcvar, $val);
-        $configref->{$lcvar} = $val;
+        $config{$lcvar} = $val;
     }
 
     close $conffh || die "$!";
+    return %config;
 }
 
 # read names and IDs from a pool file
@@ -488,63 +489,76 @@ sub which {
 # then read the config file /etc/adduser and overwrite the data hardcoded here
 # we cannot give defaults for users_gid and users_group here since this will
 # probably lead to double defined users_gid and users_group.
-sub preseed_config {
-    my ($conflistref, $configref) = @_;
-    my %config_defaults = (
-        system => 0,
-        only_if_empty => 0,
-        remove_home => 0,
-        home => "",
+sub read_config {
+    my @configfiles = @_;
+
+    # Initialize configuration with defaults
+    my %config = (
+        system           => 0,
+        only_if_empty    => 0,
+        remove_home      => 0,
+        home             => "",
         remove_all_files => 0,
-        backup => 0,
-        backup_to => ".",
-        dshell => "/bin/bash",
+        backup           => 0,
+        backup_to        => ".",
+        dshell           => "/bin/bash",
         first_system_uid => 100,
-        last_system_uid => 999,
-        first_uid => 1000,
-        last_uid => 59999,
+        last_system_uid  => 999,
+        first_uid        => 1000,
+        last_uid         => 59999,
         first_system_gid => 100,
-        last_system_gid => 999,
-        first_gid => 1000,
-        last_gid => 59999,
-        dhome => "/home",
-        skel => "/etc/skel",
-        usergroups => "yes",
-        users_gid => undef,
-        users_group => undef,
-        dir_mode => "0700",
-        sys_dir_mode => "0755",
-        no_del_paths => "^/bin\$ ^/boot\$ ^/dev\$ ^/etc\$ ^/initrd ^/lib ^/lost+found\$ ^/media\$ ^/mnt\$ ^/opt\$ ^/proc\$ ^/root\$ ^/run\$ ^/sbin\$ ^/srv\$ ^/sys\$ ^/tmp\$ ^/usr\$ ^/var\$ ^/vmlinu",
-        name_regex     => def_name_regex,
-        sys_name_regex => def_sys_name_regex,
+        last_system_gid  => 999,
+        first_gid        => 1000,
+        last_gid         => 59999,
+        dhome            => "/home",
+        skel             => "/etc/skel",
+        usergroups       => "yes",
+        users_gid        => undef,
+        users_group      => undef,
+        dir_mode         => "0700",
+        sys_dir_mode     => "0755",
+        no_del_paths     => "^/bin\$ ^/boot\$ ^/dev\$ ^/etc\$ ^/initrd ^/lib ^/lost+found\$ ^/media\$ ^/mnt\$ ^/opt\$ ^/proc\$ ^/root\$ ^/run\$ ^/sbin\$ ^/srv\$ ^/sys\$ ^/tmp\$ ^/usr\$ ^/var\$ ^/vmlinu",
+        name_regex       => def_name_regex,
+        sys_name_regex   => def_sys_name_regex,
         sys_delete_action => "delete",
-        exclude_fstypes => "(proc|sysfs|usbfs|devpts|devtmpfs|devfs|afs)",
+        exclude_fstypes  => "(proc|sysfs|usbfs|devpts|devtmpfs|devfs|afs)",
         skel_ignore_regex => "\.(dpkg|ucf)-(old|new|dist)\$",
-        extra_groups => "users",
+        extra_groups     => "users",
         add_extra_groups => 0,
-        uid_pool => "",
-        gid_pool => "",
+        uid_pool         => "",
+        gid_pool         => "",
         reserve_uid_pool => "yes",
         reserve_gid_pool => "yes",
-        loggerparms => "",
-        stdoutmsglevel => "warn",
-        stderrmsglevel => "warn",
-        logmsglevel => "info",
+        loggerparms      => "",
+        stdoutmsglevel   => "warn",
+        stderrmsglevel   => "warn",
+        logmsglevel      => "info",
     );
 
-    # Initialize to the set of known variables.
-    foreach (keys %config_defaults) {
-        log_debug("importing default value for %s: %s", $_, $config_defaults{$_});
-        $configref->{$_} = $config_defaults{$_};
+    # Read configuration files, overriding defaults
+    foreach my $e (@configfiles) {
+        my $configfile = sanitize_string($e, simplepathre);
+        log_debug("read configuration file %s\n", $configfile);
+        %config = read_configfile($configfile, %config);
     }
 
-    # Read the configuration files
-    foreach( @$conflistref ) {
-        my $configfile = sanitize_string($_, simplepathre);
-        log_debug( "read configuration file %s\n", $configfile );
-        read_config($configfile ,$configref);
+    $config{'dir_mode'} = check_octal($config{'dir_mode'}, '0700');
+    $config{'sys_dir_mode'} = check_octal($config{'sys_dir_mode'}, '0755');
+
+    return %config;
+}
+
+sub check_octal {
+    my ($value, $default) = @_;
+
+    # A valid octal is 0-7 digits only, optionally with leading zero
+    if (defined $value && $value =~ /\A[0-7]+\z/) {
+        return $value;
+    } else {
+        return $default;
     }
 }
+
 
 sub acquire_lock {
     my @notify_secs = (1, 3, 8, 18, 28);

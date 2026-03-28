@@ -15,7 +15,7 @@ my $username;
 my $susername;
 my $num;
 
-$username = find_unused_name();
+$username = find_unused_name("adduser10test");
 $num = 0;
 
 assert(check_user_not_exist ($username));
@@ -223,7 +223,7 @@ assert(check_user_not_exist ($username));
 
 #=======================
 # system user
-$susername = find_unused_name();
+$susername = find_unused_name("adduser10stest");
 
 assert(check_user_not_exist ($susername));
 # unlock a non-existing system ccount

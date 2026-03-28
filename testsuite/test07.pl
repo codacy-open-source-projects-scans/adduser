@@ -7,7 +7,7 @@
 use strict;
 use lib_test;
 
-my $username = find_unused_name();
+my $username = find_unused_name("adduser07test");
 
 my $cmd = "adduser --system $username";
 

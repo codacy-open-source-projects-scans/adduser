@@ -12,10 +12,22 @@ my $name="ausskel";
 END {
     remove_tree("/var/mail/$name");
     unlink("/etc/skel/test\ file");
+    unlink("/etc/skel/Tüst");
+    unlink("/etc/skel/ŞĞÇaŞ-tst");
+    unlink("/etc/skel/Masaüstü/ŞĞÇaŞ-tst");
+    rmdir("/etc/skel/Masaüstü");
 }
 
 system("cp /etc/skel/.bashrc /etc/skel/test\\ file");
 assert_path_is_a_file("/etc/skel/test file");
+system("cp /etc/skel/.bashrc /etc/skel/Tüst");
+assert_path_is_a_file("/etc/skel/Tüst");
+system("cp /etc/skel/.bashrc /etc/skel/ŞĞÇaŞ-tst");
+assert_path_is_a_file("/etc/skel/ŞĞÇaŞ-tst");
+system("mkdir -p /etc/skel/Masaüstü");
+assert_path_is_a_directory("/etc/skel/Masaüstü");
+system("cp /etc/skel/.bashrc /etc/skel/Masaüstü/ŞĞÇaŞ-tst");
+assert_path_is_a_file("/etc/skel/Masaüstü/ŞĞÇaŞ-tst");
 
 assert_user_does_not_exist($name);
 assert_command_success(

@@ -118,7 +118,6 @@ my $no_preserve_root;
 my ($user,$group);
 
 our @configfiles;
-our @defaults = undef;
 
 our @names;
 
@@ -145,12 +144,6 @@ GetOptions (
     'version|v' => sub { &version; exit },
 ) or &usage_error;
 
-if (!@configfiles) {
-    @defaults = ("/etc/adduser.conf", "/etc/deluser.conf");
-} else {
-    @defaults = decode($charset, $_) for @configfiles;
-}
-
 # make sure that message levels apply for reading configuration
 # this will be overridden again after reading configuration
 $stdoutmsglevel = sanitize_string($stdoutmsglevel);
@@ -159,14 +152,19 @@ $logmsglevel = sanitize_string($logmsglevel);
 set_msglevel( $stderrmsglevel, $stdoutmsglevel, $logmsglevel );
 
 ##########################################################
-# (1) preseed the config
+# (1) read the config
 # (2) read the default /etc/adduser.conf configuration.
 # (3) read the default /etc/deluser.conf configuration.
 # (4) process commmand line settings
 # last match wins
 ##########################################################
 
-preseed_config (\@defaults,\%config);
+unless (@configfiles) {
+    @configfiles = ("/etc/adduser.conf", "/etc/deluser.conf");
+}
+@configfiles = decode($charset, $_) for @configfiles;
+
+%config = read_config(@configfiles);
 
 # everyone can issue "--help" and "--version", but only root can go on
 if( $> != 0) {
@@ -380,7 +378,9 @@ if($action eq "deluser") {
         if($config{"remove_home"}) {
             # collect all files in user home
             sub home_match {
-                my $name = sanitize_string( $File::Find::name, pathre );
+                # untaint the name without changing it
+                $File::Find::name =~ /(.*)/s;  # captures the full string
+                $name = $1;
                 push(@files, $name)
                     if(-f $name || -l $name);
                 push(@dirs, $name)

@@ -25,6 +25,7 @@ override_dh_install:
 	sed -e s/DVERSION/$(cversion)/g AdduserLogging.pm > debian/adduser/usr/share/perl5/Debian/AdduserLogging.pm
 	sed -e s/DVERSION/$(cversion)/g AdduserRetvalues.pm > debian/adduser/usr/share/perl5/Debian/AdduserRetvalues.pm
 	sed -e s/DVERSION/$(cversion)/g AdduserStatefile.pm > debian/adduser/usr/share/perl5/Debian/AdduserStatefile.pm
+	sed -e s/DVERSION/$(cversion)/g AdduserCreateHomedir.pm > debian/adduser/usr/share/perl5/Debian/AdduserCreateHomedir.pm
 	ln -s adduser debian/adduser/usr/sbin/addgroup
 	ln -s deluser debian/adduser/usr/sbin/delgroup
 

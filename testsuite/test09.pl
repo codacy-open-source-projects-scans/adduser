@@ -14,7 +14,7 @@ use lib_test;
 
 my $error;
 my $output;
-my $groupname = find_unused_name();
+my $groupname = find_unused_name("adduser09gtest");
 my $cmd = "addgroup $groupname";
 
 if (!defined (getgrnam($groupname))) {
@@ -39,7 +39,7 @@ if ($error ne 11) {
   print "failed\n  $cmd returned an errorcode != 11 ($error)\n";
   exit 1;
 }
-if ($output !~ /^fatal: The group `addusertest\d+' already exists\.\n$/ ) {
+if ($output !~ /^fatal: The group `adduser09gtest\d+' already exists\.\n$/ ) {
   print "failed\n  $cmd returned unexpected output ($output)\n";
   exit 1;
 }
@@ -56,7 +56,7 @@ if ($error ne 13) {
   print "failed\n  $cmd returned an errorcode != 13 ($error)\n";
   exit $error;
 }
-if ($output !~ /^fatal: The group `addusertest\d+' already exists, but is not a system group. Exiting.$/ ) {
+if ($output !~ /^fatal: The group `adduser09gtest\d+' already exists, but is not a system group. Exiting.$/ ) {
   print "failed\n  $cmd returned unexpected output ($output)\n";
   exit 1;
 }
@@ -75,7 +75,7 @@ if ($error ne 53) {
 }
 print "ok\n";
 
-my $sysgroupname = find_unused_name();
+my $sysgroupname = find_unused_name("adduser09sgtest");
 $cmd = "addgroup --system $sysgroupname";
 
 if (!defined (getgrnam($sysgroupname))) {
@@ -115,7 +115,7 @@ if ($error ne 11) {
   print "failed\n  $cmd returned an errorcode != 11 ($error)\n";
   exit 1;
 }
-if ($output !~ /^fatal: The group `addusertest\d+' already exists\.$/ ) {
+if ($output !~ /^fatal: The group `adduser09sgtest\d+' already exists\.$/ ) {
   print "failed\n  $cmd returned unexpected output ($output)\n";
   exit 1;
 }

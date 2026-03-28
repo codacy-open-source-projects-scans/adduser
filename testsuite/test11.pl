@@ -4,7 +4,7 @@
 use strict;
 use lib_test;
 
-my $username = find_unused_name(); 
+my $username = find_unused_name("adduser11test"); 
 my $comment;
 my $cmd;
 

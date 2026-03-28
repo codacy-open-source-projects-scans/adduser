@@ -8,7 +8,7 @@
 use strict;
 use lib_test;
 
-my $username = find_unused_name();
+my $username = find_unused_name("adduser06test");
 my $want_uid = find_unused_uid("system");
 my $want_gid = 0;
 

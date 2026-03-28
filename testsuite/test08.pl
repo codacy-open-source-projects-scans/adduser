@@ -12,13 +12,13 @@
 use strict;
 use lib_test;
 
-my $username = find_unused_name(); 
+my $username = find_unused_name("adduser08utest"); 
 my $cmd = "adduser --comment test --disabled-password --add-extra-groups $username";
 
 my %config;
 
 my @adduserconf=("/etc/adduser.conf");
-preseed_config(\@adduserconf,\%config);
+%config = read_config(@adduserconf);
 
 if (!defined (getpwnam($username))) {
 	print "Testing $cmd... ";
@@ -36,7 +36,7 @@ if (!defined (getpwnam($username))) {
 	print "ok\n";
 }
 
-my $newgroup = find_unused_name();
+my $newgroup = find_unused_name("adduser08gtest");
 
 $cmd = "addgroup $newgroup";
 unless (defined getgrnam($newgroup)) {
@@ -91,7 +91,7 @@ unless (!defined getgrnam($newgroup)) {
         print "ok\n";
 }
 
-$newgroup = find_unused_name();
+$newgroup = find_unused_name("adduser08ngtest");
 
 $cmd = "adduser --group $newgroup";
 unless (defined getgrnam($newgroup)) {
@@ -119,7 +119,7 @@ unless (!defined getgrnam($newgroup)) {
         print "ok\n";
 }
 
-my $sysusername = find_unused_name(); 
+my $sysusername = find_unused_name("adduser08sutest"); 
 $cmd = "adduser --system --comment test --disabled-password --add-extra-groups $sysusername";
 
 if (!defined (getpwnam($sysusername))) {

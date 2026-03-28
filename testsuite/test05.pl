@@ -9,7 +9,7 @@ use strict;
 use lib_test;
 
 my $groupname = "nogroup";
-my $username = find_unused_name();
+my $username = find_unused_name("adduser05test");
 my $want_uid = find_unused_uid("system");
 
 my $cmd = "adduser --system --uid $want_uid $username";

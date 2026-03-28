@@ -1,10 +1,9 @@
 adduser (3.155) UNRELEASED; urgency=medium
 
-  [ Matt Barry ]
-  * Add adduser --unlock [--system] and deluser --lock [--system]
-    (Closes: #1008082, #1008083, #1008084)
-
   [ Marc Haber ]
+  * remove GROUPHOMES and LETTERHOMES configuration options
+  * remove SETGID_HOME configuration option
+  * remove deprecated QUOTAUSER configuration option
   * remove debian/tests/f/cronjack.t
     useradd won't allow adding that user name any more
   * Depend on passwd 1:4.19.0-2. Remove cronjack.t test
@@ -13,8 +12,28 @@ adduser (3.155) UNRELEASED; urgency=medium
   * give Matt's work on existing_*_ okay another simplifying brush-up
   * po: Add Georgian translation.
     Thanks to Temuri Doghonadze
+  * allow /etc/skel to contain files with UTF-8 file names.
+    This moves home dir creation to a new module AdduserCreateHomedir
+    Thanks to Mert Ok (Closes: #1125681)
+  * copy over find_unused_* functions from upstream testsuites
+    (Closes: #1015781)
+  * man page improvements for adduser.8.
+    Thanks to Bjarni Ingi Gislason (Closes: #1124790)
+  * apply correcting patch from #1105900.
+    Thanks to Bjarni Ingi Gislason (Closes: #1105900)
+  * write test cases to trigger #1125601
+  * Updated German man page translation.
+    Thanks to Helge Kreutzmann (Closes: #1125135)
+  * Updated Portguese man page and program translation.
+    Thanks to Américo Monteiro (Closes: #1118370)
+  * Updated Dutch man page translation.
+    Thanks to Frans Spiesschaert (Closes: #1118209)
 
- -- Marc Haber <mh+debian-packages@zugschlus.de>  Mon, 19 Jan 2026 08:47:54 +0100
+  [ Matt Barry ]
+  * Add adduser --unlock [--system] and deluser --lock [--system]
+    (Closes: #1008082, #1008083, #1008084)
+
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Fri, 27 Mar 2026 21:52:48 +0100
 
 adduser (3.154) unstable; urgency=medium
 

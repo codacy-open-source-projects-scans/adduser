@@ -9,7 +9,7 @@ use strict;
 use lib_test;
 
 my $groupname = "nogroup";
-my $username = find_unused_name();
+my $username = find_unused_name("adduser03test");
 my $cmd = "adduser --system --no-create-home $username";
 
 my $homedir = "/nonexistent";

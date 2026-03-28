@@ -69,6 +69,82 @@ sub in_range {
     return ($id >= $first && $id <= $last);
 }
 
+sub find_unused_uid {
+    my ($mode) = @_;
+    my $low_uid, my $high_uid;
+    if ($mode =~ /"user"/i) {
+        $low_uid = 10000;
+        $high_uid = 11000;
+    } else {
+        $low_uid = 700;
+        $high_uid = 800;
+    }
+    setpwent();
+    my $uid = $low_uid;
+    while (($uid <= $high_uid) && (defined(getpwuid($uid)))) {$uid++;}
+    endpwent();
+
+    if (($uid <= $high_uid) && (! defined(getpwuid($uid)))) {
+        return $uid;
+    }
+    else {
+        print "Cannot find an unused uid in range ($low_uid - $high_uid)\nExiting ...\n";
+        return 1;
+    }
+}
+
+sub find_unused_name {
+    my ($user_prefix) = @_;
+    $user_prefix //= '';
+
+    my $re = qr/^\Q$user_prefix\E(\d+)$/;
+
+    my $max_user = 0;
+    setpwent();
+    while (defined(my $name = getpwent())) {
+        if ($name =~ $re) {
+            $max_user = $1 if $1 > $max_user;
+        }
+    }
+    endpwent();
+
+    my $max_group = 0;
+    setgrent();
+    while (defined(my $name = getgrent())) {
+        if ($name =~ $re) {
+            $max_group = $1 if $1 > $max_group;
+        }
+    }
+    endgrent();
+
+    my $next = ($max_user > $max_group ? $max_user : $max_group) + 1;
+    return $user_prefix . $next;
+}
+
+sub find_unused_gid {
+    my ($mode) = @_;
+    my $low_gid, my $high_gid;
+    if ($mode =~ /"user"/i) {
+        $low_gid = 10000;
+        $high_gid = 11000;
+    } else {
+        $low_gid = 700;
+        $high_gid = 800;
+    }
+    setgrent();
+    my $gid = $low_gid;
+    while (($gid <= $high_gid) &&  (defined(getgrgid($gid)))) { $gid++;}
+    endgrent();
+
+    if (($gid <= $high_gid) && (! defined(getgrgid($gid)))) {
+        return $gid;
+    }
+    else {
+        print "Cannot find an unused gid in range ($low_gid - $high_gid)\nExiting ...\n";
+        return 1;
+    }
+}
+
 sub assert_command_success {
     system(@_);
     is($? >> 8, 0, "command success: @_");

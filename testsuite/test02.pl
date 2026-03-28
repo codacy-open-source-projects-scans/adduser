@@ -23,7 +23,7 @@ BEGIN {
 }
 
 my $groupname = "nogroup";
-my $username = find_unused_name();
+my $username = find_unused_name("adduser02test");
 my $homedir = "/home/$username";
 my $cmd;
 
