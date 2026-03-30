@@ -1,4 +1,4 @@
-adduser (3.155) UNRELEASED; urgency=medium
+adduser (3.155) unstable; urgency=medium
 
   The GROUPHOMES, LETTERHOMES, SGID_HOME and QUOTAUSER options were
   depreated for a while and got removed in this release.

@@ -1,4 +1,4 @@
-adduser (3.155) UNRELEASED; urgency=medium
+adduser (3.155) unstable; urgency=medium
 
   [ Marc Haber ]
   * remove GROUPHOMES and LETTERHOMES configuration options
@@ -24,7 +24,7 @@ adduser (3.155) UNRELEASED; urgency=medium
   * write test cases to trigger #1125601
   * Updated German man page translation.
     Thanks to Helge Kreutzmann (Closes: #1125135)
-  * Updated Portguese man page and program translation.
+  * Updated Portuguese man page and program translation.
     Thanks to Américo Monteiro (Closes: #1118370)
   * Updated Dutch man page translation.
     Thanks to Frans Spiesschaert (Closes: #1118209)
@@ -33,7 +33,7 @@ adduser (3.155) UNRELEASED; urgency=medium
   * Add adduser --unlock [--system] and deluser --lock [--system]
     (Closes: #1008082, #1008083, #1008084)
 
- -- Marc Haber <mh+debian-packages@zugschlus.de>  Fri, 27 Mar 2026 21:52:48 +0100
+ -- Marc Haber <mh+debian-packages@zugschlus.de>  Sat, 28 Mar 2026 10:16:28 +0100
 
 adduser (3.154) unstable; urgency=medium
 
